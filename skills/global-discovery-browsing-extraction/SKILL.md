@@ -18,12 +18,13 @@ Choose the smallest available capability, not a vendor ladder. Do not inventory 
 | Known URL, API, JSON, RSS, or a few facts | Focused direct fetch; return only material fields. |
 | Small, unstructured discovery | Native search, then focused primary-source reading. |
 | PDF, document, spreadsheet, image, audio, or video | Use a matching parser or media capability; verify visual evidence when layout, charts, or diagrams matter. |
-| Toggles, forms, login, screenshots, or visible state | Available interactive browser with focused output. |
-| Console, network, hydration, runtime, or performance diagnosis | Available developer diagnostics, only for the named gap. |
+| Click, fill, navigate, inspect visible UI | Prefer `agent-browser`; otherwise use an available LLM browser-use tool or interactive browser with focused output. Use Chrome DevTools only when it is the available or required browser route. Read [Browser routing](references/browser-routing.md). |
+| Console, network, hydration, runtime, or performance diagnosis | Chrome DevTools MCP when available; otherwise use the narrowest available developer diagnostics. Read [Browser routing](references/browser-routing.md). |
 | Reused sources, repeated runs, crawl, structured batch, similarity, diff, or watch | Deterministic reusable web intelligence; use Wigolo when available and amortized. Read [Wigolo integration](references/wigolo.md). |
 | YouTube | For spoken content use a fresh local artifact, then the cheapest direct caption extractor; for metadata/comments use the smallest metadata/search route. Read [YouTube evidence](references/youtube.md). |
 
 When Exa or Firecrawl is configured, read [Provider routing](references/provider-routing.md) before using it. They are optional accelerators, not required dependencies.
+When browser interaction is required, read [Browser routing](references/browser-routing.md) before selecting a browser tool.
 
 Named tools are examples, not dependencies. Skip unavailable capabilities. Keep login and MFA in the user's authorized browser; never transfer authentication state between tools.
 

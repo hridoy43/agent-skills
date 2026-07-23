@@ -14,6 +14,7 @@ No package, API key, browser engine, or paid provider is required for the defaul
 Install or configure only with user approval and only when the workload needs them:
 
 - `agent-browser` or an equivalent interactive browser for forms, screenshots, and visible runtime state.
+- An LLM browser-use tool or Chrome DevTools MCP when the host provides it; use browser-use for autonomous multi-step work and DevTools for console, network, runtime, or performance diagnostics.
 - Exa for semantic source discovery when configured; keep result counts and fields small.
 - Firecrawl for bounded scraping, mapping, crawling, or interaction when direct fetch is insufficient.
 - `wigolo` for reusable crawls, structured extraction, semantic retrieval, reranking, or monitoring. Its browser engines and ML models are heavyweight; do not use it for a one-off page fetch.

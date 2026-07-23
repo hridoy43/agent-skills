@@ -1,6 +1,6 @@
-# hridoy43 Agent Skills
+# Practical Agent Skills for Product Work
 
-Portable Agent Skills authored by hridoy43. Each skill follows the open [Agent Skills specification](https://agentskills.io/specification) and can be installed by compatible coding agents through the [skills CLI](https://skills.sh/docs/cli). The repository also retains optional Codex plugin metadata.
+A focused collection of portable Agent Skills for designing, building, researching, and improving digital products. Maintained by [hridoy43](https://github.com/hridoy43), each skill follows the open [Agent Skills specification](https://agentskills.io/specification) and can be installed by compatible coding agents through the [skills CLI](https://skills.sh/docs/cli). The repository also retains optional Codex plugin metadata.
 
 ## Included skills
 

@@ -51,6 +51,7 @@ Run `node scripts/check-companions.mjs` from this skill directory when the task 
 - For purposeful Lottie work, use `text-to-lottie`; otherwise ask the user to install it or use CSS/SVG motion.
 - For product-demo video, use `hyperframes`. Use Remotion only when the user requests it or an existing Remotion project makes it the lower-cost path.
 - For Expo or React Native, use the relevant official Expo and native performance/data skills first. Use Code-with-Beto skills only for a specific applicable workflow.
+- For mobile E2E testing, use an installed `maestro-mobile-testing` skill when it fits an Expo/React Native or cross-platform flow. Otherwise use `find-skills` to evaluate Maestro, Detox, Appium, XCTest, Espresso, Flutter integration tests, or the project's existing test framework. Do not install a testing companion silently.
 - For missing capabilities, use `find-skills`, tell the user what you found, and ask before installing anything.
 - If an Andrej Karpathy coding-guidelines skill is installed, apply it before implementation. Otherwise apply the fallback rules in [architecture-core.md](references/architecture-core.md): simple code, explicit assumptions, tight scope, evidence before abstraction.
 

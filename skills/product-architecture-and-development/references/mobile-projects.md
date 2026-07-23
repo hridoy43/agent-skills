@@ -28,6 +28,8 @@ src/
 
 Use official Expo skills for routing, native UI, modules, deployment, updates, and upgrades. Use native profiling and React Native best-practice skills for performance work. Apply a Code-with-Beto skill only when its exact workflow fits.
 
+For mobile E2E, prefer an installed `maestro-mobile-testing` companion when its YAML flows, semantic selectors, cross-platform coverage, and CI integration fit the project. If it is unavailable, use `find-skills` to compare the existing framework with Detox, Appium, XCTest, Espresso, Flutter integration tests, or another platform-native option. Keep E2E flows risk-based and journey-focused; do not add a testing framework only because it is popular.
+
 Create a typed semantic theme (`tokens`, provider/hook, platform color mapping) before feature UI. Components consume roles rather than raw color constants. Use NativeWind only when selected during the interview; otherwise use the platform's native styling approach with the same token ownership.
 
 ## UI boundaries

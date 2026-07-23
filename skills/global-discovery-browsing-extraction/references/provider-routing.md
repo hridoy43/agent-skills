@@ -4,8 +4,8 @@ Use configured Exa and Firecrawl when they close a concrete evidence gap. Treat 
 
 ## Cost-effective order
 
-1. Use a local artifact, known URL, direct fetch, RSS, API, or native search when it answers the question.
-2. Use one provider for the smallest sufficient operation.
+1. Use a local artifact, known URL, direct fetch, RSS, API, host-provided web search, or native search when it answers the question.
+2. Use Exa for semantic discovery or Firecrawl for extraction only when the free/local route cannot answer the question.
 3. Reuse returned URLs, IDs, or cached artifacts within the task.
 4. Escalate only when the result is blocked, incomplete, dynamic, stale, or missing a material field.
 5. Stop when every required field is supported or explicitly unavailable.

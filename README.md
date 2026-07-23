@@ -10,22 +10,22 @@ Portable Agent Skills authored by Wahid. Each skill follows the open [Agent Skil
 
 ## Install from a public repository
 
-This collection is published at [`hridoy43/wahid-agent-skills`](https://github.com/hridoy43/wahid-agent-skills):
+This collection is published at [`hridoy43/agent-skills`](https://github.com/hridoy43/agent-skills):
 
 ```bash
 # Inspect available skills
-npx skills@latest add hridoy43/wahid-agent-skills --list
+npx skills@latest add hridoy43/agent-skills --list
 
 # Install the collection and choose target agents interactively
-npx skills@latest add hridoy43/wahid-agent-skills --skill '*'
+npx skills@latest add hridoy43/agent-skills --skill '*'
 
 # Install one skill globally for a specific agent
-npx skills@latest add hridoy43/wahid-agent-skills \
+npx skills@latest add hridoy43/agent-skills \
   --skill product-architecture-and-development \
   --global --agent codex
 
 # Intentionally install every skill globally for every supported agent
-npx skills@latest add hridoy43/wahid-agent-skills \
+npx skills@latest add hridoy43/agent-skills \
   --skill '*' --agent '*' --global --yes
 ```
 

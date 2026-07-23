@@ -14,7 +14,7 @@ No runtime package, API key, analytics account, or browser tool is required for 
 
 Install only when the task needs them:
 
-- `wahid:product-architecture-and-development` for implementation, SEO, component architecture, analytics, and technical validation.
+- `product-architecture-and-development` for implementation, SEO, component architecture, analytics, and technical validation.
 - `impeccable` or `ui-ux-pro-max` for visual and interaction design.
 - `global-discovery-browsing-extraction` for current competitor, market, or search-intent research.
 
@@ -30,4 +30,4 @@ Install only when the task needs them:
 - It does not replace the user's chosen positioning or framework silently.
 - It does not install tools or publish changes without authorization.
 
-Invoke it as `$conversion-storytelling` or `$wahid:conversion-storytelling` when installed as the Wahid Codex plugin.
+Invoke it as `$conversion-storytelling` on a compatible Agent Skills host. Codex users may also use `$wahid:conversion-storytelling` when the optional plugin is installed.

@@ -39,4 +39,4 @@ The chosen stack determines these. Add them only when justified:
 - Font and theme configuration belongs in `src/styles/` or the equivalent style-owned directory.
 - Every public indexable surface keeps semantic content and crawlability while improving interaction.
 
-Invoke it as `$product-architecture-and-development` or `$wahid:product-architecture-and-development` when installed as the Wahid Codex plugin.
+Invoke it as `$product-architecture-and-development` on a compatible Agent Skills host. Codex users may also use `$wahid:product-architecture-and-development` when the optional plugin is installed.

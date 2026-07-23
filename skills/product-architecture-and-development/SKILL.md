@@ -84,7 +84,7 @@ Choose one:
 
 For an existing repository, assess whether a persistent code-and-document relationship graph has a present consumer. Read [graphify.md](references/graphify.md) when relationships are difficult to inspect directly or will be queried repeatedly. If Graphify is justified but not configured, present the benefit, scope, generated artifacts, privacy/token implications, and simpler fallback, then wait for permission before any installation, configuration, or corpus processing.
 
-Read [stack-selection.md](references/stack-selection.md), [localization.md](references/localization.md), and the applicable platform guide: [web-projects.md](references/web-projects.md), [mobile-projects.md](references/mobile-projects.md), or [desktop-projects.md](references/desktop-projects.md). Use Better-T-Stack as a compatibility/scaffolding aid, not as a substitute for product reasoning.
+Read [stack-selection.md](references/stack-selection.md), [localization.md](references/localization.md), and the applicable platform guide: [web-projects.md](references/web-projects.md), [mobile-projects.md](references/mobile-projects.md), [desktop-projects.md](references/desktop-projects.md), or [backend-projects.md](references/backend-projects.md). Use Better-T-Stack as a compatibility/scaffolding aid, not as a substitute for product reasoning.
 
 ### 3. Write the architecture decision before code
 
@@ -208,6 +208,7 @@ Load only what the task needs, but read each selected reference completely:
 - Web rendering and framework shape: [web-projects.md](references/web-projects.md)
 - Expo/React Native shape: [mobile-projects.md](references/mobile-projects.md)
 - Desktop shell/core split: [desktop-projects.md](references/desktop-projects.md)
+- Backend/server modules, data, jobs, contracts, and operations: [backend-projects.md](references/backend-projects.md)
 - API, Axios, TanStack Query, state: [api-data-state.md](references/api-data-state.md)
 - Auth, persistence, integrations, environments, observability, CI/CD, and operations: [production-foundations.md](references/production-foundations.md)
 - AI provider boundaries, evaluation, safety, cost, and human review: [ai-systems.md](references/ai-systems.md)

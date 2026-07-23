@@ -1,0 +1,6 @@
+interface:
+  display_name: "Product Architecture and Development"
+  short_description: "Plan and build maintainable production products"
+  default_prompt: "Use $product-architecture-and-development to design a decision-complete architecture and implementation plan for this product."
+policy:
+  allow_implicit_invocation: true

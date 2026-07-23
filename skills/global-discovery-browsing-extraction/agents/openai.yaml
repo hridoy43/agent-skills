@@ -1,0 +1,7 @@
+interface:
+  display_name: "Global Web Discovery"
+  short_description: "Local-first, cost-aware web research routing"
+  default_prompt: "Use $global-discovery-browsing-extraction to research this task with the lowest-cost reliable capability sequence and complete current evidence."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Product Development",
+      "description": "Architecture, design, implementation, and production-readiness workflows.",
+      "skills": [
+        "product-architecture-and-development"
+      ]
+    },
+    {
+      "title": "Growth & Conversion",
+      "description": "Truthful storytelling, proof, SEO preservation, and conversion measurement for pages and product journeys.",
+      "skills": [
+        "conversion-storytelling"
+      ]
+    },
+    {
+      "title": "Research",
+      "description": "Cost-aware discovery, browsing, extraction, monitoring, and evidence workflows.",
+      "skills": [
+        "global-discovery-browsing-extraction"
+      ]
+    }
+  ]
+}

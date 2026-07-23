@@ -1,0 +1,4 @@
+interface:
+  display_name: "Conversion Storytelling"
+  short_description: "Shape truthful narratives that convert"
+  default_prompt: "Use $conversion-storytelling to choose and apply a truthful, evidence-led conversion narrative for this product, page, or user journey."

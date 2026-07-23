@@ -1,0 +1,18 @@
+{
+  "name": "wahid",
+  "version": "0.1.0+codex.20260723184732",
+  "description": "Wahid's reusable skills for product architecture, conversion storytelling, software development, and evidence-driven web research.",
+  "author": {
+    "name": "Wahid"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Wahid Skills",
+    "shortDescription": "Architecture, conversion, development, and research workflows.",
+    "longDescription": "A reusable collection of Wahid's workflows for planning maintainable software products, shaping truthful conversion narratives, and conducting cost-aware, evidence-driven web research.",
+    "developerName": "Wahid",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Choose the appropriate Wahid skill for product architecture, conversion storytelling, software development, or evidence-driven web research."
+  }
+}

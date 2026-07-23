@@ -2,6 +2,12 @@
 
 All notable changes to the Wahid Agent Skills collection are documented here.
 
+## 0.4.0
+
+- Added framework-agnostic mobile UX guidance for safe areas, touch interactions, adaptive layouts, offline states, permissions, accessibility, performance, and release readiness.
+- Added mobile journey guidance for onboarding, progressive disclosure, trust, recovery, and meaningful completion states.
+- Added optional routing for `maestro-mobile-testing` and alternative mobile E2E frameworks without adding a mandatory dependency.
+
 ## 0.3.0
 
 - Added backend and server architecture guidance for modular monoliths, APIs, domain/application/infrastructure layers, databases, jobs, security, observability, and service extraction.

@@ -1,6 +1,6 @@
-# Wahid Agent Skills
+# hridoy43 Agent Skills
 
-Portable Agent Skills authored by Wahid. Each skill follows the open [Agent Skills specification](https://agentskills.io/specification) and can be installed by compatible coding agents through the [skills CLI](https://skills.sh/docs/cli). The repository also retains optional Codex plugin metadata.
+Portable Agent Skills authored by hridoy43. Each skill follows the open [Agent Skills specification](https://agentskills.io/specification) and can be installed by compatible coding agents through the [skills CLI](https://skills.sh/docs/cli). The repository also retains optional Codex plugin metadata.
 
 ## Included skills
 
@@ -49,7 +49,7 @@ $conversion-storytelling
 $global-discovery-browsing-extraction
 ```
 
-When installed through the Codex `wahid` plugin, the namespace is:
+When installed through the Codex plugin, the namespace remains:
 
 ```text
 $wahid:product-architecture-and-development
@@ -62,7 +62,7 @@ The skill can also activate implicitly when a request matches its description.
 ## Structure
 
 ```text
-wahid/
+agent-skills/
 ├── .codex-plugin/plugin.json
 ├── skills/
 │   ├── conversion-storytelling/

@@ -6,6 +6,11 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 Changes that have landed on `main` but are not included in a tagged release.
 
+## v0.5.1 — 2026-07-24
+
+- Clarified the localization boundary: `src/lib/i18n` owns runtime behavior and `src/locales` owns translation content when the project uses a `lib/` convention.
+- Preserved `src/i18n` as a valid framework-native alternative and documented the same runtime/content separation.
+
 ## v0.5.0 — 2026-07-24
 
 - Added deep-module design guidance: small explicit interfaces, stable seams, implementation locality, and a deletion test for speculative abstractions.

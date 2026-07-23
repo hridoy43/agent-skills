@@ -14,19 +14,20 @@ Do not generate machine-translated production copy without user approval and rev
 
 ## Default locale-first structure
 
-Use feature-split files within each locale, following the maintainable pattern proven in Truely:
+Use feature-split files within each locale. When the project already uses a `lib/` ownership convention, keep the i18n runtime there and keep translation content separate:
 
 ```text
 src/
-  i18n/
-    config.ts                 # source/target locales and fallback policy
-    locale.types.ts
-    routing.ts                # localized path helpers and validation
-    client.ts                 # client hooks/provider boundary
-    server.ts                 # server loader/translation boundary
-    formatters.ts             # dates, numbers, currency, units, lists
-    direction.ts              # LTR/RTL mapping
-    index.ts
+  lib/
+    i18n/
+      config.ts               # source/target locales and fallback policy
+      locale.types.ts
+      routing.ts              # localized path helpers and validation
+      client.ts               # client hooks/provider boundary
+      server.ts               # server loader/translation boundary
+      formatters.ts           # dates, numbers, currency, units, lists
+      direction.ts            # LTR/RTL mapping
+      index.ts
   locales/
     en/
       common.json
@@ -45,6 +46,8 @@ src/
       validation.json
       index.ts
 ```
+
+If the framework or existing repository convention treats `src/i18n` as a first-class top-level module, use that equivalent location instead. The important boundary is stable: `lib/i18n` (or `i18n`) contains localization behavior and integration; `locales` contains messages and locale content. Do not place translation JSON inside `lib/i18n`, and do not put runtime loaders, routing, or formatters inside `locales`.
 
 For a large monorepo, shared product messages may live in `packages/locales`, while app-only messages stay in the app. Do not force mobile, web, transactional email, and backend error messages into one bundle when their release cycles differ.
 

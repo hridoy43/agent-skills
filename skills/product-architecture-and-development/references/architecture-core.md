@@ -41,8 +41,8 @@ src/
     api/
     analytics/
     auth/
+    i18n/                   # locale config/loaders/formatters when in scope
     security/
-  i18n/                     # locale config/loaders/formatters when in scope
   locales/                  # locale-first, feature-split messages
   config/
   hooks/

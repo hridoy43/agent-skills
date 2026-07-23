@@ -8,6 +8,23 @@ A focused collection of portable Agent Skills for designing, building, researchi
 - `conversion-storytelling` — chooses and applies truthful conversion narratives for pages, journeys, launches, onboarding, proof, and CTAs without sacrificing SEO or user intent.
 - `global-discovery-browsing-extraction` — routes local-first web discovery, browsing, extraction, monitoring, and evidence validation across available tools.
 
+## Start a project from one prompt
+
+Use `product-architecture-and-development` at the beginning of a project—even when the input is only an idea. Give the skill the product goal, intended users, platform, desired outcome, known content, constraints, and any preferences you already have. It will interview for unresolved decisions before implementation, inspect an existing codebase when present, and produce a practical architecture rather than jumping straight into files.
+
+```text
+$product-architecture-and-development
+
+Build [product] for [users] so they can [outcome].
+Platform/deployment: [web, mobile, desktop, API, or multi-app].
+Known requirements: [workflows, content, integrations, auth, data].
+Preferences: [stack, UI, design, localization, analytics, hosting].
+Constraints: [MVP scope, timeline, privacy, compliance, budget].
+Please interview me about anything that would change the architecture, then propose the folder structure, design system, data/API boundaries, SEO/security/analytics plan, testing strategy, and implementation slices before coding.
+```
+
+For an existing repository, include its path and ask the skill to preserve working conventions unless evidence supports a change. The skill keeps SEO, accessibility, security, maintainability, and future scope in the decision record instead of treating them as afterthoughts.
+
 ## Install from a public repository
 
 This collection is published at [`hridoy43/agent-skills`](https://github.com/hridoy43/agent-skills):

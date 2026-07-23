@@ -2,6 +2,32 @@
 
 Use this skill to plan, scaffold, refactor, or implement maintainable TypeScript-first web, mobile, desktop, API, or multi-app products.
 
+## Use it from the first idea
+
+This skill is designed to work as a single starting prompt. It does not require a complete product specification. Give it the idea, users, outcome, platform, known workflows, content, constraints, and preferences you have. It must interview for unresolved architecture decisions before planning or implementation, then return:
+
+- a confirmed/inferred/unknown decision ledger and MVP boundary;
+- the stack, deployment shape, route/screen model, and ownership-based folder architecture;
+- the theme-configurable design-system and reusable component strategy;
+- data, API, auth, cache, error, persistence, analytics, CSP, and observability boundaries;
+- SEO, canonical URL, localization, accessibility, performance, and content-preservation requirements;
+- testing and release gates, implementation slices, and explicitly deferred scope.
+
+Starter prompt:
+
+```text
+$product-architecture-and-development
+
+Build [product] for [users] so they can [outcome].
+Platform/deployment: [web, mobile, desktop, API, or multi-app].
+Known requirements: [workflows, content, integrations, auth, data].
+Preferences: [stack, UI, design, localization, analytics, hosting].
+Constraints: [MVP scope, timeline, privacy, compliance, budget].
+Interview me about decisions that could change the architecture. Then propose the architecture, folder tree, design system, SEO/security/analytics plan, tests, and vertical implementation slices before coding.
+```
+
+For an existing codebase, provide its absolute path and ask the skill to inspect its conventions first. For a new idea, the skill should avoid speculative folders and dependencies until the first vertical slice justifies them.
+
 ## Required before use
 
 - A supported agent with Agent Skills enabled.

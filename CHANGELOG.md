@@ -6,6 +6,11 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 Changes that have landed on `main` but are not included in a tagged release.
 
+## v0.5.3 — 2026-07-24
+
+- Documented the single-prompt, idea-to-project workflow in the public and skill-specific READMEs.
+- Added a reusable starter prompt covering interview, architecture, design system, SEO, security, analytics, testing, and implementation slices.
+
 ## v0.5.2 — 2026-07-24
 
 - Added Google Search Central’s SEO Starter Guide as the primary SEO reference.

@@ -13,6 +13,8 @@
 
 ## Single-app default
 
+Read [Module boundaries and ownership](module-boundaries.md) before creating or moving `store`, `services`, `api`, `hooks`, `types`, or `utils`. Root directories are shared infrastructure boundaries, not filing cabinets; feature-owned behavior stays inside its feature.
+
 ```text
 src/
   app/                       # routes, layouts, providers, composition

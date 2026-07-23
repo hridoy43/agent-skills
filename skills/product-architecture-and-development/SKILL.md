@@ -60,7 +60,7 @@ Never install a companion skill or package without the user's approval.
 
 ### 1. Parse the brief and interview the user
 
-Read [project-initiation.md](references/project-initiation.md). Convert the initial prompt into a structured brief: product truth, users, outcomes, routes/screens, content, workflows, integrations, constraints, preferences, prohibited claims, configurable unknowns, quality targets, deliverables, and launch conditions.
+Read [project-initiation.md](references/project-initiation.md) and [module-boundaries.md](references/module-boundaries.md). Convert the initial prompt into a structured brief: product truth, users, outcomes, routes/screens, content, workflows, integrations, constraints, preferences, prohibited claims, configurable unknowns, quality targets, deliverables, and launch conditions.
 
 Then run a required interview before writing a plan or code. Ask one round of one to three high-impact questions, combining related choices. Always cover any unresolved decision among product/MVP scope, platform and deployment, data/auth/integrations, design/content, localization/regions, privacy/compliance, analytics, timeline, or preferred tools. When the brief appears complete, ask the user to confirm the inferred defaults and MVP cutoff rather than skipping the interview. Wait for the answers; use a second focused round only if a new material ambiguity appears.
 

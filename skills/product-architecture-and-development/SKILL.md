@@ -23,6 +23,9 @@ Design the smallest production architecture that meets the current product need 
 - Add complexity only in response to a present requirement or measured constraint.
 - Treat clean visual hierarchy and intuitive interaction as product requirements. For underspecified ecommerce work, preserve familiar browse, search/filter, product-detail, cart, checkout, loading, empty, and error patterns before adding novelty.
 - Keep changes small, reviewable, accessible, responsive, secure, and testable.
+- Prefer deep modules: put meaningful behavior behind a small, explicit interface. Before adding an abstraction, apply the deletion test: if removing it would not simplify callers or protect a real seam, do not add it.
+- Treat the public interface as the primary test surface. Keep implementation details local, and make error modes, invariants, ordering, configuration, and performance expectations part of the interface contract.
+- For medium or large products, maintain a domain glossary in `CONTEXT.md` (or an equivalent project-owned location) and record material architectural decisions in `docs/adr/`. Use the repository's language consistently in code, tests, docs, and product copy.
 
 ## Decision precedence
 
@@ -48,6 +51,9 @@ Run `node scripts/check-companions.mjs` from this skill directory when the task 
 - For UI design, use `impeccable` first. Use `ui-ux-pro-max` for deeper design-system or pattern research.
 - For landing pages, marketing sites, product narratives, funnels, onboarding conversion, positioning, proof, or CTAs, use `conversion-storytelling`. It owns narrative selection and conversion measurement; this skill retains technical architecture and implementation ownership. User-approved audience, offer, tone, claims, and framework override companion defaults.
 - For unfamiliar legacy systems, large multi-app/code-and-doc repositories, cross-language dependency analysis, or long-lived multi-agent work, evaluate `graphify` using [graphify.md](references/graphify.md). Skip it for a small landing page or easily inspected app unless the user explicitly requests it. Never install, configure, scan, or enable Graphify without project-specific permission.
+- For architecture audits or refactor planning, use an installed `improve-codebase-architecture` companion when available. Explore organically for shallow modules, leaky interfaces, duplicated orchestration, and untested seams; propose a small number of alternatives before changing code. Keep this optional because the core workflow already includes lightweight inspection.
+- For domain-heavy products, use an installed `domain-modeling` companion when available. Create or update the domain glossary and ADRs only when the model is changing; do not add documentation ceremony to a small site.
+- For strict behavior-first implementation, use an installed `tdd` companion when available and appropriate. Otherwise apply the core vertical-slice testing rules in this skill. Do not impose strict TDD on prototypes, static marketing pages, or repositories whose existing test strategy would be disrupted.
 - For purposeful Lottie work, use `text-to-lottie`; otherwise ask the user to install it or use CSS/SVG motion.
 - For product-demo video, use `hyperframes`. Use Remotion only when the user requests it or an existing Remotion project makes it the lower-cost path.
 - For Expo or React Native, use the relevant official Expo and native performance/data skills first. Use Code-with-Beto skills only for a specific applicable workflow.
@@ -139,6 +145,8 @@ Read [api-data-state.md](references/api-data-state.md).
 - Keep local UI state local. Add a global client store only for demonstrated cross-tree client state.
 
 Read [production-foundations.md](references/production-foundations.md) for any greenfield product or material platform expansion. If AI behavior is part of the product rather than just the development workflow, also read [ai-systems.md](references/ai-systems.md).
+
+For architecture work, use the deep-module vocabulary consistently: module, interface, implementation, seam, adapter, depth, leverage, and locality. Prefer the highest stable seam that callers and tests can use. A second adapter is evidence that a seam may be real; a speculative seam is not a reason to create a port-and-adapter layer.
 
 ### 6. Plan content, SEO, security, and telemetry
 

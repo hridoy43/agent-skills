@@ -2,6 +2,13 @@
 
 All notable changes to the Wahid Agent Skills collection are documented here.
 
+## 0.5.0
+
+- Added deep-module design guidance: small explicit interfaces, stable seams, implementation locality, and a deletion test for speculative abstractions.
+- Added optional companion routing for `codebase-design`, `improve-codebase-architecture`, and `domain-modeling`.
+- Added guidance for domain glossaries, `CONTEXT.md`, ADRs, and consistent domain language in medium and large products.
+- Installed the three focused Matt Pocock companions globally for supported agents; strict TDD remains opt-in.
+
 ## 0.4.0
 
 - Added framework-agnostic mobile UX guidance for safe areas, touch interactions, adaptive layouts, offline states, permissions, accessibility, performance, and release readiness.

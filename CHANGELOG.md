@@ -6,6 +6,12 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 Changes that have landed on `main` but are not included in a tagged release.
 
+## v0.5.4 — 2026-07-24
+
+- Replaced package-specific mobile list recommendations with timeless, capability-based selection and benchmarking guidance.
+- Added rules for architecture compatibility, dynamic layouts, recycling/state behavior, maintenance, migration, and preserving healthy existing dependencies.
+- Clarified that fast-moving package names are examples to verify at implementation time, not permanent defaults.
+
 ## v0.5.3 — 2026-07-24
 
 - Documented the single-prompt, idea-to-project workflow in the public and skill-specific READMEs.

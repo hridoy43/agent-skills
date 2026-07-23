@@ -52,7 +52,13 @@ Define online/offline expectations before selecting persistence. TanStack Query 
 
 ## Performance
 
-Profile before optimizing. Watch list virtualization, image sizing/caching, expensive renders, JS/native boundary traffic, startup work, navigation transitions, battery, memory, and network payloads. Test on representative low/mid-tier hardware and at least one physical device per supported platform. For long lists, use the platform's virtualized list and stable item rendering; for media, reserve dimensions and load the smallest appropriate asset.
+Profile before optimizing. Watch list virtualization, image sizing/caching, expensive renders, JS/native boundary traffic, startup work, navigation transitions, battery, memory, and network payloads. Test on representative low/mid-tier hardware and at least one physical device per supported platform. For long lists, use the platform's virtualized list and stable item rendering; for media, reserve dimensions and load the smallest appropriate asset. Do not choose a third-party list implementation from memory or popularity alone.
+
+### Data-driven list selection
+
+Treat list rendering as a replaceable implementation behind a feature-owned list interface. Start with the platform primitive, then measure representative data on supported devices before adopting a specialized implementation. Evaluate row-height variability, grids, media weight, pagination direction, chat anchoring, live updates, architecture mode, framework compatibility, native build requirements, memory, frame stability, accessibility, and item-local state behavior. Recheck maintenance, release activity, license, migration path, and the cost of reverting at decision time.
+
+Compare currently maintained candidates—including the platform list and community implementations—using a small benchmark or existing production evidence. Recycling may require explicit state-reset discipline; non-recycling or JavaScript-first implementations may trade native integration for portability or dynamic-layout behavior. These are hypotheses to verify, not permanent rules. Keep the chosen implementation isolated so it can be replaced without changing feature callers. Do not install, update, or replace a list library automatically; preserve a healthy dependency unless measured evidence or a confirmed requirement justifies migration.
 
 ## Release
 

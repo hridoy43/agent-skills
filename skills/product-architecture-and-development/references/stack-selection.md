@@ -12,6 +12,8 @@ Verify unstable facts against primary documentation before choosing versions or 
 
 Record for material dependencies: stable/current release status, maintenance activity, license, security advisories, framework/runtime compatibility, accessibility posture, bundle/runtime cost, migration path, and team familiarity. Treat experimental compatibility layers as an explicit accepted risk with an exit path; popularity alone is not sufficient.
 
+For fast-moving ecosystems, write capability and verification criteria instead of timeless package rankings. Named libraries are examples to investigate against current primary documentation, not permanent dependencies. Recheck release status, architecture support, peer versions, native build requirements, and known limitations at implementation time. Never update an installed package merely because a newer package exists.
+
 ## Defaults, not mandates
 
 - **Content/marketing web:** Next.js or Astro depending on dynamic application needs; server/static HTML for primary content.

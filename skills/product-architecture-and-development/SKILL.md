@@ -38,6 +38,8 @@ When guidance conflicts, follow this order:
 5. Current primary platform documentation.
 6. Companion-skill recommendations and general defaults.
 
+User interaction is part of the implementation contract: explicit user decisions, constraints, and prohibitions always win over defaults. When a prompt leaves a material choice open—or two user preferences conflict—pause and interview the user before installing packages, changing architecture, writing code, or running a migration. Do not interpret “go ahead” as permission to silently choose an unresolved stack, data, design, privacy, or dependency decision.
+
 Do not let a companion skill silently override an explicit requirement such as the Axios REST boundary or the user's chosen platform. Surface material conflicts and recommend the safest resolution.
 
 The required project interview is the one deliberate exception to the ordering above: invoking this skill means the user has requested preference capture before implementation, even if an embedded brief says to proceed autonomously.
@@ -69,9 +71,9 @@ Never install a companion skill or package without the user's approval.
 
 Read [project-initiation.md](references/project-initiation.md) and [module-boundaries.md](references/module-boundaries.md). Convert the initial prompt into a structured brief: product truth, users, outcomes, routes/screens, content, workflows, integrations, constraints, preferences, prohibited claims, configurable unknowns, quality targets, deliverables, and launch conditions.
 
-Then run a required interview before writing a plan or code. Ask one round of one to three high-impact questions, combining related choices. Always cover any unresolved decision among product/MVP scope, platform and deployment, data/auth/integrations, design/content, localization/regions, privacy/compliance, analytics, timeline, or preferred tools. When the brief appears complete, ask the user to confirm the inferred defaults and MVP cutoff rather than skipping the interview. Wait for the answers; use a second focused round only if a new material ambiguity appears.
+Then run a required interview before writing a plan or code. Ask one round of one to three high-impact questions, combining related choices. Always cover any unresolved decision among product/MVP scope, platform and deployment, data/auth/integrations, design/content, localization/regions, privacy/compliance, analytics, timeline, or preferred tools. When the brief appears complete, present the inferred defaults and MVP cutoff and ask the user to confirm or change them rather than skipping the interview. Wait for the answers before continuing; use a second focused round only if a new material ambiguity appears.
 
-Restate the resulting goal, users, platforms, constraints, acceptance criteria, preferences, and known future scope. Maintain a decision ledger containing `confirmed`, `inferred`, `unknown/configurable`, `prohibited`, and `deferred` items. Never invent missing business facts, claims, credentials, metrics, legal status, compliance, or content.
+Restate the resulting goal, users, platforms, constraints, acceptance criteria, preferences, and known future scope. Maintain a decision ledger containing `confirmed`, `inferred`, `unknown/configurable`, `prohibited`, and `deferred` items. Do not begin implementation until the user has had a chance to correct the ledger. Never invent missing business facts, claims, credentials, metrics, legal status, compliance, or content.
 
 Inspect before proposing:
 

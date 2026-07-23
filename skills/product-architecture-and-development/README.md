@@ -4,7 +4,7 @@ Use this skill to plan, scaffold, refactor, or implement maintainable TypeScript
 
 ## Use it from the first idea
 
-This skill is designed to work as a single starting prompt. It does not require a complete product specification. Give it the idea, users, outcome, platform, known workflows, content, constraints, and preferences you have. It must interview for unresolved architecture decisions before planning or implementation, then return:
+This skill is designed to work as a single starting prompt. It does not require a complete product specification. Give it the idea, users, outcome, platform, known workflows, content, constraints, and preferences you have. User decisions always take precedence. The skill must interview for unresolved architecture decisions, wait for the user's answers or confirmation of its inferred defaults, and only then plan or implement:
 
 - a confirmed/inferred/unknown decision ledger and MVP boundary;
 - the stack, deployment shape, route/screen model, and ownership-based folder architecture;

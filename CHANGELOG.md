@@ -6,6 +6,11 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 Changes that have landed on `main` but are not included in a tagged release.
 
+## v0.5.5 — 2026-07-25
+
+- Strengthened the interview-first protocol: user decisions and prohibitions override defaults, and material unresolved choices require user confirmation before implementation.
+- Added an explicit pause after the decision ledger so “go ahead” cannot silently resolve architecture, dependency, data, design, privacy, or deployment ambiguity.
+
 ## v0.5.4 — 2026-07-24
 
 - Replaced package-specific mobile list recommendations with timeless, capability-based selection and benchmarking guidance.

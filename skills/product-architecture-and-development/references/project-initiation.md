@@ -39,11 +39,11 @@ At minimum, confirm:
 
 For an apparently complete brief, present the inferred architecture defaults and ask the user to confirm or change them. Do not skip the interview because a prompt says “proceed autonomously”; this skill's workflow requires preference capture before implementation.
 
-Ask a second round only when an answer introduces a new material branch. Avoid interrogating the user about low-impact implementation details the skill can decide safely.
+Ask a second round only when an answer introduces a new material branch. Avoid interrogating the user about low-impact implementation details the skill can decide safely, but never silently decide a material preference the user has not answered.
 
 ## Preference record
 
-After the interview, publish a compact decision ledger before implementation:
+After the interview, publish a compact decision ledger and wait for the user's correction or confirmation before implementation:
 
 ```text
 Confirmed preferences

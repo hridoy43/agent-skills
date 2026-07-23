@@ -38,6 +38,20 @@ Use interface elements according to narrative purpose:
 
 Do not turn every claim into a card, icon, number, or animation. Visual rhythm needs quiet space and hierarchy.
 
+## Mobile flow adaptation
+
+For mobile apps, carry the narrative through the journey rather than putting all persuasion on one screen:
+
+- Make the first-run path short and show the first useful outcome early.
+- Use progressive disclosure for setup, permissions, and advanced options; explain why access is needed at the moment of request.
+- Keep one dominant action per screen and make its result predictable.
+- Place reassurance, proof, and recovery guidance beside high-risk actions such as account creation, payment, sharing, or irreversible changes.
+- Treat loading, empty, offline, error, and success states as part of the story: tell the user what happened, what is safe, and what they can do next.
+- Mark the meaningful completion or “peak” moment with restrained feedback, then end with a useful summary or next step.
+- Adapt copy for new, returning, and power users without changing the product truth.
+
+These are journey and content rules, not a mandate for a particular mobile framework or visual style.
+
 ## Interaction and motion
 
 Escalate only as needed:

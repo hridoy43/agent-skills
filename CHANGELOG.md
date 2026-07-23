@@ -2,9 +2,16 @@
 
 All notable changes to the Wahid Agent Skills collection are documented here.
 
+## 0.2.0
+
+- Added cost-aware browser routing for host web search, direct fetch, focused interactive browsers, agent-browser, LLM browser-use tools, and Chrome DevTools.
+- Added free-tier-aware Exa and Firecrawl provider routing with evidence-preserving fallbacks.
+- Documented bounded calls, quota protection, session reuse, and escalation rules.
+- Updated public installation and skill documentation for portable, non-Codex hosts.
+
 ## Unreleased
 
-- Keep the portable skills collection synchronized with the optional Codex plugin metadata.
+- Future changes will be collected here before the next tagged release.
 
 ## 0.1.0
 

@@ -6,6 +6,12 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 Changes that have landed on `main` but are not included in a tagged release.
 
+## v0.5.2 — 2026-07-24
+
+- Added Google Search Central’s SEO Starter Guide as the primary SEO reference.
+- Added an explicit public URL contract that separates App Router filesystem names from canonical URLs, including slugs, redirects, aliases, locale routes, and canonical metadata.
+- Added crawler-parity and post-deployment search-diagnostics checks without treating SEO checklists as ranking guarantees.
+
 ## v0.5.1 — 2026-07-24
 
 - Clarified the localization boundary: `src/lib/i18n` owns runtime behavior and `src/locales` owns translation content when the project uses a `lib/` convention.

@@ -13,6 +13,15 @@ Changes that have landed on `main` but are not included in a tagged release.
 - Added adaptive QA verification guidance for bug reproduction, feature acceptance, UI, API, mobile, and deployment changes.
 - Added explicit visual-proof and README-anatomy guidance for screenshots, demos, terminal examples, API examples, and architecture diagrams.
 
+## v0.5.6 — 2026-07-25
+
+- Enforced feature-owned category directories for data, API, actions, components, hooks, schemas, services, types, and utilities.
+- Added naming guidance for PascalCase React components, role-suffixed TypeScript modules, colocated `types.ts`, and Next.js reserved filenames.
+- Documented `src/utils/cn.ts` as a valid shared Tailwind class helper location when configured by project aliases.
+- Added shadcn, Magic UI, and other library-owned component boundaries with wrapper-first extension rules.
+- Added package-manager guidance: prefer `pnpm` for new TypeScript/JavaScript projects, use Bun when repository conventions or verified compatibility justify it, and preserve lockfiles.
+- Added ecosystem-specific linting and formatting guidance with version-aware Next.js ESLint configuration.
+
 ## v0.5.5 — 2026-07-25
 
 - Strengthened the interview-first protocol: user decisions and prohibitions override defaults, and material unresolved choices require user confirmation before implementation.

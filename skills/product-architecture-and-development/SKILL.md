@@ -144,7 +144,7 @@ Read [api-data-state.md](references/api-data-state.md).
 - For API-heavy products, configure server-state caching from the first vertical slice. Normalize transport errors globally, map status/errors to consistent application feedback, keep feature-specific recovery local, and add correlation/observability without exposing sensitive payloads.
 - Prefer framework server caching for server-rendered data.
 - Validate untrusted boundaries with schemas.
-- Keep local UI state local. Add a global client store only for demonstrated cross-tree client state.
+- Keep local UI state local. Add a global client store only for demonstrated cross-tree client state; read [api-data-state.md](references/api-data-state.md) for the framework-agnostic decision rule and React/Zustand default.
 
 Read [production-foundations.md](references/production-foundations.md) for any greenfield product or material platform expansion. If AI behavior is part of the product rather than just the development workflow, also read [ai-systems.md](references/ai-systems.md).
 

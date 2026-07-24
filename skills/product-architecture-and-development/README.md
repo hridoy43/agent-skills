@@ -76,6 +76,7 @@ The chosen stack determines these. Add them only when justified:
 - shadcn/ui, Magic UI, or a reviewed community shadcn registry for larger web projects.
 - Ant Design for dashboard/admin-heavy applications when its interaction model fits.
 - Axios (or the platform-equivalent client) plus TanStack Query or an equivalent cache for API-heavy applications.
+- Zustand for justified cross-tree client state in React projects; evaluate Redux Toolkit, state machines, or platform-native equivalents when project complexity or framework needs require them.
 - Motion.dev, GSAP, CSS, or SVG animation according to the motion complexity—not all by default.
 
 ## Core architectural guarantees

@@ -8,6 +8,7 @@ Changes that have landed on `main` but are not included in a tagged release.
 
 - Added the public `content-marketing-and-brand-growth` skill for interview-first, SEO-conscious, platform-specific campaigns and measurement.
 - Added reusable profile README architecture guidance combining clear positioning, selected work, credibility, capabilities, and focused CTAs.
+- Added the public `pull-request-writing` skill for platform-neutral, diff-based pull request and merge request descriptions.
 
 ## v0.5.5 — 2026-07-25
 

@@ -4,6 +4,8 @@ Use repository conventions when healthy. Otherwise apply these defaults.
 
 ## TypeScript and React naming
 
+Apply the following component rules only to React projects. For Flutter, Android, iOS, backend, and other ecosystems, use the platform or language's current standard naming conventions.
+
 - Product components: PascalCase filename and matching exported component name, without a `.component` suffix.
 - Major component directory: PascalCase, with public composition in `index.tsx`.
 - Colocated component types: `types.ts`.

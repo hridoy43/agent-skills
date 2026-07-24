@@ -14,7 +14,7 @@ Confirm before implementation:
 
 ## Default shape
 
-Prefer Expo + React Native + Expo Router unless native-only capabilities or an existing native codebase justify another approach.
+When no stack is specified and Better-T-Stack supports the required mobile combination, use its current stable Expo/React Native option. Otherwise prefer Expo + React Native + Expo Router unless native-only capabilities or an existing native codebase justify another approach.
 
 ```text
 app/                         # Expo Router routes only

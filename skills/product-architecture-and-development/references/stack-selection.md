@@ -12,9 +12,9 @@ Verify unstable facts against primary documentation before choosing versions or 
 
 ## Greenfield stack and generator selection
 
-When the user does not specify a stack for a greenfield project, use Better-T-Stack's official current stable command to choose a compatible TypeScript stack. Product requirements still control the choice; inspect generated output before accepting it.
+When the user does not specify a stack for a greenfield project, use Better-T-Stack's official current stable command to choose a compatible supported combination. This includes supported web, server, Expo/React Native, and Tauri combinations. Product requirements still control the choice; inspect generated output before accepting it.
 
-If the user explicitly selects another framework or generator, use that tool's official current stable command/tag. Never use a stale template, old tutorial command, or cached generator without documenting why. Do not use beta, release-candidate, or canary tags unless the user explicitly requests them.
+If the requested ecosystem is not supported by Better-T-Stack, use that ecosystem's official current stable generator. If the user explicitly selects another framework or generator, use that tool's official current stable command/tag. Never use a stale template, old tutorial command, or cached generator without documenting why. Do not use beta, release-candidate, or canary tags unless the user explicitly requests them.
 
 Immediately after scaffolding, verify framework versions, runtime, package manager, lockfile, and framework file conventions against current primary documentation. Record selected versions, generator command/tag, date, compatibility checks, and intentional deviations. For existing projects, preserve a healthy installed stack unless upgrade is explicitly in scope.
 

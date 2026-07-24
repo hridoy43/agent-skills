@@ -27,7 +27,6 @@
 - Utilities remain pure unless their owning API, service, or adapter boundary is explicit.
 - Pure global helpers live in `src/utils/`, not infrastructure-oriented `src/lib/`.
 - `constants/`, `config/`, `data/`, `lib/`, and `utils/` have distinct ownership.
-- Route groups use meaningful names such as `(auth)` and `(protected)` instead of vague `(app)` where access boundaries are intended.
 - Global CSS lives in `src/styles/`.
 - Shared images, raw SVGs, illustrations, fonts, and reusable icon components follow the asset ownership rules.
 - Framework conventions match the installed version; deprecated conventions require documented compatibility reasoning.

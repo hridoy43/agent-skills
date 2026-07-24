@@ -35,3 +35,13 @@ Use `public/` only for assets that need stable URL access, direct static serving
 Raw SVG/icon files belong in `src/assets/icons/`. Reusable React icon components belong in `src/components/icons/`. Generated or vendor-owned UI components remain in library-specific directories such as `src/components/shadcn/` and `src/components/magicui/`.
 
 Before adding an asset directory, confirm ownership, consumers, optimization behavior, accessibility text, responsive variants, and licensing/provenance.
+
+Use stronger platform-native conventions when the project is not a web source-asset project:
+
+- Expo/React Native: the project asset convention or `assets/`.
+- Flutter: `assets/` registered in `pubspec.yaml`.
+- Android: `res/` and resource qualifiers.
+- iOS: asset catalogs.
+- Backend: object storage or package-owned fixtures.
+
+Do not force `src/assets/` or `src/styles/` onto ecosystems with a stronger native convention.

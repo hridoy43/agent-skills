@@ -2,6 +2,7 @@
 
 ## Shell choice
 
+- When no stack is specified and Better-T-Stack supports the required Tauri combination, use its current stable Tauri option.
 - Use Tauri when a web UI plus a narrow native core satisfies the product and smaller bundles/security boundaries matter.
 - Use Electron when Node/Chromium integration or its mature ecosystem is central.
 - Use a native app when platform integration, performance, or interaction quality outweighs cross-platform reuse.

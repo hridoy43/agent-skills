@@ -15,7 +15,7 @@ Design the smallest production architecture that meets the current product need 
 - Keep routes, features, shared UI, infrastructure, types, and styles in clearly owned locations.
 - Build major UI from focused pieces in a same-named PascalCase directory with `index.tsx` as its public component entry point. Do not require a feature-root public index.
 - Use explicit feature category directories (`data`, `api`, `actions`, `components`, `hooks`, `schemas`, `services`, `types`, `utils`) and prevent feature-root implementation-file sprawl.
-- Use PascalCase matching names for product React components; use role suffixes such as `.data.ts`, `.action.ts`, `.service.ts`, `.api.ts`, and `.schema.ts` for non-component modules. Use colocated `types.ts` rather than a mandatory `.types.ts` suffix.
+- In React projects, use PascalCase matching names for product components. For other ecosystems, use their standard naming rules. Use role suffixes such as `.data.ts`, `.action.ts`, `.service.ts`, `.api.ts`, and `.schema.ts` only where the selected ecosystem uses TypeScript module files. Use colocated `types.ts` rather than a mandatory `.types.ts` suffix in TypeScript React projects.
 - Keep the shared class composition helper at the repository-configured utility location; when aliases use `@/utils`, use `src/utils/cn.ts`.
 - Keep generated or library-owned UI components in library-specific directories and extend them through project-owned wrappers or feature components without modifying base components for product behavior.
 - Make every interface theme-configurable. Define semantic color, typography, spacing, radius, shadow, and motion tokens once, map them through the platform framework, and consume theme utilities instead of scattering custom values.
@@ -30,7 +30,7 @@ Design the smallest production architecture that meets the current product need 
 - Keep changes small, reviewable, accessible, responsive, secure, and testable.
 - Use maintained ecosystem-specific linting and formatting. For Next.js, check the installed version and official configuration reference; use the supported ESLint CLI/configuration rather than assuming legacy `next lint` behavior.
 - For each framework or library, use its official or officially recommended linter, formatter integration, and configuration when available. If Better-T-Stack supplies a faster compatible toolchain, prefer it only after verifying framework support, editor integration, CI behavior, and formatter/linter non-overlap.
-- When no stack is specified for a greenfield project, choose a compatible stack through Better-T-Stack. If another generator is explicitly selected, use its official current stable command/tag; never use a stale template or beta/canary tag without explicit approval.
+- When no stack is specified for a greenfield project, choose a compatible Better-T-Stack option for any supported web, server, Expo/React Native, or Tauri combination. If the ecosystem is unsupported, use its official current stable generator. If another generator is explicitly selected, use its official current stable command/tag; never use a stale template or beta/canary tag without explicit approval.
 - Verify generated framework versions and conventions immediately after scaffolding. Use current stable conventions for the installed version, and preserve existing project versions unless upgrade is explicitly in scope.
 - Prefer deep modules: put meaningful behavior behind a small, explicit interface. Before adding an abstraction, apply the deletion test: if removing it would not simplify callers or protect a real seam, do not add it.
 - Treat the public interface as the primary test surface. Keep implementation details local, and make error modes, invariants, ordering, configuration, and performance expectations part of the interface contract.
@@ -49,7 +49,7 @@ When guidance conflicts, follow this order:
 
 User interaction is part of the implementation contract: explicit user decisions, constraints, and prohibitions always win over defaults. When a prompt leaves a material choice open—or two user preferences conflict—pause and interview the user before installing packages, changing architecture, writing code, or running a migration. Do not interpret “go ahead” as permission to silently choose an unresolved stack, data, design, privacy, or dependency decision.
 
-Do not let a companion skill silently override an explicit requirement such as the Axios REST boundary or the user's chosen platform. Surface material conflicts and recommend the safest resolution.
+Do not let a companion skill silently override an explicit transport-client requirement or the user's chosen platform. Surface material conflicts and recommend the safest resolution.
 
 The required project interview is the one deliberate exception to the ordering above: invoking this skill means the user has requested preference capture before implementation, even if an embedded brief says to proceed autonomously.
 
@@ -147,8 +147,8 @@ node scripts/scaffold-module.mjs feature billing --root /absolute/path/to/src --
 
 Read [api-data-state.md](references/api-data-state.md).
 
-- Before the first REST integration on web, mobile, or desktop, create one Axios-based client with base URL, timeout, typed normalized errors, auth interception, and cancellation support.
-- Do not add Axios to an offline-only product or wrap a fully typed RPC client redundantly; document the exception.
+- Before the first network integration, choose the framework or ecosystem-standard transport client. Use Axios when REST requirements, existing project conventions, or user preference justify it. Create one shared client with base URL, timeout, typed normalized errors, auth interception, and cancellation when the selected client supports those boundaries.
+- Never wrap a fully typed RPC or generated client redundantly. Do not add a network client to an offline-only product; document the exception.
 - Use TanStack Query for interactive client-side server state, with feature-owned query keys and explicit stale/cache/invalidation behavior.
 - For API-heavy products, configure server-state caching from the first vertical slice. Normalize transport errors globally, map status/errors to consistent application feedback, keep feature-specific recovery local, and add correlation/observability without exposing sensitive payloads.
 - Prefer framework server caching for server-rendered data.

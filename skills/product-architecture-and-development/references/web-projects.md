@@ -15,6 +15,8 @@ Routes own metadata, layout composition, route-level loading/error boundaries, a
 
 Inspect the installed framework version and use its current official conventions. For Next.js 16 and later, use a single `proxy.ts` at the project root or `src` level; `middleware.ts` is the deprecated convention for older versions. Proxy handles lightweight redirects, rewrites, and request/response shaping, not slow data fetching or full authorization. For simple static redirects, prefer `next.config.ts` redirects.
 
+Use semantic route groups such as `(auth)`, `(protected)`, `(public)`, or `(dashboard)` when they clarify web routing and access boundaries. Route groups do not change the URL and do not replace authorization checks.
+
 ## Naming and component-library boundaries
 
 Use PascalCase filenames and matching exported names for product React components. Do not add a `.component` suffix. Major components use a PascalCase directory with `index.tsx` as the public entry point. Use camelCase plus role suffixes for non-component modules: `countries.data.ts`, `createInvoice.action.ts`, `invoice.service.ts`, `invoice.api.ts`, and `customerForm.schema.ts`.

@@ -13,6 +13,14 @@ Changes that have landed on `main` but are not included in a tagged release.
 - Added adaptive QA verification guidance for bug reproduction, feature acceptance, UI, API, mobile, and deployment changes.
 - Added explicit visual-proof and README-anatomy guidance for screenshots, demos, terminal examples, API examples, and architecture diagrams.
 
+## v0.5.7 — 2026-07-25
+
+- Made transport-client guidance ecosystem-standard, using Axios only when REST requirements, project conventions, or user preference justify it.
+- Scoped React/Next.js naming, route groups, and web asset/style conventions to React/web projects.
+- Added native asset conventions for Expo/React Native, Flutter, Android, iOS, and backend projects.
+- Expanded Better-T-Stack default selection to supported web, server, Expo/React Native, and Tauri combinations.
+- Added official-tooling fallback guidance for unsupported ecosystems and framework/library-specific linter and formatter selection.
+
 ## v0.5.6 — 2026-07-25
 
 - Enforced feature-owned category directories for data, API, actions, components, hooks, schemas, services, types, and utilities.

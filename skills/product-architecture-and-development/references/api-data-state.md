@@ -1,8 +1,8 @@
 # API, data, and state
 
-## REST client baseline
+## Transport client baseline
 
-Before implementing the first REST request, create one shared Axios client:
+Before implementing the first network integration, choose the framework or ecosystem-standard transport client. Use Axios when REST requirements, existing project conventions, or user preference justify it. Create one shared client boundary when the selected transport supports a reusable client:
 
 ```ts
 export type ApiError = {
@@ -13,13 +13,13 @@ export type ApiError = {
 };
 ```
 
-The client owns base URL, timeout, credentials/auth attachment, safe retry policy if any, response/error normalization, and cancellation. Feature API files own endpoints and request/response schemas.
+The client owns base URL, timeout, credentials/auth attachment, safe retry policy if any, response/error normalization, and cancellation. Feature API files own endpoints and request/response schemas. Adapt these responsibilities to the selected ecosystem's native client.
 
-Do not add a parallel Axios client per feature. Do not put query caching inside interceptors.
+Do not add a parallel transport client per feature. Do not put query caching inside interceptors.
 
 ## Exceptions
 
-Do not install Axios for an offline-only app with no HTTP boundary. Do not wrap a fully typed RPC client only to satisfy a convention. Record why the alternative preserves typed errors, cancellation, authentication, and testability.
+Do not install a network client for an offline-only app with no HTTP boundary. Do not wrap a fully typed RPC or generated client only to satisfy a convention. Record why the selected alternative preserves typed errors, cancellation, authentication, and testability.
 
 ## TanStack Query
 
@@ -38,7 +38,7 @@ For API-heavy products, make caching part of the first vertical slice rather tha
 
 Use two layers:
 
-- **Global transport/application layer:** the Axios client normalizes status, error codes, request IDs/correlation IDs, cancellation, auth expiry, offline/network failures, and safe retry policy. A provider-level error reporter and application error surface may observe these failures without rendering duplicate notifications.
+- **Global transport/application layer:** the selected client normalizes status, error codes, request IDs/correlation IDs, cancellation, auth expiry, offline/network failures, and safe retry policy. A provider-level error reporter and application error surface may observe these failures without rendering duplicate notifications.
 - **Feature layer:** endpoint/query owners map known errors to recovery actions, field errors, empty states, permissions, and retry UI. Never show raw server messages or sensitive details by default.
 
 Keep error reporting non-blocking, redact payloads, avoid retry storms, and test duplicate suppression, cancellation, auth expiry, offline recovery, and background-refresh failure.

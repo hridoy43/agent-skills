@@ -18,8 +18,6 @@ Read [Module boundaries and ownership](module-boundaries.md) before creating or 
 ```text
 src/
   app/                       # routes, layouts, providers, composition
-    (auth)/                  # authentication routes; no URL segment
-    (protected)/             # authenticated routes; no URL segment
   features/
     <feature>/
       data/
@@ -56,11 +54,6 @@ src/
   types/
   utils/
     cn.ts                    # shared Tailwind class composition helper
-  assets/
-    images/
-    icons/                   # raw SVG/icon assets
-    illustrations/
-    fonts/
   styles/
     globals.css
     theme.css

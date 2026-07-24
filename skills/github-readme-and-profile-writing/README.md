@@ -16,6 +16,8 @@ Invoke `$github-readme-and-profile-writing` and provide the repository or profil
 
 The skill interviews before writing, keeps important content textual and discoverable, and separates product users, contributors, clients, and networking audiences. It supports project, skill, organization, and profile README templates, with optional service and ethical affiliate sections.
 
+For visual or interactive projects, it also places one current screenshot, GIF, demo, playground, or live link near the opening when that proof improves understanding. Libraries, CLIs, APIs, and backends use the most useful equivalent—such as a rendered example, terminal session, request/response, or architecture diagram—while keeping the important meaning in accessible text.
+
 ## Public-sharing quality
 
 Before publishing, it verifies canonical links, install commands, public evidence, status labels, screenshots, accessibility, mobile readability, and GitHub rendering. Badges are optional and evidence-based: use a small row of accurate release, CI, license, documentation, or package badges—not decorative badge walls or fabricated metrics. It also keeps contribution, security, support, client, and affiliate information honest and easy to find.

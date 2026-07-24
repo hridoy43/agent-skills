@@ -11,6 +11,7 @@ Changes that have landed on `main` but are not included in a tagged release.
 - Added the public `pr-writing` skill for platform-neutral, diff-based pull request and merge request descriptions.
 - Changed PR drafting to inspect-first and non-blocking: generate a useful draft from repository evidence, then request only materially missing details.
 - Added adaptive QA verification guidance for bug reproduction, feature acceptance, UI, API, mobile, and deployment changes.
+- Added explicit visual-proof and README-anatomy guidance for screenshots, demos, terminal examples, API examples, and architecture diagrams.
 
 ## v0.5.5 — 2026-07-25
 

@@ -36,6 +36,20 @@ Use this order unless the user requests another structure:
 6. Deeper documentation and contribution path.
 7. One clear next action: use, star, give feedback, contribute, contact, or hire.
 
+## Visual proof and README anatomy
+
+When a project has a visual, interactive, or user-facing result, inspect the repository for approved screenshots, GIFs, demo videos, playgrounds, or live links and place one strong proof near the opening. Use only assets that are current, public, and relevant.
+
+Choose evidence by project type:
+
+- UI, web, mobile, or interactive product: screenshot, short GIF/video, or live demo.
+- Library or component: rendered example, API usage, or playground.
+- CLI or developer tool: terminal session or copyable quick-start output.
+- API or backend: request/response example, workflow, or architecture diagram.
+- Profile or organization: selected-work visual only when it adds credible evidence.
+
+Use a clear anatomy when useful: identity → visual proof → why → features/outcomes → install/quick start → customization/API → contribution/support/license. Keep key meaning in text, use descriptive alt text, avoid decorative image walls, and ask for an approved asset only after repository inspection when its absence would materially reduce understanding.
+
 For personal profiles, separate open-source work, current products, services, and contact options. Make client services specific and evidence-led; do not turn the profile into a generic agency brochure.
 
 ## SEO and discoverability
@@ -108,6 +122,7 @@ Offer services only when they are relevant to the project and clearly labelled. 
 - The primary CTA and canonical destination are obvious.
 - Installation, usage, status, license, and support information match reality.
 - Visual assets have descriptive alt text and do not contain the only copy of an important claim.
+- A visual or interactive project has one current proof asset near the opening when it materially improves understanding; non-visual projects use an appropriate terminal, API, or architecture example instead.
 - Badges are few, accurate, linked, and readable in light and dark themes.
 - Contribution, issue, security, and code-of-conduct links are included when public participation is supported.
 - Client work and affiliate relationships are labelled honestly.

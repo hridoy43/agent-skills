@@ -4,9 +4,19 @@ A focused collection of portable Agent Skills for designing, building, researchi
 
 ## Included skills
 
-- `product-architecture-and-development` — plans and implements maintainable TypeScript-first web, mobile, desktop, API, and multi-app products.
-- `conversion-storytelling` — chooses and applies truthful conversion narratives for pages, journeys, launches, onboarding, proof, and CTAs without sacrificing SEO or user intent.
-- `global-discovery-browsing-extraction` — routes local-first web discovery, browsing, extraction, monitoring, and evidence validation across available tools.
+- [`product-architecture-and-development`](skills/product-architecture-and-development/README.md) — plans and implements maintainable TypeScript-first web, mobile, desktop, API, and multi-app products.
+- [`conversion-storytelling`](skills/conversion-storytelling/README.md) — chooses and applies truthful conversion narratives for pages, journeys, launches, onboarding, proof, and CTAs without sacrificing SEO or user intent.
+- [`global-discovery-browsing-extraction`](skills/global-discovery-browsing-extraction/README.md) — routes local-first web discovery, browsing, extraction, monitoring, and evidence validation across available tools.
+
+Each skill has its own installation command, usage prompt, optional companions, and related-skill links. Use the individual README when promoting one skill; use this repository when promoting the complete collection.
+
+## Recommended bundles
+
+- **Build a product:** `product-architecture-and-development` + optional `conversion-storytelling` for customer-facing pages.
+- **Research before building:** `global-discovery-browsing-extraction` + `product-architecture-and-development`.
+- **Improve a marketing surface:** `conversion-storytelling` + optional `global-discovery-browsing-extraction` for current evidence.
+
+Companion skills are never required by default. Install them only when the task needs their capability.
 
 ## Start a project from one prompt
 

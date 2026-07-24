@@ -10,6 +10,16 @@ Use this skill to turn a truthful product, service, ecommerce, or marketing brie
 
 No runtime package, API key, analytics account, or browser tool is required for the core workflow.
 
+## Install and invoke
+
+```bash
+npx skills@latest add hridoy43/agent-skills \
+  --skill conversion-storytelling \
+  --global
+```
+
+Then invoke `$conversion-storytelling` on a compatible Agent Skills host. Provide the product, audience, desired action, approved claims, and existing copy when available.
+
 ## Optional companion skills
 
 Install only when the task needs them:
@@ -17,6 +27,14 @@ Install only when the task needs them:
 - `product-architecture-and-development` for implementation, SEO, component architecture, analytics, and technical validation.
 - `impeccable` or `ui-ux-pro-max` for visual and interaction design.
 - `global-discovery-browsing-extraction` for current competitor, market, or search-intent research.
+
+These companions are optional. The skill works independently for messaging and content planning.
+
+## Related skills
+
+- [Product Architecture and Development](../product-architecture-and-development/README.md) — implementation, semantic structure, SEO, analytics, and technical validation.
+- [Global Discovery, Browsing & Extraction](../global-discovery-browsing-extraction/README.md) — current market and search-intent evidence.
+- [Repository overview](../../README.md) — collection installation and compatibility.
 
 ## What it covers
 

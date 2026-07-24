@@ -36,6 +36,18 @@ For an existing codebase, provide its absolute path and ask the skill to inspect
 
 The skill itself requires no runtime package or API key. It inspects the project's existing stack before recommending dependencies.
 
+## Install and invoke
+
+Install this skill directly from the public repository:
+
+```bash
+npx skills@latest add hridoy43/agent-skills \
+  --skill product-architecture-and-development \
+  --global
+```
+
+Then invoke `$product-architecture-and-development` on a compatible Agent Skills host. Include the repository path when refining an existing project.
+
 ## Optional companion skills
 
 Install only when the task needs them:
@@ -47,6 +59,14 @@ Install only when the task needs them:
 - Official Expo/React Native skills for native apps.
 - `graphify` only for large, unfamiliar, cross-language, or long-lived codebases. Ask permission before installing, configuring, or scanning.
 - `find-skills` when a required capability is missing.
+
+All companion skills are optional. Install only the ones the project or current task actually needs.
+
+## Related skills
+
+- [Conversion Storytelling](../conversion-storytelling/README.md) — conversion-focused page and product narratives.
+- [Global Discovery, Browsing & Extraction](../global-discovery-browsing-extraction/README.md) — current research and evidence collection.
+- [Repository overview](../../README.md) — collection installation, compatibility, and release guidance.
 
 ## Conditional project dependencies
 

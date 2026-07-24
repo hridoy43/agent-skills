@@ -9,6 +9,16 @@ Use this skill for web research, browsing, extraction, monitoring, and evidence 
 
 No package, API key, browser engine, or paid provider is required for the default route. The skill chooses from tools already available to the host agent.
 
+## Install and invoke
+
+```bash
+npx skills@latest add hridoy43/agent-skills \
+  --skill global-discovery-browsing-extraction \
+  --global
+```
+
+Then invoke `$global-discovery-browsing-extraction` on a compatible Agent Skills host. State the research question, freshness requirement, material fields, and desired output.
+
 ## Optional tools
 
 Install or configure only with user approval and only when the workload needs them:
@@ -20,6 +30,14 @@ Install or configure only with user approval and only when the workload needs th
 - `wigolo` for reusable crawls, structured extraction, semantic retrieval, reranking, or monitoring. Its browser engines and ML models are heavyweight; do not use it for a one-off page fetch.
 - `baoyu-youtube-transcript` or another caption extractor for YouTube transcripts.
 - A matching PDF, document, spreadsheet, image, or media parser for non-HTML sources.
+
+These are optional capabilities, not required dependencies. Use only the smallest available route that closes the evidence gap.
+
+## Related skills
+
+- [Product Architecture and Development](../product-architecture-and-development/README.md) — applies findings to a maintainable product or codebase.
+- [Conversion Storytelling](../conversion-storytelling/README.md) — turns validated audience and market evidence into page messaging.
+- [Repository overview](../../README.md) — collection installation and compatibility.
 
 ## Cost and evidence rules
 

@@ -11,6 +11,8 @@
 ## Code gates
 
 - Format and lint pass.
+- Formatter and linter are the framework/library-recommended or explicitly verified Better-T-Stack-compatible tools.
+- One primary formatter and one primary lint configuration exist per language; no conflicting formatter rules or duplicate plugin/parser setup.
 - Typecheck passes with no new suppressions.
 - Unit tests cover domain behavior and utilities.
 - Integration tests cover data/state boundaries.
@@ -19,8 +21,16 @@
 - Feature implementation files live in their owned category directories; feature roots contain no misplaced `actions.ts`, `service.ts`, `utils.ts`, or component implementations.
 - Major component directories expose their primary component through `index.tsx` and callers do not import private subcomponents.
 - Component filenames match exported PascalCase component names.
+- Component filenames do not use `.component` suffix.
+- Feature roots do not contain mandatory `index.ts`; category-level indexes and major component `index.tsx` files expose intentional surfaces.
 - Shared code does not import feature internals.
 - Utilities remain pure unless their owning API, service, or adapter boundary is explicit.
+- Pure global helpers live in `src/utils/`, not infrastructure-oriented `src/lib/`.
+- `constants/`, `config/`, `data/`, `lib/`, and `utils/` have distinct ownership.
+- Route groups use meaningful names such as `(auth)` and `(protected)` instead of vague `(app)` where access boundaries are intended.
+- Global CSS lives in `src/styles/`.
+- Shared images, raw SVGs, illustrations, fonts, and reusable icon components follow the asset ownership rules.
+- Framework conventions match the installed version; deprecated conventions require documented compatibility reasoning.
 - Library-owned base components remain separate from project-owned wrappers and feature components.
 - Static `data/` files are not used as database, API, cache, or runtime state boundaries.
 - Error, loading, empty, offline, and permission states are exercised.

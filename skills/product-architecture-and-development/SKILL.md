@@ -13,7 +13,7 @@ Design the smallest production architecture that meets the current product need 
 - Interview the user before planning or implementation, even when the initial brief is detailed. Confirm the few preferences that materially shape the product and treat the answers as architecture constraints.
 - Treat SEO as non-negotiable for every public indexable surface. Preserve crawlability, semantic content, distinct search intent, useful evidence, metadata, internal links, URLs, and redirects while improving readability and interaction.
 - Keep routes, features, shared UI, infrastructure, types, and styles in clearly owned locations.
-- Build large UI from focused pieces in a same-named directory with an explicit `index.ts` public surface.
+- Build major UI from focused pieces in a same-named PascalCase directory with `index.tsx` as its public component entry point. Do not require a feature-root public index.
 - Use explicit feature category directories (`data`, `api`, `actions`, `components`, `hooks`, `schemas`, `services`, `types`, `utils`) and prevent feature-root implementation-file sprawl.
 - Use PascalCase matching names for product React components; use role suffixes such as `.data.ts`, `.action.ts`, `.service.ts`, `.api.ts`, and `.schema.ts` for non-component modules. Use colocated `types.ts` rather than a mandatory `.types.ts` suffix.
 - Keep the shared class composition helper at the repository-configured utility location; when aliases use `@/utils`, use `src/utils/cn.ts`.
@@ -29,6 +29,9 @@ Design the smallest production architecture that meets the current product need 
 - Treat clean visual hierarchy and intuitive interaction as product requirements. For underspecified ecommerce work, preserve familiar browse, search/filter, product-detail, cart, checkout, loading, empty, and error patterns before adding novelty.
 - Keep changes small, reviewable, accessible, responsive, secure, and testable.
 - Use maintained ecosystem-specific linting and formatting. For Next.js, check the installed version and official configuration reference; use the supported ESLint CLI/configuration rather than assuming legacy `next lint` behavior.
+- For each framework or library, use its official or officially recommended linter, formatter integration, and configuration when available. If Better-T-Stack supplies a faster compatible toolchain, prefer it only after verifying framework support, editor integration, CI behavior, and formatter/linter non-overlap.
+- When no stack is specified for a greenfield project, choose a compatible stack through Better-T-Stack. If another generator is explicitly selected, use its official current stable command/tag; never use a stale template or beta/canary tag without explicit approval.
+- Verify generated framework versions and conventions immediately after scaffolding. Use current stable conventions for the installed version, and preserve existing project versions unless upgrade is explicitly in scope.
 - Prefer deep modules: put meaningful behavior behind a small, explicit interface. Before adding an abstraction, apply the deletion test: if removing it would not simplify callers or protect a real seam, do not add it.
 - Treat the public interface as the primary test surface. Keep implementation details local, and make error modes, invariants, ordering, configuration, and performance expectations part of the interface contract.
 - For medium or large products, maintain a domain glossary in `CONTEXT.md` (or an equivalent project-owned location) and record material architectural decisions in `docs/adr/`. Use the repository's language consistently in code, tests, docs, and product copy.
@@ -99,7 +102,7 @@ Choose one:
 
 For an existing repository, assess whether a persistent code-and-document relationship graph has a present consumer. Read [graphify.md](references/graphify.md) when relationships are difficult to inspect directly or will be queried repeatedly. If Graphify is justified but not configured, present the benefit, scope, generated artifacts, privacy/token implications, and simpler fallback, then wait for permission before any installation, configuration, or corpus processing.
 
-Read [stack-selection.md](references/stack-selection.md), [localization.md](references/localization.md), and the applicable platform guide: [web-projects.md](references/web-projects.md), [mobile-projects.md](references/mobile-projects.md), [desktop-projects.md](references/desktop-projects.md), or [backend-projects.md](references/backend-projects.md). Use Better-T-Stack as a compatibility/scaffolding aid, not as a substitute for product reasoning.
+Read [stack-selection.md](references/stack-selection.md), [localization.md](references/localization.md), and the applicable platform guide: [web-projects.md](references/web-projects.md), [mobile-projects.md](references/mobile-projects.md), [desktop-projects.md](references/desktop-projects.md), or [backend-projects.md](references/backend-projects.md). Use Better-T-Stack as the default greenfield scaffolding path when no stack is specified, not as a substitute for product reasoning.
 
 ### 3. Write the architecture decision before code
 
@@ -126,7 +129,7 @@ Read [styling-and-components.md](references/styling-and-components.md) and [desi
 - Routes/layouts compose features; they do not own business logic.
 - Features own their UI, API functions, hooks, schemas, services, types, and tests.
 - Shared code must be domain-neutral and have at least two real consumers.
-- A major component lives in a same-named directory, delegates coherent sections to smaller files, and exports an explicit surface from `index.ts`.
+- A major component lives in a same-named PascalCase directory, delegates coherent sections to smaller files, and exposes its primary component through `index.tsx`. Category directories may use `index.ts`; feature roots do not require one.
 - Prefer direct imports inside a feature. Avoid wildcard barrel chains.
 - Use Lucide icons when available; centralize icon sizing/stroke conventions without wrapping every icon.
 - Choose one primary UI foundation. Add a secondary component or motion source only for a specific gap, with an explicit token boundary and no duplicate primitive layer.
@@ -231,6 +234,7 @@ Load only what the task needs, but read each selected reference completely:
 - AI provider boundaries, evaluation, safety, cost, and human review: [ai-systems.md](references/ai-systems.md)
 - Near-atomic UI and Tailwind ownership: [styling-and-components.md](references/styling-and-components.md)
 - Naming and ecosystem linting: [naming-and-linting.md](references/naming-and-linting.md)
+- Assets and styles: [assets-and-styles.md](references/assets-and-styles.md)
 - Proportional design systems, shadcn Directory review, Magic UI, Ant Design, Astryx, and library adoption gates: [design-system-and-ui-libraries.md](references/design-system-and-ui-libraries.md)
 - Locales, routing, RTL, localized SEO, and translation QA: [localization.md](references/localization.md)
 - Search-friendly content: [seo.md](references/seo.md)

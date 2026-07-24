@@ -19,6 +19,8 @@ Read the entire prompt and attachments. Extract:
 9. **Deliverables:** routes, component system, docs, tests, environment example, seed content/data, runbooks, checklists.
 10. **Future scope:** capabilities to make possible but not implement now.
 
+For greenfield projects, also record the stack source: selected stack, generator, official command/tag, framework versions, runtime, package manager, lockfile, and any intentional deviation from current stable releases. When no stack is specified, Better-T-Stack is the default selection path.
+
 Classify every item:
 
 - `confirmed`: explicitly provided.

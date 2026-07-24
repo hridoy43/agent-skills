@@ -41,6 +41,11 @@ async function listTree(directory, depth = 0, maxDepth = 2) {
 const packageJson = await readJson(path.join(root, 'package.json'));
 const workspaces = packageJson?.workspaces ?? null;
 const dependencies = { ...(packageJson?.dependencies ?? {}), ...(packageJson?.devDependencies ?? {}) };
+const frameworkVersions = {
+  next: dependencies.next ?? null,
+  react: dependencies.react ?? null,
+  typescript: dependencies.typescript ?? null,
+};
 const detected = {
   typescript: Boolean(dependencies.typescript || (await exists(path.join(root, 'tsconfig.json')))),
   tailwind: Boolean(dependencies.tailwindcss),
@@ -60,6 +65,16 @@ console.log(JSON.stringify({
   workspaces,
   scripts: packageJson?.scripts ?? {},
   detected,
+  frameworkVersions,
+  conventions: {
+    hasProxy: await exists(path.join(root, 'proxy.ts')) || await exists(path.join(root, 'src', 'proxy.ts')),
+    hasMiddleware: await exists(path.join(root, 'middleware.ts')) || await exists(path.join(root, 'src', 'middleware.ts')),
+    hasGlobalStylesInApp: await exists(path.join(root, 'src', 'app', 'globals.css')),
+    hasStylesDirectory: await exists(path.join(root, 'src', 'styles')),
+    hasConstantsDirectory: await exists(path.join(root, 'src', 'constants')),
+    hasConfigDirectory: await exists(path.join(root, 'src', 'config')),
+    hasAssetsDirectory: await exists(path.join(root, 'src', 'assets')),
+  },
   hasAgentsInstructions: await exists(path.join(root, 'AGENTS.md')),
   sourceTree: await listTree(path.join(root, 'src')),
 }, null, 2));

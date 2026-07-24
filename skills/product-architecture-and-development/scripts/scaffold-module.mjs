@@ -21,19 +21,17 @@ if (!/^[a-z][a-z0-9-]*$/.test(rawName)) {
 const pascal = rawName.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('');
 const base = kind === 'feature'
   ? path.join(root, 'features', rawName)
-  : path.join(root, 'components', 'ui', rawName);
+  : path.join(root, 'components', 'ui', pascal);
 
 const files = kind === 'feature'
   ? {
-      [path.join(base, 'components', rawName, `${rawName}.tsx`)]: `import type { ${pascal}Props } from './${rawName}.types';\n\nexport function ${pascal}(props: ${pascal}Props) {\n  return <section>{props.children}</section>;\n}\n`,
-      [path.join(base, 'components', rawName, `${rawName}.types.ts`)]: `import type { ReactNode } from 'react';\n\nexport type ${pascal}Props = {\n  children?: ReactNode;\n};\n`,
-      [path.join(base, 'components', rawName, 'index.ts')]: `export { ${pascal} } from './${rawName}';\nexport type { ${pascal}Props } from './${rawName}.types';\n`,
-      [path.join(base, 'index.ts')]: `export { ${pascal} } from './components/${rawName}';\nexport type { ${pascal}Props } from './components/${rawName}';\n`,
+      [path.join(base, 'components', pascal, 'index.tsx')]: `import type { ${pascal}Props } from './types';\n\nexport function ${pascal}(props: ${pascal}Props) {\n  return <section>{props.children}</section>;\n}\n`,
+      [path.join(base, 'components', pascal, 'types.ts')]: `import type { ReactNode } from 'react';\n\nexport type ${pascal}Props = {\n  children?: ReactNode;\n};\n`,
+      [path.join(base, 'components', 'index.ts')]: `export { ${pascal} } from './${pascal}';\nexport type { ${pascal}Props } from './${pascal}/types';\n`,
     }
   : {
-      [path.join(base, `${rawName}.tsx`)]: `import type { ${pascal}Props } from './${rawName}.types';\n\nexport function ${pascal}(props: ${pascal}Props) {\n  return <div>{props.children}</div>;\n}\n`,
-      [path.join(base, `${rawName}.types.ts`)]: `import type { ReactNode } from 'react';\n\nexport type ${pascal}Props = {\n  children?: ReactNode;\n};\n`,
-      [path.join(base, 'index.ts')]: `export { ${pascal} } from './${rawName}';\nexport type { ${pascal}Props } from './${rawName}.types';\n`,
+      [path.join(base, 'index.tsx')]: `import type { ${pascal}Props } from './types';\n\nexport function ${pascal}(props: ${pascal}Props) {\n  return <div>{props.children}</div>;\n}\n`,
+      [path.join(base, 'types.ts')]: `import type { ReactNode } from 'react';\n\nexport type ${pascal}Props = {\n  children?: ReactNode;\n};\n`,
     };
 
 async function exists(target) {

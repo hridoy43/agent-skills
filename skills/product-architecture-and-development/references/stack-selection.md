@@ -10,6 +10,20 @@
 
 Verify unstable facts against primary documentation before choosing versions or libraries.
 
+## Greenfield stack and generator selection
+
+When the user does not specify a stack for a greenfield project, use Better-T-Stack's official current stable command to choose a compatible TypeScript stack. Product requirements still control the choice; inspect generated output before accepting it.
+
+If the user explicitly selects another framework or generator, use that tool's official current stable command/tag. Never use a stale template, old tutorial command, or cached generator without documenting why. Do not use beta, release-candidate, or canary tags unless the user explicitly requests them.
+
+Immediately after scaffolding, verify framework versions, runtime, package manager, lockfile, and framework file conventions against current primary documentation. Record selected versions, generator command/tag, date, compatibility checks, and intentional deviations. For existing projects, preserve a healthy installed stack unless upgrade is explicitly in scope.
+
+## Tooling selection
+
+Use the framework or library's official/recommended linter and formatter integration when available. Better-T-Stack's generated tooling may be preferred for speed and optimized developer feedback when it remains compatible with the selected stack. Verify parser support, editor integration, CI commands, test runner integration, and formatting/linting overlap before accepting it.
+
+Choose one primary formatter per language and one primary lint configuration. Keep framework-specific correctness rules, accessibility rules, and type-aware rules when compatible. Do not install multiple competing formatters or silently replace official framework lint rules with a faster but incomplete tool.
+
 ## Package manager
 
 Use the repository's existing package manager and lockfile. Never mix package managers or regenerate a lockfile casually.

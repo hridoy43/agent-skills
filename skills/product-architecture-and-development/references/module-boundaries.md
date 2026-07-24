@@ -20,6 +20,8 @@ Use feature-based organization where behavior belongs to a user or business capa
 | `lib/analytics`, `lib/auth`, `lib/security` | Provider boundaries and shared infrastructure policy | Feature event names or screen-specific decisions |
 | `utils/` | Small pure, dependency-light cross-feature functions | API calls, mutable state, hidden side effects, or domain workflows |
 | `data/` | Shared immutable, domain-neutral data with multiple real consumers | Database records, runtime server state, feature-only data |
+| `constants/` | Stable compile-time values shared across features | Runtime configuration, environment secrets, database records |
+| `config/` | Runtime, environment, integration, and app configuration | Pure helpers, domain workflows, secrets committed to source |
 | `types/` or `packages/contracts` | Shared external contracts, schemas, generated types, and cross-app types | Types used by only one feature |
 
 ## Dependency direction
@@ -34,7 +36,7 @@ platform adapters / shared infrastructure / contracts
 
 - Shared code never imports a feature.
 - A feature imports shared code and its own internals.
-- Features do not reach into another feature's private files; expose an explicit `index.ts` or move the behavior to a neutral shared boundary.
+- Features do not reach into another feature's private files; import a category public surface or move behavior to a neutral shared boundary. Feature roots do not require `index.ts`.
 - Route/screen files compose; they should not become a second service or component directory.
 - If a dependency direction would create a cycle, move the smallest shared contract or pure rule downward rather than adding a barrel export that hides the cycle.
 
@@ -69,7 +71,7 @@ Persist only what must survive restart. Define hydration, migration, logout rese
 - Prefer a plain function for deterministic logic, formatting, validation, mapping, or calculations.
 - Use a hook only when the code needs reactive state, lifecycle, context, subscriptions, or a platform hook.
 - Keep hooks stable and side-effect boundaries explicit; do not trigger network calls merely because a hook was imported.
-- Name utilities by domain intent (`formatCurrency`, `buildCheckoutParams`), not vague buckets such as `helpers2`.
+- Name utilities by domain intent (`formatCurrency`, `buildCheckoutParams`), not vague buckets such as `helpers2`. Shared pure utilities belong in `src/utils/`; `lib/` is for infrastructure and adapters such as auth, database, API, and security.
 - When a utility grows state, I/O, or orchestration, move it to the owning API, service, or adapter boundary.
 
 ## Feature directory enforcement
@@ -87,10 +89,21 @@ features/<feature>/
   services/      # feature/domain orchestration
   types/         # feature types
   utils/         # feature-pure utilities
-  index.ts       # explicit public surface
+  # no feature-root index required
 ```
 
-Feature roots may contain only `index.ts`, documentation, or a temporary migration file. Do not use root-level `actions.ts`, `service.ts`, `utils.ts`, or component implementations by default.
+Feature roots may contain documentation or a temporary migration file. Do not use root-level `index.ts`, `actions.ts`, `service.ts`, `utils.ts`, or component implementations by default.
+
+Category directories may expose intentional public surfaces:
+
+```text
+features/<feature>/actions/index.ts
+features/<feature>/components/index.ts
+features/<feature>/schemas/index.ts
+features/<feature>/services/index.ts
+```
+
+The major component exception is `features/<feature>/components/<MajorComponent>/index.tsx`, which exports the primary component through its directory.
 
 Use `src/data/` only for immutable, domain-neutral data with multiple real consumers. Keep feature-only data in `features/<feature>/data/`. Database access belongs in the database adapter; runtime server data belongs in API/query/cache layers.
 
@@ -117,4 +130,4 @@ Do not modify library-owned base components for product behavior. Extend them th
 
 ## Growth rule
 
-Start with the smallest owned boundary. Introduce a root directory only after a second consumer or a genuine cross-cutting policy appears. When a feature becomes large, split it into same-named subdirectories with an explicit public index rather than moving files into generic global buckets.
+Start with the smallest owned boundary. Introduce a root directory only after a second consumer or a genuine cross-cutting policy appears. When a feature becomes large, split it into same-named category subdirectories with explicit category public indexes rather than moving files into generic global buckets.

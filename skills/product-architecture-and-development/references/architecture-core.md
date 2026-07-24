@@ -18,6 +18,8 @@ Read [Module boundaries and ownership](module-boundaries.md) before creating or 
 ```text
 src/
   app/                       # routes, layouts, providers, composition
+    (auth)/                  # authentication routes; no URL segment
+    (protected)/             # authenticated routes; no URL segment
   features/
     <feature>/
       data/
@@ -33,11 +35,11 @@ src/
       services/              # feature/domain orchestration
       types/
       utils/
-      index.ts               # explicit public exports only
   components/
     shadcn/                  # shadcn-owned primitives
     magicui/                 # Magic UI-owned components
     ui/                      # project-owned wrappers/primitives
+    icons/                   # project-owned reusable icon components
     form/
     layout/
   lib/
@@ -48,10 +50,17 @@ src/
     security/
   locales/                  # locale-first, feature-split messages
   config/
+  constants/
+  data/
   hooks/
   types/
   utils/
     cn.ts                    # shared Tailwind class composition helper
+  assets/
+    images/
+    icons/                   # raw SVG/icon assets
+    illustrations/
+    fonts/
   styles/
     globals.css
     theme.css
@@ -61,7 +70,7 @@ src/
     fonts.ts
 ```
 
-Create only directories that have a current file and owner. A small feature can begin as `components/`, `types.ts`, and one API file, then grow deliberately.
+Create only directories that have a current file and owner. A small feature can begin as `components/`, `types.ts`, and one API file, then grow deliberately. Do not create a feature-root `index.ts` by default.
 
 ## Dependency direction
 
@@ -117,11 +126,11 @@ Import major components through their directory. Do not import private subcompon
 
 ## Public exports
 
-Prefer:
+Prefer category-level or component-directory public surfaces:
 
 ```ts
-export { ProductShowcase } from "./product-showcase";
-export type { ProductShowcaseProps } from "./product-showcase.types";
+export { ProductShowcase } from "./ProductShowcase";
+export type { ProductShowcaseProps } from "./ProductShowcase/types";
 ```
 
 Avoid `export *` chains across a large feature: they blur ownership, create cycles, and can harm tree shaking.

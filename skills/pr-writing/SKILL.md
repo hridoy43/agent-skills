@@ -7,9 +7,11 @@ description: Use when preparing pull requests, merge requests, or code-review de
 
 Write a review document from the actual branch changes, repository conventions, and user's approved context. A pull request should help a reviewer understand what changed, why it changed, how to verify it, and what risk remains.
 
-## Interview before drafting
+## Inspect first, ask last
 
-Ask only questions that change the output: review platform, base branch, work-tracker system, ticket reference, repository template, audience, deployment process, screenshots, and known risks. Detect what can be verified locally first. Never invent a ticket, test result, screenshot, metric, approval, deployment step, or completed work.
+Do not make the workflow pause for a questionnaire. Inspect the repository, branch, commits, diff, templates, CI, scripts, deployment files, and linked metadata first. Generate the best generic draft from verified evidence in one prompt. Ask a follow-up only after the draft when a missing fact materially changes correctness, such as an unknown ticket, non-obvious deployment requirement, private link, or unavailable screenshot.
+
+If the skill is running inside an automated agent, continue with detected or clearly labelled assumptions. Never invent a ticket, test result, screenshot, metric, approval, deployment step, or completed work. Put unresolved inputs in a short `Needs confirmation` section instead of blocking the entire draft.
 
 ## Resolve project context
 
@@ -19,6 +21,8 @@ Use this order for references:
 2. Team or platform conventions found in the repository.
 3. Ticket or issue reference from the branch, commits, linked metadata, or user input.
 4. A neutral default when no convention or ticket exists.
+
+Do not require the user to identify the review platform, tracker, base branch, or deployment process when the repository makes them discoverable. If they are not discoverable, use neutral wording and flag the gap after drafting.
 
 Support GitHub, GitLab, Bitbucket, Azure DevOps, and equivalent review systems. Support Jira, Linear, GitHub Issues, YouTrack, Azure Boards, and plain links without assuming a URL format. Treat a ticket as optional unless the project requires one.
 
@@ -64,4 +68,4 @@ Before returning the draft, verify ticket and external links, test commands, mig
 
 ## Output contract
 
-Return the proposed PR description, a short list of unresolved inputs, and the evidence used. Preserve user wording where appropriate, but prioritize the repository's required format and accurate review context.
+Return the PR description first, followed by a short `Needs confirmation` list only when necessary and the evidence used. Preserve user wording where appropriate, but prioritize the repository's required format and accurate review context.

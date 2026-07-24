@@ -14,7 +14,7 @@ npx skills@latest add hridoy43/agent-skills \
 
 Invoke `$pr-writing` with the repository path and review request. Add the base branch, ticket or issue link, review platform, project template, deployment context, and any screenshots when known.
 
-The skill reads repository conventions first, analyzes the actual diff, asks only material questions, and produces reviewer-friendly summary, context, QA steps, risk, rollout, and evidence sections without inventing claims.
+The skill reads repository conventions first, analyzes the actual diff, drafts autonomously from one prompt, and asks only material follow-ups after drafting. It produces reviewer-friendly summary, context, QA steps, risk, rollout, and evidence sections without inventing claims.
 
 ## Related skills
 

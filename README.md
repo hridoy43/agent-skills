@@ -7,6 +7,7 @@ A focused collection of portable Agent Skills for designing, building, researchi
 - [`product-architecture-and-development`](skills/product-architecture-and-development/README.md) — plans and implements maintainable TypeScript-first web, mobile, desktop, API, and multi-app products.
 - [`conversion-storytelling`](skills/conversion-storytelling/README.md) — chooses and applies truthful conversion narratives for pages, journeys, launches, onboarding, proof, and CTAs without sacrificing SEO or user intent.
 - [`global-discovery-browsing-extraction`](skills/global-discovery-browsing-extraction/README.md) — routes local-first web discovery, browsing, extraction, monitoring, and evidence validation across available tools.
+- [`github-readme-and-profile-writing`](skills/github-readme-and-profile-writing/README.md) — creates discoverable, credible READMEs for projects, skills, organizations, and personal profiles.
 
 Each skill has its own installation command, usage prompt, optional companions, and related-skill links. Use the individual README when promoting one skill; use this repository when promoting the complete collection.
 
@@ -15,6 +16,7 @@ Each skill has its own installation command, usage prompt, optional companions, 
 - **Build a product:** `product-architecture-and-development` + optional `conversion-storytelling` for customer-facing pages.
 - **Research before building:** `global-discovery-browsing-extraction` + `product-architecture-and-development`.
 - **Improve a marketing surface:** `conversion-storytelling` + optional `global-discovery-browsing-extraction` for current evidence.
+- **Publish a README:** `github-readme-and-profile-writing` + optional `product-architecture-and-development` for technical accuracy.
 
 Companion skills are never required by default. Install them only when the task needs their capability.
 
@@ -94,6 +96,7 @@ agent-skills/
 ├── skills/
 │   ├── conversion-storytelling/
 │   ├── global-discovery-browsing-extraction/
+│   ├── github-readme-and-profile-writing/
 │   └── product-architecture-and-development/
 ├── skills.sh.json
 └── README.md

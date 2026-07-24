@@ -44,14 +44,14 @@ Global pure helpers belong in `src/utils/`; reserve `src/lib/` for infrastructur
 Keep shared source assets in systematic global directories:
 
 ```text
-src/assets/
+assets/
   images/
   icons/          # raw SVG/icon assets
   illustrations/
   fonts/
 ```
 
-Feature-only assets may live in `features/<feature>/assets/`. Reusable icon components belong in `src/components/icons/`; library-owned components remain in their library directories. Use `public/` only when an asset requires a stable URL or static serving. Components should import source assets through the configured alias rather than duplicating files.
+Feature-only source assets may live in `features/<feature>/assets/`. Reusable icon components belong in `src/components/icons/`; library-owned components remain in their library directories. Use root `public/assets/` for stable URL/static-serving requirements. Components should import source assets through the configured alias rather than duplicating files.
 
 ## Performance
 

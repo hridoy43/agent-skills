@@ -18,10 +18,10 @@ The root layout imports `src/styles/globals.css`. Do not place the global styles
 
 ## Asset ownership
 
-Use systematic global directories for assets shared by multiple features:
+Use a framework-agnostic root-level asset catalog for assets shared by multiple features:
 
 ```text
-src/assets/
+assets/
   images/
   icons/          # raw SVG/icon files
   illustrations/
@@ -30,9 +30,9 @@ src/assets/
 
 Feature-only assets may live in `features/<feature>/assets/`. Do not duplicate a shared asset across features.
 
-Use `public/` only for assets that need stable URL access, direct static serving, robots files, favicons, or externally referenced metadata. Import source assets from `src/assets/` through the repository alias.
+Use the framework's public/static-serving adapter for assets that need stable URL access. In Next.js, that adapter is root-level `public/`, so URL-served assets belong in `public/assets/`; Next.js does not automatically serve root-level `assets/`. Import source assets from root `assets/` through the repository alias when build-time optimization is needed.
 
-Raw SVG/icon files belong in `src/assets/icons/`. Reusable React icon components belong in `src/components/icons/`. Generated or vendor-owned UI components remain in library-specific directories such as `src/components/shadcn/` and `src/components/magicui/`.
+Raw SVG/icon files belong in `assets/icons/`. Reusable React icon components belong in `src/components/icons/`. Generated or vendor-owned UI components remain in library-specific directories such as `src/components/shadcn/` and `src/components/magicui/`.
 
 Before adding an asset directory, confirm ownership, consumers, optimization behavior, accessibility text, responsive variants, and licensing/provenance.
 
@@ -44,4 +44,4 @@ Use stronger platform-native conventions when the project is not a web source-as
 - iOS: asset catalogs.
 - Backend: object storage or package-owned fixtures.
 
-Do not force `src/assets/` or `src/styles/` onto ecosystems with a stronger native convention.
+Do not force root `assets/`, `public/`, or `src/styles/` onto ecosystems with a stronger native convention.

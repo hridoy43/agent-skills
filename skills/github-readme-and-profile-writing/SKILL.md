@@ -11,6 +11,19 @@ Create a README that serves its primary reader first, then supports discovery, t
 
 Ask only questions that change the README: audience, project status, intended action, canonical URLs, approved claims, screenshots/demos, license, support channel, services, and whether the document is for a project, organization, skill, or personal profile. Preserve user wording and never invent metrics, testimonials, users, revenue, partnerships, or capabilities.
 
+## Public-sharing workflow
+
+Before publishing, verify the README against the actual repository and its intended reader:
+
+1. Confirm canonical repository, demo, documentation, contact, license, and support URLs.
+2. Confirm installation and quick-start commands on a clean environment when possible.
+3. Separate current, beta, planned, and deprecated features.
+4. Add only public, approved evidence: screenshots, demos, releases, tests, CI, usage, contributors, or shipped outcomes.
+5. Check links, image alt text, code fences, mobile readability, dark-mode contrast, and GitHub rendering.
+6. End with the smallest useful next action: try, star, give feedback, contribute, contact, or hire.
+
+Do not publish secrets, private client details, unapproved logos, fabricated metrics, or unverifiable claims.
+
 ## Reader and conversion order
 
 Use this order unless the user requests another structure:
@@ -34,6 +47,21 @@ For personal profiles, separate open-source work, current products, services, an
 - Keep important meaning in text, not only badges, screenshots, or animated demos.
 - Avoid keyword stuffing, vague superlatives, hidden text, and duplicate boilerplate.
 
+## Badges and premium trust signals
+
+Badges are optional proof, not decoration. Add a compact row near the title only when each badge is accurate, maintained, and useful. Prefer at most 3–6 relevant badges, ordered by reader value:
+
+- release/version or package version;
+- CI/build and test status;
+- coverage, only when the number is meaningful and current;
+- license;
+- documentation, demo, website, or playground;
+- package/download or community signal when the source is authoritative.
+
+Use stable providers or repository-native links, descriptive alt text, and links that explain the badge. Never use fake stars, visitor counters, animated badge walls, unrelated technology badges, or a badge for every dependency. For personal profiles, plain links and selected-work proof usually look more credible than badges.
+
+Premium presentation comes from hierarchy and evidence: a concise opening, one clear visual or demo, short sections, consistent headings, readable code examples, useful whitespace, and a visible support/contribution path—not visual effects alone.
+
 ## Templates
 
 Choose one before drafting:
@@ -43,9 +71,22 @@ Choose one before drafting:
 - **Organization:** mission → products/services → proof → open-source work → contact.
 - **Profile:** positioning → current products → services → open source → writing/talks → contact.
 
+For any template, include only sections that have real content. A short complete README is better than a long placeholder document.
+
 ## Trust and monetization
 
 Offer services only when they are relevant to the project and clearly labelled. Use a low-friction contact path. Affiliate links must be relevant, optional, clearly disclosed, and never disguised as independent proof. Prefer useful tutorials, comparisons, and transparent recommendations over affiliate-only pages.
+
+## Public README checklist
+
+- The title and first paragraph explain the entity without requiring a screenshot.
+- The primary CTA and canonical destination are obvious.
+- Installation, usage, status, license, and support information match reality.
+- Visual assets have descriptive alt text and do not contain the only copy of an important claim.
+- Badges are few, accurate, linked, and readable in light and dark themes.
+- Contribution, issue, security, and code-of-conduct links are included when public participation is supported.
+- Client work and affiliate relationships are labelled honestly.
+- The README has been rendered and checked at narrow/mobile width before publishing.
 
 ## Output contract
 

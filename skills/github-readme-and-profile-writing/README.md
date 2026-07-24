@@ -16,6 +16,10 @@ Invoke `$github-readme-and-profile-writing` and provide the repository or profil
 
 The skill interviews before writing, keeps important content textual and discoverable, and separates product users, contributors, clients, and networking audiences. It supports project, skill, organization, and profile README templates, with optional service and ethical affiliate sections.
 
+## Public-sharing quality
+
+Before publishing, it verifies canonical links, install commands, public evidence, status labels, screenshots, accessibility, mobile readability, and GitHub rendering. Badges are optional and evidence-based: use a small row of accurate release, CI, license, documentation, or package badges—not decorative badge walls or fabricated metrics. It also keeps contribution, security, support, client, and affiliate information honest and easy to find.
+
 ## Related skills
 
 - [Product Architecture and Development](../product-architecture-and-development/README.md) — architecture, implementation, SEO, and technical validation.

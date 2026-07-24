@@ -27,3 +27,4 @@ It also treats the README as the repository front door: when relevant, it aligns
 - [Product Architecture and Development](../product-architecture-and-development/README.md) — architecture, implementation, SEO, and technical validation.
 - [Conversion Storytelling](../conversion-storytelling/README.md) — customer journeys, positioning, and CTAs.
 - [Global Discovery, Browsing & Extraction](../global-discovery-browsing-extraction/README.md) — current evidence for claims and market language.
+- [Content Marketing and Brand Growth](../content-marketing-and-brand-growth/README.md) — optional promotion, launch, networking, and audience-growth planning after the README is ready.

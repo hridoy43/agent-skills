@@ -84,6 +84,20 @@ Choose one before drafting:
 
 For any template, include only sections that have real content. A short complete README is better than a long placeholder document.
 
+## Profile README architecture
+
+For personal profiles, combine industry-standard clarity with evidence from the person's real work:
+
+1. Positioning headline: role, domain, and outcome.
+2. Short introduction: who they help and what they build.
+3. Focused links: portfolio, professional profile, contact, and selected social channels.
+4. Selected work: current products, open source, or shipped outcomes with honest status labels.
+5. Credibility: previous companies, clients, talks, writing, or measurable evidence only when approved.
+6. Capabilities: a concise focus or stack summary, never a dependency dump.
+7. One clear path to work together, collaborate, follow, or provide feedback.
+
+Keep owned products, previous work, services, and community projects visibly distinct. Prefer a small number of strong examples over exhaustive lists. Use the person's actual voice and avoid generic claims unless they are specific to the work shown.
+
 ## Trust and monetization
 
 Offer services only when they are relevant to the project and clearly labelled. Use a low-friction contact path. Affiliate links must be relevant, optional, clearly disclosed, and never disguised as independent proof. Prefer useful tutorials, comparisons, and transparent recommendations over affiliate-only pages.

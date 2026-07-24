@@ -8,6 +8,7 @@ A focused collection of portable Agent Skills for designing, building, researchi
 - [`conversion-storytelling`](skills/conversion-storytelling/README.md) — chooses and applies truthful conversion narratives for pages, journeys, launches, onboarding, proof, and CTAs without sacrificing SEO or user intent.
 - [`global-discovery-browsing-extraction`](skills/global-discovery-browsing-extraction/README.md) — routes local-first web discovery, browsing, extraction, monitoring, and evidence validation across available tools.
 - [`github-readme-and-profile-writing`](skills/github-readme-and-profile-writing/README.md) — creates discoverable, credible READMEs for projects, skills, organizations, and personal profiles.
+- [`content-marketing-and-brand-growth`](skills/content-marketing-and-brand-growth/README.md) — plans trust-first, platform-aware promotion for products, open source, and personal brands.
 
 Each skill has its own installation command, usage prompt, optional companions, and related-skill links. Use the individual README when promoting one skill; use this repository when promoting the complete collection.
 
@@ -17,6 +18,7 @@ Each skill has its own installation command, usage prompt, optional companions, 
 - **Research before building:** `global-discovery-browsing-extraction` + `product-architecture-and-development`.
 - **Improve a marketing surface:** `conversion-storytelling` + optional `global-discovery-browsing-extraction` for current evidence.
 - **Publish a README:** `github-readme-and-profile-writing` + optional `product-architecture-and-development` for technical accuracy.
+- **Promote a project:** `github-readme-and-profile-writing` + `content-marketing-and-brand-growth` + optional `conversion-storytelling`.
 
 Companion skills are never required by default. Install them only when the task needs their capability.
 

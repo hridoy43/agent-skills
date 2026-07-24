@@ -58,6 +58,34 @@ Use the repository template when present. Otherwise use:
 
 Include numbered manual QA steps when behavior changes. Mention automated checks with their actual command and result. Add screenshots or recordings only when available and relevant. Omit empty sections rather than filling them with placeholders.
 
+Choose the verification shape from the change type instead of forcing one company-specific template:
+
+- **Bug fix:** reproduce the original issue → record the previous result → verify the fix → run regression checks.
+- **New feature:** state prerequisites → describe acceptance scenarios → verify expected outcomes → cover edge cases.
+- **UI change:** verify routes or screens, responsive states, accessibility, interaction states, and visual evidence.
+- **API or backend change:** verify inputs, outputs, authorization, validation, errors, persistence, and compatibility.
+- **Mobile change:** verify device or OS prerequisites, the user flow, permissions, offline behavior, and platform differences.
+- **Deployment or infrastructure change:** verify environment setup, migrations, health checks, observability, and rollback.
+
+Use this neutral shape when the repository has no stronger convention:
+
+```md
+## Verification
+
+### Preconditions
+
+### Scenarios
+1. Given ...
+2. When ...
+3. Then ...
+
+### Edge cases and regression checks
+
+### Evidence
+```
+
+For bug fixes, label the first scenario as reproducing the original issue. For other changes, use acceptance scenarios. Do not claim a scenario was run unless the evidence exists.
+
 ## Diagrams and evidence
 
 Use a Mermaid diagram only when state transitions, architecture, data flow, or a multi-step interaction is genuinely difficult to explain in prose. Keep it inside the summary or context section. Do not add diagrams for simple copy, styling, or isolated refactors.

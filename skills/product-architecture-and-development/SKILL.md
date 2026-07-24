@@ -14,15 +14,21 @@ Design the smallest production architecture that meets the current product need 
 - Treat SEO as non-negotiable for every public indexable surface. Preserve crawlability, semantic content, distinct search intent, useful evidence, metadata, internal links, URLs, and redirects while improving readability and interaction.
 - Keep routes, features, shared UI, infrastructure, types, and styles in clearly owned locations.
 - Build large UI from focused pieces in a same-named directory with an explicit `index.ts` public surface.
+- Use explicit feature category directories (`data`, `api`, `actions`, `components`, `hooks`, `schemas`, `services`, `types`, `utils`) and prevent feature-root implementation-file sprawl.
+- Use PascalCase matching names for product React components; use role suffixes such as `.data.ts`, `.action.ts`, `.service.ts`, `.api.ts`, and `.schema.ts` for non-component modules. Use colocated `types.ts` rather than a mandatory `.types.ts` suffix.
+- Keep the shared class composition helper at the repository-configured utility location; when aliases use `@/utils`, use `src/utils/cn.ts`.
+- Keep generated or library-owned UI components in library-specific directories and extend them through project-owned wrappers or feature components without modifying base components for product behavior.
 - Make every interface theme-configurable. Define semantic color, typography, spacing, radius, shadow, and motion tokens once, map them through the platform framework, and consume theme utilities instead of scattering custom values.
 - Establish a proportional design-system contract before feature UI: semantic tokens, typography, layout, responsive behavior, component states, accessibility, motion, and ownership. A small site needs a small contract; a multi-product platform may need a governed package and documentation.
 - Prefer the framework's standard scales for font size, weight, leading, tracking, spacing, dimensions, breakpoints, radii, shadows, durations, and easing. Add a named theme token for a recurring or brand-specific value; use an arbitrary utility only for a measured, documented one-off that should not become part of the design system.
 - Keep code-based presentation configuration beside style assets. Place files such as `fonts.ts`, `theme.ts`, typed tokens, and style-system helpers in `src/styles/` or the equivalent package-owned `styles/` directory, not in routes or general runtime/business configuration.
 - Keep Tailwind utilities in components. Promote a style to global scope only when it is a token, reset, font, shared motion primitive, third-party override, or a stable pattern used by at least two consumers.
 - Use maintained, community-supported tools after checking compatibility and current status.
+- Use the repository's existing package manager and lockfile. For new TypeScript/JavaScript projects, prefer `pnpm`; choose `bun` only when existing repository conventions or verified runtime/tooling compatibility justify it.
 - Add complexity only in response to a present requirement or measured constraint.
 - Treat clean visual hierarchy and intuitive interaction as product requirements. For underspecified ecommerce work, preserve familiar browse, search/filter, product-detail, cart, checkout, loading, empty, and error patterns before adding novelty.
 - Keep changes small, reviewable, accessible, responsive, secure, and testable.
+- Use maintained ecosystem-specific linting and formatting. For Next.js, check the installed version and official configuration reference; use the supported ESLint CLI/configuration rather than assuming legacy `next lint` behavior.
 - Prefer deep modules: put meaningful behavior behind a small, explicit interface. Before adding an abstraction, apply the deletion test: if removing it would not simplify callers or protect a real seam, do not add it.
 - Treat the public interface as the primary test surface. Keep implementation details local, and make error modes, invariants, ordering, configuration, and performance expectations part of the interface contract.
 - For medium or large products, maintain a domain glossary in `CONTEXT.md` (or an equivalent project-owned location) and record material architectural decisions in `docs/adr/`. Use the repository's language consistently in code, tests, docs, and product copy.
@@ -224,6 +230,7 @@ Load only what the task needs, but read each selected reference completely:
 - Auth, persistence, integrations, environments, observability, CI/CD, and operations: [production-foundations.md](references/production-foundations.md)
 - AI provider boundaries, evaluation, safety, cost, and human review: [ai-systems.md](references/ai-systems.md)
 - Near-atomic UI and Tailwind ownership: [styling-and-components.md](references/styling-and-components.md)
+- Naming and ecosystem linting: [naming-and-linting.md](references/naming-and-linting.md)
 - Proportional design systems, shadcn Directory review, Magic UI, Ant Design, Astryx, and library adoption gates: [design-system-and-ui-libraries.md](references/design-system-and-ui-libraries.md)
 - Locales, routing, RTL, localized SEO, and translation QA: [localization.md](references/localization.md)
 - Search-friendly content: [seo.md](references/seo.md)

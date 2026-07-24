@@ -16,6 +16,13 @@
 - Integration tests cover data/state boundaries.
 - Critical user journeys have end-to-end coverage where practical.
 - Production build succeeds.
+- Feature implementation files live in their owned category directories; feature roots contain no misplaced `actions.ts`, `service.ts`, `utils.ts`, or component implementations.
+- Major component directories expose their primary component through `index.tsx` and callers do not import private subcomponents.
+- Component filenames match exported PascalCase component names.
+- Shared code does not import feature internals.
+- Utilities remain pure unless their owning API, service, or adapter boundary is explicit.
+- Library-owned base components remain separate from project-owned wrappers and feature components.
+- Static `data/` files are not used as database, API, cache, or runtime state boundaries.
 - Error, loading, empty, offline, and permission states are exercised.
 
 ## Experience gates

@@ -20,13 +20,14 @@ src/
   app/                       # routes, layouts, providers, composition
   features/
     <feature>/
+      data/
       api/                   # requests and query options
+      actions/               # commands and server actions
       components/
-        <major-component>/
-          <major-component>.tsx
-          <part>.tsx
-          <major-component>.types.ts
-          index.ts
+        <MajorComponent>/
+          index.tsx          # public primary component
+          <Part>.tsx          # private coherent subcomponent
+          types.ts            # local component types
       hooks/
       schemas/
       services/              # feature/domain orchestration
@@ -34,7 +35,9 @@ src/
       utils/
       index.ts               # explicit public exports only
   components/
-    ui/                      # domain-neutral primitives
+    shadcn/                  # shadcn-owned primitives
+    magicui/                 # Magic UI-owned components
+    ui/                      # project-owned wrappers/primitives
     form/
     layout/
   lib/
@@ -48,6 +51,7 @@ src/
   hooks/
   types/
   utils/
+    cn.ts                    # shared Tailwind class composition helper
   styles/
     globals.css
     theme.css
@@ -96,19 +100,20 @@ Share contracts, schemas, domain rules, tokens, and tooling. Do not force web an
 
 ## Near-atomic component rule
 
-Use a same-named directory for a major component:
+Use a same-named PascalCase directory for a major component. Make `index.tsx` the public primary component so callers import through the directory:
 
 ```text
-product-showcase/
-  product-showcase.tsx       # composition and state
-  product-slide.tsx          # coherent subview
-  product-media.tsx
-  product-dots.tsx
-  product-showcase.types.ts
-  index.ts                   # explicit exports
+ProductShowcase/
+  index.tsx                  # composition and state; public entry point
+  ProductSlide.tsx           # coherent private subview
+  ProductMedia.tsx
+  ProductDots.tsx
+  types.ts
 ```
 
 Split by responsibility, not line count. Keep a piece inline when extracting it would hide rather than clarify behavior.
+
+Import major components through their directory. Do not import private subcomponents outside their owning directory.
 
 ## Public exports
 

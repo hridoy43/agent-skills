@@ -11,6 +11,14 @@
 
 Routes own metadata, layout composition, route-level loading/error boundaries, and feature assembly. Features own business behavior and reusable views. Do not place a second component library inside `app/`.
 
+## Naming and component-library boundaries
+
+Use PascalCase filenames and matching exported names for product React components. Major components use a directory with `index.tsx` as the public entry point. Use role suffixes for non-component modules: `countries.data.ts`, `create-invoice.action.ts`, `invoice.service.ts`, `invoice.api.ts`, and `invoice.schema.ts`.
+
+Use `types.ts` for colocated component types. In a feature or shared `types/` directory, use domain names such as `invoice.ts` and `pagination.ts`; do not require a redundant `.types.ts` suffix. Hooks use standard `useInvoice.ts` naming. Keep Next.js reserved files unchanged: `page.tsx`, `layout.tsx`, `loading.tsx`, `error.tsx`, `not-found.tsx`, and `route.ts`.
+
+Before generating shadcn or another component-library code, inspect repository configuration such as `components.json` and preserve its aliases. Keep generated/library-owned components in dedicated directories such as `components/shadcn/` or `components/magicui/`. Put project-owned wrappers in `components/ui/` or the owning feature. Do not modify base library components for product-specific behavior unless documenting a genuine upstream-level fix.
+
 ## Styling
 
 - Tailwind utilities live with JSX.

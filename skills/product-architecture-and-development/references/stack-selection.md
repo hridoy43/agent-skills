@@ -10,6 +10,14 @@
 
 Verify unstable facts against primary documentation before choosing versions or libraries.
 
+## Package manager
+
+Use the repository's existing package manager and lockfile. Never mix package managers or regenerate a lockfile casually.
+
+For new TypeScript/JavaScript projects, prefer `pnpm` as default because it provides deterministic lockfiles, workspace support, and broad ecosystem compatibility. Choose `bun` when the repository already uses Bun, Bun runtime/tooling is an explicit requirement, or compatibility has been verified for the framework, test runner, ORM, deployment target, and native tooling.
+
+If an existing project has `bun.lockb`/`bun.lock`, `pnpm-lock.yaml`, `yarn.lock`, or `package-lock.json`, preserve that manager unless a confirmed migration decision exists. Record compatibility checks, lockfile transition, CI changes, and rollback path before changing it.
+
 Record for material dependencies: stable/current release status, maintenance activity, license, security advisories, framework/runtime compatibility, accessibility posture, bundle/runtime cost, migration path, and team familiarity. Treat experimental compatibility layers as an explicit accepted risk with an exit path; popularity alone is not sufficient.
 
 For fast-moving ecosystems, write capability and verification criteria instead of timeless package rankings. Named libraries are examples to investigate against current primary documentation, not permanent dependencies. Recheck release status, architecture support, peer versions, native build requirements, and known limitations at implementation time. Never update an installed package merely because a newer package exists.

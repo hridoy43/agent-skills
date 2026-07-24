@@ -19,6 +19,7 @@ Use feature-based organization where behavior belongs to a user or business capa
 | `features/<name>/hooks` | Feature-specific reactive behavior and feature API bindings | Generic hooks used by unrelated features |
 | `lib/analytics`, `lib/auth`, `lib/security` | Provider boundaries and shared infrastructure policy | Feature event names or screen-specific decisions |
 | `utils/` | Small pure, dependency-light cross-feature functions | API calls, mutable state, hidden side effects, or domain workflows |
+| `data/` | Shared immutable, domain-neutral data with multiple real consumers | Database records, runtime server state, feature-only data |
 | `types/` or `packages/contracts` | Shared external contracts, schemas, generated types, and cross-app types | Types used by only one feature |
 
 ## Dependency direction
@@ -70,6 +71,41 @@ Persist only what must survive restart. Define hydration, migration, logout rese
 - Keep hooks stable and side-effect boundaries explicit; do not trigger network calls merely because a hook was imported.
 - Name utilities by domain intent (`formatCurrency`, `buildCheckoutParams`), not vague buckets such as `helpers2`.
 - When a utility grows state, I/O, or orchestration, move it to the owning API, service, or adapter boundary.
+
+## Feature directory enforcement
+
+Feature-root implementation files are not the default. Place code in owned category directories:
+
+```text
+features/<feature>/
+  data/          # feature-owned static data
+  api/           # endpoint/query adapters
+  actions/       # commands or server actions
+  components/   # feature UI
+  hooks/         # feature reactive behavior
+  schemas/       # validation schemas
+  services/      # feature/domain orchestration
+  types/         # feature types
+  utils/         # feature-pure utilities
+  index.ts       # explicit public surface
+```
+
+Feature roots may contain only `index.ts`, documentation, or a temporary migration file. Do not use root-level `actions.ts`, `service.ts`, `utils.ts`, or component implementations by default.
+
+Use `src/data/` only for immutable, domain-neutral data with multiple real consumers. Keep feature-only data in `features/<feature>/data/`. Database access belongs in the database adapter; runtime server data belongs in API/query/cache layers.
+
+The shared Tailwind class helper may live at `src/utils/cn.ts` when project aliases and component tooling use `@/utils`. It is a shared UI utility, not business logic. Do not force shadcn's default `lib/utils` location onto a repository with a coherent `utils` alias.
+
+Library-owned components stay isolated:
+
+```text
+src/components/shadcn/       # shadcn-owned primitives
+src/components/magicui/      # Magic UI-owned components
+src/components/<library>/    # other library-owned components
+src/components/ui/           # project-owned wrappers/primitives
+```
+
+Do not modify library-owned base components for product behavior. Extend them through wrappers, composition, variants, or props. Feature-specific wrappers belong in the owning feature.
 
 ## Platform mapping
 

@@ -1,6 +1,8 @@
 # Practical Agent Skills for Product Work
 
-A focused collection of portable Agent Skills for designing, building, researching, and improving digital products. Maintained by [hridoy43](https://github.com/hridoy43), each skill follows the open [Agent Skills specification](https://agentskills.io/specification) and can be installed by compatible coding agents through the [skills CLI](https://skills.sh/docs/cli). The repository also retains optional Codex plugin metadata.
+A portable collection of practical Agent Skills for planning, designing, building, researching, documenting, reviewing, and promoting digital products. Each skill is framework-aware where useful, tool-agnostic where possible, interview-first, SEO-conscious, and designed to preserve user decisions before implementation. Maintained by [hridoy43](https://github.com/hridoy43), the collection follows the open [Agent Skills specification](https://agentskills.io/specification) and installs through the [skills CLI](https://skills.sh/docs/cli).
+
+Use one skill for a focused task or combine them for a complete product workflow—from the first idea and architecture through implementation, review, launch, and public learning.
 
 ## Included skills
 
@@ -98,9 +100,11 @@ The skill can also activate implicitly when a request matches its description.
 agent-skills/
 ├── .codex-plugin/plugin.json
 ├── skills/
+│   ├── content-marketing-and-brand-growth/
 │   ├── conversion-storytelling/
 │   ├── global-discovery-browsing-extraction/
 │   ├── github-readme-and-profile-writing/
+│   ├── pr-writing/
 │   └── product-architecture-and-development/
 ├── skills.sh.json
 └── README.md

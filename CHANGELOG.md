@@ -15,6 +15,13 @@ No unreleased changes.
 - Added adaptive QA verification guidance for bug reproduction, feature acceptance, UI, API, mobile, and deployment changes.
 - Added explicit visual-proof and README-anatomy guidance for screenshots, demos, terminal examples, API examples, and architecture diagrams.
 
+## v0.5.10 — 2026-07-25
+
+- Added architecture lifecycle rules for greenfield defaults, existing-project preservation, and approved architecture migrations.
+- Required confirmation before material existing-project architecture changes.
+- Added structural and behavior verification requirements after approved migrations.
+- Added explicit handling for fixed, accepted, and deferred architecture exceptions.
+
 ## v0.5.8 — 2026-07-25
 
 - Clarified framework-agnostic root `assets/` as the shared source asset catalog.

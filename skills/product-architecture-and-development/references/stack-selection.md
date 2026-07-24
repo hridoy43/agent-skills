@@ -18,6 +18,21 @@ If the requested ecosystem is not supported by Better-T-Stack, use that ecosyste
 
 Immediately after scaffolding, verify framework versions, runtime, package manager, lockfile, and framework file conventions against current primary documentation. Record selected versions, generator command/tag, date, compatibility checks, and intentional deviations. For existing projects, preserve a healthy installed stack unless upgrade is explicitly in scope.
 
+### Better-T-Stack decision protocol
+
+If the user does not specify a stack, the agent chooses a compatible Better-T-Stack configuration from the confirmed requirements. The agent should derive frontend, backend, database, ORM, API, auth, runtime, and addons rather than asking the user to select every flag.
+
+Ask the user to choose only when:
+
+- multiple compatible stacks have materially different tradeoffs;
+- platform, deployment, database, auth, runtime, or other architecture preference remains unresolved;
+- the choice affects cost, compliance, portability, or long-term ownership;
+- Better-T-Stack cannot confidently select a compatible combination.
+
+Use Better-T-Stack's official current documentation, CLI, Stack Builder, and AI-agent workflow as appropriate: [Better-T-Stack Quick Start](https://www.better-t-stack.dev/docs). Prefer the official `@latest` CLI with explicit flags for reproducible scaffolding. Use the Stack Builder for complex interactive combinations. Use the AI-agent plugin only when already available or explicitly approved for installation.
+
+After selection, explain the chosen stack and rejected alternatives, inspect generated files and versions, preserve the selected lockfile, and run the repository quality gates. If Better-T-Stack does not support the requested ecosystem, use that ecosystem's official current stable generator.
+
 ## Tooling selection
 
 Use the framework or library's official/recommended linter and formatter integration when available. Better-T-Stack's generated tooling may be preferred for speed and optimized developer feedback when it remains compatible with the selected stack. Verify parser support, editor integration, CI commands, test runner integration, and formatting/linting overlap before accepting it.

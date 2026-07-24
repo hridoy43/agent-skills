@@ -34,6 +34,10 @@ Use the framework's public/static-serving adapter for assets that need stable UR
 
 Raw SVG/icon files belong in `assets/icons/`. Reusable React icon components belong in `src/components/icons/`. Generated or vendor-owned UI components remain in library-specific directories such as `src/components/shadcn/` and `src/components/magicui/`.
 
+Do not write inline SVG markup or duplicate SVG source in application code. Store SVG files in the owned asset directory and import them through the selected framework's supported asset mechanism. Brand SVGs belong in `assets/brand/`; shared icons belong in `assets/icons/`; feature-specific SVGs may live in `features/<feature>/assets/`.
+
+When a framework requires public URL serving, use its public adapter, such as `public/assets/brand/logo.svg` for Next.js. When build-time imports are supported and useful, import from `assets/brand/logo.svg`. Preserve accessibility through the consuming component's label, title, or decorative behavior.
+
 Before adding an asset directory, confirm ownership, consumers, optimization behavior, accessibility text, responsive variants, and licensing/provenance.
 
 Use stronger platform-native conventions when the project is not a web source-asset project:

@@ -25,6 +25,8 @@ Use `types.ts` for colocated component types. In a feature or shared `types/` di
 
 Before generating shadcn or another component-library code, inspect repository configuration such as `components.json` and preserve its aliases. Keep generated/library-owned components in dedicated directories such as `components/shadcn/` or `components/magicui/`. Put project-owned wrappers in `components/ui/` or the owning feature. Do not modify base library components for product-specific behavior unless documenting a genuine upstream-level fix.
 
+Keep navigation, headers, footers, shells, containers, sidebars, breadcrumbs, and page-layout components under `components/layout/`. Keep logos and brand identity components under `components/brand/`. A child component directory may use PascalCase when it represents a component and exposes `index.tsx` or `index.js`; do not flatten it out of its semantic parent.
+
 Global pure helpers belong in `src/utils/`; reserve `src/lib/` for infrastructure and adapters. Stable shared values belong in `src/constants/`, runtime or integration configuration in `src/config/`, and static shared collections in `src/data/`.
 
 ## Styling
@@ -52,6 +54,8 @@ assets/
 ```
 
 Feature-only source assets may live in `features/<feature>/assets/`. Reusable icon components belong in `src/components/icons/`; library-owned components remain in their library directories. Use root `public/assets/` for stable URL/static-serving requirements. Components should import source assets through the configured alias rather than duplicating files.
+
+Do not put raw `<svg>` markup or duplicated SVG source in JSX/TypeScript. Store SVG files under `assets/brand/`, `assets/icons/`, `public/assets/`, or the owning feature's asset directory, then import or reference them using the framework-supported mechanism.
 
 ## Performance
 

@@ -34,6 +34,8 @@ src/
       types/
       utils/
   components/
+    brand/                  # brand identity components
+    layout/                 # shell, navigation, header, footer, container, page layout
     shadcn/                  # shadcn-owned primitives
     magicui/                 # Magic UI-owned components
     ui/                      # project-owned wrappers/primitives
@@ -61,9 +63,15 @@ src/
     typography.css
     motion.css
     fonts.ts
+  assets/
+    brand/
+    images/
+    icons/
+    illustrations/
+    fonts/
 ```
 
-Create only directories that have a current file and owner. A small feature can begin as `components/`, `types.ts`, and one API file, then grow deliberately. Do not create a feature-root `index.ts` by default.
+Create only directories that have a current file and owner. A small feature can begin as `components/`, `types.ts`, and one API file, then grow deliberately. Do not create a feature-root `index.ts` by default. Semantic parent directories such as `brand/`, `layout/`, `ui/`, and `icons/` remain visible even when their child component directories use PascalCase.
 
 ## Dependency direction
 
@@ -116,6 +124,8 @@ ProductShowcase/
 Split by responsibility, not line count. Keep a piece inline when extracting it would hide rather than clarify behavior.
 
 Import major components through their directory. Do not import private subcomponents outside their owning directory.
+
+Use layout ownership for navigation, headers, footers, shells, containers, sidebars, breadcrumbs, and page-layout components. Use brand ownership for logos and identity components. A component directory may use PascalCase when it represents a component and exposes `index.tsx` or `index.js`; its semantic parent directory remains framework-appropriate and ownership-oriented.
 
 ## Public exports
 

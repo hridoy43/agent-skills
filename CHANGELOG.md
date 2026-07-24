@@ -15,6 +15,13 @@ No unreleased changes.
 - Added adaptive QA verification guidance for bug reproduction, feature acceptance, UI, API, mobile, and deployment changes.
 - Added explicit visual-proof and README-anatomy guidance for screenshots, demos, terminal examples, API examples, and architecture diagrams.
 
+## v0.5.11 — 2026-07-25
+
+- Added semantic ownership for layout components such as navigation, headers, footers, shells, containers, and page layouts.
+- Preserved `brand/`, `layout/`, `ui/`, and `icons/` parent directories while allowing PascalCase component directories underneath them.
+- Added framework-agnostic brand and icon asset ownership guidance.
+- Prohibited inline or duplicated SVG source in application code; SVGs must come from owned asset directories through supported framework mechanisms.
+
 ## v0.5.10 — 2026-07-25
 
 - Added architecture lifecycle rules for greenfield defaults, existing-project preservation, and approved architecture migrations.

@@ -31,6 +31,10 @@
 - `constants/`, `config/`, `data/`, `lib/`, and `utils/` have distinct ownership.
 - Global CSS lives in `src/styles/`.
 - Shared images, raw SVGs, illustrations, fonts, and reusable icon components follow root `assets/` and platform-native asset ownership rules.
+- Layout components remain under layout ownership; brand components remain under brand ownership.
+- Component directories use PascalCase only when they represent components; semantic parent directories remain ownership-oriented.
+- No inline SVG markup or duplicated SVG source exists in application code.
+- SVG and other assets have explicit source/public ownership and use the selected framework's supported loading mechanism.
 - Framework conventions match the installed version; deprecated conventions require documented compatibility reasoning.
 - Library-owned base components remain separate from project-owned wrappers and feature components.
 - Static `data/` files are not used as database, API, cache, or runtime state boundaries.

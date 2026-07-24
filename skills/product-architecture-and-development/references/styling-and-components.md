@@ -102,3 +102,5 @@ Move a component to shared only when it is domain-neutral, has two real consumer
 ## Icons
 
 Use Lucide where available. Import icons directly for tree shaking. Standardize size, stroke, color, accessible labeling, and decorative `aria-hidden`; avoid maintaining bespoke SVGs for ordinary interface metaphors.
+
+When bespoke SVG assets are required, store them under the owned asset directory and import or reference them from the component. Do not write inline `<svg>` markup or duplicate SVG source in application code. Use the selected framework's supported asset/import mechanism and preserve accessible labeling or decorative behavior.

@@ -4,7 +4,9 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 ## Unreleased
 
-Changes that have landed on `main` but are not included in a tagged release.
+No unreleased changes.
+
+## v0.5.9 — 2026-07-25
 
 - Added the public `content-marketing-and-brand-growth` skill for interview-first, SEO-conscious, platform-specific campaigns and measurement.
 - Added reusable profile README architecture guidance combining clear positioning, selected work, credibility, capabilities, and focused CTAs.

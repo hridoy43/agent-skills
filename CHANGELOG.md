@@ -13,6 +13,12 @@ Changes that have landed on `main` but are not included in a tagged release.
 - Added adaptive QA verification guidance for bug reproduction, feature acceptance, UI, API, mobile, and deployment changes.
 - Added explicit visual-proof and README-anatomy guidance for screenshots, demos, terminal examples, API examples, and architecture diagrams.
 
+## v0.5.8 — 2026-07-25
+
+- Clarified framework-agnostic root `assets/` as the shared source asset catalog.
+- Clarified Next.js `public/assets/` as the public URL/static-serving adapter.
+- Preserved platform-native asset conventions for Expo/React Native, Flutter, Android, iOS, and backend projects.
+
 ## v0.5.7 — 2026-07-25
 
 - Made transport-client guidance ecosystem-standard, using Axios only when REST requirements, project conventions, or user preference justify it.

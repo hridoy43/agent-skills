@@ -62,6 +62,17 @@ Use stable providers or repository-native links, descriptive alt text, and links
 
 Premium presentation comes from hierarchy and evidence: a concise opening, one clear visual or demo, short sections, consistent headings, readable code examples, useful whitespace, and a visible support/contribution path—not visual effects alone.
 
+## Repository surface beyond the README
+
+Treat the README as the front door, not the entire documentation system. When the project is public and the material exists, keep these surfaces aligned:
+
+- repository description, topics, website, and social preview;
+- `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, and license;
+- issue templates, discussion/support links, release notes, and changelog;
+- API/reference documentation and long tutorials linked from the README rather than duplicated in it.
+
+Use the README for orientation and the shortest successful path. Link outward for depth, and never add links to empty placeholder documents just to make the repository look complete.
+
 ## Templates
 
 Choose one before drafting:

@@ -5,6 +5,8 @@
 - Goal and acceptance criteria are testable.
 - Architecture decision names present needs and deferred scope.
 - Folder ownership and dependency direction are clear.
+- Greenfield architecture defaults are confirmed before implementation; existing-project migrations are user-approved.
+- Explicit user preferences and healthy existing conventions are preserved unless an approved architecture decision changes them.
 - External packages and versions are verified from primary sources.
 - Migration and rollback are understood for risky changes.
 
@@ -56,3 +58,5 @@ For visual changes, define the routes, viewport sizes, interaction states, reduc
 ## Refactor safety
 
 For behavior-preserving refactors, capture a baseline before editing. Compare DOM semantics, screenshots at key widths, accessibility checks, build output, and tests after each slice. Do not mix broad visual redesign with architectural extraction unless the user approved both.
+
+For architecture migrations, classify each finding as fixed, accepted with a reason, or deferred with an owner and follow-up. Do not report architecture as complete while unclassified findings remain.

@@ -50,6 +50,14 @@ When guidance conflicts, follow this order:
 
 User interaction is part of the implementation contract: explicit user decisions, constraints, and prohibitions always win over defaults. When a prompt leaves a material choice open—or two user preferences conflict—pause and interview the user before installing packages, changing architecture, writing code, or running a migration. Do not interpret “go ahead” as permission to silently choose an unresolved stack, data, design, privacy, or dependency decision.
 
+Architecture lifecycle rules:
+
+- Greenfield project: after the required interview and confirmation of inferred defaults, apply this skill's architecture pattern unless the user specifies a different preference.
+- Existing project: inspect first. Preserve explicit user preferences and healthy existing conventions. Do not silently rename, move, delete, or reorganize files.
+- User-requested architecture change: compare the current project with the requested target, present material migrations, ask for confirmation, then apply approved changes incrementally.
+- “Enforce” means apply confirmed architecture defaults or approved migrations; it never means blindly rewrite an existing project.
+- After approved changes, run structural and behavior verification. Classify every exception as fixed, accepted with a reason, or deferred with an owner/follow-up.
+
 Do not let a companion skill silently override an explicit transport-client requirement or the user's chosen platform. Surface material conflicts and recommend the safest resolution.
 
 The required project interview is the one deliberate exception to the ordering above: invoking this skill means the user has requested preference capture before implementation, even if an embedded brief says to proceed autonomously.

@@ -41,6 +41,22 @@ At minimum, confirm:
 
 For an apparently complete brief, present the inferred architecture defaults and ask the user to confirm or change them. Do not skip the interview because a prompt says “proceed autonomously”; this skill's workflow requires preference capture before implementation.
 
+## Architecture lifecycle
+
+### Greenfield
+
+After the interview and confirmation of inferred defaults, apply the skill's architecture pattern when the user has not specified a conflicting preference. Use the selected stack's current conventions and verify the generated structure.
+
+### Existing project
+
+Inspect the current architecture before proposing changes. Preserve explicit user preferences and healthy existing conventions. Report structural differences as proposed migrations; do not silently rewrite files or directories.
+
+### Explicit architecture change
+
+When the user asks to restructure or update architecture, compare the current and target structures, identify behavior and import risks, and request confirmation for material migrations. Apply approved changes in small slices, then verify structure, behavior, and release gates.
+
+Every deviation must be classified as fixed, accepted with a reason, or deferred with an owner and follow-up.
+
 Ask a second round only when an answer introduces a new material branch. Avoid interrogating the user about low-impact implementation details the skill can decide safely, but never silently decide a material preference the user has not answered.
 
 ## Preference record

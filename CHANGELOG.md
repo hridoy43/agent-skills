@@ -6,6 +6,13 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 No unreleased changes.
 
+## v0.5.12 — 2026-07-25
+
+- Simplified the architecture skill into a compact controller with targeted reference routing.
+- Added a resumable, context-window-safe migration workflow with bounded task files and persistent state.
+- Added a migration-plan generator for existing projects and implementation slices.
+- Expanded project inspection to detect root framework configuration and public asset conventions.
+
 ## v0.5.9 — 2026-07-25
 
 - Added the public `content-marketing-and-brand-growth` skill for interview-first, SEO-conscious, platform-specific campaigns and measurement.

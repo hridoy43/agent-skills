@@ -6,6 +6,10 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 No unreleased changes.
 
+## v0.5.16 — 2026-07-25
+
+- Clarified web `public/` ownership: framework files such as `robots.txt` and `sitemap.xml` stay at the public root, while application assets belong under `public/assets/`.
+
 ## v0.5.15 — 2026-07-25
 
 - Refined validator guidance so Zod is a conditional TypeScript fallback, not a universal requirement.

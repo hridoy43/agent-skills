@@ -32,6 +32,25 @@ Feature-only assets may live in `features/<feature>/assets/`. Do not duplicate a
 
 Use the framework's public/static-serving adapter for assets that need stable URL access. In Next.js, that adapter is root-level `public/`, so URL-served assets belong in `public/assets/`; Next.js does not automatically serve root-level `assets/`. Import source assets from root `assets/` through the repository alias when build-time optimization is needed.
 
+Keep the public directory organized by responsibility. Framework- and protocol-owned files stay at the public root, while application media and static code assets go under `public/assets/`:
+
+```text
+public/
+  robots.txt
+  sitemap.xml
+  manifest.webmanifest
+  favicon.ico
+  site-verification.*
+  assets/
+    brand/
+    images/
+    icons/
+    illustrations/
+    fonts/
+```
+
+Do not put application images, SVGs, fonts, or other reusable static assets directly beside `robots.txt` or `sitemap.xml`. Use framework-required root filenames when a convention requires them; otherwise keep public files under the most specific asset category.
+
 Raw SVG/icon files belong in `assets/icons/`. Reusable React icon components belong in `src/components/icons/`. Generated or vendor-owned UI components remain in library-specific directories such as `src/components/shadcn/` and `src/components/magicui/`.
 
 Do not write inline SVG markup or duplicate SVG source in application code. Store SVG files in the owned asset directory and import them through the selected framework's supported asset mechanism. Brand SVGs belong in `assets/brand/`; shared icons belong in `assets/icons/`; feature-specific SVGs may live in `features/<feature>/assets/`.

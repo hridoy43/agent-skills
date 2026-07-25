@@ -55,6 +55,8 @@ assets/
 
 Feature-only source assets may live in `features/<feature>/assets/`. Reusable icon components belong in `src/components/icons/`; library-owned components remain in their library directories. Use root `public/assets/` for stable URL/static-serving requirements. Components should import source assets through the configured alias rather than duplicating files.
 
+Keep framework-owned public files at the `public/` root, such as `robots.txt`, `sitemap.xml`, `manifest.webmanifest`, favicons, and verification files. Put application images, SVGs, fonts, illustrations, and other static code-related assets under `public/assets/`, organized by type or domain. Do not mix reusable application assets into the public root.
+
 Do not put raw `<svg>` markup or duplicated SVG source in JSX/TypeScript. Store SVG files under `assets/brand/`, `assets/icons/`, `public/assets/`, or the owning feature's asset directory, then import or reference them using the framework-supported mechanism.
 
 ## Performance

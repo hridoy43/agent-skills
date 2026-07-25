@@ -24,7 +24,7 @@
 - Major component directories expose their primary component through `index.tsx` and callers do not import private subcomponents.
 - Component filenames match exported PascalCase component names.
 - Component filenames do not use `.component` suffix.
-- Feature roots do not contain mandatory `index.ts`; category-level indexes and major component `index.tsx` files expose intentional surfaces.
+- Feature roots do not contain `features/<feature>/index.ts`; category-level indexes and major component `index.tsx` files expose intentional surfaces.
 - Shared code does not import feature internals.
 - Utilities remain pure unless their owning API, service, or adapter boundary is explicit.
 - Pure global helpers live in `src/utils/`, not infrastructure-oriented `src/lib/`.

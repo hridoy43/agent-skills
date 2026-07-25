@@ -6,6 +6,11 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 No unreleased changes.
 
+## v0.5.19 — 2026-07-25
+
+- Explicitly prohibited feature-root `features/<feature>/index.ts` files.
+- Clarified that public indexes belong in owned category directories or major component directories.
+
 ## v0.5.18 — 2026-07-25
 
 - Removed the duplicate `components/layout/` entry from the canonical architecture tree.

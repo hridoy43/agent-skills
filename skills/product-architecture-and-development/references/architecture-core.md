@@ -70,7 +70,7 @@ src/
     fonts/
 ```
 
-Create only directories that have a current file and owner. A small feature can begin as `components/`, `types.ts`, and one API file, then grow deliberately. Do not create a feature-root `index.ts` by default. Semantic parent directories such as `brand/`, `layout/`, `ui/`, and `icons/` remain visible even when their child component directories use PascalCase.
+Create only directories that have a current file and owner. A small feature can begin as `components/`, `types.ts`, and one API file, then grow deliberately. Never create `features/<feature>/index.ts`; feature public surfaces belong in owned category directories. Semantic parent directories such as `brand/`, `layout/`, `ui/`, and `icons/` remain visible even when their child component directories use PascalCase.
 
 ## Dependency direction
 

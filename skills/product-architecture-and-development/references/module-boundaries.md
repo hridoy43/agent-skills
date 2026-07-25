@@ -92,7 +92,7 @@ features/<feature>/
   # no feature-root index required
 ```
 
-Feature roots may contain documentation or a temporary migration file. Do not use root-level `index.ts`, `actions.ts`, `service.ts`, `utils.ts`, or component implementations by default.
+Feature roots may contain documentation or a temporary migration file. Never use `features/<feature>/index.ts`; do not place `actions.ts`, `service.ts`, `utils.ts`, or component implementations at the feature root. Public exports belong in category directories such as `actions/`, `components/`, `helpers/`, `schemas/`, `services/`, or another owned category when it has a real public surface.
 
 Category directories may expose intentional public surfaces:
 

@@ -40,7 +40,7 @@ Load specialist skills only when the task needs them. Prefer official ecosystem 
 - Keep routes/screens thin. Features own domain UI, actions, API functions, hooks, schemas, services, types, data, utilities, and tests.
 - Shared code must be domain-neutral and have at least two real consumers.
 - Use explicit category directories. Prevent feature-root implementation-file sprawl.
-- React product components use matching PascalCase names and `PascalCase/index.tsx`. Category indexes are allowed; feature-root public indexes are not created by default and are prohibited when the project preference says so.
+- React product components use matching PascalCase names and `PascalCase/index.tsx`. Never create `features/<feature>/index.ts`; public surfaces belong in owned category directories such as `actions/`, `components/`, `helpers/`, `schemas/`, or `services/`, or inside a major component directory.
 - Use semantic suffixes such as `.data.ts`, `.action.ts`, `.service.ts`, `.api.ts`, and `.schema.ts` where useful. In TypeScript React projects, prefer camelCase names such as `createCustomer.action.ts` and colocated `types.ts`.
 - Keep library-owned primitives in library-specific directories. Extend them with project-owned wrappers; do not modify base components for product behavior.
 - For supported ecosystems, install and use Lucide by default when the user and existing project do not specify another icon system. Prefer direct imports; create custom SVG assets only for brand, product-specific, or genuinely unavailable icons. Library-generated SVG output is allowed; manually authored or duplicated SVG markup is not.

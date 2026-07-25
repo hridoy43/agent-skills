@@ -109,7 +109,14 @@ Share contracts, schemas, domain rules, tokens, and tooling. Do not force web an
 
 ## Near-atomic component rule
 
-Use a same-named PascalCase directory for a major component. Make `index.tsx` the public primary component so callers import through the directory:
+Use a direct PascalCase file when a component is standalone:
+
+```text
+components/
+  CustomerForm.tsx
+```
+
+Use a same-named PascalCase directory only for a major composition with multiple cohesive child files, meaningful local state, or types shared by those children. Make `index.tsx` the public primary component so callers import through the directory:
 
 ```text
 ProductShowcase/
@@ -117,10 +124,10 @@ ProductShowcase/
   ProductSlide.tsx           # coherent private subview
   ProductMedia.tsx
   ProductDots.tsx
-  types.ts
+  types.ts                  # only types shared by this composition
 ```
 
-Split by responsibility, not line count. Keep a piece inline when extracting it would hide rather than clarify behavior.
+Keep a component-only type inside the component file. Split by responsibility, not line count. Keep a piece or type inline when extracting it would hide rather than clarify behavior.
 
 Import major components through their directory. Do not import private subcomponents outside their owning directory.
 

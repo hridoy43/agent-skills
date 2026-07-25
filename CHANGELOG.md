@@ -6,6 +6,13 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 No unreleased changes.
 
+## v0.5.23 — 2026-07-25
+
+- Clarified that standalone React components use direct PascalCase files such as `CustomerForm.tsx`.
+- Reserved PascalCase component directories and `index.tsx` entries for major multi-file compositions.
+- Clarified component-type ownership: inline local types, major-component `types.ts`, and shared domain types.
+- Updated architecture examples, quality gates, forms guidance, and the module scaffold script.
+
 ## v0.5.22 — 2026-07-25
 
 - Made `public/assets/` the default web asset boundary for shared and feature-scoped assets.

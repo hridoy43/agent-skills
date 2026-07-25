@@ -7,8 +7,9 @@ Use repository conventions when healthy. Otherwise apply these defaults.
 Apply the following component rules only to React projects. For Flutter, Android, iOS, backend, and other ecosystems, use the platform or language's current standard naming conventions.
 
 - Product components: PascalCase filename and matching exported component name, without a `.component` suffix.
-- Major component directory: PascalCase, with public composition in `index.tsx`.
-- Colocated component types: `types.ts`.
+- Standalone product component: PascalCase filename matching the exported component, such as `CustomerForm.tsx`.
+- Major component directory: PascalCase with public composition in `index.tsx`; use only when multiple cohesive child files, meaningful local state, or shared local types justify the directory.
+- Component-only types stay in the component file; a major component’s `types.ts` is for types shared by its children.
 - Feature/shared types: domain names inside `types/`, such as `invoice.ts` or `pagination.ts`.
 - Hooks: React convention, such as `useInvoice.ts`.
 - Non-component modules: camelCase with role suffixes where the boundary matters: `countries.data.ts`, `createInvoice.action.ts`, `invoice.service.ts`, `invoice.api.ts`, and `customerForm.schema.ts`.

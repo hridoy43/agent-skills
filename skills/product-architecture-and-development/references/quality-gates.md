@@ -22,7 +22,7 @@
 - Critical user journeys have end-to-end coverage where practical.
 - Production build succeeds.
 - Feature implementation files live in their owned category directories; feature roots contain no misplaced `actions.ts`, `service.ts`, `utils.ts`, or component implementations.
-- Major component directories expose their primary component through `index.tsx` and callers do not import private subcomponents.
+- Standalone components are direct PascalCase files; major component directories expose their primary component through `index.tsx` only when their composition justifies a directory, and callers do not import private subcomponents.
 - Component filenames match exported PascalCase component names.
 - Component filenames do not use `.component` suffix.
 - Feature roots do not contain `features/<feature>/index.ts`; category-level indexes and major component `index.tsx` files expose intentional surfaces.

@@ -25,9 +25,8 @@ const base = kind === 'feature'
 
 const files = kind === 'feature'
   ? {
-      [path.join(base, 'components', pascal, 'index.tsx')]: `import type { ${pascal}Props } from './types';\n\nexport function ${pascal}(props: ${pascal}Props) {\n  return <section>{props.children}</section>;\n}\n`,
-      [path.join(base, 'components', pascal, 'types.ts')]: `import type { ReactNode } from 'react';\n\nexport type ${pascal}Props = {\n  children?: ReactNode;\n};\n`,
-      [path.join(base, 'components', 'index.ts')]: `export { ${pascal} } from './${pascal}';\nexport type { ${pascal}Props } from './${pascal}/types';\n`,
+      [path.join(base, 'components', `${pascal}.tsx`)]: `import type { ReactNode } from 'react';\n\nexport type ${pascal}Props = {\n  children?: ReactNode;\n};\n\nexport function ${pascal}(props: ${pascal}Props) {\n  return <section>{props.children}</section>;\n}\n`,
+      [path.join(base, 'components', 'index.ts')]: `export { ${pascal} } from './${pascal}';\nexport type { ${pascal}Props } from './${pascal}';\n`,
     }
   : {
       [path.join(base, 'index.tsx')]: `import type { ${pascal}Props } from './types';\n\nexport function ${pascal}(props: ${pascal}Props) {\n  return <div>{props.children}</div>;\n}\n`,

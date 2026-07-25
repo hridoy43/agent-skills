@@ -38,6 +38,5 @@ features/Customers/
 ├── actions/
 │   └── createCustomer.action.ts
 └── components/
-    └── CustomerForm/
-        └── index.tsx
+    └── CustomerForm.tsx
 ```

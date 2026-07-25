@@ -41,7 +41,6 @@ src/
     ui/                      # project-owned wrappers/primitives
     icons/                   # project-owned reusable icon components
     form/
-    layout/
   lib/
     api/
     analytics/

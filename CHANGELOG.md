@@ -6,6 +6,10 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 No unreleased changes.
 
+## v0.5.18 — 2026-07-25
+
+- Removed the duplicate `components/layout/` entry from the canonical architecture tree.
+
 ## v0.5.17 — 2026-07-25
 
 - Made Lucide the default interface icon library for supported ecosystems when no user or existing-project preference applies.

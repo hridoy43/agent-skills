@@ -116,7 +116,7 @@ All companion skills are optional. Install only the ones the project or current 
 The chosen stack determines these. Add them only when justified:
 
 - Tailwind CSS for small web projects.
-- Zod or the user-selected ecosystem validator for forms, user input, and untrusted boundaries.
+- Zod as the fallback TypeScript validator, or the user-selected/framework-standard validator, for forms, user input, and untrusted boundaries.
 - shadcn/ui, Magic UI, or a reviewed community shadcn registry for larger web projects.
 - Ant Design for dashboard/admin-heavy applications when its interaction model fits.
 - Axios (or the platform-equivalent client) plus TanStack Query or an equivalent cache for API-heavy applications.

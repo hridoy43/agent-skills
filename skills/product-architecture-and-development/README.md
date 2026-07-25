@@ -28,6 +28,49 @@ Interview me about decisions that could change the architecture. Then propose th
 
 For an existing codebase, provide its absolute path and ask the skill to inspect its conventions first. For a new idea, the skill should avoid speculative folders and dependencies until the first vertical slice justifies them.
 
+## Useful commands for existing projects
+
+Run these from the skill directory or use absolute paths:
+
+```bash
+# Inspect the project and print detected conventions
+node scripts/inspect-project.mjs /absolute/path/to/project
+
+# Create a resumable migration plan and task files
+node scripts/create-migration-plan.mjs /absolute/path/to/project
+
+# Inspect the generated plan
+less /absolute/path/to/project/.architecture/migration-plan.md
+cat /absolute/path/to/project/.architecture/state.json
+```
+
+Then ask the agent to work one task at a time:
+
+```text
+Use $product-architecture-and-development.
+Inspect /absolute/path/to/project.
+Read its .architecture/migration-plan.md and state.json.
+Work only on the first incomplete task.
+Do not modify files outside that task.
+Run the task validation and update state before continuing.
+```
+
+For a specific task, name its task file and scope:
+
+```text
+Use $product-architecture-and-development.
+Read /absolute/path/to/project/.architecture/tasks/003-global-assets-and-svg-ownership.md.
+Complete only this task, validate it, and record the result in state.json.
+```
+
+After context loss, resume with:
+
+```text
+Use $product-architecture-and-development.
+Read the project audit, migration plan, and state.json.
+Resume from the first incomplete task. Do not repeat completed tasks.
+```
+
 ## Required before use
 
 - A supported agent with Agent Skills enabled.

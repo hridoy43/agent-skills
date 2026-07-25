@@ -6,6 +6,10 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 No unreleased changes.
 
+## v0.5.13 — 2026-07-25
+
+- Documented inspection, migration-plan, task-resume, and task-specific invocation commands in the architecture skill README.
+
 ## v0.5.12 — 2026-07-25
 
 - Simplified the architecture skill into a compact controller with targeted reference routing.

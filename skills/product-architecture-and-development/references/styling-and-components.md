@@ -101,6 +101,6 @@ Move a component to shared only when it is domain-neutral, has two real consumer
 
 ## Icons
 
-Use Lucide where available. Import icons directly for tree shaking. Standardize size, stroke, color, accessible labeling, and decorative `aria-hidden`; avoid maintaining bespoke SVGs for ordinary interface metaphors.
+For supported ecosystems, install and use Lucide when the user and existing project do not specify another icon system. Preserve a healthy existing icon library; do not add Lucide beside it without a documented gap. Import icons directly for tree shaking. Standardize size, stroke, color, accessible labeling, and decorative `aria-hidden`; avoid bespoke SVGs for ordinary interface metaphors.
 
-When bespoke SVG assets are required, store them under the owned asset directory and import or reference them from the component. Do not write inline `<svg>` markup or duplicate SVG source in application code. Use the selected framework's supported asset/import mechanism and preserve accessible labeling or decorative behavior.
+When a suitable Lucide icon does not exist or a brand/product-specific icon is required, store the bespoke SVG under the owned asset directory and import or reference it from the component. Lucide's maintained component output may render SVG internally; the prohibition applies to manually authored or duplicated SVG markup. Use the selected framework's supported asset/import mechanism and preserve accessible labeling or decorative behavior.

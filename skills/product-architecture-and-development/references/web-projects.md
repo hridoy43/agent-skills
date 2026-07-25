@@ -57,7 +57,7 @@ Feature-only source assets may live in `features/<feature>/assets/`. Reusable ic
 
 Keep framework-owned public files at the `public/` root, such as `robots.txt`, `sitemap.xml`, `manifest.webmanifest`, favicons, and verification files. Put application images, SVGs, fonts, illustrations, and other static code-related assets under `public/assets/`, organized by type or domain. Do not mix reusable application assets into the public root.
 
-Do not put raw `<svg>` markup or duplicated SVG source in JSX/TypeScript. Store SVG files under `assets/brand/`, `assets/icons/`, `public/assets/`, or the owning feature's asset directory, then import or reference them using the framework-supported mechanism.
+When no icon preference or existing library applies, install Lucide for interface icons and import individual icons directly. Do not add a second icon library to a healthy project. Do not put manually authored raw `<svg>` markup or duplicated SVG source in JSX/TypeScript. Store custom SVG files under `assets/brand/`, `assets/icons/`, `public/assets/`, or the owning feature's asset directory, then import or reference them using the framework-supported mechanism. Lucide component output is an allowed maintained-library exception.
 
 ## Performance
 

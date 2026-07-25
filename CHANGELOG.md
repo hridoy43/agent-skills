@@ -6,6 +6,11 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 No unreleased changes.
 
+## v0.5.17 — 2026-07-25
+
+- Made Lucide the default interface icon library for supported ecosystems when no user or existing-project preference applies.
+- Clarified that maintained Lucide SVG output is allowed while manually authored or duplicated SVG markup remains prohibited.
+
 ## v0.5.16 — 2026-07-25
 
 - Clarified web `public/` ownership: framework files such as `robots.txt` and `sitemap.xml` stay at the public root, while application assets belong under `public/assets/`.

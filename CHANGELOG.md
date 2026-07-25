@@ -6,6 +6,12 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 No unreleased changes.
 
+## v0.5.21 — 2026-07-25
+
+- Added platform-agnostic evidence-led product design guidance with hypotheses, evidence boundaries, flow analysis, metrics, guardrails, and ethical checks.
+- Added the standalone `ai-assisted-product-development` skill for structured agent context, bounded design exploration, disposable tools, human review, and safe feedback-to-change workflows.
+- Added ground-truth, least-privilege, user-validation, template-bias, and verification-debt safeguards for AI-assisted product work.
+
 ## v0.5.20 — 2026-07-25
 
 - Made library and registry selection standards-first and conditional rather than opinionated.

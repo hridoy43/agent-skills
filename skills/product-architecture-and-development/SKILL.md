@@ -30,6 +30,7 @@ Read only the applicable references:
 - Styling/UI: [styling-and-components.md](references/styling-and-components.md) and [design-system-and-ui-libraries.md](references/design-system-and-ui-libraries.md)
 - Data/API: [api-data-state.md](references/api-data-state.md)
 - Forms/validation: [forms-and-validation.md](references/forms-and-validation.md)
+- Product decisions: [evidence-led-product-design.md](references/evidence-led-product-design.md)
 - Assets/styles: [assets-and-styles.md](references/assets-and-styles.md)
 - Validation: [quality-gates.md](references/quality-gates.md)
 
@@ -49,6 +50,7 @@ Load specialist skills only when the task needs them. Prefer official ecosystem 
 - Keep assets in the framework-appropriate global or package-owned asset location. Never duplicate SVG source or write raw SVG markup in application code when an asset/import mechanism is available.
 - Use the framework/ecosystem-standard transport client. Use Axios only for REST requirements, existing conventions, or explicit preference; never wrap a typed RPC/generated client redundantly.
 - Validate every untrusted form submission at the server or trusted boundary; add client validation for immediate feedback when the platform supports it. Preserve the user’s validator preference and existing convention. For TypeScript, use Zod only as the fallback default when no framework-standard validator applies; choose another maintained validator when compatibility, bundle size, performance, generated contracts, or ecosystem conventions justify it. Keep schemas feature-owned, share them between form and server action when safe, normalize field/form errors, and test invalid, boundary, and cross-field cases.
+- Use evidence-led product design for meaningful product, UX, and behavior decisions across web, mobile, desktop, backend workflows, and multi-app products. Define the outcome and hypothesis, inspect the complete flow, separate observation from inference, choose proportionate evidence, define success and guardrail metrics, consider accessibility/trust/privacy/unintended harm, and validate before broad implementation. Read [evidence-led-product-design.md](references/evidence-led-product-design.md) when the task involves user behavior, onboarding, retention, conversion, monetization, dashboards, or major interaction changes.
 - Use official or officially recommended linting/formatting when available. Otherwise use a maintained compatible tool. Use one formatter and lint path per language.
 - Prefer the existing package manager. For new JS/TS projects prefer pnpm; use Bun only with verified compatibility or an existing Bun convention.
 
@@ -74,4 +76,6 @@ After each task, run the smallest relevant checks. Before handoff, run structura
 
 ## Scope
 
-This skill owns architecture, boundaries, structure, tooling choices, implementation slices, and verification. Task-specific skills own their specialist technique after this skill routes to them. Do not load every reference or companion skill when one targeted reference is sufficient.
+This skill owns architecture, boundaries, structure, tooling choices, implementation slices, and verification. Task-specific skills own their specialist technique after this skill routes to them. Do not load every reference or companion skill when one targeted reference is sufficient. For AI-assisted design collaboration, task-scoped context, disposable exploration tools, or feedback-to-agent workflows, route to `ai-assisted-product-development`.
+
+When the task involves landing pages, marketing copy, pricing, sales narratives, public product pages, or conversion-focused onboarding, route narrative, proof, CTA, SEO, and conversion measurement to `conversion-storytelling`; this skill owns architecture, product-flow implications, implementation boundaries, and technical verification. Do not duplicate that skill’s narrative frameworks.

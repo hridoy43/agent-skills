@@ -45,21 +45,25 @@ Global pure helpers belong in `src/utils/`; reserve `src/lib/` for infrastructur
 
 ## Assets and icons
 
-Keep shared source assets in systematic global directories:
+Keep web assets in the framework's global/static asset boundary. For Next.js and similar web projects, use `public/assets/` and organize shared and feature-scoped assets below it:
 
 ```text
-assets/
-  images/
-  icons/          # raw SVG/icon assets
-  illustrations/
-  fonts/
+public/
+  assets/
+    brand/
+    images/
+    icons/          # raw SVG/icon assets
+    illustrations/
+    fonts/
+    <feature>/       # feature-scoped assets when useful
+      <asset-group>/
 ```
 
-Feature-only source assets may live in `features/<feature>/assets/`. Reusable icon components belong in `src/components/icons/`; library-owned components remain in their library directories. Use root `public/assets/` for stable URL/static-serving requirements. Components should import source assets through the configured alias rather than duplicating files.
+Feature-specific assets belong under `public/assets/<feature>/`, not `features/<feature>/assets/`, unless the framework or build pipeline explicitly requires source-local ownership. Reusable icon components belong in `src/components/icons/`; library-owned components remain in their library directories. Components should reference public assets through the framework-supported URL/static mechanism rather than duplicating files.
 
 Keep framework-owned public files at the `public/` root, such as `robots.txt`, `sitemap.xml`, `manifest.webmanifest`, favicons, and verification files. Put application images, SVGs, fonts, illustrations, and other static code-related assets under `public/assets/`, organized by type or domain. Do not mix reusable application assets into the public root.
 
-When no icon preference or existing library applies, evaluate a maintained ecosystem-standard icon option such as Lucide and ask before installing it. Do not add a second icon library to a healthy project. Do not put manually authored raw `<svg>` markup or duplicated SVG source in JSX/TypeScript. Store custom SVG files under `assets/brand/`, `assets/icons/`, `public/assets/`, or the owning feature's asset directory, then import or reference them using the framework-supported mechanism. Maintained library component output is an allowed exception.
+When no icon preference or existing library applies, evaluate a maintained ecosystem-standard icon option such as Lucide and ask before installing it. Do not add a second icon library to a healthy project. Do not put manually authored raw `<svg>` markup or duplicated SVG source in JSX/TypeScript. Store custom SVG files under `public/assets/brand/`, `public/assets/icons/`, or `public/assets/<feature>/`, then reference them using the framework-supported mechanism. Maintained library component output is an allowed exception.
 
 ## Performance
 

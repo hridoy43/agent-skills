@@ -6,6 +6,13 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 No unreleased changes.
 
+## v0.5.22 — 2026-07-25
+
+- Made `public/assets/` the default web asset boundary for shared and feature-scoped assets.
+- Added `public/assets/<feature>/` organization for feature-specific web assets.
+- Restricted feature-local asset directories to framework or build-pipeline requirements.
+- Aligned shared asset and SVG guidance with the web-project convention.
+
 ## v0.5.21 — 2026-07-25
 
 - Added platform-agnostic evidence-led product design guidance with hypotheses, evidence boundaries, flow analysis, metrics, guardrails, and ethical checks.

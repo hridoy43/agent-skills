@@ -28,6 +28,7 @@ Read only the applicable references:
 - Stack choice: [stack-selection.md](references/stack-selection.md)
 - Styling/UI: [styling-and-components.md](references/styling-and-components.md) and [design-system-and-ui-libraries.md](references/design-system-and-ui-libraries.md)
 - Data/API: [api-data-state.md](references/api-data-state.md)
+- Forms/validation: [forms-and-validation.md](references/forms-and-validation.md)
 - Assets/styles: [assets-and-styles.md](references/assets-and-styles.md)
 - Validation: [quality-gates.md](references/quality-gates.md)
 
@@ -45,6 +46,7 @@ Load specialist skills only when the task needs them. Prefer official ecosystem 
 - Keep design tokens and code-based style configuration in the style-owned directory. Keep framework/build configuration at the repository root unless the framework explicitly requires another location.
 - Keep assets in the framework-appropriate global or package-owned asset location. Never duplicate SVG source or write raw SVG markup in application code when an asset/import mechanism is available.
 - Use the framework/ecosystem-standard transport client. Use Axios only for REST requirements, existing conventions, or explicit preference; never wrap a typed RPC/generated client redundantly.
+- Validate every user-input form on the client for immediate feedback and again on the server or trusted boundary. Preserve the user’s validator preference; otherwise prefer Zod for TypeScript projects. Keep schemas feature-owned, share them between form and server action when safe, normalize field/form errors, and test invalid, boundary, and cross-field cases.
 - Use official or officially recommended linting/formatting when available. Otherwise use a maintained compatible tool. Use one formatter and lint path per language.
 - Prefer the existing package manager. For new JS/TS projects prefer pnpm; use Bun only with verified compatibility or an existing Bun convention.
 

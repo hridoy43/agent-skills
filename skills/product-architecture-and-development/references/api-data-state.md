@@ -65,4 +65,4 @@ When a store is added, document: why local state or context is insufficient, whe
 
 ## Validation and types
 
-Generate or share types from the source of truth where possible. Validate untrusted payloads at network, storage, environment, and user-input boundaries. Keep transport DTOs separate from domain models when their lifecycles differ.
+Generate or share types from the source of truth where possible. Validate untrusted payloads at network, storage, environment, and user-input boundaries. For form-specific rules, read [forms-and-validation.md](forms-and-validation.md). Keep transport DTOs separate from domain models when their lifecycles differ.

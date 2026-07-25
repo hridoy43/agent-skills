@@ -6,6 +6,11 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 No unreleased changes.
 
+## v0.5.14 — 2026-07-25
+
+- Added explicit form and user-input validation guidance with user-preference preservation and Zod as the TypeScript default.
+- Added feature-owned schema, client/server validation, accessible error, transformation, and boundary-testing rules.
+
 ## v0.5.13 — 2026-07-25
 
 - Documented inspection, migration-plan, task-resume, and task-specific invocation commands in the architecture skill README.

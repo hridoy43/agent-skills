@@ -88,6 +88,14 @@ The Astryx gate generalizes to every UI framework: inspect the official theme mo
 
 Templates are references, not architecture. Extract the useful layout and state patterns, preserve semantic content and SEO, replace demo data and styling, and keep only what the product needs.
 
+## Conditional registry and chart sources
+
+Named registries are conditional options, not required dependencies. Inspect current official documentation and actual component source, then recommend the smallest compatible option for the identified gap. Ask before installing a package, registry item, or generated source.
+
+For React/Tailwind projects, Aceternity UI, Magic UI, Kokonut UI, Bklit UI, Tremor, Recharts, or another maintained source may be evaluated when it fits the product requirement. Recharts is a composable charting foundation; Tremor is a Tailwind-oriented dashboard layer; Bklit is a shadcn-compatible chart source. These are examples, not defaults. For another primary UI framework, evaluate its ecosystem-compatible charting option first.
+
+Every adopted source must use the project design system: semantic tokens, typography, spacing, chart palette, accessibility, responsive behavior, loading/empty/error states, motion, reduced-motion behavior, and testing conventions. Copy only the required source, keep it in a library-owned directory, and use a project wrapper when application behavior or theme normalization is needed.
+
 ## Avoid library soup
 
 - Select one primary primitive/component foundation per surface.

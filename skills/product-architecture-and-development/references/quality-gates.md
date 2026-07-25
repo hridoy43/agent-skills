@@ -8,6 +8,7 @@
 - Greenfield architecture defaults are confirmed before implementation; existing-project migrations are user-approved.
 - Explicit user preferences and healthy existing conventions are preserved unless an approved architecture decision changes them.
 - External packages and versions are verified from primary sources.
+- Material library and registry choices have a documented requirement, compatibility check, design-system fit, and user approval when they add dependencies or generated source.
 - Migration and rollback are understood for risky changes.
 
 ## Code gates
@@ -37,6 +38,7 @@
 - SVG and other assets have explicit source/public ownership and use the selected framework's supported loading mechanism.
 - Framework conventions match the installed version; deprecated conventions require documented compatibility reasoning.
 - Library-owned base components remain separate from project-owned wrappers and feature components.
+- Secondary component or chart sources do not duplicate the primary foundation without a documented gap.
 - Static `data/` files are not used as database, API, cache, or runtime state boundaries.
 - Error, loading, empty, offline, and permission states are exercised.
 

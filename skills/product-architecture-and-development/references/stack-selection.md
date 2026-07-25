@@ -68,7 +68,7 @@ Read [design-system-and-ui-libraries.md](design-system-and-ui-libraries.md) befo
 
 - Small app or focused marketing surface: Tailwind CSS as the base; add focused accessible primitives only when needed.
 - Growing product web app: Tailwind + shadcn/ui is the normal starting point when source ownership and customization matter.
-- Marketing motion: add selected Magic UI components only for defined interactions and only after maintenance, accessibility, reduced-motion, and bundle review. Treat it as an enhancement source, not a second design system.
+- Marketing motion: evaluate selected registry components, such as Magic UI, Kokonut UI, or Aceternity UI, only for defined interactions and after maintenance, accessibility, reduced-motion, bundle, and design-system review. Treat any registry as an enhancement source, not a second design system, and ask before adoption.
 - Dense dashboard or admin product: evaluate Ant Design when integrated tables, forms, filters, navigation, internationalization, and enterprise interaction patterns would otherwise be rebuilt piecemeal. Adopt its token/theme layer as the primary component foundation if selected.
 - Extensive multi-surface design-system product: Astryx may accelerate implementation when its component, token, theme, template, framework, and AI-agent conventions fit. Complete the Astryx due-diligence gate and an isolated spike before adoption.
 - Keep generated or copied UI source owned by the app, align it to local semantic tokens, and avoid duplicate primitive layers.

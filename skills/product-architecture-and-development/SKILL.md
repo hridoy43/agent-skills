@@ -14,6 +14,7 @@ Use this skill as the project’s architecture controller. It works from a proje
 3. If the user requests architectural change, compare current and target structures, list material migrations, ask for confirmation, then execute approved migrations incrementally.
 4. User preferences and platform constraints outrank defaults. “Enforce” means applying confirmed or approved rules, never blind rewriting.
 5. Keep a decision ledger: `confirmed`, `inferred`, `unknown/configurable`, `prohibited`, and `deferred`.
+6. Prefer official ecosystem conventions and maintained industry standards. Named tools are candidates, not mandates; recommend and ask before adding material dependencies.
 
 ## First routing decision
 
@@ -43,7 +44,7 @@ Load specialist skills only when the task needs them. Prefer official ecosystem 
 - React product components use matching PascalCase names and `PascalCase/index.tsx`. Never create `features/<feature>/index.ts`; public surfaces belong in owned category directories such as `actions/`, `components/`, `helpers/`, `schemas/`, or `services/`, or inside a major component directory.
 - Use semantic suffixes such as `.data.ts`, `.action.ts`, `.service.ts`, `.api.ts`, and `.schema.ts` where useful. In TypeScript React projects, prefer camelCase names such as `createCustomer.action.ts` and colocated `types.ts`.
 - Keep library-owned primitives in library-specific directories. Extend them with project-owned wrappers; do not modify base components for product behavior.
-- For supported ecosystems, install and use Lucide by default when the user and existing project do not specify another icon system. Prefer direct imports; create custom SVG assets only for brand, product-specific, or genuinely unavailable icons. Library-generated SVG output is allowed; manually authored or duplicated SVG markup is not.
+- Preserve a healthy existing icon system. For a new project without an icon preference, evaluate the ecosystem-standard maintained option; Lucide is a common React/web candidate, not a mandatory dependency. Prefer direct imports; create custom SVG assets only for brand, product-specific, or genuinely unavailable icons. Library-generated SVG output is allowed; manually authored or duplicated SVG markup is not.
 - Keep design tokens and code-based style configuration in the style-owned directory. Keep framework/build configuration at the repository root unless the framework explicitly requires another location.
 - Keep assets in the framework-appropriate global or package-owned asset location. Never duplicate SVG source or write raw SVG markup in application code when an asset/import mechanism is available.
 - Use the framework/ecosystem-standard transport client. Use Axios only for REST requirements, existing conventions, or explicit preference; never wrap a typed RPC/generated client redundantly.

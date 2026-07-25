@@ -6,6 +6,12 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 No unreleased changes.
 
+## v0.5.20 — 2026-07-25
+
+- Made library and registry selection standards-first and conditional rather than opinionated.
+- Added design-system, compatibility, and approval gates for secondary UI and chart sources.
+- Clarified conditional web guidance for Aceternity UI, Magic UI, Kokonut UI, Bklit UI, Tremor, and Recharts.
+
 ## v0.5.19 — 2026-07-25
 
 - Explicitly prohibited feature-root `features/<feature>/index.ts` files.

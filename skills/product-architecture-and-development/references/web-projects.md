@@ -25,6 +25,8 @@ Use `types.ts` for colocated component types. In a feature or shared `types/` di
 
 Before generating shadcn or another component-library code, inspect repository configuration such as `components.json` and preserve its aliases. Keep generated/library-owned components in dedicated directories such as `components/shadcn/` or `components/magicui/`. Put project-owned wrappers in `components/ui/` or the owning feature. Do not modify base library components for product-specific behavior unless documenting a genuine upstream-level fix.
 
+For React/Tailwind projects, adopt registry sources only for a verified product or design-system gap. Possible library-owned directories include `components/shadcn/`, `components/magicui/`, `components/kokonutui/`, `components/aceternity/`, and `components/bklitui/`; create only directories for sources actually adopted. Use the primary UI foundation for equivalent primitives. For charts, evaluate Recharts, Tremor, Bklit UI, or another compatible option based on chart complexity, rendering model, accessibility, bundle cost, and design-system fit. Tremor is a Tailwind-specific candidate; do not apply it automatically to Ant Design or another non-Tailwind foundation. Ask before installing or copying any secondary source.
+
 Keep navigation, headers, footers, shells, containers, sidebars, breadcrumbs, and page-layout components under `components/layout/`. Keep logos and brand identity components under `components/brand/`. A child component directory may use PascalCase when it represents a component and exposes `index.tsx` or `index.js`; do not flatten it out of its semantic parent.
 
 Global pure helpers belong in `src/utils/`; reserve `src/lib/` for infrastructure and adapters. Stable shared values belong in `src/constants/`, runtime or integration configuration in `src/config/`, and static shared collections in `src/data/`.
@@ -57,7 +59,7 @@ Feature-only source assets may live in `features/<feature>/assets/`. Reusable ic
 
 Keep framework-owned public files at the `public/` root, such as `robots.txt`, `sitemap.xml`, `manifest.webmanifest`, favicons, and verification files. Put application images, SVGs, fonts, illustrations, and other static code-related assets under `public/assets/`, organized by type or domain. Do not mix reusable application assets into the public root.
 
-When no icon preference or existing library applies, install Lucide for interface icons and import individual icons directly. Do not add a second icon library to a healthy project. Do not put manually authored raw `<svg>` markup or duplicated SVG source in JSX/TypeScript. Store custom SVG files under `assets/brand/`, `assets/icons/`, `public/assets/`, or the owning feature's asset directory, then import or reference them using the framework-supported mechanism. Lucide component output is an allowed maintained-library exception.
+When no icon preference or existing library applies, evaluate a maintained ecosystem-standard icon option such as Lucide and ask before installing it. Do not add a second icon library to a healthy project. Do not put manually authored raw `<svg>` markup or duplicated SVG source in JSX/TypeScript. Store custom SVG files under `assets/brand/`, `assets/icons/`, `public/assets/`, or the owning feature's asset directory, then import or reference them using the framework-supported mechanism. Maintained library component output is an allowed exception.
 
 ## Performance
 

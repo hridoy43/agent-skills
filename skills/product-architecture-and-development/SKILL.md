@@ -32,6 +32,7 @@ Read only the applicable references:
 - Forms/validation: [forms-and-validation.md](references/forms-and-validation.md)
 - Product decisions: [evidence-led-product-design.md](references/evidence-led-product-design.md)
 - Assets/styles: [assets-and-styles.md](references/assets-and-styles.md)
+- Security: [security-and-csp.md](references/security-and-csp.md)
 - Validation: [quality-gates.md](references/quality-gates.md)
 
 Load specialist skills only when the task needs them. Prefer official ecosystem guidance; do not install a companion skill or package without approval. Use the companion check only when the task benefits from it.
@@ -53,6 +54,7 @@ Load specialist skills only when the task needs them. Prefer official ecosystem 
 - Validate every untrusted form submission at the server or trusted boundary; add client validation for immediate feedback when the platform supports it. Preserve the user’s validator preference and existing convention. For TypeScript, use Zod only as the fallback default when no framework-standard validator applies; choose another maintained validator when compatibility, bundle size, performance, generated contracts, or ecosystem conventions justify it. Keep schemas feature-owned, share them between form and server action when safe, normalize field/form errors, and test invalid, boundary, and cross-field cases.
 - Use evidence-led product design for meaningful product, UX, and behavior decisions across web, mobile, desktop, backend workflows, and multi-app products. Define the outcome and hypothesis, inspect the complete flow, separate observation from inference, choose proportionate evidence, define success and guardrail metrics, consider accessibility/trust/privacy/unintended harm, and validate before broad implementation. Read [evidence-led-product-design.md](references/evidence-led-product-design.md) when the task involves user behavior, onboarding, retention, conversion, monetization, dashboards, or major interaction changes.
 - Use official or officially recommended linting/formatting when available. Otherwise use a maintained compatible tool. Use one formatter and lint path per language.
+- For production web deployments, enable HSTS only after confirming complete HTTPS coverage for the domain and its subdomains. Treat `includeSubDomains` and browser preload as explicit deployment decisions, not defaults. Review security headers with the applicable platform guidance.
 - Prefer the existing package manager. For new JS/TS projects prefer pnpm; use Bun only with verified compatibility or an existing Bun convention.
 
 ## Greenfield stack selection

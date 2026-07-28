@@ -38,7 +38,11 @@ For an existing deployed application:
 4. Enforce the policy.
 5. Add automated header checks and monitor reports.
 
-Also consider HSTS, `X-Content-Type-Options: nosniff`, a deliberate referrer policy, permissions policy, secure cookie settings, and framework-specific CSRF protections.
+## Transport and security headers
+
+For production web deployments, enable HSTS only after confirming that the domain and every affected subdomain are HTTPS-ready. Start with an appropriate `max-age`; add `includeSubDomains` only when all subdomains support HTTPS, and treat browser preload as an explicit, difficult-to-reverse deployment decision. Do not enable HSTS for local development or environments that intentionally require HTTP.
+
+Also review and test `X-Content-Type-Options: nosniff`, a deliberate Referrer-Policy, Permissions-Policy, secure cookie settings, framework-specific CSRF protections, and any platform-specific security headers.
 
 ## Platform boundaries
 

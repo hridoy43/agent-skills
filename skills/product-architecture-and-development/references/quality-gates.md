@@ -55,7 +55,7 @@ For visual changes, define the routes, viewport sizes, interaction states, reduc
 
 ## Security and operations
 
-- CSP/security headers are tested.
+- CSP and applicable security headers are tested. For production HTTPS web deployments, verify HSTS behavior and confirm that `includeSubDomains` or preload is enabled only when explicitly approved and safe.
 - Secrets and logs are reviewed.
 - Auth/authz and trust boundaries have negative tests.
 - Analytics respects consent and avoids sensitive data.

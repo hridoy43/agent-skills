@@ -71,11 +71,45 @@ node scripts/inspect-project.mjs /absolute/path/to/project
 
 Then create a persistent migration plan and execute one bounded task at a time. Read [migration-workflow.md](references/migration-workflow.md). Do not attempt a whole-project rewrite in one context window.
 
-Each task must define its files in scope, exclusions, required changes, validation, and completion condition. Limit tasks to one architectural concern and roughly three to eight files. After editing, run the task’s checks, record the result, and resume from the first incomplete task after context loss.
+Each task must define its files in scope, exclusions, required changes, validation, and completion condition. Limit tasks to one architectural concern and roughly three to eight files. After editing, run the task's checks, record the result, and resume from the first incomplete task after context loss.
+
+When a task produces user-visible behavior, run the test before claiming done. Run the verification command in the same message as the completion claim. Tests written after the code and tests that pass on the first run do not prove anything. Follow the Iron Law in the Verification contract section above.
 
 ## Verification contract
 
 After each task, run the smallest relevant checks. Before handoff, run structural verification, lint, typecheck, tests, build, and relevant security/accessibility/SEO checks. Classify every exception as fixed, accepted with a reason, or deferred with an owner and follow-up. Use [quality-gates.md](references/quality-gates.md).
+
+### Verification before completion (Iron Law)
+
+**No completion claims without fresh evidence in the same message.** If the task did not run a verification command in the same response, the agent cannot claim it passed. Run the command, read the output, count failures, then state the result with evidence.
+
+| Claim | Requires | Not sufficient |
+|-------|----------|----------------|
+| Tests pass | Test command output, 0 failures | "Should pass now" / previous run |
+| Linter clean | Linter output, 0 errors | Partial check, extrapolation |
+| Build succeeds | Build command, exit 0 | Linter passing, logs look good |
+| Bug fixed | Test for the original symptom passes | Code changed, assumed fixed |
+| Agent completed | Visible diff in the worktree | "Agent reported success" |
+
+Red flags: "should", "probably", "seems to", or any wording implying success before the verification command ran in the same message.
+
+### Tests as proof
+
+For non-trivial behavior, the test precedes the code. Write the failing test first, watch it fail, write the minimal code to make it pass, refactor. A test that passes on the first run is a warning sign, not a victory; it usually means the test was written after the code and was shaped to match.
+
+When changing an existing test or behavior, name the production change that would make the test fail, write the test, verify it fails for the right reason, then fix the production code.
+
+### Code review reception
+
+When receiving review feedback, verify before implementing. Restate the requirement in the agent's own words. Check the codebase reality. Push back with technical reasoning if the suggestion is wrong for this stack. Never perform agreement ("Great point!"), never say "Thanks", never implement without verification.
+
+The response pattern:
+1. Read the feedback completely.
+2. Restate the requirement.
+3. Verify against the codebase.
+4. Evaluate: technically correct for this project?
+5. Respond with a technical acknowledgment or a reasoned pushback.
+6. Implement one item at a time, testing each.
 
 ## Scope
 

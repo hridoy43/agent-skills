@@ -19,6 +19,8 @@ Use feature-based organization where behavior belongs to a user or business capa
 | `features/<name>/hooks` | Feature-specific reactive behavior and feature API bindings | Generic hooks used by unrelated features |
 | `lib/analytics`, `lib/auth`, `lib/security` | Provider boundaries and shared infrastructure policy | Feature event names or screen-specific decisions |
 | `utils/` | Small pure, dependency-light cross-feature functions | API calls, mutable state, hidden side effects, or domain workflows |
+| `helpers/` | Per-feature non-utility code: feature-specific domain rules, calculations, formatters that aren't generic | Cross-feature concerns, generic formatters, or anything that belongs to global `utils/` |
+| `features/<name>/helpers/` | Feature-owned rules, calculations, and feature-pure functions that don't fit `utils/` (which is for cross-feature shared helpers) | Generic cross-feature helpers (those go in `src/utils/`) or anything that needs I/O, hooks, or adapter state |
 | `data/` | Shared immutable, domain-neutral data with multiple real consumers | Database records, runtime server state, feature-only data |
 | `constants/` | Stable compile-time values shared across features | Runtime configuration, environment secrets, database records |
 | `config/` | Runtime, environment, integration, and app configuration | Pure helpers, domain workflows, secrets committed to source |
@@ -72,6 +74,8 @@ Persist only what must survive restart. Define hydration, migration, logout rese
 - Use a hook only when the code needs reactive state, lifecycle, context, subscriptions, or a platform hook.
 - Keep hooks stable and side-effect boundaries explicit; do not trigger network calls merely because a hook was imported.
 - Name utilities by domain intent (`formatCurrency`, `buildCheckoutParams`), not vague buckets such as `helpers2`. Shared pure utilities belong in `src/utils/`; `lib/` is for infrastructure and adapters such as auth, database, API, and security.
+- Use `features/<feature>/helpers/` for **per-feature pure functions that encode a domain rule or feature-specific calculation**. The rule of thumb: if the function would lose its purpose when the feature is removed, it is a domain rule, not a util. A feature-specific decision that only makes sense within one capability belongs here. Reserve the `helpers/` name for the per-feature category, not for a top-level global directory.
+- Do not create a top-level `src/helpers/` or a top-level `src/domain/` directory. Both are vague global buckets that lead to ownership drift — global shared code belongs in `src/utils/` or `src/lib/`, per-feature code belongs in the feature.
 - When a utility grows state, I/O, or orchestration, move it to the owning API, service, or adapter boundary.
 
 ## Feature directory enforcement
@@ -84,11 +88,12 @@ features/<feature>/
   api/           # endpoint/query adapters
   actions/       # commands or server actions
   components/   # feature UI
+  helpers/      # feature-specific rules, calculations, formatters
   hooks/         # feature reactive behavior
   schemas/       # validation schemas
   services/      # feature/domain orchestration
   types/         # feature types
-  utils/         # feature-pure utilities
+  utils/         # feature-pure generic helpers
   # no feature-root index required
 ```
 
@@ -99,6 +104,7 @@ Category directories may expose intentional public surfaces:
 ```text
 features/<feature>/actions/index.ts
 features/<feature>/components/index.ts
+features/<feature>/helpers/index.ts
 features/<feature>/schemas/index.ts
 features/<feature>/services/index.ts
 ```

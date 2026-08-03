@@ -19,7 +19,6 @@ Use feature-based organization where behavior belongs to a user or business capa
 | `features/<name>/hooks` | Feature-specific reactive behavior and feature API bindings | Generic hooks used by unrelated features |
 | `lib/analytics`, `lib/auth`, `lib/security` | Provider boundaries and shared infrastructure policy | Feature event names or screen-specific decisions |
 | `utils/` | Small pure, dependency-light cross-feature functions | API calls, mutable state, hidden side effects, or domain workflows |
-| `helpers/` | Per-feature non-utility code: feature-specific domain rules, calculations, formatters that aren't generic | Cross-feature concerns, generic formatters, or anything that belongs to global `utils/` |
 | `features/<name>/helpers/` | Feature-owned rules, calculations, and feature-pure functions that don't fit `utils/` (which is for cross-feature shared helpers) | Generic cross-feature helpers (those go in `src/utils/`) or anything that needs I/O, hooks, or adapter state |
 | `data/` | Shared immutable, domain-neutral data with multiple real consumers | Database records, runtime server state, feature-only data |
 | `constants/` | Stable compile-time values shared across features | Runtime configuration, environment secrets, database records |
@@ -88,16 +87,17 @@ features/<feature>/
   api/           # endpoint/query adapters
   actions/       # commands or server actions
   components/   # feature UI
-  helpers/      # feature-specific rules, calculations, formatters
+  helpers/      # feature-pure functions, rules, calculations, formatters
   hooks/         # feature reactive behavior
   schemas/       # validation schemas
   services/      # feature/domain orchestration
-  types/         # feature types
-  utils/         # feature-pure generic helpers
+  types/         # feature-shared types
   # no feature-root index required
 ```
 
-Feature roots may contain documentation or a temporary migration file. Never use `features/<feature>/index.ts`; do not place `actions.ts`, `service.ts`, `utils.ts`, or component implementations at the feature root. Public exports belong in category directories such as `actions/`, `components/`, `helpers/`, `schemas/`, `services/`, or another owned category when it has a real public surface.
+When two features must share code without merging, use `features/_shared/` (note the leading underscore to keep it sorted last alphabetically in file listings). It holds only the cross-feature slice: types, hooks, schemas, and pure helpers that both features depend on. Anything feature-specific stays inside its own feature. The directory is a fallback for cross-feature sharing, not a default home for new code; reach for it only when two features genuinely need the same code.
+
+Feature roots may contain documentation or a temporary migration file. Never use `features/<feature>/index.ts`; do not place `actions.ts`, `service.ts`, `utils.ts`, `helpers.ts`, `types.ts`, or component implementations at the feature root. All implementation files must live in owned category directories (`actions/`, `api/`, `components/`, `helpers/`, `hooks/`, `schemas/`, `services/`, `types/`). Per-feature `utils/` is not a category — use `helpers/` for any feature-pure function. Public exports belong in category directories such as `actions/`, `components/`, `helpers/`, `schemas/`, `services/`, or another owned category when it has a real public surface.
 
 Category directories may expose intentional public surfaces:
 
@@ -114,6 +114,16 @@ The major component exception is `features/<feature>/components/<MajorComponent>
 Use `src/data/` only for immutable, domain-neutral data with multiple real consumers. Keep feature-only data in `features/<feature>/data/`. Database access belongs in the database adapter; runtime server data belongs in API/query/cache layers.
 
 The shared Tailwind class helper may live at `src/utils/cn.ts` when project aliases and component tooling use `@/utils`. It is a shared UI utility, not business logic. Do not force shadcn's default `lib/utils` location onto a repository with a coherent `utils` alias.
+
+## Growth rules
+
+Shared directories grow; do not let them become junk drawers.
+
+- **`src/utils/`** — when it exceeds 2-3 files, group by domain. Example: `src/utils/money/format.ts`, `src/utils/dates/format.ts`, `src/utils/ids/generate.ts`. The leaf directories (`utils/money/`, `utils/dates/`) are domain slices, not new features. Generic one-offs that don't fit a domain stay at `src/utils/`.
+- **`src/lib/`** — when it exceeds 2-3 files, split by concern. Example: `src/lib/auth/`, `src/lib/network/`, `src/lib/storage/`. Each slice is a cross-cutting infrastructure boundary, not a feature.
+- **Cross-feature schemas** — when multiple features need the same validation, lift it to `src/schemas/` (e.g. `src/schemas/user.ts`). Per-feature schemas stay in `features/<feature>/schemas/`.
+- **Shared test helpers** — `src/lib/test-helpers/` for cross-feature test utilities (custom render functions, mock factories, fixture builders). Per-feature test helpers stay co-located with the test (`feature.test.ts`).
+- **Feature growth** — when a feature exceeds ~40 files, split it into a primary feature and a sub-feature (e.g. `groups/` plus `groups-finance/`, sharing a `features/_shared/` for cross-feature code) rather than a parallel sibling feature. Do not introduce another top-level feature directory for the same domain.
 
 Library-owned components stay isolated:
 

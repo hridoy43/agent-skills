@@ -28,6 +28,7 @@ Read only the applicable references:
 - Backend: [backend-projects.md](references/backend-projects.md)
 - Stack choice: [stack-selection.md](references/stack-selection.md)
 - Styling/UI: [styling-and-components.md](references/styling-and-components.md) and [design-system-and-ui-libraries.md](references/design-system-and-ui-libraries.md)
+- Design, motion, and media: [design-motion-media.md](references/design-motion-media.md)
 - Data/API: [api-data-state.md](references/api-data-state.md)
 - Forms/validation: [forms-and-validation.md](references/forms-and-validation.md)
 - Product decisions: [evidence-led-product-design.md](references/evidence-led-product-design.md)

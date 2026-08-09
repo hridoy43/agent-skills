@@ -1,5 +1,15 @@
 # Assets and styles
 
+## Free asset discovery
+
+When a project needs imagery and no approved asset exists, generate a fit-for-purpose asset first when the image-generation capability can satisfy the brief. Ask for or infer the subject, mood, aspect ratio, visual style, and required dimensions; generate only what the product actually needs and iterate against the user’s feedback.
+
+Use a free asset library only when generation is unavailable, produces an unsuitable result, or the brief requires a real photograph, recognizable place, existing product, or other source-specific material. Offer libraries such as Pixabay, Unsplash, or Pexels as options rather than required providers.
+
+The user may search with suggested keywords, or—when the user authorizes the agent to do the search—the agent may use a focused web search, interactive agent browser, in-app browser, or developer browser. Search narrowly, inspect candidate results, return a small set of relevant options, and let the user choose before incorporating an external asset. Do not collect a large asset set or embed source-site UI when one focused asset or a generated alternative will solve the need.
+
+Keep third-party media as an enhancement to the product’s own content and brand system. Prefer the smallest suitable file, crop, and resolution; preserve responsive dimensions; and check that recognizable people, brands, and visual context fit the intended use before shipping.
+
 ## Global styles
 
 Keep global CSS and code-based presentation configuration in the style-owned directory:

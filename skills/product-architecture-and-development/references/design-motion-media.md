@@ -6,6 +6,18 @@ First solve content hierarchy, layout, typography, spacing, color, contrast, and
 
 Use Impeccable for critique/refinement. Use UI/UX Pro Max when pattern research or design-system selection needs its database. Explain when a specialist skill materially changes the work.
 
+## Reference research and learning
+
+Use public examples, interactive learning sites, case studies, and courses as optional references—not as required tools or dependencies. Extract the method, not the source’s branded content or visual treatment.
+
+- Use short, interactive exercises and immediate explanation when teaching or validating a UX concept.
+- Use behavioral case studies to connect a design choice to a user motivation, product outcome, and possible unintended effect.
+- Use UX psychology principles as hypotheses to test against the actual audience and flow, not as universal laws.
+- Study motion through direct examples: identify the user goal, trigger, state change, continuity cue, and feedback before choosing an animation.
+- For production motion, document the path from kickoff and tool choice through iteration, prototype, implementation constraints, and developer handoff. Specify states, timing, easing, interruption, reduced-motion behavior, and fallback.
+
+Optional references include Uxcel, Growth.Design, Laws of UX, Zajno’s motion-principle examples, School of Motion, Motion Design School, and UX in Motion. They inform the workflow but never override project evidence, accessibility, platform conventions, or the user’s chosen tools.
+
 ## Intuitive UX defaults
 
 Clean visual design means hierarchy, legibility, predictable states, and purposeful interaction—not merely decorative motion. When a brief says “modern” or “intuitive” without specifying behavior, interview first, preserve familiar platform patterns, and make the smallest testable interaction model. For ecommerce, explicitly design browse/search/filter, product discovery, gallery/variant selection, cart, checkout, confirmation, loading, empty, validation, and recovery states; keep the purchase path usable with keyboard, touch, slow networks, and reduced motion.

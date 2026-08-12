@@ -1,6 +1,6 @@
 ---
 name: product-architecture-and-development
-description: Use when starting, scaffolding, auditing, refactoring, or implementing a web, mobile, desktop, backend, or multi-app product; provides an interview-first architecture, current ecosystem tooling, ownership-based structure, and resumable implementation workflow.
+description: Use when starting, scaffolding, auditing, refactoring, or implementing a web, mobile, desktop, backend, or multi-app product; provides interview-led architecture guidance, current ecosystem tooling, ownership-based structure, and an optional resumable implementation workflow.
 ---
 
 # Product Architecture and Development
@@ -9,10 +9,10 @@ Use this skill as the project’s architecture controller. It works from a proje
 
 ## Operating contract
 
-1. Interview the user about unresolved choices that could change product scope, platform, deployment, data/auth, integrations, design, localization, privacy, analytics, or tooling. Present inferred defaults and an MVP boundary; wait for confirmation before implementation.
-2. For greenfield work, apply the confirmed architecture defaults. For existing work, inspect first and preserve healthy conventions. Never silently rename, move, delete, or reorganize an existing project.
-3. If the user requests architectural change, compare current and target structures, list material migrations, ask for confirmation, then execute approved migrations incrementally.
-4. User preferences and platform constraints outrank defaults. “Enforce” means applying confirmed or approved rules, never blind rewriting.
+1. Use the user's prompt as the source of truth. Interview the user about unresolved choices that could materially change the requested result, but do not impose an interview, confirmation, or pause when the user's prompt already provides clear instructions to proceed.
+2. For greenfield work, apply confirmed or inferred architecture defaults. For existing work, inspect first and preserve healthy conventions unless the user requests a change. Never silently rename, move, delete, or reorganize an existing project.
+3. If the user requests an architectural change, compare current and target structures, identify material risks, and execute the requested change. Do not require a separate confirmation step when the user's instruction is clear.
+4. User instructions, preferences, and platform constraints outrank every skill default. Execute the user's requested scope and workflow; do not force interviews, migration plans, bounded tasks, approval gates, or other process requirements that the user did not request.
 5. Keep a decision ledger: `confirmed`, `inferred`, `unknown/configurable`, `prohibited`, and `deferred`.
 6. Prefer official ecosystem conventions and maintained industry standards. Named tools are candidates, not mandates; recommend and ask before adding material dependencies.
 
@@ -70,15 +70,15 @@ Run:
 node scripts/inspect-project.mjs /absolute/path/to/project
 ```
 
-Then create a persistent migration plan and execute one bounded task at a time. Read [migration-workflow.md](references/migration-workflow.md). Do not attempt a whole-project rewrite in one context window.
+Use [migration-workflow.md](references/migration-workflow.md) when it helps execute the work, but do not require it or impose its sequencing rules when the user's prompt requests a different workflow.
 
-Each task must define its files in scope, exclusions, required changes, validation, and completion condition. Limit tasks to one architectural concern and roughly three to eight files. After editing, run the task's checks, record the result, and resume from the first incomplete task after context loss.
+When using a task-based migration plan, define each task's files in scope, exclusions, required changes, validation, and completion condition. Keep task boundaries coherent and resume from the current repository state after context loss. These planning rules do not limit work outside that workflow.
 
-When a task produces user-visible behavior, run the test before claiming done. Run the verification command in the same message as the completion claim. Tests written after the code and tests that pass on the first run do not prove anything. Follow the Iron Law in the Verification contract section above.
+When the requested work includes user-visible behavior, run the relevant test before claiming that behavior is complete. Report verification with the completion claim when practical. Tests written after the code and tests that pass on the first run provide weaker evidence. Follow the Verification contract when it applies to the project.
 
 ## Verification contract
 
-After each task, run the smallest relevant checks. Before handoff, run structural verification, lint, typecheck, tests, build, and relevant security/accessibility/SEO checks. Classify every exception as fixed, accepted with a reason, or deferred with an owner and follow-up. Use [quality-gates.md](references/quality-gates.md).
+For task-based work, run the smallest relevant checks after each task. Before handoff, run the structural, lint, typecheck, test, build, and security/accessibility/SEO checks that apply to the project and requested scope. Classify relevant exceptions as fixed, accepted with a reason, or deferred with an owner and follow-up. Use [quality-gates.md](references/quality-gates.md) when applicable.
 
 ### Verification before completion (Iron Law)
 

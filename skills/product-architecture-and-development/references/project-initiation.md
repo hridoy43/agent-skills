@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A long product prompt is evidence, not yet an implementation plan. Convert it into decisions without losing constraints, negative requirements, or uncertain facts. Always interview the user before planning or coding.
+A long product prompt is both requirements input and implementation direction. Convert it into decisions without losing constraints, negative requirements, or uncertain facts. Ask questions only when missing information blocks the requested work.
 
 ## Brief extraction matrix
 
@@ -29,9 +29,9 @@ Classify every item:
 - `prohibited`: never implement or claim.
 - `deferred`: intentionally outside the first release, with an extension point if needed.
 
-## Mandatory interview
+## Architecture interview
 
-Ask one to three grouped questions in the first round. Choose the questions with the highest architecture impact; do not repeat facts already supplied.
+Ask one to three grouped questions about unresolved decisions with material architectural impact. Skip the interview when the user's prompt already resolves those decisions or explicitly instructs the agent to proceed without pausing; do not repeat facts already supplied.
 
 At minimum, confirm:
 
@@ -39,13 +39,13 @@ At minimum, confirm:
 2. **Preferences and constraints:** Which stack, hosting, auth, data, UI, localization, analytics, or deployment choices are required versus open to recommendation?
 3. **Authority and risk:** Which business claims/content are approved, what data is sensitive, which regions/compliance constraints apply, and which credentials remain unavailable?
 
-For an apparently complete brief, present the inferred architecture defaults and ask the user to confirm or change them. Do not skip the interview because a prompt says “proceed autonomously”; this skill's workflow requires preference capture before implementation.
+For an apparently complete brief, present inferred architecture defaults when useful. A prompt such as “proceed autonomously” or an explicit implementation request takes precedence over the interview and permits the agent to apply reasonable defaults and proceed.
 
 ## Architecture lifecycle
 
 ### Greenfield
 
-After the interview and confirmation of inferred defaults, apply the skill's architecture pattern when the user has not specified a conflicting preference. Use the selected stack's current conventions and verify the generated structure.
+After clarification when needed, apply the skill's architecture pattern when the user has not specified a conflicting preference. Use the selected stack's current conventions and verify the generated structure.
 
 ### Existing project
 
@@ -53,15 +53,15 @@ Inspect the current architecture before proposing changes. Preserve explicit use
 
 ### Explicit architecture change
 
-When the user asks to restructure or update architecture, compare the current and target structures, identify behavior and import risks, and request confirmation for material migrations. Apply approved changes in small slices, then verify structure, behavior, and release gates.
+When the user asks to restructure or update architecture, compare the current and target structures, identify behavior and import risks, and execute the requested change. Use small slices when helpful, but do not require them when the user's requested scope calls for a broader implementation.
 
 Every deviation must be classified as fixed, accepted with a reason, or deferred with an owner and follow-up.
 
-Ask a second round only when an answer introduces a new material branch. Avoid interrogating the user about low-impact implementation details the skill can decide safely, but never silently decide a material preference the user has not answered.
+Ask a second round only when an answer introduces a new material branch that genuinely blocks the requested work. Avoid interrogating the user about implementation details the skill can decide safely; use the user's stated preferences and reasonable defaults.
 
 ## Preference record
 
-After the interview, publish a compact decision ledger and wait for the user's correction or confirmation before implementation:
+When useful, publish a compact decision ledger alongside implementation planning; do not wait for confirmation when the user's requested action is already clear:
 
 ```text
 Confirmed preferences

@@ -5,10 +5,10 @@
 - Goal and acceptance criteria are testable.
 - Architecture decision names present needs and deferred scope.
 - Folder ownership and dependency direction are clear.
-- Greenfield architecture defaults are confirmed before implementation; existing-project migrations are user-approved.
+- Greenfield architecture defaults and existing-project changes follow the user's prompt; inferred defaults may be applied when the request is clear.
 - Explicit user preferences and healthy existing conventions are preserved unless an approved architecture decision changes them.
 - External packages and versions are verified from primary sources.
-- Material library and registry choices have a documented requirement, compatibility check, design-system fit, and user approval when they add dependencies or generated source.
+- Material library and registry choices have a documented requirement, compatibility check, and design-system fit; follow the user's explicit dependency choice without adding an unnecessary approval gate.
 - Migration and rollback are understood for risky changes.
 
 ## Code gates
@@ -65,4 +65,4 @@ For visual changes, define the routes, viewport sizes, interaction states, reduc
 
 For behavior-preserving refactors, capture a baseline before editing. Compare DOM semantics, screenshots at key widths, accessibility checks, build output, and tests after each slice. Do not mix broad visual redesign with architectural extraction unless the user approved both.
 
-For architecture migrations, classify each finding as fixed, accepted with a reason, or deferred with an owner and follow-up. Do not report architecture as complete while unclassified findings remain.
+For architecture migrations, classify each finding as fixed, accepted with a reason, or deferred with an owner and follow-up when a migration record is being used. Do not let this reporting format prevent completion of a clearly requested implementation.

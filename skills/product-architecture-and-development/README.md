@@ -4,7 +4,7 @@ Use this skill to plan, scaffold, refactor, or implement maintainable TypeScript
 
 ## Use it from the first idea
 
-This skill is designed to work as a single starting prompt. It does not require a complete product specification. Give it the idea, users, outcome, platform, known workflows, content, constraints, and preferences you have. User decisions always take precedence. The skill must interview for unresolved architecture decisions, wait for the user's answers or confirmation of its inferred defaults, and only then plan or implement:
+This skill is designed to work as a single starting prompt. It does not require a complete product specification. Give it the idea, users, outcome, platform, known workflows, content, constraints, and preferences you have. User decisions always take precedence. The skill should interview for unresolved decisions that could materially affect the architecture, unless the user's prompt clearly instructs it to proceed without pausing; otherwise it should infer defaults and proceed:
 
 - a confirmed/inferred/unknown decision ledger and MVP boundary;
 - the stack, deployment shape, route/screen model, and ownership-based folder architecture;
@@ -23,7 +23,7 @@ Platform/deployment: [web, mobile, desktop, API, or multi-app].
 Known requirements: [workflows, content, integrations, auth, data].
 Preferences: [stack, UI, design, localization, analytics, hosting].
 Constraints: [MVP scope, timeline, privacy, compliance, budget].
-Interview me about decisions that could change the architecture. Then propose the architecture, folder tree, design system, SEO/security/analytics plan, tests, and vertical implementation slices before coding.
+Interview me about decisions that could materially change the architecture unless my prompt already provides the required direction or explicitly asks you to proceed. Then propose or implement the architecture, folder tree, design system, SEO/security/analytics plan, tests, and implementation scope.
 ```
 
 For an existing codebase, provide its absolute path and ask the skill to inspect its conventions first. For a new idea, the skill should avoid speculative folders and dependencies until the first vertical slice justifies them.
@@ -44,15 +44,14 @@ less /absolute/path/to/project/.architecture/migration-plan.md
 cat /absolute/path/to/project/.architecture/state.json
 ```
 
-Then ask the agent to work one task at a time:
+Then ask the agent to work through the requested scope:
 
 ```text
 Use $product-architecture-and-development.
 Inspect /absolute/path/to/project.
 Read its .architecture/migration-plan.md and state.json.
-Work only on the first incomplete task.
-Do not modify files outside that task.
-Run the task validation and update state before continuing.
+Complete the requested work, using the migration plan as context.
+Run appropriate validation before handoff.
 ```
 
 For a specific task, name its task file and scope:
@@ -60,7 +59,7 @@ For a specific task, name its task file and scope:
 ```text
 Use $product-architecture-and-development.
 Read /absolute/path/to/project/.architecture/tasks/003-global-assets-and-svg-ownership.md.
-Complete only this task, validate it, and record the result in state.json.
+Complete this task, validate it, and record the result in state.json when a migration record is being used.
 ```
 
 After context loss, resume with:
@@ -68,23 +67,23 @@ After context loss, resume with:
 ```text
 Use $product-architecture-and-development.
 Read the project audit, migration plan, and state.json.
-Resume from the first incomplete task. Do not repeat completed tasks.
+Resume the requested work from the current repository state.
 ```
 
-## Required before use
+## Useful context
 
 - A supported agent with Agent Skills enabled.
-- The product brief, target users, platform, MVP boundary, deployment constraints, and any existing repository.
-- The user's decisions about data, authentication, integrations, design direction, localization, privacy, analytics, and preferred tools—or permission to infer defaults after interviewing them.
+- A product brief, target users, platform, MVP boundary, deployment constraints, and any existing repository when available.
+- User decisions about data, authentication, integrations, design direction, localization, privacy, analytics, and preferred tools when relevant; otherwise infer reasonable defaults.
 
 The skill itself requires no runtime package or API key. It inspects the project's existing stack before recommending dependencies.
 
 ## Install and invoke
 
-Install this skill directly from the public repository:
+Install this skill from its distribution repository:
 
 ```bash
-npx skills@latest add hridoy43/agent-skills \
+npx skills@latest add <owner>/<repository> \
   --skill product-architecture-and-development \
   --global
 ```

@@ -4,7 +4,7 @@
 
 Start with the user's primary task, the expected emotional state, the first valuable outcome, and the screen or flow that proves it. Design for the selected platform's conventions before adding a cross-platform abstraction. These principles apply to native iOS, Android, Expo/React Native, Flutter, Kotlin Multiplatform, and mobile web; use the stack's official UI and navigation guidance for implementation details.
 
-Confirm before implementation:
+Clarify before implementation only when the prompt leaves a material mobile decision unresolved:
 
 - phone, tablet, foldable, orientation, and minimum supported sizes;
 - navigation model, deep links, back behavior, keyboard, system bars, safe areas, and accessibility settings;

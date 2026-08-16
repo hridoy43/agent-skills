@@ -61,3 +61,10 @@ Treat review capacity as a release constraint. Rapid generation without proporti
 ## Boundaries
 
 Do not mandate a particular AI tool, design tool, image source, or prompt format. Preserve user preference, project policy, licensing, privacy, and authorship constraints. Do not use large context as a substitute for organized context, product judgment, research, or verification.
+
+## Specialist routing
+
+- Use `product-architecture-and-development` for architecture, implementation boundaries, and technical verification.
+- Use `conversion-storytelling` for product narrative, information hierarchy, proof, objections, CTA, and conversion hypotheses.
+- Use `content-marketing-and-brand-growth` for campaign planning, platform adaptation, publishing, and content performance learning.
+- Use the relevant UI, image, animation, or video skill for artifact production. This skill owns the AI-assisted context, exploration, selection, feedback, and review loop.

@@ -6,14 +6,16 @@
       "title": "Product Development",
       "description": "Architecture, design, implementation, and production-readiness workflows.",
       "skills": [
-        "product-architecture-and-development"
+        "product-architecture-and-development",
+        "ai-assisted-product-development"
       ]
     },
     {
-      "title": "Growth & Conversion",
-      "description": "Truthful storytelling, proof, SEO preservation, and conversion measurement for pages and product journeys.",
+      "title": "Growth & Storytelling",
+      "description": "Truthful product storytelling, campaigns, platform adaptation, proof, and qualified outcome measurement.",
       "skills": [
-        "conversion-storytelling"
+        "conversion-storytelling",
+        "content-marketing-and-brand-growth"
       ]
     },
     {
@@ -21,6 +23,14 @@
       "description": "Cost-aware discovery, browsing, extraction, monitoring, and evidence workflows.",
       "skills": [
         "global-discovery-browsing-extraction"
+      ]
+    },
+    {
+      "title": "Documentation & Review",
+      "description": "Credible public documentation and evidence-based software review communication.",
+      "skills": [
+        "github-readme-and-profile-writing",
+        "pr-writing"
       ]
     }
   ]

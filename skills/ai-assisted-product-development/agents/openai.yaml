@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI-Assisted Product Development"
+  short_description: "Guide safe AI-assisted product workflows"
+  default_prompt: "Use $ai-assisted-product-development to organize context, explore bounded alternatives, and turn human feedback into a safe, reviewable product workflow."
+
+policy:
+  allow_implicit_invocation: true

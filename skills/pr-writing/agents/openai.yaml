@@ -1,0 +1,7 @@
+interface:
+  display_name: "Pull Request Writing"
+  short_description: "Draft accurate, reviewable PR descriptions"
+  default_prompt: "Use $pr-writing to inspect these repository changes and draft an accurate pull request description with verification, risk, and rollout context."
+
+policy:
+  allow_implicit_invocation: true

@@ -96,6 +96,8 @@ Install only when the task needs them:
 
 - `impeccable` first for UI critique and visual refinement; `ui-ux-pro-max` for deeper design-system research.
 - `conversion-storytelling` for marketing, ecommerce, onboarding, positioning, proof, and CTA narratives.
+- `content-marketing-and-brand-growth` for product-launch campaigns, social content, video or thumbnail briefs, publishing, and content performance learning.
+- `ai-assisted-product-development` for bounded AI design exploration, human selection, feedback-to-change workflows, and decision records.
 - `text-to-lottie` for purposeful Lottie authoring.
 - `hyperframes` for product-demo videos; use Remotion when requested or already present.
 - Official Expo/React Native skills for native apps.

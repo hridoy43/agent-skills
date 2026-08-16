@@ -1,6 +1,6 @@
 # Content Marketing and Brand Growth
 
-Plan useful, measurable content for product launches, personal brands, open-source projects, client acquisition, networking, and ethical monetization.
+Plan useful, measurable content for product launches, personal brands, open-source projects, client acquisition, networking, and ethical monetization. Adapt campaigns and standalone ideas into platform-aware video, thumbnail, carousel, static, and text briefs without duplicating production skills.
 
 ## Install
 
@@ -14,7 +14,7 @@ npx skills@latest add hridoy43/agent-skills \
 
 Invoke `$content-marketing-and-brand-growth` with the audience, product or project, goal, approved claims, preferred platforms, publishing constraints, canonical links, and desired CTA.
 
-The skill interviews before planning, creates platform-specific records with separate times and assets, preserves SEO and trust, and measures meaningful outcomes instead of vanity metrics.
+The skill inspects existing context before asking only material questions, creates platform-specific records or a focused standalone creative brief, preserves SEO and trust, and measures meaningful outcomes instead of vanity metrics.
 
 ## Related skills
 

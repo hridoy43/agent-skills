@@ -1,4 +1,6 @@
-# Page and journey execution
+# Website, app, and journey execution
+
+Use this as the default execution reference for websites, landing pages, ecommerce, product UI, onboarding, and conversion-focused app flows. Preserve functional product language; not every interface state needs marketing prose.
 
 ## Build the hierarchy before copy
 
@@ -38,9 +40,17 @@ Use interface elements according to narrative purpose:
 
 Do not turn every claim into a card, icon, number, or animation. Visual rhythm needs quiet space and hierarchy.
 
-## Mobile flow adaptation
+## Continuity and information scent
 
-For mobile apps, carry the narrative through the journey rather than putting all persuasion on one screen:
+- Make the page or screen visibly continue the promise, terminology, audience, and next step established by its entry source.
+- Use descriptive headings, navigation, labels, and CTA text so users can predict the destination and result.
+- Keep price, material terms, limitations, privacy, delivery, cancellation, and risk information near the decision they affect.
+- Show a concise path first and progressively disclose supporting detail without hiding decision-critical information.
+- Carry the approved promise through signup, checkout, confirmation, onboarding, loading, error, recovery, and return use.
+
+## Responsive web and app flow adaptation
+
+For mobile web and apps, carry the narrative through the journey rather than putting all persuasion on one screen:
 
 - Make the first-run path short and show the first useful outcome early.
 - Use progressive disclosure for setup, permissions, and advanced options; explain why access is needed at the moment of request.
@@ -51,6 +61,15 @@ For mobile apps, carry the narrative through the journey rather than putting all
 - Adapt copy for new, returning, and power users without changing the product truth.
 
 These are journey and content rules, not a mandate for a particular mobile framework or visual style.
+
+## Professional quality gate
+
+- The experience fits the product, audience, industry, and intended task rather than a generic visual trend.
+- Hierarchy, typography, spacing, color, states, terminology, and component behavior are coherent.
+- The organization, expertise, evidence, contact/support path, and current status are verifiable when they affect trust.
+- Forms and transactions explain requirements, cost, progress, errors, recovery, and success.
+- Keyboard, touch, screen-reader, contrast, zoom, reduced-motion, loading, performance, and narrow-width behavior are addressed in proportion to scope.
+- There are no unfinished placeholders, duplicated filler, unsupported claims, deceptive controls, or ornamental effects competing with the task.
 
 ## Interaction and motion
 
@@ -79,6 +98,8 @@ Before an existing-page rewrite, record for every important section:
 Use server-rendered or static semantic HTML for primary content. Do not move search-critical meaning exclusively into canvas, video, Lottie JSON, hover states, or client-only UI. Structured data must describe visible, current content.
 
 Google recommends [people-first, reliable content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) and notes that server-side or pre-rendering remains valuable for users and crawlers in its [JavaScript SEO guidance](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics).
+
+The Nielsen Norman Group explains how [information scent](https://www.nngroup.com/articles/information-scent/) guides navigation and how [progressive disclosure](https://www.nngroup.com/articles/progressive-disclosure/) balances simplicity with access to detail. Stanford's [web credibility guidelines](https://credibility.stanford.edu/guidelines/) connect professional presentation with verifiability, expertise, usability, and restraint.
 
 ## Existing-page release boundary
 

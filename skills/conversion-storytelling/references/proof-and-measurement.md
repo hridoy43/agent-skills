@@ -11,6 +11,8 @@ Classify each conversion claim:
 
 For each supported claim, retain the source, owner, date, audience, scope, and any qualification. A testimonial is evidence to verify, not automatic substantiation for every implied result.
 
+Distinguish evidence strength: direct product data, attributable customer evidence, independent research, approved expert judgment, professional heuristic, and unsupported hypothesis are not equivalent. Preserve method, sample, context, date, and limitations when they affect interpretation.
+
 ## Never fabricate
 
 Do not invent or publish:
@@ -44,6 +46,8 @@ Define before claiming improvement:
 5. **Hypothesis:** audience + change + expected behavior + reason.
 6. **Validation:** QA, rollout method, comparison window or experiment, stopping rule, and decision owner.
 
+For continuing product experiences, add user-centered adoption, task success, engagement, retention, or satisfaction measures only when they help evaluate the intended outcome. The [Google HEART framework](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) is an optional goal-to-metric tool, not a replacement for the qualified business outcome.
+
 Use a typed, consent-aware tracking boundary when implementation is in scope. Event names describe stable user outcomes, not DOM selectors or component names. Never send sensitive free-form content or unnecessary personal data.
 
 ## Experiment rules
@@ -52,6 +56,7 @@ Use a typed, consent-aware tracking boundary when implementation is in scope. Ev
 - Change the fewest coupled variables needed to test that hypothesis.
 - Segment by relevant traffic source, device, locale, or awareness state without fishing for a winner.
 - Do not call a result a win without adequate data quality, duration, and uncertainty review.
+- Define practical significance: the smallest effect worth shipping given user value, effort, cost, risk, and downstream impact.
 - Check guardrails and downstream quality; a higher click rate with worse activation is not success.
 - Preserve SEO-sensitive URLs and content or use a rollout method that avoids cloaking and indexing inconsistencies.
 

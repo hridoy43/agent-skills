@@ -1,0 +1,7 @@
+interface:
+  display_name: "Content Marketing and Brand Growth"
+  short_description: "Plan useful campaigns and creative content"
+  default_prompt: "Use $content-marketing-and-brand-growth to turn this real work into a trustworthy, platform-aware campaign or content brief with clear goals and measurement."
+
+policy:
+  allow_implicit_invocation: true

@@ -21,6 +21,7 @@ Use this skill as the project’s architecture controller. It works from a proje
 Read only the applicable references:
 
 - Project brief: [project-initiation.md](references/project-initiation.md)
+- Production foundations: [production-foundations.md](references/production-foundations.md)
 - Boundaries: [module-boundaries.md](references/module-boundaries.md) and [architecture-core.md](references/architecture-core.md)
 - Web: [web-projects.md](references/web-projects.md)
 - Mobile: [mobile-projects.md](references/mobile-projects.md)
@@ -30,10 +31,17 @@ Read only the applicable references:
 - Styling/UI: [styling-and-components.md](references/styling-and-components.md) and [design-system-and-ui-libraries.md](references/design-system-and-ui-libraries.md)
 - Design, motion, and media: [design-motion-media.md](references/design-motion-media.md)
 - Data/API: [api-data-state.md](references/api-data-state.md)
+- AI systems: [ai-systems.md](references/ai-systems.md)
 - Forms/validation: [forms-and-validation.md](references/forms-and-validation.md)
+- Analytics: [analytics.md](references/analytics.md)
+- Localization: [localization.md](references/localization.md)
+- SEO: [seo.md](references/seo.md)
+- Third-party scripts: [third-party-scripts.md](references/third-party-scripts.md)
 - Product decisions: [evidence-led-product-design.md](references/evidence-led-product-design.md)
 - Assets/styles: [assets-and-styles.md](references/assets-and-styles.md)
 - Security: [security-and-csp.md](references/security-and-csp.md)
+- Naming/linting: [naming-and-linting.md](references/naming-and-linting.md)
+- Optional project graph: [graphify.md](references/graphify.md)
 - Validation: [quality-gates.md](references/quality-gates.md)
 
 Load specialist skills only when the task needs them. Prefer official ecosystem guidance; do not install a companion skill or package without approval. Use the companion check only when the task benefits from it.
@@ -117,3 +125,5 @@ The response pattern:
 This skill owns architecture, boundaries, structure, tooling choices, implementation slices, and verification. Task-specific skills own their specialist technique after this skill routes to them. Do not load every reference or companion skill when one targeted reference is sufficient. For AI-assisted design collaboration, task-scoped context, disposable exploration tools, or feedback-to-agent workflows, route to `ai-assisted-product-development`.
 
 When the task involves landing pages, marketing copy, pricing, sales narratives, public product pages, or conversion-focused onboarding, route narrative, proof, CTA, SEO, and conversion measurement to `conversion-storytelling`; this skill owns architecture, product-flow implications, implementation boundaries, and technical verification. Do not duplicate that skill’s narrative frameworks.
+
+When the task involves product-launch campaigns, social content, video or thumbnail briefs, publishing, repurposing, or channel performance, route content strategy and format adaptation to `content-marketing-and-brand-growth`. Use `conversion-storytelling` as an additional specialist only when the work needs a conversion narrative, proof ledger, objection handling, or destination CTA strategy. Functional UI copy and routine interaction implementation do not require either companion by default.

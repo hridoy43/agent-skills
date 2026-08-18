@@ -116,7 +116,7 @@ components/
   CustomerForm.tsx
 ```
 
-Use a same-named PascalCase directory only for a major composition with multiple cohesive child files, meaningful local state, or types shared by those children. Make `index.tsx` the public primary component so callers import through the directory:
+Use a same-named PascalCase directory only for a major composition with multiple cohesive child files, meaningful local state, or types shared by those children. The directory pattern is reserved for compositions with at least two of: meaningful local state shared across files, a private subcomponent with its own focused markup, or a `types.ts` shared by the children. A directory that contains one component plus one type, or one component plus a single helper, is a single file with extra steps — collapse it. Make `index.tsx` the public primary component so callers import through the directory:
 
 ```text
 ProductShowcase/
@@ -132,6 +132,15 @@ Keep a component-only type inside the component file. Split by responsibility, n
 Import major components through their directory. Do not import private subcomponents outside their owning directory.
 
 Use layout ownership for navigation, headers, footers, shells, containers, sidebars, breadcrumbs, and page-layout components. Use brand ownership for logos and identity components. A component directory may use PascalCase when it represents a component and exposes `index.tsx` or `index.js`; its semantic parent directory remains framework-appropriate and ownership-oriented.
+
+## Extension points
+
+A feature exposes the surface other code consumes through a category public index (`actions/index.ts`, `components/index.ts`, `services/index.ts`, `schemas/index.ts`, `helpers/index.ts`). That index is the feature's extension point: callers compose through it, and a feature can grow an internal helper, a private subcomponent, or an additional endpoint without touching its consumers.
+
+- A new category inside a feature requires the same justification as a new root directory — a real second consumer, a distinct responsibility, or a documented boundary. Ad-hoc categories accumulate.
+- When two features must extend through the same seam, lift the seam to `features/_shared/` rather than letting either feature reach into the other.
+- A feature's public index is its API surface. Additions are backward-compatible by default; removals are breaking and require an explicit decision.
+- Replace a category index with a typed contract (a small interface, a generated client, a schema) only when the surface has crossed the threshold where typed contracts are cheaper than re-export.
 
 ## Public exports
 

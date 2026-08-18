@@ -15,6 +15,7 @@ Use this skill as the project’s architecture controller. It works from a proje
 4. User instructions, preferences, and platform constraints outrank every skill default. Execute the user's requested scope and workflow; do not force interviews, migration plans, bounded tasks, approval gates, or other process requirements that the user did not request.
 5. Keep a decision ledger: `confirmed`, `inferred`, `unknown/configurable`, `prohibited`, and `deferred`.
 6. Prefer official ecosystem conventions and maintained industry standards. Named tools are candidates, not mandates; recommend and ask before adding material dependencies.
+7. Extending this skill follows the same discipline. Add a new reference when a new platform, a new cross-cutting concern, or a new external dependency class materially changes the decision surface; do not add a reference to document a one-off solution or a project-specific pattern.
 
 ## First routing decision
 
@@ -49,9 +50,12 @@ Load specialist skills only when the task needs them. Prefer official ecosystem 
 ## Architecture defaults
 
 - TypeScript-first where practical; use the ecosystem’s standard naming and tooling.
-- Keep routes/screens thin. Features own domain UI, actions, API functions, hooks, schemas, services, types, data, utilities, and tests.
+- Keep routes/screens thin. Features own domain UI, actions, API functions, hooks, schemas, services, types, data, utilities, and tests. A feature owns its implementation files end-to-end; tests, mocks, and fixtures travel with the feature, not with the consumer.
 - Shared code must be domain-neutral and have at least two real consumers.
 - Use explicit category directories. Prevent feature-root implementation-file sprawl.
+- The feature is the primary test for code ownership. If a behavior only makes sense inside one capability, it stays inside that feature; if it only makes sense across many capabilities, it moves to a shared boundary. Do not let one feature's policy leak into another's tests, mocks, or fixtures.
+- Treat every root-level directory as a deliberate decision. Add a root directory only after a second consumer or a genuine cross-cutting policy appears; a directory that exists to host one file is premature.
+- Treat every recorded decision as revisitable. Mark a decision with a revisit signal (when evidence would force a review, when the next major version changes the surface, when a measurable outcome reverses) so it does not rot silently.
 - React product components use matching PascalCase filenames and exported names, without a `.component` suffix. A single component stays a direct file such as `components/CustomerForm.tsx`; use a same-named PascalCase directory with `index.tsx` only for a major composition with multiple cohesive child files, state, or shared local types. Never create `features/<feature>/index.ts`; public surfaces belong in owned category directories such as `actions/`, `components/`, `helpers/`, `schemas/`, or `services/`, or inside a major component directory.
 - Keep a component-only type in the component file. Use a colocated `types.ts` only when types are shared by children of the same major component; move types shared across components or features to the appropriate domain/shared `types/` boundary.
 - Use semantic suffixes such as `.data.ts`, `.action.ts`, `.service.ts`, `.api.ts`, and `.schema.ts` where useful. In TypeScript React projects, prefer camelCase names such as `createCustomer.action.ts` and colocated `types.ts`.

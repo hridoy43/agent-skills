@@ -52,6 +52,8 @@ Define structured logs, request/correlation IDs, error monitoring, key metrics, 
 
 Measure product outcomes separately from operational telemetry. Do not log secrets or full sensitive payloads. A monitored failure needs an owner and recovery action.
 
+Every feature owns its log surface, its metric names, and its alert owner. A correlation identifier set at the transport boundary travels end to end so a single incident can be reconstructed from the entry point through the feature that handled the failure. The shared observability boundary owns identifiers, sampling, scrubbing, and transport; each feature owns the events that describe its own behavior.
+
 ## Feature delivery
 
 Prefer small releases and backward-compatible changes. Add feature flags only when staged rollout, kill switches, experiments, or incomplete cross-deploy work justify their lifecycle cost. Every flag needs an owner and removal condition.

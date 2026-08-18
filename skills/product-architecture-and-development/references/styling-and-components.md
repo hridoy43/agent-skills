@@ -21,6 +21,8 @@ A real consumer is a distinct runtime component that intentionally relies on the
 
 Do not move a long one-off class string into global CSS. Instead split the component, use a local variant helper, or keep it visible where it is used.
 
+When a utility repeats across components with the same semantic role, promote it into a named theme token rather than a global CSS class. A token carries a role, not a value; a global class carries a value, not a role. Promotion is a deliberate decision with a recorded reason, the same as promoting code into a wider ownership boundary.
+
 ## Scale ownership and arbitrary values
 
 Use the styling framework's named scale before introducing a custom value. This applies to every visual property, including color, font family, font size, font weight, line height, letter spacing, spacing, dimensions, content width, breakpoints, radius, border width, shadow, opacity, transition duration, easing, transforms, and animation.

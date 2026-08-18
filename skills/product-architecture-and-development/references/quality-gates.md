@@ -61,6 +61,16 @@ For visual changes, define the routes, viewport sizes, interaction states, reduc
 - Analytics respects consent and avoids sensitive data.
 - Error reporting, rollback, migrations, and release ownership are defined.
 
+## Debuggability and observability
+
+Passing every gate above still leaves a feature that cannot be diagnosed in production. Treat observability as a gate, not an afterthought.
+
+- Every feature owns its log surface and its alert owner. A failure path with no log is a silent failure; a metric without an owner is a metric that nobody will read.
+- A request that crosses a feature boundary carries a correlation identifier end to end. The transport boundary sets it, the feature boundary reads it, the log and the error report both include it.
+- Errors are normalized at the boundary; raw messages and stack details do not leak into the user-facing surface. Typed error shapes let the feature decide what the user sees and what the operator sees.
+- Dev-only assertions and structured debug surfaces are first-class citizens in development; they must not appear in production builds. A debug switch that survives a release is a bug.
+- A feature without an entry in the runbook (who responds, what to check, how to roll back) is not finished.
+
 ## Refactor safety
 
 For behavior-preserving refactors, capture a baseline before editing. Compare DOM semantics, screenshots at key widths, accessibility checks, build output, and tests after each slice. Do not mix broad visual redesign with architectural extraction unless the user approved both.

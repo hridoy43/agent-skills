@@ -37,6 +37,8 @@ src/
 
 For a small API, begin with `app/`, one or two modules, `lib/`, and `db/`. Do not create every directory until a real owner and consumer exist. If the existing framework has a strong convention (for example, route handlers or package-specific modules), keep that convention and map the responsibilities rather than forcing this exact tree.
 
+Cross-module pure helpers belong in `lib/`, not duplicated inside each module's own helpers. A pure rule that two modules genuinely share promotes to `lib/`; a pure rule that one module uses stays in that module. Promotion is a deliberate decision with a recorded reason, the same as on the frontend.
+
 ## Boundary rules
 
 - Transport handlers parse and validate input, authorize the operation, call an application use case, and map the result to a response. They do not contain business workflows.

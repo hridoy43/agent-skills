@@ -114,6 +114,8 @@ The top edge is not the only chrome. The same ownership rule applies to the bott
 
 When in doubt about which chrome owns which edge on a given screen, draw the screen with every inset visible and ask: *who is absorbing this inset?* If two layers both absorb it, that is a chrome conflict, not a coincidence — pick the owner and have the other layer opt out.
 
+A chrome primitive that two screens in different features both need promotes out of either feature into `components/layout/`. A chrome primitive that two screens inside the same feature need stays inside that feature until a second feature needs it. The promotion follows the same rule as any other shared component: domain-neutral, two real consumers, stable API, and a documented reason.
+
 ## Safe-area discipline
 
 The chrome that owns a dimension owns the safe-area for that dimension. Content wrappers opt out of insets already absorbed by chrome. If you cannot tell which chrome owns the dimension, you are looking at a chrome conflict — pick an owner or render native chrome. The rule applies symmetrically: a tab bar that owns the bottom edge owns the home-indicator / gesture-bar inset just as a top bar owns the status-bar inset, and a content wrapper underneath opts out the same way.

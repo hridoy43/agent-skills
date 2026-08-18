@@ -63,6 +63,8 @@ For large teams, complex state transitions, strict event/debugging requirements,
 
 When a store is added, document: why local state or context is insufficient, whether it is persisted, its reset behavior on logout/navigation, its hydration strategy, and the tests covering selectors and transitions.
 
+Server data does not promote into a cross-feature store unless two or more features share the same canonical server state with their own write paths. A single feature that needs to read its own data through a global store is asking for two sources of truth; route the reads through the query/cache layer and reserve the store for genuinely cross-feature client state.
+
 ## Validation and types
 
 Generate or share types from the source of truth where possible. Validate untrusted payloads at network, storage, environment, and user-input boundaries. For form-specific rules, read [forms-and-validation.md](forms-and-validation.md). Keep transport DTOs separate from domain models when their lifecycles differ.

@@ -35,6 +35,8 @@ function trackEvent<Name extends keyof AnalyticsEvents>(
 
 Event names describe stable user/business outcomes. Do not encode CSS selectors, component names, or page layout into the contract.
 
+Feature event helpers stay with the owning feature and call the shared boundary; do not call the vendor directly from a feature. A feature's analytics surface is its event names, its typed property shapes, and its triggering policy; the shared boundary owns vendor setup, common-parameter policy, and consent.
+
 ## Common context and feature parameters
 
 Build common context once at the tracking boundary and merge it with event-specific properties. Common context may include app version, platform, locale, route, campaign attribution, anonymous/session identifiers, and consent state. Keep feature helpers separate for domain data such as checkout selection, plan, country, or product ID; read one-time state snapshots instead of subscribing a component solely to send an event.

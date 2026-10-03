@@ -13,6 +13,7 @@ Testable acceptance criteria; clear ownership and dependency direction; user pre
 - Structure follows [naming-and-linting.md](naming-and-linting.md) and [module-boundaries.md](module-boundaries.md): no feature-root implementation files or `features/<f>/index.ts`; no private subcomponent imports; shared code imports no feature; `cn` only at `src/utils/cn.ts` with no `lib/utils.ts`.
 - Assets and global CSS follow [assets-and-styles.md](assets-and-styles.md); no inline or duplicated SVG markup.
 - Framework conventions match the installed version; library primitives stay separate from wrappers; no secondary UI source without a documented gap; `data/` never acts as a database or runtime state.
+- No raw executable `<script>` tags; scripts load through the framework Script component registry.
 - Loading, empty, error, offline, and permission states are exercised.
 
 ## Experience

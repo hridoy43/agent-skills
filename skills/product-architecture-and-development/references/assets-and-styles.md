@@ -5,7 +5,7 @@
 | Asset | Location |
 | --- | --- |
 | Build-time imports shared by features | root `assets/{images,icons,illustrations,fonts}/` |
-| URL-served web files | `public/assets/{brand,images,icons,illustrations,fonts,lottie}/` |
+| URL-served web files | `public/assets/{brand,images,icons,illustrations,fonts,lottie,textures}/` |
 | Feature-specific web files | `public/assets/<feature>/` (not `features/<feature>/assets/` unless the build requires it) |
 | Framework/protocol files | `public/` root: `robots.txt`, `sitemap.xml`, `manifest.webmanifest`, favicons, verification files |
 | Reusable icon components | `src/components/icons/` |

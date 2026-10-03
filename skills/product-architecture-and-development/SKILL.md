@@ -24,6 +24,7 @@ description: Plans and builds web, mobile, desktop, backend, or multi-app produc
 | Mobile headers, tab bars, sheets, safe areas | [mobile-chrome](references/mobile-chrome.md) |
 | Tokens, Tailwind, components, icons | [styling-and-components](references/styling-and-components.md) |
 | UI library or registry choice | [design-system-and-ui-libraries](references/design-system-and-ui-libraries.md) |
+| Find components, blocks, shaders, textures | [ui-sources](references/ui-sources.md) |
 | Motion, Lottie, smooth scroll, 3D, media | [design-motion-media](references/design-motion-media.md) |
 | Assets and global styles | [assets-and-styles](references/assets-and-styles.md) |
 | API client, cache, state | [api-data-state](references/api-data-state.md) |

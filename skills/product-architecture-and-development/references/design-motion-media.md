@@ -6,20 +6,21 @@ Solve hierarchy, layout, type, spacing, color, contrast, and responsiveness befo
 
 Pick the lowest rung that works. Each runtime library needs a named reason and installs at latest stable.
 
-1. CSS/Tailwind: hover, focus, reveals, transitions, marquee; CSS scroll-driven animations and View Transitions where supported, with a static fallback.
+1. CSS/Tailwind: hover, focus, reveals, transitions, marquee; CSS scroll-driven animations and View Transitions where supported, with a static fallback; CSS and SVG textures (gradients, `feTurbulence` grain).
 2. SVG: diagrams, paths, indicators.
 3. Lottie (dotLottie): illustrative or branded motion—see the Lottie workflow below.
 4. Motion.dev (React component, layout, gesture) or GSAP (timelines, scroll choreography, SVG paths, FLIP, physics). Never both on one surface without a documented boundary.
 5. Lenis: smooth scrolling on scroll-choreographed marketing pages only.
-6. three.js: real-time 3D or WebGL/WebGPU; React Three Fiber (`@react-three/fiber`, `@react-three/drei`) in React.
-7. p5.js: generative art or creative coding, instance mode only.
-8. Product video: when sequence, narration, or real interaction is the message. Use `hyperframes` when installed; Remotion only on request or to extend an existing composition.
+6. Shader backgrounds and effects (Radiant, Canvas UI, React Bits, Paper Shaders, ShaderGradient): see [ui-sources.md](ui-sources.md).
+7. three.js: real-time 3D or WebGL/WebGPU; React Three Fiber (`@react-three/fiber`, `@react-three/drei`) in React.
+8. p5.js: generative art or creative coding, instance mode only.
+9. Product video: when sequence, narration, or real interaction is the message. Use `hyperframes` when installed; Remotion only on request or to extend an existing composition.
 
 ## Guardrails
 
 - Every rung: transform/opacity first, duration and easing tokens, interruptible, keyboard/touch-safe, `prefers-reduced-motion` path, never blocks reading, navigation, forms, or CTAs.
 - Lenis: never on app UIs, forms, or long reading; keep native scrollbar, keyboard, anchors, and find-in-page; keep `respectReducedMotion` on; with GSAP ScrollTrigger use one loop (`lenis.on('scroll', ScrollTrigger.update)` + GSAP ticker). Speed overrides, snapping, or blocked native scroll count as hijacking.
-- Canvas/WebGL (three.js, p5.js, Lottie): meaning stays in HTML; static poster first; client-only lazy load; pause offscreen and when the tab is hidden; cap device pixel ratio; dispose GPU resources on unmount; test a low-end phone.
+- Canvas/WebGL/WebGPU (shaders, three.js, p5.js, Lottie): meaning stays in HTML; static poster first; client-only lazy load; pause offscreen and when the tab is hidden; cap device pixel ratio; dispose GPU resources on unmount; test a low-end phone.
 - Carousels: labeled, controllable, paused on hover/focus. No cursor gimmicks, heavy parallax, or constant ambient motion.
 - Media: explicit aspect ratios, posters, lazy loading, efficient codecs; demos make sense without autoplay or audio.
 

@@ -123,7 +123,7 @@ The chosen stack determines these. Add them only when justified:
 - Ant Design for dashboard/admin-heavy applications when its interaction model fits.
 - Axios (or the platform-equivalent client) plus TanStack Query or an equivalent cache for API-heavy applications.
 - Zustand for justified cross-tree client state in React projects; evaluate Redux Toolkit, state machines, or platform-native equivalents when project complexity or framework needs require them.
-- CSS, SVG, Lottie (dotLottie), Motion.dev, GSAP, Lenis, three.js/React Three Fiber, or p5.js according to the motion need—not all by default.
+- CSS, SVG, Lottie (dotLottie), Motion.dev, GSAP, Lenis, shader components, three.js/React Three Fiber, or p5.js according to the motion need—not all by default. Component, shader, and texture sources are cataloged in `references/ui-sources.md`.
 - Every added dependency is installed at its latest stable release, resolved from the registry at install time.
 
 ## Core architectural guarantees

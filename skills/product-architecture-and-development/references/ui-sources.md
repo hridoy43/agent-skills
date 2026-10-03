@@ -1,14 +1,24 @@
 # Components, shaders, and textures
 
-Read when a design needs a component, block, effect, shader, or texture the primary foundation lacks. Every pick passes the adoption gate in [design-system-and-ui-libraries.md](design-system-and-ui-libraries.md), installs at latest stable into `components/ui/` (shadcn default), and needs the user's approval. Licenses are per source and sometimes per item—check before shipping.
+Read when a design needs a component, block, effect, shader, or texture the primary foundation lacks. Every pick passes the adoption gate in [design-system-and-ui-libraries.md](design-system-and-ui-libraries.md), installs at latest stable into `components/ui/` (shadcn default), and needs the user's approval. Licenses are per source and sometimes per item—check before shipping. When a proven prebuilt component fits, adapt it to the project's tokens instead of building from scratch.
 
 ## Discover cheapest first
 
-1. **Registry CLI (no browsing):** `npx shadcn@latest search @<namespace> -q "<term>" -t ui --limit 5` lists one-line matches; `npx shadcn@latest view @<namespace>/<item>` shows the source of a shortlisted item before `add`; `docs <item>` gives usage. Use the shadcn MCP server instead when installed.
+1. **Registry CLI (no browsing):** pick namespaces from the official index of installable registries (`https://ui.shadcn.com/r/registries.json`, 400+) or the category table below, then `npx shadcn@latest search @<namespace> -q "<term>" -t ui --limit 5` lists one-line matches; `npx shadcn@latest view @<namespace>/<item>` shows the source of a shortlisted item before `add`; `docs <item>` gives usage. Use the shadcn MCP server instead when installed.
 2. **Machine-readable indexes:** 21st.dev exposes `llms.txt`, `openapi.json`, and `/.well-known/skills/index.json`.
 3. **Visual galleries** only when the look decides the choice: browse through `global-discovery-browsing-extraction` when installed (it handles signed-in sessions for paid tiers), otherwise the host browser, otherwise send the user links and search terms.
 
 Shortlist two or three with preview link, license, dependencies, and rough bundle/GPU cost; the user picks.
+
+## Start by category
+
+| Need | Registry namespaces and sites |
+| --- | --- |
+| Text animation | `@react-bits`, `@animate-ui`, `@motion-primitives`, `@magicui`, `@text-ui` |
+| Motion and interaction | `@animate-ui`, `@motion-primitives`, `@magicui`, `@aceternity`, `@skiper-ui`, `@paceui-gsap` (GSAP) |
+| Charts | shadcn `chart` (Recharts), `@evilcharts`, `@bklit`, `@axicharts`, `@plotcn` |
+| 3D | `@threecn` (React Three Fiber + drei, theme-token aware), three.js examples, Three UI |
+| Shaders and backgrounds | `@canvas-ui`, `@react-bits`, `@awwwardedui`, Radiant, Paper Shaders, ShaderGradient |
 
 ## Sources
 
@@ -25,6 +35,7 @@ Shortlist two or three with preview link, license, dependencies, and rough bundl
 | [ShaderGradient](https://shadergradient.co) | Animated 3D gradients | `@shadergradient/react` | MIT |
 | [Shaders](https://shaders.com/docs) | WebGPU shader components and visual editor | `shaders` | Free only for personal or evaluation use; production needs a paid plan; no redistribution |
 | [three.js examples](https://threejs.org/examples/) | Reference 3D and shader implementations | Read and adapt | MIT |
+| [Three UI](https://threeui.com/ui-elements) | 3D, shader, chart, and motion UI elements (three.js, Canvas, WebGL) | Site | Free to browse; source and commercial use need Pro (yearly or lifetime) |
 | [Figma community shaders](https://www.figma.com/community/shaders?resource_type=shaders) | WGSL shaders; HTML/React export via code viewer or Figma MCP | Figma | Per resource; may need a paid Figma plan; use a Figma shader skill when installed |
 | [Poly Haven](https://polyhaven.com), [ambientCG](https://ambientcg.com) | PBR textures and HDRIs for 3D | Download | CC0 |
 
@@ -42,3 +53,4 @@ The canvas guardrails in [design-motion-media.md](design-motion-media.md) apply,
 - Fallback chain: WebGPU → WebGL → static poster image for reduced motion, low power, or no GPU support.
 - Prefer one shader context per viewport; several WebGL contexts are expensive and browsers cap them.
 - Map colors and speeds to design tokens instead of preset literals; never redistribute paid presets.
+- Shadertoy-derived code defaults to CC BY-NC-SA 3.0 (non-commercial) unless its author states otherwise; check before shipping ports of it.

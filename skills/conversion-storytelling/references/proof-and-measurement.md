@@ -1,65 +1,17 @@
-# Proof, ethics, and measurement
+# Proof and measurement
 
 ## Proof ledger
 
-Classify each conversion claim:
+Claims are `approved` (owner approved the exact wording), `supported` (evidence with known scope), `needs evidence` (can't ship as fact), or `prohibited`. Keep source, owner, date, audience, scope, and qualifiers for supported claims. Evidence strength differs: product data > attributable customer evidence > independent research > approved expert judgment > heuristic > hypothesis; keep method, sample, date, and limits when they matter. A testimonial supports only what it actually says.
 
-- `approved`: the authorized owner has approved the exact claim;
-- `supported`: evidence exists and its scope is understood;
-- `needs evidence`: plausible but must not ship as fact;
-- `prohibited`: false, misleading, private, unsafe, or rejected by the user.
+Never invent testimonials, reviews, customers, logos, endorsements, case studies; user counts, revenue, performance, savings, or superiority; deadlines, inventory, waitlists, or countdowns; guarantees, certifications, awards, compliance, or security status; or "before" states the audience never reported. Internal placeholder proof is labeled and never ships; "results may vary" doesn't fix a misleading typical-outcome claim. Follow the relevant jurisdiction's advertising, endorsement, and dark-pattern rules (for example FTC guidance); this is not legal advice.
 
-For each supported claim, retain the source, owner, date, audience, scope, and any qualification. A testimonial is evidence to verify, not automatic substantiation for every implied result.
+## Persuasion limits
 
-Distinguish evidence strength: direct product data, attributable customer evidence, independent research, approved expert judgment, professional heuristic, and unsupported hypothesis are not equivalent. Preserve method, sample, context, date, and limitations when they affect interpretation.
+Real stakes, not shame, panic, or confirmshaming; limits and terms near the decision; understandable primary and secondary actions with no visual traps; urgency or scarcity only when real, current, maintained, and approved; optimize for qualified, durable outcomes.
 
-## Never fabricate
+## Measurement
 
-Do not invent or publish:
+Define before claiming improvement: one primary outcome (qualified booking, paid signup, activation, purchase); diagnostics (CTA clicks, form start/error/complete, proof engagement, step completion, time to value); guardrails (lead quality, activation, retention, refunds, support load, accessibility, performance, organic visibility); baseline (dates, segment, volume, rate, tracking quality); hypothesis (audience + change + expected behavior + reason); validation (QA, rollout, window or experiment, stopping rule, owner). HEART-style experience metrics only when they evaluate the outcome. Tracking is typed and consent-aware; events name outcomes, not selectors; no sensitive free text.
 
-- testimonials, reviews, customer identities, logos, case studies, or endorsements;
-- user counts, revenue, performance, savings, success rates, or comparative superiority;
-- deadlines, inventory, waiting lists, scarcity, or countdown timers;
-- guarantees, certifications, awards, compliance, security, or legal status;
-- “before” conditions or emotional consequences the audience did not report.
-
-Placeholder proof must be visibly labeled in internal drafts and excluded from production. Do not use “results may vary” to rescue an otherwise misleading typical-outcome claim.
-
-The US FTC states that advertising claims need a reasonable basis and endorsements must be truthful and supportable in its [advertising guidance](https://www.ftc.gov/business-guidance/resources/advertising-faqs-guide-small-business). Its [reviews and testimonials guidance](https://www.ftc.gov/business-guidance/advertising-marketing/endorsements-influencers-reviews) addresses fake or misleading endorsements, and its [dark-patterns report](https://www.ftc.gov/news-events/news/press-releases/2022/09/ftc-report-shows-rise-sophisticated-dark-patterns-designed-trick-trap-consumers) identifies false countdowns and hidden terms as manipulative patterns. Apply the relevant jurisdiction's rules; this skill is not legal advice.
-
-## Persuasion boundaries
-
-- Use real stakes, not shame, panic, confirmshaming, or exploitative fear.
-- Show genuine limitations and terms near the decision, not behind the CTA.
-- Make primary and secondary actions understandable; do not visually trap users.
-- Use urgency or scarcity only when it is real, current, accurately maintained, and approved.
-- Optimize for qualified, durable outcomes—not accidental clicks or low-quality leads.
-
-## Measurement contract
-
-Define before claiming improvement:
-
-1. **Primary outcome:** one business-relevant event, such as qualified call booked, paid signup, activated trial, or completed purchase.
-2. **Diagnostics:** CTA click, form start/error/complete, proof engagement, onboarding step completion, and time to first value.
-3. **Quality guardrails:** lead acceptance, activation, retention, refunds, support load, accessibility, performance, and organic visibility.
-4. **Baseline:** date range, source/segment, volume, current rate, and tracking quality.
-5. **Hypothesis:** audience + change + expected behavior + reason.
-6. **Validation:** QA, rollout method, comparison window or experiment, stopping rule, and decision owner.
-
-For continuing product experiences, add user-centered adoption, task success, engagement, retention, or satisfaction measures only when they help evaluate the intended outcome. The [Google HEART framework](https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/) is an optional goal-to-metric tool, not a replacement for the qualified business outcome.
-
-Use a typed, consent-aware tracking boundary when implementation is in scope. Event names describe stable user outcomes, not DOM selectors or component names. Never send sensitive free-form content or unnecessary personal data.
-
-## Experiment rules
-
-- Test a meaningful narrative or decision hypothesis, not arbitrary color changes.
-- Change the fewest coupled variables needed to test that hypothesis.
-- Segment by relevant traffic source, device, locale, or awareness state without fishing for a winner.
-- Do not call a result a win without adequate data quality, duration, and uncertainty review.
-- Define practical significance: the smallest effect worth shipping given user value, effort, cost, risk, and downstream impact.
-- Check guardrails and downstream quality; a higher click rate with worse activation is not success.
-- Preserve SEO-sensitive URLs and content or use a rollout method that avoids cloaking and indexing inconsistencies.
-
-Report outcomes as observed data with limitations. Never promise that StoryBrand, BAB, PAS, or any other framework will create a specific uplift.
-
-Google requires structured data to match visible, non-misleading content in its [structured-data guidelines](https://developers.google.com/search/docs/appearance/structured-data/sd-policies).
+Experiments test a meaningful hypothesis with the fewest coupled changes, segment without fishing, define the smallest effect worth shipping, check downstream guardrails, and avoid cloaking or indexing inconsistencies. Report observed results with limitations; structured data must match visible content.

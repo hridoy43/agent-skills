@@ -21,7 +21,7 @@ if (!/^[a-z][a-z0-9-]*$/.test(rawName)) {
 const pascal = rawName.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('');
 const base = kind === 'feature'
   ? path.join(root, 'features', rawName)
-  : path.join(root, 'components', 'ui', pascal);
+  : path.join(root, 'components', 'ui');
 
 const files = kind === 'feature'
   ? {
@@ -29,8 +29,8 @@ const files = kind === 'feature'
       [path.join(base, 'components', 'index.ts')]: `export { ${pascal} } from './${pascal}';\nexport type { ${pascal}Props } from './${pascal}';\n`,
     }
   : {
-      [path.join(base, 'index.tsx')]: `import type { ${pascal}Props } from './types';\n\nexport function ${pascal}(props: ${pascal}Props) {\n  return <div>{props.children}</div>;\n}\n`,
-      [path.join(base, 'types.ts')]: `import type { ReactNode } from 'react';\n\nexport type ${pascal}Props = {\n  children?: ReactNode;\n};\n`,
+      // Standalone component = direct PascalCase file; promote to a directory only for a major composition.
+      [path.join(base, `${pascal}.tsx`)]: `import type { ReactNode } from 'react';\n\nexport type ${pascal}Props = {\n  children?: ReactNode;\n};\n\nexport function ${pascal}(props: ${pascal}Props) {\n  return <div>{props.children}</div>;\n}\n`,
     };
 
 async function exists(target) {

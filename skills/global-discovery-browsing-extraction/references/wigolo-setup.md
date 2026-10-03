@@ -1,36 +1,19 @@
-# Wigolo Setup
+# Wigolo setup
 
-Read only when installing, wiring, or changing Wigolo configuration.
+Read only when installing or rewiring Wigolo.
 
-## Installation Consent
-
-Review current upstream requirements. Disclose that Wigolo currently requires Node.js 20+, can download roughly 1.5 GB of browser/model assets, stores state under `~/.wigolo/`, and is AGPL-3.0-only. Obtain explicit approval after disclosure.
-
-After approval:
+Disclose before asking for approval: public beta, Node.js 20+, about 1.5 GB of browser and model downloads, state in `~/.wigolo/`, AGPL-3.0. After approval:
 
 ```bash
-npx wigolo init
-npx wigolo doctor
+npx wigolo@latest init
+npx wigolo@latest doctor
 ```
 
-Use `--no-warmup` only to defer assets. Never put API keys in commands, logs, skills, or committed configuration.
-
-## Codex Wiring
-
-Engine installation and Codex wiring need separate approval. Wigolo's `--agents=codex` or `setup mcp --agents=codex` may change Codex configuration and add an instructions block to the current directory's `AGENTS.md`. For MCP-only access, prefer narrow native registration:
+Agent wiring needs separate approval. `init --agents=<list>` (for example `claude-code,codex,cursor`) may edit agent config and the current directory's `AGENTS.md`. For MCP-only access, prefer the host's own registration:
 
 ```bash
-codex mcp add wigolo -- wigolo mcp
+claude mcp add wigolo -- wigolo mcp   # verify: claude mcp list
+codex mcp add wigolo -- wigolo mcp    # verify: codex mcp list
 ```
 
-If only `npx` is available, pin the verified version and disclose that startup may restore a missing cached package:
-
-```bash
-codex mcp add wigolo -- npx -y wigolo@<verified-version> mcp
-```
-
-Verify with `codex mcp list`.
-
-## Configuration Gate
-
-Enabling TLS/stealth, a solver, proxy, hosted reader, external LLM, authentication profile, telemetry, or monitoring delivery changes privacy, behavior, or spend. Explain the effect and obtain approval first. Review AGPL obligations before modifying, embedding, or redistributing Wigolo.
+With only `npx`, pin the latest stable version verified at setup (`npx -y wigolo@<version> mcp`). Never put API keys in commands, logs, or committed config. Enabling TLS or stealth settings, solvers, proxies, hosted readers, external LLMs, auth profiles, telemetry, or monitoring delivery needs informed approval. Review AGPL obligations before modifying or redistributing it.

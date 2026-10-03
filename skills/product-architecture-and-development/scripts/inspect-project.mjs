@@ -59,9 +59,21 @@ const detected = {
   zod: Boolean(dependencies.zod),
 };
 
+const lockfiles = { 'pnpm-lock.yaml': 'pnpm', 'bun.lock': 'bun', 'bun.lockb': 'bun', 'yarn.lock': 'yarn', 'package-lock.json': 'npm' };
+const detectedLockfiles = [];
+for (const [file, manager] of Object.entries(lockfiles)) {
+  if (await exists(path.join(root, file))) detectedLockfiles.push(manager);
+}
+const componentsJson = await readJson(path.join(root, 'components.json'));
+const misplacedCn = [];
+for (const candidate of ['src/lib/utils.ts', 'lib/utils.ts']) {
+  if (await exists(path.join(root, candidate))) misplacedCn.push(candidate);
+}
+
 console.log(JSON.stringify({
   root,
   packageManager: packageJson?.packageManager ?? 'not declared',
+  lockfiles: detectedLockfiles,
   workspaces,
   scripts: packageJson?.scripts ?? {},
   detected,
@@ -77,6 +89,13 @@ console.log(JSON.stringify({
     hasPublicAssetsDirectory: await exists(path.join(root, 'public', 'assets')),
     hasRootTailwindConfig: Boolean((await readdir(root)).find((name) => /^tailwind\.config\./.test(name))),
     hasRootPostcssConfig: Boolean((await readdir(root)).find((name) => /^postcss\.config\./.test(name))),
+    hasGlobalStylesInRootApp: await exists(path.join(root, 'app', 'globals.css')),
+    cnHelper: {
+      expected: 'src/utils/cn.ts',
+      present: await exists(path.join(root, 'src', 'utils', 'cn.ts')),
+      shadcnUtilsAlias: componentsJson?.aliases?.utils ?? null,
+      misplaced: misplacedCn,
+    },
   },
   hasAgentsInstructions: await exists(path.join(root, 'AGENTS.md')),
   sourceTree: await listTree(path.join(root, 'src')),

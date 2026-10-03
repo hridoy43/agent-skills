@@ -1,30 +1,25 @@
 # Naming and linting
 
-Use repository conventions when healthy. Otherwise apply these defaults.
+Owner of naming rules; other references link here. Healthy repository conventions win.
 
-## TypeScript and React naming
+## TypeScript and React
 
-Apply the following component rules only to React projects. For Flutter, Android, iOS, backend, and other ecosystems, use the platform or language's current standard naming conventions.
+React-only rules; other ecosystems use their own standard naming.
 
-- Product components: PascalCase filename and matching exported component name, without a `.component` suffix.
-- Standalone product component: PascalCase filename matching the exported component, such as `CustomerForm.tsx`.
-- Major component directory: PascalCase with public composition in `index.tsx`; use only when multiple cohesive child files, meaningful local state, or shared local types justify the directory.
-- Component-only types stay in the component file; a major component’s `types.ts` is for types shared by its children.
-- Feature/shared types: domain names inside `types/`, such as `invoice.ts` or `pagination.ts`.
-- Hooks: React convention, such as `useInvoice.ts`.
-- Non-component modules: camelCase with role suffixes where the boundary matters: `countries.data.ts`, `createInvoice.action.ts`, `invoice.service.ts`, `invoice.api.ts`, and `customerForm.schema.ts`.
-- Next.js reserved files keep framework names: `page.tsx`, `layout.tsx`, `loading.tsx`, `error.tsx`, `not-found.tsx`, and `route.ts`.
-- Next.js 16+ uses `proxy.ts`; older installed versions may use legacy `middleware.ts`. Verify the installed version before generating either file.
-- Do not require redundant `.types.ts` or `.utility.ts` suffixes. Keep shared `cn.ts` at the configured utility location.
+- Components: PascalCase file matching the export, no `.component` suffix. Standalone = single file (`CustomerForm.tsx`).
+- Major composition only (at least two of: shared local state, private subcomponents, children-shared types): `CustomerForm/index.tsx` plus parts and an optional `types.ts`. One component plus one type or helper is a single file.
+- Types: component-only types stay in the component file; children-shared types in that directory's `types.ts`; feature or shared types in `types/` with domain names (`invoice.ts`). No `.types.ts` or `.utility.ts` suffixes.
+- Hooks: `useInvoice.ts`.
+- Other modules: camelCase with a role suffix where the boundary matters: `countries.data.ts`, `createInvoice.action.ts`, `invoice.service.ts`, `invoice.api.ts`, `customerForm.schema.ts`.
+- Public surfaces: category indexes (`components/index.ts`, `actions/index.ts`) or a major component's `index.tsx`; never `features/<feature>/index.ts`.
+- Next.js reserved files keep framework names (`page.tsx`, `layout.tsx`, `loading.tsx`, `error.tsx`, `not-found.tsx`, `route.ts`). Next.js 16+ uses `proxy.ts`; `middleware.ts` only on older installed versions.
+- `cn` helper: `src/utils/cn.ts`.
 
-## Ecosystem linting
+## Linting
 
-Every project uses maintained, ecosystem-specific linting and formatting. Prefer the framework or library's official/recommended integration when one exists. Do not assume Airbnb rules fit every repository; add compatible rules deliberately.
+Use the framework's official or recommended lint and format integration; one formatter and one lint config per language; plugins only for framework, correctness, or accessibility rules; no rules that fight the formatter. Better-T-Stack's generated toolchain (Biome, Oxlint, Ultracite) is fine when compatible with editor, CI, and tests—don't drop official framework rules for speed.
 
-Use one primary formatter and one primary lint configuration per language. Add a plugin only when it provides framework/library-specific correctness or accessibility checks. Avoid overlapping formatters, duplicate parser/plugin configurations, and rules that fight the formatter.
+- Next.js: ESLint CLI with `eslint-config-next` (`core-web-vitals` + TypeScript); `next lint` no longer exists in current versions.
+- Python: Ruff. Go: `gofmt` + `golangci-lint`. Ruby: RuboCop.
 
-Better-T-Stack may provide a faster optimized toolchain. Use it when its generated configuration is compatible with the selected framework, editor, CI, test runner, and deployment. Inspect and preserve the generated scripts/configuration; do not replace official framework rules merely for speed.
-
-For Next.js, inspect the installed version and official documentation. Current projects should use the supported ESLint CLI with `eslint-config-next`, usually `core-web-vitals` plus TypeScript rules. Add TypeScript, React Hooks, and accessibility integrations when compatible. Use the project's selected formatter only when needed; configure the ESLint formatter integration to avoid conflicts. Do not rely on legacy `next lint` behavior when the installed Next.js version has removed it.
-
-For other languages, use the project's maintained official or ecosystem-standard toolchain, such as Ruff for Python, `golangci-lint` plus `gofmt` for Go, or RuboCop plus its formatter for Ruby. Lint, format check, typecheck where applicable, tests, and production build are release gates.
+Lint, format check, typecheck, tests, and production build are release gates.

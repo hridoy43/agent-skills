@@ -1,78 +1,22 @@
 # Web projects
 
-## Rendering
+## Rendering and routes
 
-- Render public, search-critical content on the server or at build time.
-- Use client components only for real browser state or interaction.
-- Stream or defer secondary data without hiding the page's main meaning.
-- Keep URLs stable, semantic, and canonical.
+- Server- or build-render public, search-critical content; client components only for real browser state or interaction. Stream secondary data without hiding the page's meaning.
+- Routes own metadata, layout, and loading/error boundaries; features own behavior. No second component library inside `app/`.
+- Route groups such as `(auth)`, `(public)`, `(dashboard)` clarify boundaries but never replace authorization.
+- Next.js 16+: one `proxy.ts` (root or `src/`) for lightweight redirects, rewrites, and header shaping—not data fetching or full authorization. Static redirects go in `next.config.ts`. Check the installed version first.
 
-## Route ownership
+Naming: [naming-and-linting.md](naming-and-linting.md). Assets: [assets-and-styles.md](assets-and-styles.md). Styling: [styling-and-components.md](styling-and-components.md).
 
-Routes own metadata, layout composition, route-level loading/error boundaries, and feature assembly. Features own business behavior and reusable views. Do not place a second component library inside `app/`.
+## Component libraries
 
-## Version-aware framework conventions
+- Inspect `components.json` first. Keep custom aliases in an existing project, but replace shadcn defaults: `aliases.utils` → `@/utils/cn` (never `lib/utils.ts`), `aliases.ui` → `@/components/shadcn`.
+- Library-owned code: `components/shadcn/`, `components/magicui/`, etc.—create a directory only for a source actually adopted. Project wrappers: `components/ui/` or the owning feature. Don't edit library base components for product behavior.
+- Layout pieces in `components/layout/`; brand pieces in `components/brand/`.
+- `src/utils/` holds pure helpers; `src/lib/` holds infrastructure. Shared values in `constants/`, runtime config in `config/`, static collections in `data/`.
+- Charts: Recharts, Tremor (Tailwind only), Bklit, or the primary foundation's option, chosen by complexity, accessibility, bundle cost, and token fit. Ask before installing any secondary source.
 
-Inspect the installed framework version and use its current official conventions. For Next.js 16 and later, use a single `proxy.ts` at the project root or `src` level; `middleware.ts` is the deprecated convention for older versions. Proxy handles lightweight redirects, rewrites, and request/response shaping, not slow data fetching or full authorization. For simple static redirects, prefer `next.config.ts` redirects.
+## Performance and accessibility
 
-Use semantic route groups such as `(auth)`, `(protected)`, `(public)`, or `(dashboard)` when they clarify web routing and access boundaries. Route groups do not change the URL and do not replace authorization checks.
-
-## Naming and component-library boundaries
-
-Use PascalCase filenames and matching exported names for product React components. Do not add a `.component` suffix. A standalone component is a direct file such as `components/CustomerForm.tsx`. Use a PascalCase directory with `index.tsx` only for a major composition with multiple cohesive child files, meaningful local state, or shared local types. Use camelCase plus role suffixes for non-component modules: `countries.data.ts`, `createInvoice.action.ts`, `invoice.service.ts`, `invoice.api.ts`, and `customerForm.schema.ts`.
-
-Keep a component-only type inside its component file. Use a major component’s `types.ts` only for types shared by that composition’s children. In a feature or shared `types/` directory, use domain names such as `invoice.ts` and `pagination.ts`; do not require a redundant `.types.ts` suffix. Hooks use standard `useInvoice.ts` naming. Keep Next.js reserved files unchanged: `page.tsx`, `layout.tsx`, `loading.tsx`, `error.tsx`, `not-found.tsx`, `route.ts`, and version-appropriate `proxy.ts` or legacy `middleware.ts`.
-
-Before generating shadcn or another component-library code, inspect repository configuration such as `components.json` and preserve its aliases. Keep generated/library-owned components in dedicated directories such as `components/shadcn/` or `components/magicui/`. Put project-owned wrappers in `components/ui/` or the owning feature. Do not modify base library components for product-specific behavior unless documenting a genuine upstream-level fix.
-
-For React/Tailwind projects, adopt registry sources only for a verified product or design-system gap. Possible library-owned directories include `components/shadcn/`, `components/magicui/`, `components/kokonutui/`, `components/aceternity/`, and `components/bklitui/`; create only directories for sources actually adopted. Use the primary UI foundation for equivalent primitives. For charts, evaluate Recharts, Tremor, Bklit UI, or another compatible option based on chart complexity, rendering model, accessibility, bundle cost, and design-system fit. Tremor is a Tailwind-specific candidate; do not apply it automatically to Ant Design or another non-Tailwind foundation. Ask before installing or copying any secondary source.
-
-Keep navigation, headers, footers, shells, containers, sidebars, breadcrumbs, and page-layout components under `components/layout/`. Keep logos and brand identity components under `components/brand/`. A child component directory may use PascalCase when it represents a component and exposes `index.tsx` or `index.js`; do not flatten it out of its semantic parent.
-
-Global pure helpers belong in `src/utils/`; reserve `src/lib/` for infrastructure and adapters. Stable shared values belong in `src/constants/`, runtime or integration configuration in `src/config/`, and static shared collections in `src/data/`.
-
-## Styling
-
-- Tailwind utilities live with JSX.
-- Components consume semantic Tailwind/theme utilities; avoid repeated literal color values in JSX.
-- Theme tokens, fonts, resets, shared typography, shared keyframes, and third-party overrides live in `src/styles/`.
-- Global CSS entry points live in `src/styles/`, not `src/app/`; the root layout imports `src/styles/globals.css`.
-- Keep code-based visual configuration there too: `fonts.ts`, `theme.ts`, typed tokens, style-system helpers, and framework theme adapters must not live in route files or the general `config/` directory. Reserve `config/` for runtime, environment, integration, and business settings.
-- CSS Modules are acceptable for component-local selectors that Tailwind cannot express clearly.
-- Use shadcn/ui for larger systems requiring accessible, owned primitives; do not import its demo styling uncritically.
-- For substantial reusable components in a shadcn-compatible project, inspect the official Registry Directory before creating a bespoke implementation. Review any third-party registry source before installation; never assume directory inclusion is a security or quality endorsement.
-- Use one primary component foundation. Isolate any secondary library to a documented gap and map it through the same semantic theme rather than mixing competing primitive systems across the app.
-
-## Assets and icons
-
-Keep web assets in the framework's global/static asset boundary. For Next.js and similar web projects, use `public/assets/` and organize shared and feature-scoped assets below it:
-
-```text
-public/
-  assets/
-    brand/
-    images/
-    icons/          # raw SVG/icon assets
-    illustrations/
-    fonts/
-    <feature>/       # feature-scoped assets when useful
-      <asset-group>/
-```
-
-Feature-specific assets belong under `public/assets/<feature>/`, not `features/<feature>/assets/`, unless the framework or build pipeline explicitly requires source-local ownership. Reusable icon components belong in `src/components/icons/`; library-owned components remain in their library directories. Components should reference public assets through the framework-supported URL/static mechanism rather than duplicating files.
-
-Keep framework-owned public files at the `public/` root, such as `robots.txt`, `sitemap.xml`, `manifest.webmanifest`, favicons, and verification files. Put application images, SVGs, fonts, illustrations, and other static code-related assets under `public/assets/`, organized by type or domain. Do not mix reusable application assets into the public root.
-
-When no icon preference or existing library applies, evaluate a maintained ecosystem-standard icon option such as Lucide and ask before installing it. Do not add a second icon library to a healthy project. Do not put manually authored raw `<svg>` markup or duplicated SVG source in JSX/TypeScript. Store custom SVG files under `public/assets/brand/`, `public/assets/icons/`, or `public/assets/<feature>/`, then reference them using the framework-supported mechanism. Maintained library component output is an allowed exception.
-
-## Performance
-
-- Optimize the actual largest content element, not arbitrary assets.
-- Reserve media dimensions to prevent layout shifts.
-- Prefer platform fonts or self-hosted/subset fonts with appropriate display behavior.
-- Lazy-load non-critical interactive or media-heavy sections.
-- Keep animation on transform/opacity where possible.
-
-## Accessibility
-
-Use semantic landmarks and heading order, keyboard-accessible controls, visible focus, sufficient contrast, accessible names, reduced motion, and live-region behavior only where needed.
+Optimize the actual LCP element, reserve media dimensions, self-host or subset fonts, lazy-load non-critical interactive or media sections, and animate transform/opacity. Use semantic landmarks and heading order, keyboard access, visible focus, contrast, accessible names, reduced motion, and live regions only where needed.

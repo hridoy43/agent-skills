@@ -1,49 +1,29 @@
 # Browser routing
 
-Choose the smallest available capability that can answer the question. Start with the host's built-in web search or direct fetch when no interaction is required. Tool names are capability examples, not mandatory dependencies. Never install, configure, authenticate, or transfer session state between browser tools without approval.
+One route per task; escalate only for a named gap. Tool names are examples—use what the host exposes.
 
-## Cost-aware default order
+## Public pages
 
-1. Host-provided web search or direct fetch for public, mostly static information.
-2. The host's available interactive browser with focused output for a small amount of visible UI state.
-3. `agent-browser` for compact accessibility snapshots and atomic interactions when installed.
-4. An LLM browser-use tool when autonomous multi-step planning is necessary.
-5. Chrome DevTools MCP for console, network, runtime, hydration, layout, or performance diagnostics.
+1. Host search or direct fetch for static content.
+2. Host interactive or in-app browser with focused output.
+3. `agent-browser` when installed: `read <url> --outline` or `--filter <term>` for text; `snapshot -i -c`, then `snapshot -s <selector>` for interaction.
+4. An LLM browser-use tool only when autonomous multi-step planning is necessary.
+5. Chrome DevTools MCP for console, network, runtime, hydration, or performance diagnosis—never as the default extractor.
 
-This is a capability order, not a requirement to install every tool. If the host's built-in route is sufficient, stop there.
+## Signed-in pages
 
-## Default order by task
+When the task needs login state or session cookies (accounts, dashboards, paywalls, private docs, asset downloads, web editors such as LottieFiles):
 
-### Click, fill, navigate, inspect visible UI
+1. The user's active browser session exposed by the host, such as a connected Chrome extension or the browser the user is already signed in to.
+2. `ego-browser` when installed; it runs in the user's logged-in browser.
+3. Another installed tool that drives the user's existing browser profile.
+4. None available: ask the user to sign in where the agent can drive the browser, or to do the step and share the result; suggest installing `ego-browser` if they want it automated.
 
-1. The host's interactive browser with focused output, when available.
-2. `agent-browser`, when available: prefer compact accessibility snapshots and focused element references.
-3. An available LLM browser-use tool, when its autonomous loop is necessary.
-4. Chrome DevTools MCP, when it is the only available browser route or when browser state must be inspected from Chrome.
+Ask before signing in, submitting, purchasing, downloading, or saving to the account. Never export, copy, or inject cookies, tokens, or profiles into another tool. Stop at access-denied or challenge pages; do not evade them.
 
-Use one route per task unless a named evidence gap requires escalation. Do not request full DOM, repeated screenshots, or multimodal state when a focused snapshot answers the question.
+## Token controls
 
-### Console, network, runtime, hydration, or performance diagnosis
-
-1. Chrome DevTools MCP when available.
-2. The browser's focused console/network/diagnostic capability.
-3. `agent-browser` or another browser only to reproduce the smallest failing interaction.
-
-DevTools is a diagnostic route, not the default extraction route. Request only the relevant console entries, request, response fields, trace range, or DOM node.
-
-### Screenshots and visual verification
-
-Use a screenshot only when layout, visual state, responsive behavior, or a user-provided visual comparison is material. Prefer a single viewport and crop or inspect the relevant region. Do not use screenshots as a substitute for text extraction.
-
-## Cost and token controls
-
-- Prefer the host's built-in focused output or `agent-browser` for ordinary interaction because compact snapshots and short references usually require less context than raw DOM or repeated screenshots.
-- Treat LLM browser-use tools as an escalation when autonomous multi-step planning is necessary; do not pay for a second reasoning loop when atomic actions are sufficient.
-- Reuse a browser session and read only changed state.
-- Bound steps, tabs, screenshots, retries, and wait time.
-- Stop once the requested visible state or evidence is captured.
-- Preserve material labels, warnings, form state, timestamps, and error text even when compressing output.
-
-## Availability and fallback
-
-At task start, use only capabilities already available to the host. If a preferred tool is missing, continue with the next suitable route and report the degraded mode when it affects fidelity. Never make a provider, MCP server, browser engine, or API key a hard prerequisite for this skill.
+- Accessibility snapshots or focused text over full DOM; a screenshot only when layout or visual state matters—one viewport, cropped.
+- Bound steps, tabs, retries, and waits; stop once the evidence is captured.
+- Keep labels, warnings, form state, timestamps, and error text when compressing.
+- Report the degraded route when a preferred tool is missing and fidelity suffers.

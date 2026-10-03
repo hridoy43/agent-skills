@@ -1,70 +1,31 @@
 # API, data, and state
 
-## Transport client baseline
+## Transport
 
-Before implementing the first network integration, choose the framework or ecosystem-standard transport client. Use Axios when REST requirements, existing project conventions, or user preference justify it. Create one shared client boundary when the selected transport supports a reusable client:
+Pick the framework-standard client before the first integration; Axios only for REST needs, existing use, or preference. No client for offline-only apps; never wrap a typed RPC or generated client. One shared client owns base URL, timeout, auth, credentials, safe retries, cancellation, and error normalization:
 
 ```ts
-export type ApiError = {
-  code: string;
-  message: string;
-  status?: number;
-  details?: unknown;
-};
+export type ApiError = { code: string; message: string; status?: number; details?: unknown };
 ```
 
-The client owns base URL, timeout, credentials/auth attachment, safe retry policy if any, response/error normalization, and cancellation. Feature API files own endpoints and request/response schemas. Adapt these responsibilities to the selected ecosystem's native client.
+Feature API files own endpoints and schemas. No per-feature clients; no caching inside interceptors.
 
-Do not add a parallel transport client per feature. Do not put query caching inside interceptors.
+## Errors
 
-## Exceptions
+- Global layer: normalize status, codes, correlation IDs, cancellation, auth expiry, offline, and retries; report non-blockingly without duplicate notifications.
+- Feature layer: map known errors to recovery actions, field errors, empty or permission states, and retry UI; never show raw server messages.
+- Test duplicate suppression, cancellation, auth expiry, offline recovery, and background-refresh failure; avoid retry storms.
 
-Do not install a network client for an offline-only app with no HTTP boundary. Do not wrap a fully typed RPC or generated client only to satisfy a convention. Record why the selected alternative preserves typed errors, cancellation, authentication, and testability.
+## Server state
 
-## TanStack Query
+TanStack Query (or the platform equivalent) for interactive server state: feature-owned query keys or option factories, `staleTime` per resource freshness, invalidate or update after mutations, model loading/empty/error/background-refresh, cancel stale requests, prefetch only likely next steps. API-heavy products build caching into the first slice. Server-rendered reads use framework caching; hydrate only what the client needs.
 
-Use it for interactive client-side server state:
+## Client state
 
-- Feature-owned query keys or query-option factories.
-- Explicit `staleTime` based on product freshness, not a universal value.
-- Invalidate or update affected keys after mutations.
-- Model loading, empty, error, success, and background refresh states.
-- Cancel obsolete requests when navigation or input changes.
-- Prefetch only likely next interactions.
+Classify first: URL state → router; server state → query cache; form state → form; local UI → component or reducer; cross-tree client state → a small store only when context won't do.
 
-For API-heavy products, make caching part of the first vertical slice rather than a later optimization. Define freshness by resource, invalidate or update affected queries after mutations, and expose background-refresh state without replacing usable cached content.
+- React: Zustand for a justified store—typed, feature-owned, narrow. App-level `stores/` only for auth metadata, theme, locale, or cross-feature preferences. Redux Toolkit or a state machine for large teams, complex transitions, or strict event debugging.
+- Document why local state is not enough, persistence (only what must survive restart), hydration, migration, logout reset, privacy, and tests.
+- Server data enters a store only when two features write the same canonical state.
 
-## Error handling boundary
-
-Use two layers:
-
-- **Global transport/application layer:** the selected client normalizes status, error codes, request IDs/correlation IDs, cancellation, auth expiry, offline/network failures, and safe retry policy. A provider-level error reporter and application error surface may observe these failures without rendering duplicate notifications.
-- **Feature layer:** endpoint/query owners map known errors to recovery actions, field errors, empty states, permissions, and retry UI. Never show raw server messages or sensitive details by default.
-
-Keep error reporting non-blocking, redact payloads, avoid retry storms, and test duplicate suppression, cancellation, auth expiry, offline recovery, and background-refresh failure.
-
-Use framework-native server caching for server-rendered reads. Hydrate only when client interaction needs the same data.
-
-## State classification
-
-1. URL state: filters, pagination, shareable view state.
-2. Server state: API-backed data; use query/cache tools.
-3. Form state: keep within form boundary.
-4. Local UI state: component/reducer.
-5. Cross-tree client state: add a small store only when context/local composition is insufficient.
-
-## Client-store decision rule
-
-State classification comes before choosing a library. Do not put server data, URL state, form state, or ordinary component UI state into a global store.
-
-For React web, mobile, or desktop projects, prefer **Zustand** when a small cross-tree client store is justified. Keep stores typed, feature-owned, narrowly scoped, independently testable, and explicit about persistence. Reserve an app-level `stores/` directory for genuinely global concerns such as auth metadata, theme, locale, or cross-feature preferences; keep checkout, filters, dialogs, and workflow state under their owning feature when possible.
-
-For large teams, complex state transitions, strict event/debugging requirements, or an existing ecosystem, evaluate Redux Toolkit or a state-machine approach instead. For non-React projects, choose the platform's smallest actively maintained equivalent after checking its current conventions. Do not install a state library solely to satisfy this document.
-
-When a store is added, document: why local state or context is insufficient, whether it is persisted, its reset behavior on logout/navigation, its hydration strategy, and the tests covering selectors and transitions.
-
-Server data does not promote into a cross-feature store unless two or more features share the same canonical server state with their own write paths. A single feature that needs to read its own data through a global store is asking for two sources of truth; route the reads through the query/cache layer and reserve the store for genuinely cross-feature client state.
-
-## Validation and types
-
-Generate or share types from the source of truth where possible. Validate untrusted payloads at network, storage, environment, and user-input boundaries. For form-specific rules, read [forms-and-validation.md](forms-and-validation.md). Keep transport DTOs separate from domain models when their lifecycles differ.
+Generate or share types from the source of truth; validate payloads at network, storage, env, and input boundaries; keep DTOs apart from domain models when lifecycles differ. Forms: [forms-and-validation.md](forms-and-validation.md).

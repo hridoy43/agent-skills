@@ -24,6 +24,7 @@ Then invoke `$global-discovery-browsing-extraction` on a compatible Agent Skills
 Install or configure only with user approval and only when the workload needs them:
 
 - `agent-browser` or an equivalent interactive browser for forms, screenshots, and visible runtime state.
+- The user's active browser session or `ego-browser` for pages that need login state; the skill never moves cookies between tools.
 - An LLM browser-use tool or Chrome DevTools MCP when the host provides it; use browser-use for autonomous multi-step work and DevTools for console, network, runtime, or performance diagnostics.
 - Exa for semantic source discovery when configured; keep result counts and fields small.
 - Firecrawl for bounded scraping, mapping, crawling, or interaction when direct fetch is insufficient.

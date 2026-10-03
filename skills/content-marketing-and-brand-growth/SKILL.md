@@ -1,6 +1,6 @@
 ---
 name: content-marketing-and-brand-growth
-description: Use when planning or refining social, product-launch, video, thumbnail, personal-brand, client-acquisition, networking, or ethical monetization content - builds measurable, platform-aware campaigns and creative briefs from real work without sacrificing trust, SEO, or useful substance
+description: Plans trust-first content campaigns and creative briefs—social posts, product launches, video, thumbnails, carousels, personal brand, networking, and ethical monetization—with platform-aware formats and measurable outcomes. Use when planning, writing, or repurposing marketing content from real work.
 ---
 
 # Content Marketing and Brand Growth
@@ -9,42 +9,28 @@ Build a durable content system around the user's real work, audience, offer, and
 
 ## Context gate
 
-Inspect the prompt, links, files, assets, destination, and prior context before asking questions. Capture the audience, promise, evidence, campaign stage, platform and placement, organic or paid context, format, CTA, publishing constraints, and success metric. Ask one to three grouped questions only when a missing answer materially changes the strategy, truth, format, privacy, or spend. Otherwise state a reversible assumption and proceed. Never ask for information already supplied.
+Read the prompt, links, files, assets, and destination first. Capture audience, promise, evidence, campaign stage, platform and placement, organic or paid, format, CTA, publishing constraints, and success metric. Ask one to three grouped questions only when a gap changes strategy, truth, format, privacy, or spend; otherwise state a reversible assumption. Never re-ask supplied information.
 
-## Goal hierarchy
+Trust order: useful content and real conversation → clear positioning → product use, feedback, stars, contributors → qualified networking and client conversations → revenue (services, products, sponsorships, disclosed affiliates). Never invent proof, urgency, testimonials, metrics, partnerships, or outcomes.
 
-Prioritize trust in this order:
+## Campaigns
 
-1. Useful content and genuine conversation.
-2. Clear personal, product, or company positioning.
-3. Product usage, feedback, open-source stars, or contributors.
-4. Qualified networking and client conversations.
-5. Revenue from services, products, sponsorships, or clearly disclosed affiliate recommendations.
+Define audience, problem, promise, proof, pillar, journey stage, format, primary CTA, canonical destination, owner, publishing window, and metric. One master idea, then one record per channel with its own job, hook, caption or script, asset, URL, timezone, status, and performance notes. Repurpose the idea, not the copy: text for discussion, images and carousels for explanation, short video for discovery, long-form for depth, an owned page for canonical SEO content. Don't force a schedule onto a single-asset request.
 
-Never invent proof, urgency, testimonials, metrics, partnerships, or outcomes.
+For a standalone video, thumbnail, carousel, static creative, or launch asset, read [content-format-execution.md](references/content-format-execution.md).
 
-## Campaign workflow
+## Quality and SEO
 
-Define the audience, problem, promise, proof, content pillar, journey stage, format, primary CTA, canonical destination, owner, publishing window, and success metric. Create one master idea, then one platform-specific record per channel. Each record gets its own job, hook, caption or script, asset, URL, timezone, status, and performance notes.
-
-Repurpose the idea, not identical copy. Use platform-native formats: useful text for discussion, images or carousels for explanation, short video for discovery, long-form video or articles for depth, and an owned page for canonical SEO content.
-
-For a standalone video, thumbnail, carousel, static creative, or launch asset, read [content-format-execution.md](references/content-format-execution.md) completely. Keep the title, thumbnail or cover, opening, body, CTA, and destination promise consistent. Use `conversion-storytelling` when the product narrative, proof, objections, user motivation, or CTA needs deeper work; use the relevant media skill for production.
-
-## Content quality and SEO
-
-Keep important meaning in crawlable text. Use descriptive titles, natural search language, canonical links, accurate claims, accessible media text, and clear disclosure. Do not trade clarity or credibility for trend-chasing, keyword stuffing, engagement bait, or empty motivational content.
+Important meaning in crawlable text; descriptive titles, natural search language, canonical links, accurate claims, accessible media text, clear disclosures. No trend-chasing, keyword stuffing, engagement bait, or empty motivation.
 
 ## Measurement
 
-Track outcomes separately: reach, impressions, engagements, saves, shares, clicks, repository visits, stars, feedback quality, qualified conversations, leads, and revenue. Review after a defined window and record what to repeat, change, or stop.
+Track separately: reach, impressions, engagement, saves, shares, clicks, repo visits, stars, feedback quality, qualified conversations, leads, revenue. Review after a set window; record what to repeat, change, or stop.
 
-## Output contract
+## Output
 
-Return the campaign goal, audience, assumptions or missing inputs, content system or standalone asset job, platform matrix when relevant, content drafts, production-ready creative brief or asset prompts, publishing schedule when relevant, CTA, destination continuity, and measurement plan. Respect the user's language, privacy, claims, preferred platforms, and approval boundaries. Do not force a campaign schedule on a request for one asset.
+Goal, audience, assumptions or missing inputs, content system or single-asset job, platform matrix when relevant, drafts, production-ready brief or prompts, schedule when relevant, CTA, destination continuity, measurement plan—in the user's language and within their claims, privacy, platforms, and approvals.
 
-## Companion boundaries
+## Companions (optional; suggest when missing)
 
-- Use `conversion-storytelling` for narrative framework, proof, objections, CTA, and conversion-focused destination continuity.
-- Use `global-discovery-browsing-extraction` for current audience, market, search, competitor, or platform evidence.
-- Use the relevant video, image, animation, or design skill for production; this skill owns content strategy, format adaptation, publishing context, and performance learning.
+`conversion-storytelling` for narrative, proof, objections, and CTA; `global-discovery-browsing-extraction` for audience, market, search, or platform evidence; the relevant video, image, animation, or design skill for production.

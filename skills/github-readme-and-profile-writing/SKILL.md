@@ -1,133 +1,38 @@
 ---
 name: github-readme-and-profile-writing
-description: Use when creating or improving GitHub project, organization, skill, or profile READMEs - produces discoverable, credible Markdown that helps users understand, install, use, star, contribute to, or hire the maintainer
+description: Writes and improves GitHub READMEs for projects, skills, organizations, and personal profiles—clear positioning, install and quick start, visual proof, badges, and one next action. Use when creating, auditing, or rewriting a README or profile README.
 ---
 
 # GitHub README and Profile Writing
 
-Create a README that serves its primary reader first, then supports discovery, trust, community growth, and appropriate conversion.
+Serve the primary reader first, then discovery, trust, contribution, and appropriate conversion.
 
-## Interview before writing
+## Before writing
 
-Ask only questions that change the README: audience, project status, intended action, canonical URLs, approved claims, screenshots/demos, license, support channel, services, and whether the document is for a project, organization, skill, or personal profile. Preserve user wording and never invent metrics, testimonials, users, revenue, partnerships, or capabilities.
+Inspect the repository first. Ask only what changes the README: audience, status, intended action, canonical URLs, approved claims, screenshots or demos, license, support channel, services, and type (project, organization, skill, profile). Keep the user's wording. Never invent metrics, testimonials, users, revenue, partners, or capabilities, and never publish secrets, private client details, or unapproved logos. For personal profiles, read [profile-readme.md](references/profile-readme.md).
 
-## Public-sharing workflow
+## Structure
 
-Before publishing, verify the README against the actual repository and its intended reader:
+Default order: what it is and who it helps → why it matters → fastest install or try → minimal working example → proof (demo, screenshot, architecture, status) → deeper docs and contribution → one next action (use, star, feedback, contribute, contact, hire). Include only sections with real content; a short complete README beats a long placeholder.
 
-1. Confirm canonical repository, demo, documentation, contact, license, and support URLs.
-2. Confirm installation and quick-start commands on a clean environment when possible.
-3. Separate current, beta, planned, and deprecated features.
-4. Add only public, approved evidence: screenshots, demos, releases, tests, CI, usage, contributors, or shipped outcomes.
-5. Check links, image alt text, code fences, mobile readability, dark-mode contrast, and GitHub rendering.
-6. End with the smallest useful next action: try, star, give feedback, contribute, contact, or hire.
-
-Do not publish secrets, private client details, unapproved logos, fabricated metrics, or unverifiable claims.
-
-## Reader and conversion order
-
-Use this order unless the user requests another structure:
-
-1. What it is and who it helps.
-2. Why it matters and the concrete outcome.
-3. Fast path to install or try.
-4. A minimal working example.
-5. Proof: demo, screenshots, architecture, shipped work, or transparent status.
-6. Deeper documentation and contribution path.
-7. One clear next action: use, star, give feedback, contribute, contact, or hire.
-
-## Visual proof and README anatomy
-
-When a project has a visual, interactive, or user-facing result, inspect the repository for approved screenshots, GIFs, demo videos, playgrounds, or live links and place one strong proof near the opening. Use only assets that are current, public, and relevant.
-
-Choose evidence by project type:
-
-- UI, web, mobile, or interactive product: screenshot, short GIF/video, or live demo.
-- Library or component: rendered example, API usage, or playground.
-- CLI or developer tool: terminal session or copyable quick-start output.
-- API or backend: request/response example, workflow, or architecture diagram.
-- Profile or organization: selected-work visual only when it adds credible evidence.
-
-Use a clear anatomy when useful: identity → visual proof → why → features/outcomes → install/quick start → customization/API → contribution/support/license. Keep key meaning in text, use descriptive alt text, avoid decorative image walls, and ask for an approved asset only after repository inspection when its absence would materially reduce understanding.
-
-For personal profiles, separate open-source work, current products, services, and contact options. Make client services specific and evidence-led; do not turn the profile into a generic agency brochure.
-
-## SEO and discoverability
-
-- Put the plain-language product/category phrase in the title, opening sentence, and one useful heading.
-- Use descriptive headings, links, image alt text, repository topics, and canonical URLs.
-- Explain synonyms naturally (for example, product architecture, software development, web, mobile, and AI products).
-- Link to the specific skill or project first, then the repository root for browsing and starring.
-- Keep important meaning in text, not only badges, screenshots, or animated demos.
-- Avoid keyword stuffing, vague superlatives, hidden text, and duplicate boilerplate.
-
-## Badges and premium trust signals
-
-Badges are optional proof, not decoration. Add a compact row near the title only when each badge is accurate, maintained, and useful. Prefer at most 3–6 relevant badges, ordered by reader value:
-
-- release/version or package version;
-- CI/build and test status;
-- coverage, only when the number is meaningful and current;
-- license;
-- documentation, demo, website, or playground;
-- package/download or community signal when the source is authoritative.
-
-Use stable providers or repository-native links, descriptive alt text, and links that explain the badge. Never use fake stars, visitor counters, animated badge walls, unrelated technology badges, or a badge for every dependency. For personal profiles, plain links and selected-work proof usually look more credible than badges.
-
-Premium presentation comes from hierarchy and evidence: a concise opening, one clear visual or demo, short sections, consistent headings, readable code examples, useful whitespace, and a visible support/contribution path—not visual effects alone.
-
-## Repository surface beyond the README
-
-Treat the README as the front door, not the entire documentation system. When the project is public and the material exists, keep these surfaces aligned:
-
-- repository description, topics, website, and social preview;
-- `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, and license;
-- issue templates, discussion/support links, release notes, and changelog;
-- API/reference documentation and long tutorials linked from the README rather than duplicated in it.
-
-Use the README for orientation and the shortest successful path. Link outward for depth, and never add links to empty placeholder documents just to make the repository look complete.
-
-## Templates
-
-Choose one before drafting:
-
-- **Project:** problem → value → install → quick start → features → screenshots/demo → architecture → roadmap → contributing → license.
+- **Project:** problem → value → install → quick start → features → demo → architecture → roadmap → contributing → license.
 - **Skill:** purpose → install command → starter prompt → workflow → optional companions → limitations → related skills → feedback.
-- **Organization:** mission → products/services → proof → open-source work → contact.
-- **Profile:** positioning → current products → services → open source → writing/talks → contact.
+- **Organization:** mission → products or services → proof → open source → contact.
 
-For any template, include only sections that have real content. A short complete README is better than a long placeholder document.
+## Proof and badges
 
-## Profile README architecture
+Put one strong, current, public proof near the top when the project is visual: screenshot, short GIF/video, or live demo for UI; rendered example or playground for libraries; terminal session for CLIs; request/response or architecture diagram for APIs. Meaning stays in text with descriptive alt text; no decorative image walls.
 
-For personal profiles, combine industry-standard clarity with evidence from the person's real work:
+Badges are optional proof: three to six at most, accurate and linked—release, CI, meaningful coverage, license, docs or demo, authoritative package/download counts. No fake stars, visitor counters, animated walls, or per-dependency badges.
 
-1. Positioning headline: role, domain, and outcome.
-2. Short introduction: who they help and what they build.
-3. Focused links: portfolio, professional profile, contact, and selected social channels.
-4. Selected work: current products, open source, or shipped outcomes with honest status labels.
-5. Credibility: previous companies, clients, talks, writing, or measurable evidence only when approved.
-6. Capabilities: a concise focus or stack summary, never a dependency dump.
-7. One clear path to work together, collaborate, follow, or provide feedback.
+## Discoverability
 
-Keep owned products, previous work, services, and community projects visibly distinct. Prefer a small number of strong examples over exhaustive lists. Use the person's actual voice and avoid generic claims unless they are specific to the work shown.
+Plain category phrase in the title, first sentence, and one heading; descriptive headings, links, alt text, topics, canonical URLs; natural synonyms; link the specific project first, then the repo root; no keyword stuffing, hidden text, or boilerplate. Keep the repo description, topics, website, social preview, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, license, templates, and changelog aligned—link deeper docs instead of duplicating them, and never link empty placeholders.
 
-## Trust and monetization
+## Before publishing
 
-Offer services only when they are relevant to the project and clearly labelled. Use a low-friction contact path. Affiliate links must be relevant, optional, clearly disclosed, and never disguised as independent proof. Prefer useful tutorials, comparisons, and transparent recommendations over affiliate-only pages.
+Verify URLs; test install and quick start on a clean environment when possible; label current, beta, planned, and deprecated features; check links, alt text, code fences, narrow-width and dark-mode rendering. Services and affiliate links appear only when relevant and clearly labeled.
 
-## Public README checklist
+## Output
 
-- The title and first paragraph explain the entity without requiring a screenshot.
-- The primary CTA and canonical destination are obvious.
-- Installation, usage, status, license, and support information match reality.
-- Visual assets have descriptive alt text and do not contain the only copy of an important claim.
-- A visual or interactive project has one current proof asset near the opening when it materially improves understanding; non-visual projects use an appropriate terminal, API, or architecture example instead.
-- Badges are few, accurate, linked, and readable in light and dark themes.
-- Contribution, issue, security, and code-of-conduct links are included when public participation is supported.
-- Client work and affiliate relationships are labelled honestly.
-- The README has been rendered and checked at narrow/mobile width before publishing.
-
-## Output contract
-
-Return the proposed structure and content before overwriting an existing README unless the user explicitly authorizes direct replacement. Include a link checklist, missing evidence, and suggested follow-up assets. Keep Markdown accessible, scannable, mobile-friendly, and compatible with GitHub rendering.
+Propose structure and content before overwriting an existing README unless direct replacement is authorized. Include a link checklist, missing evidence, and suggested follow-up assets.

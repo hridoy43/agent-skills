@@ -98,7 +98,8 @@ Install only when the task needs them:
 - `conversion-storytelling` for marketing, ecommerce, onboarding, positioning, proof, and CTA narratives.
 - `content-marketing-and-brand-growth` for product-launch campaigns, social content, video or thumbnail briefs, publishing, and content performance learning.
 - `ai-assisted-product-development` for bounded AI design exploration, human selection, feedback-to-change workflows, and decision records.
-- `text-to-lottie` for purposeful Lottie authoring.
+- `global-discovery-browsing-extraction` for finding and editing existing LottieFiles animations, including signed-in browser sessions.
+- `text-to-lottie` for authoring Lottie when no existing animation fits.
 - `hyperframes` for product-demo videos; use Remotion when requested or already present.
 - Official Expo/React Native skills for native apps.
 - `graphify` only for large, unfamiliar, cross-language, or long-lived codebases. Ask permission before installing, configuring, or scanning.
@@ -122,7 +123,8 @@ The chosen stack determines these. Add them only when justified:
 - Ant Design for dashboard/admin-heavy applications when its interaction model fits.
 - Axios (or the platform-equivalent client) plus TanStack Query or an equivalent cache for API-heavy applications.
 - Zustand for justified cross-tree client state in React projects; evaluate Redux Toolkit, state machines, or platform-native equivalents when project complexity or framework needs require them.
-- Motion.dev, GSAP, CSS, or SVG animation according to the motion complexity—not all by default.
+- CSS, SVG, Lottie (dotLottie), Motion.dev, GSAP, Lenis, three.js/React Three Fiber, or p5.js according to the motion need—not all by default.
+- Every added dependency is installed at its latest stable release, resolved from the registry at install time.
 
 ## Core architectural guarantees
 

@@ -1,108 +1,41 @@
 # Styling and components
 
-## Proportional design-system contract
+## Design-system contract
 
-Define the smallest coherent design system before feature UI. At minimum, establish semantic color roles, typography and spacing scales, content widths and responsive rules, radii and elevation, focus and disabled states, motion and reduced-motion behavior, and ownership for primitives and composites. Add documentation, visual testing, package governance, and cross-app versioning only when the product size and team structure justify them.
+Before feature UI, define the smallest coherent system: semantic color roles, type and spacing scales, content widths and breakpoints, radii and elevation, focus and disabled states, motion with reduced-motion behavior, and primitive vs composite ownership. Add docs, visual tests, and versioning only when team size justifies them. New library or registry code adopts project tokens, accessibility rules, and API patterns; no template becomes a parallel theme.
 
-The design system is a product boundary, not a collection of attractive components. New library or registry code must adopt the project's semantic tokens, accessibility rules, state conventions, and component API patterns. Do not let a template, block, or generated component become an undeclared parallel theme.
+## Tailwind ownership
 
-## Tailwind ownership rule
+Classes live in the component. Native apps use their platform styling unless a Tailwind binding (Uniwind or NativeWind) was chosen. Global CSS only for: reset/base, tokens, font faces and type primitives, keyframes reused twice, uncolocatable third-party overrides, or a documented pattern with two real component consumers (re-exports, tests, and text matches don't count). Never move a long one-off class string to global CSS—split the component or use a local variant helper.
 
-For web and other CSS-capable surfaces, write Tailwind classes in the component by default. Native projects use their chosen platform styling system unless NativeWind/Tailwind was explicitly selected. A global class is allowed only for:
+A repeated utility with one semantic role becomes a named theme token, not a global class (a token carries a role; a class carries a value).
 
-- reset/base behavior;
-- theme/design tokens;
-- font faces and shared typography primitives;
-- stable motion/keyframe primitives reused in two or more places;
-- third-party overrides that cannot be colocated;
-- a stable pattern with at least two real component consumers.
+## Scales and arbitrary values
 
-A real consumer is a distinct runtime component that intentionally relies on the pattern's semantic contract. Re-exports, tests, type files, and textual matches do not count. “Stable” means the pattern's purpose and API are named, documented, and unlikely to change with one feature.
+Use the framework scale for every visual property. When it can't express a stable brand role, add a semantic token with a named utility (`text-display-hero`, `max-w-reading`, `rounded-card`, `shadow-dialog`, `duration-ui`, `ease-brand`). An arbitrary value (`text-[1.07rem]`) is allowed only for a measured one-off kept beside its component, with a comment when not obvious—an embed size, screenshot crop, canvas coordinate, or compatibility workaround. Promote repeats during review (`scripts/audit-global-styles.mjs`).
 
-Do not move a long one-off class string into global CSS. Instead split the component, use a local variant helper, or keep it visible where it is used.
+## Theme
 
-When a utility repeats across components with the same semantic role, promote it into a named theme token rather than a global CSS class. A token carries a role, not a value; a global class carries a value, not a role. Promotion is a deliberate decision with a recorded reason, the same as promoting code into a wider ownership boundary.
+- Colors: background, surface, text, muted, border, primary, secondary, accent, success, warning, destructive, focus. Map typography, spacing, shape, and motion tokens just as deliberately.
+- Tailwind/shadcn: CSS custom properties exposed as theme utilities (`bg-background`, `text-muted-foreground`); configure shadcn's variables, not ad hoc hex. Native: a typed theme with provider/hook.
+- No raw hex/RGB/HSL/OKLCH in components when a token fits; documented exceptions: third-party brand colors, screenshots, data-viz scales.
+- Components consume roles so a future theme needs no rewrite; verify contrast in every shipped theme.
+- Files: `src/styles/{globals.css, theme.css, theme.ts, typography.css, motion.css, fonts.ts}`; the root layout imports `src/styles/globals.css`. Font loaders, typed tokens, and library theme adapters live here, never in `app/` or `config/`.
+- Tailwind 4 migrations: import tokens before base and primitives; replace an old unlayered selector in the same slice that adds its utilities.
 
-## Scale ownership and arbitrary values
+## Components
 
-Use the styling framework's named scale before introducing a custom value. This applies to every visual property, including color, font family, font size, font weight, line height, letter spacing, spacing, dimensions, content width, breakpoints, radius, border width, shadow, opacity, transition duration, easing, transforms, and animation.
-
-When the standard scale cannot express a stable brand or product role, add a semantic token to the central theme and expose a named utility such as `text-display-hero`, `max-w-reading`, `rounded-card`, `shadow-dialog`, `duration-ui`, or `ease-brand`. Do not repeat arbitrary classes such as `text-[1.07rem]`, `tracking-[-0.037em]`, `duration-[175ms]`, or literal color utilities across components.
-
-An arbitrary value is acceptable only when all of these are true:
-
-- it represents a measured one-off rather than a reusable design decision;
-- the framework scale or current theme cannot describe it without misleading semantics;
-- it is kept beside the owning component;
-- a short code comment or architecture note explains the constraint when it is not self-evident.
-
-Typical exceptions include an exact third-party embed dimension, a product-screenshot crop, a canvas coordinate, or a compatibility workaround. Audit repeated arbitrary values during review and promote stable repetitions into theme tokens.
-
-## Theme configuration
-
-Use semantic tokens from the first interface:
-
-- colors: background, surface, text, muted text, border, primary, secondary, accent, success, warning, destructive, focus;
-- typography: families, weights, sizes, leading, tracking;
-- spacing and layout: spacing scale, content widths, breakpoints where configurable;
-- shape and depth: radii, borders, shadows;
-- motion: durations, easing, and reduced-motion policy.
-
-For Tailwind, expose tokens through CSS custom properties and the Tailwind theme so components use classes such as `bg-background`, `text-muted-foreground`, and `border-border`. For shadcn/ui, configure its semantic variables and variants rather than replacing them with ad hoc hex values. For React Native/desktop-native UI, provide the equivalent typed semantic theme and hook/provider.
-
-Do not scatter hex, RGB, HSL, or OKLCH literals through components when a semantic token fits. Create a new semantic token only when it represents a stable design role, not merely to rename a one-off value. Literal third-party brand colors, product screenshots/previews, and intentional data-visualization scales are allowed when documented; centralize them when reused.
-
-Map typography, layout, and motion tokens into the framework just as deliberately as colors. Components should consume named utilities rather than reaching through Tailwind with raw CSS-variable arbitrary syntax when a semantic class can be exposed.
-
-Support light/dark or additional themes only when required, but make component APIs consume semantic roles so a future theme does not require component rewrites. Verify contrast in every shipped theme.
-
-## Global style layout
+Primitives → small composites → feature components → sections/screens; don't enforce atomic directory names. Shared only when domain-neutral, two real consumers, stable API; similar-looking feature UI may stay separate. Directory form only for major compositions:
 
 ```text
-styles/
-  globals.css       # imports, reset, base element behavior
-  theme.css         # color, spacing, radius, shadow tokens
-  theme.ts          # typed/framework presentation configuration when needed
-  typography.css    # font faces and shared type primitives
-  motion.css        # shared keyframes and reduced-motion policy
-  fonts.ts          # framework font loading when applicable
+FeatureCard/
+  index.tsx              # composes; the only public entry
+  FeatureCardMedia.tsx
+  FeatureCardActions.tsx
+  types.ts               # only types shared by these children
+  FeatureCard.test.tsx
 ```
-
-Use CSS custom properties as the bridge between theme tokens and Tailwind/shadcn.
-
-Keep every code-based presentation concern in this boundary as well: font loaders, theme metadata, typed tokens, color-scheme values, component-library adapters, and style helpers. Import them directly from `styles/`; do not put them in `app/`, route files, or a general `config/` folder. Runtime/environment configuration and business settings remain in `config/`. In a monorepo, apply the same rule inside the owning app or design-system package.
-
-Preserve cascade order during migration. In Tailwind 4, import theme/tokens before base and shared primitives, keep third-party overrides deliberate, and replace an old unlayered selector in the same slice that adds its utilities/module rule so the old cascade cannot mask missing styles.
-
-## Near-atomic composition
-
-- Primitives: button, input, surface, text link.
-- Small composites: field, badge group, media frame.
-- Feature components: product card, pricing selector, onboarding step.
-- Sections/screens: compose features and content.
-
-Do not enforce atomic labels or directories when they add navigation cost. Boundaries should reveal responsibility.
-
-## Component directory
-
-```text
-feature-card/
-  feature-card.tsx
-  feature-card-media.tsx
-  feature-card-actions.tsx
-  feature-card.types.ts
-  feature-card.test.tsx
-  index.ts
-```
-
-The root file composes. Parts own focused markup. Types remain close. `index.ts` exports only what external consumers need.
-
-## Shared or feature-local?
-
-Move a component to shared only when it is domain-neutral, has two real consumers, and has a stable API. Similar-looking feature UI may remain separate when semantics or change cadence differ.
 
 ## Icons
 
-For supported ecosystems, install and use Lucide when the user and existing project do not specify another icon system. Preserve a healthy existing icon library; do not add Lucide beside it without a documented gap. Import icons directly for tree shaking. Standardize size, stroke, color, accessible labeling, and decorative `aria-hidden`; avoid bespoke SVGs for ordinary interface metaphors.
-
-When a suitable Lucide icon does not exist or a brand/product-specific icon is required, store the bespoke SVG under the owned asset directory and import or reference it from the component. Lucide's maintained component output may render SVG internally; the prohibition applies to manually authored or duplicated SVG markup. Use the selected framework's supported asset/import mechanism and preserve accessible labeling or decorative behavior.
+Keep a healthy existing icon library. With none chosen, propose Lucide (or the ecosystem standard) and ask before installing. Direct imports; standardize size, stroke, color, labels, and decorative `aria-hidden`. Custom SVG only for brand or genuinely missing icons, stored as asset files—library-rendered SVG is fine, hand-written or duplicated SVG markup in code is not.

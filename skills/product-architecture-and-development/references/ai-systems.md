@@ -1,54 +1,18 @@
 # AI product systems
 
-Use only when AI behavior is part of the shipped product.
-
-## Start with the product decision
-
-Define the user task, why probabilistic behavior is acceptable, measurable success, unacceptable outcomes, human fallback, latency/cost budget, data permissions, and non-AI baseline. Do not add an agent where a deterministic workflow is simpler and safer.
-
-## Boundary
+Only when AI behavior ships in the product. First define the user task, why probabilistic output is acceptable, success measures, unacceptable outcomes, human fallback, latency and cost budget, data permissions, and the non-AI baseline. Prefer a deterministic workflow when it is simpler and safer.
 
 ```text
-features/<feature>/
-  ai/
-    prompts/
-    schemas/
-    evals/
-    tools/
-    <feature>-ai.service.ts
-lib/ai/
-  client.ts                    # provider-neutral request boundary
-  model-policy.ts
-  errors.ts
+features/<feature>/ai/{prompts,schemas,evals,tools}/  <feature>Ai.service.ts
+lib/ai/{client.ts, modelPolicy.ts, errors.ts}          # provider-neutral boundary
 ```
 
-Feature code owns task prompts, tools, schemas, and evals. The shared AI client owns provider authentication, timeout/cancellation, model selection policy, normalized usage/cost/error telemetry, and safe retries. Avoid a generic “AI service” containing every product task.
+Features own prompts, tools, schemas, and evals. The shared client owns provider auth, timeouts and cancellation, model policy, usage/cost/error telemetry, and safe retries. No catch-all AI service.
 
-## Reliability and safety
-
-- Validate structured outputs and tool inputs/outputs.
-- Authorize tools separately from the model; the model never grants itself permission.
-- Apply least privilege, bounded steps, timeouts, rate limits, and spend limits.
-- Treat retrieved/user content as untrusted data, not instructions.
-- Keep secrets and hidden system policy out of client bundles and logs.
-- Define refusal, fallback, escalation, and partial-failure behavior.
-- Require human approval before irreversible, financial, security-sensitive, public, or high-impact actions.
-- Provide undo/audit trails where practical.
-
-## Evaluation
-
-Create a versioned representative evaluation set before launch. Measure task success, groundedness/accuracy, schema/tool correctness, safety failures, latency, and cost. Include adversarial and edge cases.
-
-Run evals when prompts, models, tools, retrieval, or policies change. Separate offline evaluation, staging review, and production outcome monitoring. Never treat a few demos as evidence of reliability.
-
-## Retrieval and knowledge
-
-Define source authority, ingestion ownership, chunk/version strategy, permissions filtering before retrieval, freshness/deletion, citations, and “not found” behavior. Evaluate retrieval separately from generation.
-
-## Observability and privacy
-
-Record model/provider/version, prompt template version, tool outcomes, latency, token/cost totals, and error class with privacy-aware sampling. Do not log raw confidential content by default. Establish retention and redaction policy.
-
-## UX
-
-Set expectations about uncertainty and processing. Show progress for long tasks, cite sources when claims depend on them, make corrections possible, preserve user control, and distinguish suggestions from completed actions. AI animation or conversational chrome must not substitute for a clear task flow.
+- Validate structured outputs and tool inputs/outputs. Tools are authorized outside the model; the model never grants itself permission. Expose tools through a typed boundary (for example MCP) with least privilege.
+- Bound steps, time, rate, and spend. Treat retrieved and user content as untrusted data. Keep secrets and system prompts out of bundles and logs.
+- Define refusal, fallback, escalation, and partial failure. Require human approval for irreversible, financial, security-sensitive, public, or high-impact actions; keep undo or audit trails.
+- Evals: a versioned representative set (with adversarial cases) before launch, rerun when prompts, models, tools, retrieval, or policy change. Measure task success, grounding, tool/schema correctness, safety, latency, and cost. Demos are not evidence.
+- Retrieval: source authority, ingestion owner, chunking and versioning, permission filtering before retrieval, freshness and deletion, citations, "not found" behavior; evaluate retrieval separately.
+- Log model and version, prompt version, tool outcomes, latency, and tokens/cost with privacy-aware sampling; no raw confidential content by default; set retention and redaction.
+- UX: set expectations, show progress, cite sources, allow correction, and separate suggestions from completed actions.

@@ -1,49 +1,22 @@
 # Security and CSP
 
-## Baseline
+- Secrets server-side; validate env at startup; authorize at every trust boundary; secure, httpOnly, sameSite session cookies; least privilege for tokens, desktop bridges, storage, DB roles, and CI; escape output and sanitize supported rich HTML; never log secrets or sensitive payloads; lock dependencies and review advisories.
 
-- Keep secrets server-side and validate environment variables at startup.
-- Validate and authorize at every trust boundary.
-- Use secure, httpOnly, sameSite cookies for browser sessions where applicable.
-- Apply least privilege to API tokens, desktop bridges, storage, database roles, and CI.
-- Escape output by default; sanitize intentionally supported rich HTML.
-- Avoid logging secrets, tokens, raw personal data, or full sensitive payloads.
-- Pin/lock dependencies and review security updates.
-
-## Content Security Policy
-
-Start from:
+## CSP baseline
 
 ```text
-default-src 'self';
-base-uri 'self';
-object-src 'none';
-frame-ancestors 'none';
-form-action 'self';
-script-src 'self' 'nonce-<per-request>' 'strict-dynamic';
-style-src 'self' 'nonce-<per-request>';
-img-src 'self' data: blob: <approved-cdns>;
-font-src 'self' <approved-font-cdns>;
-connect-src 'self' <approved-apis>;
-upgrade-insecure-requests;
+default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self';
+script-src 'self' 'nonce-<per-request>' 'strict-dynamic'; style-src 'self' 'nonce-<per-request>';
+img-src 'self' data: blob: <approved-cdns>; font-src 'self' <approved-font-cdns>;
+connect-src 'self' <approved-apis>; upgrade-insecure-requests;
 ```
 
-Adapt to the actual framework, rendering model, and origins. Generate nonces per response for dynamic HTML when the framework supports it; use hashes or framework-supported static policies when forcing dynamic rendering would damage a deliberate static/SEO strategy. Prefer hashes/nonces over `unsafe-inline`; never use `*` as a convenience fix. If a necessary third party requires a weaker directive, document the exact source, risk, containment, and removal condition. Add only sources observed in the application.
+Per-response nonces for dynamic HTML; hashes or static policies when forcing dynamic rendering would hurt a deliberate static/SEO strategy. Never `unsafe-inline` when nonces or hashes work, never `*`. A weaker directive for a required vendor records source, risk, containment, and removal condition. Add only observed origins.
 
-For an existing deployed application:
+Existing deployed app: inventory scripts, styles, fonts, images, frames, workers, and API origins → deploy `Content-Security-Policy-Report-Only` to a controlled endpoint → fix violations → enforce → automate header checks and monitor reports.
 
-1. Inventory scripts, styles, fonts, images, frames, workers, and API destinations.
-2. Deploy `Content-Security-Policy-Report-Only` to a controlled reporting endpoint.
-3. Fix violations and third-party assumptions.
-4. Enforce the policy.
-5. Add automated header checks and monitor reports.
+## Headers
 
-## Transport and security headers
+HSTS only after the domain and all affected subdomains are HTTPS-ready; `includeSubDomains` and preload are explicit, hard-to-reverse decisions; never on local or intentionally HTTP environments. Also test `X-Content-Type-Options: nosniff`, Referrer-Policy, Permissions-Policy, cookie flags, and framework CSRF protection.
 
-For production web deployments, enable HSTS only after confirming that the domain and every affected subdomain are HTTPS-ready. Start with an appropriate `max-age`; add `includeSubDomains` only when all subdomains support HTTPS, and treat browser preload as an explicit, difficult-to-reverse deployment decision. Do not enable HSTS for local development or environments that intentionally require HTTP.
-
-Also review and test `X-Content-Type-Options: nosniff`, a deliberate Referrer-Policy, Permissions-Policy, secure cookie settings, framework-specific CSRF protections, and any platform-specific security headers.
-
-## Platform boundaries
-
-Mobile secure storage and desktop privileged commands need the same validation/least-privilege discipline as HTTP APIs. Webview navigation and bridge calls must be allowlisted and typed.
+Mobile secure storage, desktop privileged commands, webview navigation, and bridge calls get the same validation, allowlists, and least privilege as HTTP APIs.

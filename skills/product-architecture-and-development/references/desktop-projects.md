@@ -1,28 +1,6 @@
 # Desktop projects
 
-## Shell choice
-
-- When no stack is specified and Better-T-Stack supports the required Tauri combination, use its current stable Tauri option.
-- Use Tauri when a web UI plus a narrow native core satisfies the product and smaller bundles/security boundaries matter.
-- Use Electron when Node/Chromium integration or its mature ecosystem is central.
-- Use a native app when platform integration, performance, or interaction quality outweighs cross-platform reuse.
-
-Verify current support and plugin health before deciding.
-
-## Boundary
-
-Keep UI and privileged operations separated:
-
-```text
-src/                         # UI/features
-src-tauri/ or electron/      # privileged commands, OS integration
-packages/contracts/          # typed command/event contracts when needed
-```
-
-Expose the smallest typed command surface. Validate every payload at the privilege boundary. Do not give renderer code broad filesystem, shell, or network access.
-
-## Product concerns
-
-Plan signing/notarization, auto-update, crash recovery, migrations, offline behavior, tray/menu behavior, deep links, file associations, and platform-specific accessibility. Use CSP and navigation allowlists in embedded webviews.
-
-Map the shared semantic design tokens into the chosen desktop UI layer. Keep operating-system-specific colors/materials behind theme adapters rather than hardcoding them throughout feature views.
+- Tauri: web UI plus a narrow native core where bundle size and security boundaries matter. Electrobun: Bun/TypeScript main process with small bundles when its maturity is acceptable. Electron: when Node/Chromium integration or its ecosystem is central. Native: when platform integration or interaction quality outweighs reuse. With no stack given, use Better-T-Stack's Tauri or Electrobun addon. Verify plugin health first.
+- Keep privileged code apart: `src/` (UI), `src-tauri/` or `electron/` (commands, OS access), `packages/contracts/` (typed command/event contracts when needed). Expose the smallest typed command surface, validate every payload at the privilege boundary, and never give the renderer broad filesystem, shell, or network access.
+- Plan signing and notarization, auto-update, crash recovery, migrations, offline, tray and menus, deep links, file associations, and platform accessibility. Webviews get CSP and navigation allowlists.
+- Map shared semantic tokens into the desktop UI; keep OS colors and materials behind theme adapters.

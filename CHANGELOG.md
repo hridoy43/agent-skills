@@ -4,7 +4,15 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 ## Unreleased
 
-No unreleased changes.
+- Rewrote all seven skills for minimum context: agent-loadable Markdown dropped from about 68k to 31k tokens, and always-loaded `SKILL.md` bodies from about 14k to 7k. Each rule now has one owner file; others link to it. Background citations and restated defaults were removed; descriptions are third-person "what + when".
+- Added a latest-stable install rule: new dependencies, generators, and CLIs resolve their latest stable release from the registry at install time; pre-release tags need approval; existing projects report and upgrade outdated dependencies when in scope.
+- Fixed the shadcn `cn` helper location: always `src/utils/cn.ts` via `components.json` `aliases.utils: "@/utils/cn"`, never `lib/utils.ts`; `inspect-project.mjs` reports misplaced helpers and lockfiles.
+- Added Lenis, three.js/React Three Fiber, p5.js, CSS scroll-driven animations, and a LottieFiles find → edit → dotLottie workflow to the motion guidance.
+- `global-discovery-browsing-extraction` now owns signed-in browsing: the user's active browser session, then `ego-browser` when installed, then other tools on the user's profile, never moving cookies between tools. Other skills route to it.
+- Split mobile chrome and safe-area guidance into `mobile-chrome.md`; moved personal-profile guidance into `github-readme-and-profile-writing/references/profile-readme.md`.
+- Resolved contradictions in component naming, Lucide installation, feature `helpers/`, asset locations, and example filenames; `scaffold-module.mjs` writes standalone components as single files.
+- Updated Uniwind/NativeWind, Standard Schema validators, Electrobun, Astryx beta status, and multi-agent Wigolo wiring.
+- Listed all bundled scripts in `SKILL.md`; `check-companions.mjs` also searches `.claude/skills` and project-scoped skill directories.
 
 ## v0.5.23 — 2026-07-25
 

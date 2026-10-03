@@ -7,7 +7,14 @@ import { fileURLToPath } from 'node:url';
 
 const home = os.homedir();
 const bundledSkillsRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-const roots = [bundledSkillsRoot, path.join(home, '.agents', 'skills'), path.join(home, '.codex', 'skills')];
+const roots = [
+  bundledSkillsRoot,
+  path.join(process.cwd(), '.agents', 'skills'),
+  path.join(process.cwd(), '.claude', 'skills'),
+  path.join(home, '.agents', 'skills'),
+  path.join(home, '.claude', 'skills'),
+  path.join(home, '.codex', 'skills'),
+];
 
 const companions = [
   { name: 'impeccable', purpose: 'UI critique and refinement', requiredFor: 'design work' },
@@ -15,6 +22,7 @@ const companions = [
   { name: 'conversion-storytelling', purpose: 'conversion narrative, proof, and CTA strategy', requiredFor: 'conversion-focused surfaces' },
   { name: 'graphify', purpose: 'persistent code-and-document relationship mapping', requiredFor: 'complex existing repositories when approved' },
   { name: 'text-to-lottie', purpose: 'purposeful Lottie authoring', requiredFor: 'Lottie requests' },
+  { name: 'global-discovery-browsing-extraction', purpose: 'web research and asset discovery routing', requiredFor: 'finding existing Lottie or media assets' },
   { name: 'hyperframes', purpose: 'product demo and launch video', requiredFor: 'video work' },
   { name: 'find-skills', purpose: 'capability discovery', requiredFor: 'missing capability' },
   { name: 'karpathy-guidelines', purpose: 'simple, evidence-led coding discipline', requiredFor: 'coding when installed' },

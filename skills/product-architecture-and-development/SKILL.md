@@ -1,133 +1,78 @@
 ---
 name: product-architecture-and-development
-description: Use when starting, scaffolding, auditing, refactoring, or implementing a web, mobile, desktop, backend, or multi-app product; provides interview-led architecture guidance, current ecosystem tooling, ownership-based structure, and an optional resumable implementation workflow.
+description: Plans and builds web, mobile, desktop, backend, or multi-app products with interview-led architecture, latest-stable tooling, ownership-based structure, and verified implementation. Use when starting, scaffolding, auditing, refactoring, or implementing a product or codebase.
 ---
 
 # Product Architecture and Development
 
-Use this skill as the project’s architecture controller. It works from a project idea or an existing repository, preserves explicit user decisions, and loads only the detailed reference needed for the current decision or task.
+## Contract
 
-## Operating contract
+1. The user's prompt is the source of truth. Interview (one to three grouped questions) only about unresolved choices that materially change the result; never force interviews, plans, or approval gates the user did not ask for.
+2. Greenfield: apply the defaults below. Existing project: inspect first, preserve healthy conventions, never silently rename, move, or delete. A requested restructure: compare current vs target, name the risks, then execute.
+3. Keep a decision ledger: `confirmed`, `inferred`, `unknown/configurable`, `prohibited`, `deferred`, each with a revisit signal.
+4. Named tools are candidates, not mandates. Ask before adding a material dependency. Companion skills are optional: use one if installed, otherwise suggest it; never install silently (`node scripts/check-companions.mjs`).
 
-1. Use the user's prompt as the source of truth. Interview the user about unresolved choices that could materially change the requested result, but do not impose an interview, confirmation, or pause when the user's prompt already provides clear instructions to proceed.
-2. For greenfield work, apply confirmed or inferred architecture defaults. For existing work, inspect first and preserve healthy conventions unless the user requests a change. Never silently rename, move, delete, or reorganize an existing project.
-3. If the user requests an architectural change, compare current and target structures, identify material risks, and execute the requested change. Do not require a separate confirmation step when the user's instruction is clear.
-4. User instructions, preferences, and platform constraints outrank every skill default. Execute the user's requested scope and workflow; do not force interviews, migration plans, bounded tasks, approval gates, or other process requirements that the user did not request.
-5. Keep a decision ledger: `confirmed`, `inferred`, `unknown/configurable`, `prohibited`, and `deferred`.
-6. Prefer official ecosystem conventions and maintained industry standards. Named tools are candidates, not mandates; recommend and ask before adding material dependencies.
-7. Extending this skill follows the same discipline. Add a new reference when a new platform, a new cross-cutting concern, or a new external dependency class materially changes the decision surface; do not add a reference to document a one-off solution or a project-specific pattern.
+## Load only the reference the task needs
 
-## First routing decision
+| Task | Reference |
+| --- | --- |
+| Brief, interview, build plan | [project-initiation](references/project-initiation.md) |
+| Folder tree, ownership, dependency direction | [architecture-core](references/architecture-core.md), [module-boundaries](references/module-boundaries.md) |
+| File and component naming, linting | [naming-and-linting](references/naming-and-linting.md) |
+| Stack, generator, package choice | [stack-selection](references/stack-selection.md) |
+| Web / mobile / desktop / backend | [web](references/web-projects.md), [mobile](references/mobile-projects.md), [desktop](references/desktop-projects.md), [backend](references/backend-projects.md) |
+| Mobile headers, tab bars, sheets, safe areas | [mobile-chrome](references/mobile-chrome.md) |
+| Tokens, Tailwind, components, icons | [styling-and-components](references/styling-and-components.md) |
+| UI library or registry choice | [design-system-and-ui-libraries](references/design-system-and-ui-libraries.md) |
+| Motion, Lottie, smooth scroll, 3D, media | [design-motion-media](references/design-motion-media.md) |
+| Assets and global styles | [assets-and-styles](references/assets-and-styles.md) |
+| API client, cache, state | [api-data-state](references/api-data-state.md) |
+| Forms and validation | [forms-and-validation](references/forms-and-validation.md) |
+| AI features | [ai-systems](references/ai-systems.md) |
+| Analytics / third-party scripts | [analytics](references/analytics.md), [third-party-scripts](references/third-party-scripts.md) |
+| Localization / SEO | [localization](references/localization.md), [seo](references/seo.md) |
+| Security headers and CSP | [security-and-csp](references/security-and-csp.md) |
+| Config, auth, persistence, jobs, CI, launch | [production-foundations](references/production-foundations.md) |
+| Product, UX, or behavior decisions | [evidence-led-product-design](references/evidence-led-product-design.md) |
+| Multi-task migration | [migration-workflow](references/migration-workflow.md) |
+| Optional code graph | [graphify](references/graphify.md) |
+| Validation before handoff | [quality-gates](references/quality-gates.md) |
 
-Read only the applicable references:
+## Defaults
 
-- Project brief: [project-initiation.md](references/project-initiation.md)
-- Production foundations: [production-foundations.md](references/production-foundations.md)
-- Boundaries: [module-boundaries.md](references/module-boundaries.md) and [architecture-core.md](references/architecture-core.md)
-- Web: [web-projects.md](references/web-projects.md)
-- Mobile: [mobile-projects.md](references/mobile-projects.md)
-- Desktop: [desktop-projects.md](references/desktop-projects.md)
-- Backend: [backend-projects.md](references/backend-projects.md)
-- Stack choice: [stack-selection.md](references/stack-selection.md)
-- Styling/UI: [styling-and-components.md](references/styling-and-components.md) and [design-system-and-ui-libraries.md](references/design-system-and-ui-libraries.md)
-- Design, motion, and media: [design-motion-media.md](references/design-motion-media.md)
-- Data/API: [api-data-state.md](references/api-data-state.md)
-- AI systems: [ai-systems.md](references/ai-systems.md)
-- Forms/validation: [forms-and-validation.md](references/forms-and-validation.md)
-- Analytics: [analytics.md](references/analytics.md)
-- Localization: [localization.md](references/localization.md)
-- SEO: [seo.md](references/seo.md)
-- Third-party scripts: [third-party-scripts.md](references/third-party-scripts.md)
-- Product decisions: [evidence-led-product-design.md](references/evidence-led-product-design.md)
-- Assets/styles: [assets-and-styles.md](references/assets-and-styles.md)
-- Security: [security-and-csp.md](references/security-and-csp.md)
-- Naming/linting: [naming-and-linting.md](references/naming-and-linting.md)
-- Optional project graph: [graphify.md](references/graphify.md)
-- Validation: [quality-gates.md](references/quality-gates.md)
+- TypeScript-first; ecosystem-standard naming and tooling; one formatter and one lint config per language.
+- Routes and screens stay thin. Features own their UI, actions, API, hooks, schemas, services, types, helpers, data, and tests. Shared code is domain-neutral with two real consumers. A root directory needs a second consumer or a cross-cutting policy.
+- React: PascalCase component files without `.component`; standalone components are single files; never `features/<feature>/index.ts`. Details in naming-and-linting.
+- Library-owned primitives stay in library directories (`components/shadcn/`); extend through project wrappers.
+- `cn` lives only at `src/utils/cn.ts` (`@/utils/cn`). shadcn defaults to `@/lib/utils`: after `shadcn init`, set `components.json` `aliases.utils` to `@/utils/cn` and `aliases.ui` to `@/components/shadcn`, move the helper, delete `lib/utils.ts`, and re-check after every `shadcn add`.
+- Tokens and code-based style config live in `src/styles/`; framework/build config stays at the repo root.
+- Use the ecosystem-standard transport client; Axios only for REST needs, existing use, or preference; never wrap a typed RPC or generated client.
+- Validate untrusted input at the server or trusted boundary.
+- Package manager: keep the existing one; new JS/TS projects use pnpm (Bun only when verified or already used).
+- **Latest stable only.** Install every new dependency, generator, and CLI at its latest stable release, resolved from the registry at install time (`pnpm add <pkg>@latest`, `pnpm dlx <cli>@latest`, `npm view <pkg> dist-tags.latest`), never from memory. Skip alpha/beta/rc/canary/nightly/preview unless the user asks. If latest breaks a peer, use the newest compatible stable and record why. Existing projects: list outdated packages and upgrade when requested or in scope; keep major upgrades out of unrelated changes; never downgrade.
+- Greenfield with no stack given: Better-T-Stack via `pnpm create better-t-stack@latest` for supported combinations; otherwise the ecosystem's official generator at its latest stable tag. Re-check generated versions against the registry right away.
 
-Load specialist skills only when the task needs them. Prefer official ecosystem guidance; do not install a companion skill or package without approval. Use the companion check only when the task benefits from it.
+## Scripts
 
-## Architecture defaults
+Run with Node from the skill directory; read-only unless noted.
 
-- TypeScript-first where practical; use the ecosystem’s standard naming and tooling.
-- Keep routes/screens thin. Features own domain UI, actions, API functions, hooks, schemas, services, types, data, utilities, and tests. A feature owns its implementation files end-to-end; tests, mocks, and fixtures travel with the feature, not with the consumer.
-- Shared code must be domain-neutral and have at least two real consumers.
-- Use explicit category directories. Prevent feature-root implementation-file sprawl.
-- The feature is the primary test for code ownership. If a behavior only makes sense inside one capability, it stays inside that feature; if it only makes sense across many capabilities, it moves to a shared boundary. Do not let one feature's policy leak into another's tests, mocks, or fixtures.
-- Treat every root-level directory as a deliberate decision. Add a root directory only after a second consumer or a genuine cross-cutting policy appears; a directory that exists to host one file is premature.
-- Treat every recorded decision as revisitable. Mark a decision with a revisit signal (when evidence would force a review, when the next major version changes the surface, when a measurable outcome reverses) so it does not rot silently.
-- React product components use matching PascalCase filenames and exported names, without a `.component` suffix. A single component stays a direct file such as `components/CustomerForm.tsx`; use a same-named PascalCase directory with `index.tsx` only for a major composition with multiple cohesive child files, state, or shared local types. Never create `features/<feature>/index.ts`; public surfaces belong in owned category directories such as `actions/`, `components/`, `helpers/`, `schemas/`, or `services/`, or inside a major component directory.
-- Keep a component-only type in the component file. Use a colocated `types.ts` only when types are shared by children of the same major component; move types shared across components or features to the appropriate domain/shared `types/` boundary.
-- Use semantic suffixes such as `.data.ts`, `.action.ts`, `.service.ts`, `.api.ts`, and `.schema.ts` where useful. In TypeScript React projects, prefer camelCase names such as `createCustomer.action.ts` and colocated `types.ts`.
-- Keep library-owned primitives in library-specific directories. Extend them with project-owned wrappers; do not modify base components for product behavior.
-- Preserve a healthy existing icon system. For a new project without an icon preference, evaluate the ecosystem-standard maintained option; Lucide is a common React/web candidate, not a mandatory dependency. Prefer direct imports; create custom SVG assets only for brand, product-specific, or genuinely unavailable icons. Library-generated SVG output is allowed; manually authored or duplicated SVG markup is not.
-- Keep design tokens and code-based style configuration in the style-owned directory. Keep framework/build configuration at the repository root unless the framework explicitly requires another location.
-- Keep assets in the framework-appropriate global or package-owned asset location. Never duplicate SVG source or write raw SVG markup in application code when an asset/import mechanism is available.
-- Use the framework/ecosystem-standard transport client. Use Axios only for REST requirements, existing conventions, or explicit preference; never wrap a typed RPC/generated client redundantly.
-- Validate every untrusted form submission at the server or trusted boundary; add client validation for immediate feedback when the platform supports it. Preserve the user’s validator preference and existing convention. For TypeScript, use Zod only as the fallback default when no framework-standard validator applies; choose another maintained validator when compatibility, bundle size, performance, generated contracts, or ecosystem conventions justify it. Keep schemas feature-owned, share them between form and server action when safe, normalize field/form errors, and test invalid, boundary, and cross-field cases.
-- Use evidence-led product design for meaningful product, UX, and behavior decisions across web, mobile, desktop, backend workflows, and multi-app products. Define the outcome and hypothesis, inspect the complete flow, separate observation from inference, choose proportionate evidence, define success and guardrail metrics, consider accessibility/trust/privacy/unintended harm, and validate before broad implementation. Read [evidence-led-product-design.md](references/evidence-led-product-design.md) when the task involves user behavior, onboarding, retention, conversion, monetization, dashboards, or major interaction changes.
-- Use official or officially recommended linting/formatting when available. Otherwise use a maintained compatible tool. Use one formatter and lint path per language.
-- For production web deployments, enable HSTS only after confirming complete HTTPS coverage for the domain and its subdomains. Treat `includeSubDomains` and browser preload as explicit deployment decisions, not defaults. Review security headers with the applicable platform guidance.
-- Prefer the existing package manager. For new JS/TS projects prefer pnpm; use Bun only with verified compatibility or an existing Bun convention.
+- `scripts/inspect-project.mjs <project>`: stack, versions, lockfiles, conventions, `cn` location. Run first on existing projects.
+- `scripts/audit-global-styles.mjs <src>`: global CSS classes by consumer count; repeated arbitrary Tailwind values.
+- `scripts/scaffold-module.mjs <feature|component> <kebab-name> [--root <src>] [--apply]`: dry run unless `--apply`.
+- `scripts/create-migration-plan.mjs <project>`: writes `.architecture/` plan, state, and task files.
+- `scripts/check-companions.mjs`: lists installed optional companion skills.
 
-## Greenfield stack selection
+## Verification
 
-When no stack is specified, choose a compatible current Better-T-Stack configuration for supported web, server, Expo/React Native, or Tauri projects. Ask only when materially different choices require the user’s decision. For unsupported ecosystems, use the official current stable generator. Never use stale, beta, or canary scaffolds without approval. Verify generated versions and conventions immediately.
+- No completion claim without fresh command output in the same message: tests (0 failures), lint, typecheck, build (exit 0). "Should pass" is not evidence; a subagent's report is not a diff.
+- Non-trivial behavior: write the failing test first and watch it fail for the right reason. A test that passes on its first run is suspect.
+- Review feedback: restate it, verify it against the code, then implement or push back with reasons; no performative agreement.
+- Before handoff, run the applicable lint, typecheck, test, build, security, accessibility, and SEO checks; classify exceptions as fixed, accepted with a reason, or deferred with an owner.
 
-## Existing-project workflow
+## Companion routing
 
-Run:
-
-```bash
-node scripts/inspect-project.mjs /absolute/path/to/project
-```
-
-Use [migration-workflow.md](references/migration-workflow.md) when it helps execute the work, but do not require it or impose its sequencing rules when the user's prompt requests a different workflow.
-
-When using a task-based migration plan, define each task's files in scope, exclusions, required changes, validation, and completion condition. Keep task boundaries coherent and resume from the current repository state after context loss. These planning rules do not limit work outside that workflow.
-
-When the requested work includes user-visible behavior, run the relevant test before claiming that behavior is complete. Report verification with the completion claim when practical. Tests written after the code and tests that pass on the first run provide weaker evidence. Follow the Verification contract when it applies to the project.
-
-## Verification contract
-
-For task-based work, run the smallest relevant checks after each task. Before handoff, run the structural, lint, typecheck, test, build, and security/accessibility/SEO checks that apply to the project and requested scope. Classify relevant exceptions as fixed, accepted with a reason, or deferred with an owner and follow-up. Use [quality-gates.md](references/quality-gates.md) when applicable.
-
-### Verification before completion (Iron Law)
-
-**No completion claims without fresh evidence in the same message.** If the task did not run a verification command in the same response, the agent cannot claim it passed. Run the command, read the output, count failures, then state the result with evidence.
-
-| Claim | Requires | Not sufficient |
-|-------|----------|----------------|
-| Tests pass | Test command output, 0 failures | "Should pass now" / previous run |
-| Linter clean | Linter output, 0 errors | Partial check, extrapolation |
-| Build succeeds | Build command, exit 0 | Linter passing, logs look good |
-| Bug fixed | Test for the original symptom passes | Code changed, assumed fixed |
-| Agent completed | Visible diff in the worktree | "Agent reported success" |
-
-Red flags: "should", "probably", "seems to", or any wording implying success before the verification command ran in the same message.
-
-### Tests as proof
-
-For non-trivial behavior, the test precedes the code. Write the failing test first, watch it fail, write the minimal code to make it pass, refactor. A test that passes on the first run is a warning sign, not a victory; it usually means the test was written after the code and was shaped to match.
-
-When changing an existing test or behavior, name the production change that would make the test fail, write the test, verify it fails for the right reason, then fix the production code.
-
-### Code review reception
-
-When receiving review feedback, verify before implementing. Restate the requirement in the agent's own words. Check the codebase reality. Push back with technical reasoning if the suggestion is wrong for this stack. Never perform agreement ("Great point!"), never say "Thanks", never implement without verification.
-
-The response pattern:
-1. Read the feedback completely.
-2. Restate the requirement.
-3. Verify against the codebase.
-4. Evaluate: technically correct for this project?
-5. Respond with a technical acknowledgment or a reasoned pushback.
-6. Implement one item at a time, testing each.
-
-## Scope
-
-This skill owns architecture, boundaries, structure, tooling choices, implementation slices, and verification. Task-specific skills own their specialist technique after this skill routes to them. Do not load every reference or companion skill when one targeted reference is sufficient. For AI-assisted design collaboration, task-scoped context, disposable exploration tools, or feedback-to-agent workflows, route to `ai-assisted-product-development`.
-
-When the task involves landing pages, marketing copy, pricing, sales narratives, public product pages, or conversion-focused onboarding, route narrative, proof, CTA, SEO, and conversion measurement to `conversion-storytelling`; this skill owns architecture, product-flow implications, implementation boundaries, and technical verification. Do not duplicate that skill’s narrative frameworks.
-
-When the task involves product-launch campaigns, social content, video or thumbnail briefs, publishing, repurposing, or channel performance, route content strategy and format adaptation to `content-marketing-and-brand-growth`. Use `conversion-storytelling` as an additional specialist only when the work needs a conversion narrative, proof ledger, objection handling, or destination CTA strategy. Functional UI copy and routine interaction implementation do not require either companion by default.
+- `ai-assisted-product-development`: AI design exploration, feedback-to-change loops.
+- `conversion-storytelling`: landing pages, pricing, onboarding narrative, proof, CTA.
+- `content-marketing-and-brand-growth`: launch campaigns, social, video or thumbnail briefs.
+- `global-discovery-browsing-extraction`: current web evidence and asset discovery, including signed-in pages.
+- UI critique: `impeccable`, then `ui-ux-pro-max`; Expo: official Expo skills; Lottie authoring: `text-to-lottie`; video: `hyperframes`; missing capability: `find-skills`.

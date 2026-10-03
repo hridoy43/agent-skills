@@ -1,105 +1,35 @@
 ---
 name: conversion-storytelling
-description: Use when shaping or redesigning conversion-focused websites, apps, landing pages, marketing sites, ecommerce/product pages, launches, funnels, onboarding, pricing, checkout, positioning, sales narratives, or CTAs, and when adapting an approved product story into campaign copy, video scripts, social creative, or thumbnail briefs. Follows the user's chosen framework and strategy, or selects an appropriate established narrative or behavior framework only when it adds value, while preserving truthful claims, proof, SEO where relevant, accessibility, and qualified, measurable outcomes.
+description: Shapes truthful product narratives, message maps, proof, and CTAs for websites, landing pages, pricing, checkout, onboarding, and app flows, and adapts approved stories to video, thumbnail, and social briefs. Use when a surface must move a qualified audience to a credible next action without losing SEO, accessibility, or truth.
 ---
 
 # Conversion Storytelling
 
-Build a clear path from the audience's present state to a credible next action. Treat every framework as a hypothesis, not a guarantee; user-approved facts, positioning, tone, offer, and framework take precedence over defaults.
+Build a clear path from the audience's current state to a credible next action. Frameworks are hypotheses, not guarantees.
 
-## Decision order
+Precedence: user instructions and confirmed product truth → safety, privacy, legal truth, accessibility, platform rules → existing evidence, search intent, analytics, healthy conventions → this skill. Never silently replace the user's chosen framework; raise a risk only when it affects truth, safety, scope, or the outcome.
 
-1. Current user instructions and confirmed brand/product truth.
-2. Safety, privacy, legal truthfulness, accessibility, and platform constraints.
-3. Existing evidence, search intent, analytics, and healthy product conventions.
-4. This skill's framework guidance.
+SEO is a release gate for public indexable surfaces: no change may remove crawlable meaning, distinct intent, evidence, metadata, internal links, or URL continuity. Offer an SEO-safe alternative instead of a waiver, unless the user makes the surface private or non-indexable.
 
-Never silently replace the user's chosen framework. Explain a material risk and request a decision only when it changes truth, safety, scope, or the intended outcome.
+## Context gate
 
-For every public indexable surface, SEO is a release gate, not an optional tradeoff. A framework may reorganize or simplify presentation, but it must not knowingly remove crawlability, semantic meaning, distinct search intent, useful evidence, metadata, internal links, or URL continuity. If a preferred treatment conflicts, provide an SEO-safe alternative. Do not offer “accept the SEO risk” as a waiver while the surface remains public and indexable; the gate changes only when the user explicitly changes its purpose to private or intentionally non-indexable and confirms that consequence.
-
-## Context sufficiency gate
-
-Before selecting a framework or producing an artifact:
-
-1. Extract the relevant context already present in the prompt, files, links, assets, repository, and prior messages.
-2. Classify missing information as `blocking` when it could materially change the audience, product truth, strategy, format, safety, or intended outcome; otherwise treat it as `non-blocking`.
-3. Ask one to three grouped questions only for blocking information. Do not repeat questions the user already answered.
-4. When the user requests a fast draft or clearly authorizes progress, state reasonable, reversible assumptions and proceed.
-5. Never assume product claims, customer evidence, brand facts, legal status, performance results, or private information.
-
-When context is sufficient, state only material assumptions and continue without an interview.
+Extract what the prompt, files, links, assets, and repo already give. Ask one to three grouped questions only for blocking gaps (audience, product truth, strategy, format, safety, outcome). For a fast or authorized draft, state reversible assumptions and proceed. Never assume claims, customer evidence, legal status, results, or private facts.
 
 ## Workflow
 
-### 1. Establish the audience and outcome brief
+1. **Brief:** audience, awareness, pain or desired progress; offer, mechanism, next action, user and business outcome; approved proof, objections, tone, prohibited claims; surface, entry context, format, constraints; current content, URLs, queries, baseline. Websites add primary task, friction, screens, device, accessibility, SEO; media adds placement, duration or size, viewer state, assets, CTA. Collect only what decides the work.
+2. **Audit** an existing surface first: hierarchy, semantic content, URLs, metadata, internal links, proof, CTA paths, funnel data. Keep what performs until evidence says otherwise.
+3. **Framework, only if useful:** read [framework-selection.md](references/framework-selection.md). One primary spine per surface, at most one behavior diagnostic ([behavior-and-decision-design.md](references/behavior-and-decision-design.md) for activation, onboarding, checkout friction, high-consideration decisions) and one execution audit. Never default to StoryBrand or force marketing prose into functional UI.
+4. **Message map:** present state, desired progress, problem, stakes, mechanism, proof, objections, plan, success, primary and secondary CTA, disqualifiers—each marked `approved`, `supported`, `needs evidence`, or `prohibited`.
+5. **Surface:** websites, apps, pricing, checkout, onboarding → [page-execution.md](references/page-execution.md). Video, thumbnails, social → [content-adaptation.md](references/content-adaptation.md).
+6. **Truth and measurement:** [proof-and-measurement.md](references/proof-and-measurement.md). Never fabricate testimonials, metrics, customers, scarcity, urgency, guarantees, or case studies; never promise uplift from a framework.
 
-Capture or confirm only what matters to the requested surface:
+## Output
 
-- product or project, audience, awareness, intent, pain or desired progress;
-- offer or value, mechanism, immediate action, durable user outcome, and business-qualified outcome;
-- approved proof, objections, tone, prohibited claims, required content, and available assets;
-- surface, distribution or entry context, journey stage, format, and platform constraints;
-- current content, URLs or flows, organic queries when relevant, analytics baseline, and success criteria.
+1. Brief, assumptions, open decisions. 2. Framework or strategy basis (plus material rejected options when a framework was chosen). 3. Message map and proof ledger. 4. Surface plan with hierarchy and CTA roles. 5. Quality, accessibility, and truth checks. 6. Measurement plan and implementation boundary.
 
-For websites or apps, also capture the primary task, current friction, relevant screens or routes, device/platform, accessibility, and SEO requirements. For media or campaign content, capture placement, duration or dimensions, viewer state, asset constraints, and CTA. Do not collect every field when a smaller brief is decision-complete.
+Websites add flow outline, interaction states, responsive direction, and SEO preservation map. Video adds concept, hook, beats or script, scene/audio/caption direction, CTA timing. Thumbnails and static creative add composition, text hierarchy, small-size readability, export constraints. Social adds platform adaptation, copy structure, visual direction, CTA.
 
-### 2. Audit before changing
+## Companions (optional; suggest when missing)
 
-For an existing product, inventory the current message hierarchy, semantic content, URLs, metadata, internal links, proof, CTA paths, funnel data, and interaction behavior. Preserve what is useful or already performing until evidence supports a change.
-
-### 3. Choose a framework only when useful
-
-Read [framework-selection.md](references/framework-selection.md) completely. If the user selected a framework, follow it unless it creates a material truth, safety, legal, accessibility, scope, or outcome risk; explain that risk and request a decision rather than silently replacing it. If the user did not select one, recommend the best-fitting framework only when it improves the work. When no formal framework adds value, use the user's approved strategy, evidence, and healthy surface conventions without forcing one.
-
-When a framework is useful, select one primary narrative spine per surface and explain why it fits the audience, awareness, involvement, evidence, risk, and action. Read [behavior-and-decision-design.md](references/behavior-and-decision-design.md) when the task involves incomplete action, onboarding, activation, checkout friction, high-consideration persuasion, or continuing behavior. Use at most one primary narrative spine, one optional behavior diagnostic, and one execution audit; each must solve a different problem. Do not treat a popular framework as a universal causal sequence, default every surface to StoryBrand, or force marketing prose into functional product UI.
-
-Use this quick guide while comparing candidates:
-
-- **StoryBrand / SB7:** complex homepages and services needing customer clarity, guide positioning, a plan, stakes, and success.
-- **PAS:** already-recognized, costly problems where proportionate consequences and credible relief are supportable; never use shame or invented urgency.
-- **Before-After-Bridge:** concise product, ecommerce, feature, or transformation pages where current and desired states can be shown clearly.
-- **Golden Circle:** brand, mission, category, or founder positioning where “why” differentiates before “how” and “what”; usually a positioning layer, not a checkout flow.
-- **AIDA:** short ads, email, campaigns, and fast transactional paths with one clear action; add proof for high-consideration decisions.
-- **Hero's Journey:** founder or customer stories with an attributable protagonist and real transformation; do not make the brand the hero by default.
-
-Also consider Star-Story-Solution, Problem-Mechanism-Proof, Four Ps, and Jobs-to-be-Done from the framework reference. When using a framework, choose one primary spine per surface; layer another only for a distinct section purpose.
-
-### 4. Produce the message map
-
-Define: present state, desired progress, problem, stakes, mechanism, proof, objections, plan, success, primary CTA, secondary CTA, and disqualifiers. Mark every statement as `approved`, `supported`, `needs evidence`, or `prohibited`.
-
-### 5. Translate story into the requested surface
-
-For websites, apps, landing pages, ecommerce, pricing, checkout, or onboarding, read [page-execution.md](references/page-execution.md) completely. Produce a scannable hierarchy before polished copy. Keep the customer/user central, make the product's role concrete, and use progressive disclosure instead of either a text wall or content deletion. Interaction and motion must clarify the story rather than decorate it.
-
-For promo videos, YouTube, short-form video, thumbnails, social creative, or campaign adaptations, read [content-adaptation.md](references/content-adaptation.md) completely. This skill owns the approved message, proof, and CTA adaptation; campaign strategy, publishing, and media production remain companion responsibilities.
-
-### 6. Protect truth and surface value
-
-Read [proof-and-measurement.md](references/proof-and-measurement.md) completely. Never fabricate testimonials, metrics, customers, scarcity, urgency, guarantees, or case studies. For public indexable pages, keep search-critical meaning in visible semantic HTML and preserve distinct intent, evidence, entities, and internal links while simplifying phrasing. For other surfaces, preserve platform accessibility, approved meaning, and continuity with the destination experience.
-
-### 7. Measure the hypothesis
-
-Define one primary qualified outcome, supporting diagnostics, quality/guardrail metrics, baseline, audience segment, and validation method appropriate to the surface. Describe expected improvement as a hypothesis. Do not claim that a framework will increase conversion without reliable outcome data.
-
-## Required output
-
-Return the common outputs:
-
-1. audience/outcome brief, assumptions, and unresolved decisions;
-2. selected framework or approved strategy basis, plus material rejected alternatives only when a framework selection occurred;
-3. message map and proof ledger;
-4. surface-specific execution plan with hierarchy and CTA role;
-5. professional-quality, accessibility, and truth checks;
-6. measurement plan and implementation boundary.
-
-For websites and apps, also return the applicable page/flow outline, interaction states, responsive direction, and SEO/content preservation map. For video, return the applicable concept, hook, beat sheet or script, scene/audio/caption direction, and CTA timing. For thumbnails or static creative, return the concept, composition, text hierarchy, small-size readability, and export constraints. For social content, return platform adaptation, copy structure, visual direction, and CTA.
-
-## Companion boundaries
-
-- Use `product-architecture-and-development` for website/app architecture, implementation, and technical verification.
-- Use `ai-assisted-product-development` for AI-assisted exploration, feedback, decision records, and human review.
-- Use `content-marketing-and-brand-growth` for campaign strategy, platform planning, publishing, and content operations.
-- Use `global-discovery-browsing-extraction` for current audience, competitor, market, or search evidence.
-- Use the relevant UI, image, animation, or video skill for production. This skill supplies narrative, proof, hierarchy, CTA, and measurement direction without duplicating the production workflow.
+`product-architecture-and-development` for implementation, `ai-assisted-product-development` for AI exploration and review loops, `content-marketing-and-brand-growth` for campaigns and publishing, `global-discovery-browsing-extraction` for audience, competitor, and search evidence, and the relevant UI, image, animation, or video skill for production.

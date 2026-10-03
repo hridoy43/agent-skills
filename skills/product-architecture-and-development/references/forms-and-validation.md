@@ -1,42 +1,16 @@
-# Forms and Validation
+# Forms and validation
 
-Use a maintained schema validator for user-input forms and every untrusted boundary.
-
-## Selection
-
-- Preserve the user’s explicit validator choice and the project’s healthy convention.
-- For a new TypeScript project without a preference, use Zod only when the selected framework or Better-T-Stack template does not provide a better compatible standard. Consider another maintained validator when bundle size, performance, generated contracts, or ecosystem conventions materially matter.
-- For other ecosystems, use the platform’s maintained standard validator and serialization approach.
-- Do not add multiple overlapping validation libraries.
-- Do not add a schema validator to a trivial form that has no meaningful constraints.
-
-Schema validation and form-state management are separate decisions. Zod, Valibot, ArkType, and similar tools validate data; React Hook Form, TanStack Form, and native framework mechanisms manage form state and submission. Add a form-state library only when the form’s complexity justifies it.
-
-## Ownership and flow
-
-- Feature forms own their input schema under `features/<feature>/schemas/`.
-- Shared schemas belong in shared contracts only when multiple real consumers need the same contract.
-- Validate client-side for fast feedback when useful, then validate again in the server action, API handler, command, storage, or other trusted boundary. Client validation is never authorization or security.
-- Keep validation schemas separate from database models when input shape, optionality, or lifecycle differs.
-- Transform validated input explicitly before persistence; never treat client validation as authorization or security.
-- Do not force one schema to represent form input, transport DTOs, domain models, and database records when their contracts differ.
-
-## Error behavior
-
-- Return typed field-level and form-level errors without exposing secrets or internal stack details.
-- Preserve entered values where safe, focus the first invalid field, and provide accessible labels, descriptions, and error associations.
-- Centralize error-to-feedback mapping, but keep domain-specific recovery and cross-field rules with the feature.
-- Test required fields, malformed values, length/range limits, cross-field invariants, authorization failures, and server rejection.
-
-## Example TypeScript placement
+- Keep the user's validator and the project's convention. New TypeScript projects: the framework or Better-T-Stack default first, else Zod; Valibot or ArkType when bundle size, performance, or contracts matter. Other ecosystems use their standard validator.
+- Require a Standard Schema-compatible validator (current Zod, Valibot, ArkType) so form libraries, routers, and RPC layers accept it without adapters.
+- One validation library per project; none for trivial forms. Validation (Zod, Valibot, ArkType) and form state (React Hook Form, TanStack Form, native mechanisms) are separate choices; add a form library only for complex forms.
+- Schemas live in `features/<feature>/schemas/`; shared contracts only with multiple consumers. Share a schema between form and server action when safe.
+- Validate on the client for feedback and again at the server, action, handler, or storage boundary; client validation is never security or authorization. Keep input schemas apart from DTOs, domain models, and DB records when they differ; transform explicitly before persistence.
+- Errors: typed field and form errors without internals; keep entered values, focus the first invalid field, associate labels and messages accessibly. Centralize error mapping; keep cross-field rules in the feature.
+- Test required, malformed, length and range limits, cross-field rules, authorization failures, and server rejection.
 
 ```text
 features/Customers/
-├── schemas/
-│   ├── customerForm.schema.ts
-│   └── index.ts
-├── actions/
-│   └── createCustomer.action.ts
-└── components/
-    └── CustomerForm.tsx
+  schemas/customerForm.schema.ts
+  actions/createCustomer.action.ts
+  components/CustomerForm.tsx
 ```

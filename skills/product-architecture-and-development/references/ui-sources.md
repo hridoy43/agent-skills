@@ -4,11 +4,18 @@ Read when a design needs a component, block, effect, shader, or texture the prim
 
 ## Discover cheapest first
 
-1. **Registry CLI (no browsing):** pick namespaces from the official index of installable registries (`https://ui.shadcn.com/r/registries.json`, 400+) or the category table below, then `npx shadcn@latest search @<namespace> -q "<term>" -t ui --limit 5` lists one-line matches; `npx shadcn@latest view @<namespace>/<item>` shows the source of a shortlisted item before `add`; `docs <item>` gives usage. Use the shadcn MCP server instead when installed.
+1. **Registry CLI (no browsing):** pick namespaces from the official index of installable registries (`https://ui.shadcn.com/r/registries.json`, 400+) or the category table below, then `npx shadcn@latest search @<namespace> -q "<term>" -t ui --limit 5` lists one-line matches; `npx shadcn@latest view @<namespace>/<item>` shows the source of a shortlisted item before `add`; `docs <item>` gives usage. With the shadcn MCP installed, use it instead (see below).
 2. **Machine-readable indexes:** 21st.dev exposes `llms.txt`, `openapi.json`, and `/.well-known/skills/index.json`.
 3. **Visual galleries** only when the look decides the choice: browse through `global-discovery-browsing-extraction` when installed (it handles signed-in sessions for paid tiers), otherwise the host browser, otherwise send the user links and search terms.
 
 Shortlist two or three with preview link, license, dependencies, and rough bundle/GPU cost; the user picks.
+
+## MCP for component libraries
+
+- One shadcn MCP server covers every shadcn-compatible registry (Canvas UI, Magic UI, React Bits, 21st.dev, and the rest of the index). If it is missing and the project will keep adding registry components, propose `npx shadcn@latest mcp init --client <claude|cursor|vscode|codex|opencode>` (writes project config such as `.mcp.json`), restart the client, and verify (`/mcp` or `claude mcp list`). Add any registry missing from the index under `components.json` `registries` (`"@<name>": "https://<host>/r/{name}.json"`).
+- Never add a library-specific MCP for a library that is a shadcn registry; duplicate servers only add tool definitions to context.
+- Non-shadcn libraries: add their own free, official MCP only when the project will use the library repeatedly and the CLI, `llms.txt`, or docs fall short.
+- Every MCP: ask first, project scope, latest stable, free tier unless the user approves otherwise, no keys in committed config. For a one-off component, the CLI is cheaper than a new server.
 
 ## Start by category
 

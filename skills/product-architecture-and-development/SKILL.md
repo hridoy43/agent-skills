@@ -10,7 +10,7 @@ description: Plans and builds web, mobile, desktop, backend, or multi-app produc
 1. The user's prompt is the source of truth. Interview (one to three grouped questions) only about unresolved choices that materially change the result; never force interviews, plans, or approval gates the user did not ask for.
 2. Greenfield: apply the defaults below. Existing project: inspect first, preserve healthy conventions, never silently rename, move, or delete. A requested restructure: compare current vs target, name the risks, then execute.
 3. Keep a decision ledger: `confirmed`, `inferred`, `unknown/configurable`, `prohibited`, `deferred`, each with a revisit signal.
-4. Named tools are candidates, not mandates. Ask before adding a material dependency. Companion skills are optional: use one if installed, otherwise suggest it; never install silently (`node scripts/check-companions.mjs`).
+4. Named tools are candidates, not mandates. Ask before adding a material dependency. Companion skills are optional: use one if installed, otherwise suggest it; never install silently (`node scripts/check-companions.mjs`). When a library the project will use repeatedly ships a free official MCP or agent docs, propose setting it up project-scoped; for shadcn registries one shadcn MCP covers all ([ui-sources](references/ui-sources.md)).
 
 ## Load only the reference the task needs
 

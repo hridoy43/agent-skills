@@ -2,7 +2,9 @@
 
 ## Design-system contract
 
-Before feature UI, define the smallest coherent system: semantic color roles, type and spacing scales, content widths and breakpoints, radii and elevation, focus and disabled states, motion with reduced-motion behavior, and primitive vs composite ownership. Add docs, visual tests, and versioning only when team size justifies them. New library or registry code adopts project tokens, accessibility rules, and API patterns; no template becomes a parallel theme.
+Before feature UI, define the smallest coherent system: semantic color roles, type and spacing scales, content widths and breakpoints, radii and elevation, focus and disabled states, motion with reduced-motion behavior, and primitive vs composite ownership. Add docs, visual tests, and versioning only when team size justifies them.
+
+Record the contract in a root `DESIGN.md` following the [DESIGN.md format](https://github.com/google-labs-code/design.md) (alpha spec, Apache-2.0): YAML front matter for `colors`, `typography`, `spacing`, `rounded`, and `components` tokens, then `##` sections in this order, omitting empty ones: Overview, Colors, Typography, Layout, Elevation & Depth, Shapes, Components, Do's and Don'ts. Put brand personality, references, motion language, imagery, and chosen component sources ([ui-sources.md](ui-sources.md)) in the nearest section. Keep it under about 150 lines; `src/styles/theme.css` implements its tokens, and both change in the same commit. When `impeccable` is installed, let it generate or refresh the file (`document`); its spec CLI (lint, diff) only with user approval while alpha. Existing projects without one: propose it when UI work starts, derived from the current code. New library or registry code adopts project tokens, accessibility rules, and API patterns; no template becomes a parallel theme.
 
 ## Tailwind ownership
 

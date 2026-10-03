@@ -15,13 +15,12 @@ Keep one project-local source of truth, split only when it grows:
 project-context/
   README.md          # purpose, scope, navigation
   decisions.md       # confirmed choices and rejected alternatives
-  design.md          # tokens, interaction, visual direction
   domain.md          # vocabulary, rules, actors, workflows
   research.md        # evidence, sources, limits
   open-questions.md
 ```
 
-Keep decisions, constraints, evidence, assumptions, and unknowns distinct; flag stale contradictions. Load the smallest complete slice per task and link the rest—large context never substitutes for organized context, judgment, research, or verification.
+Visual direction and tokens live in the root `DESIGN.md` (open DESIGN.md format), shared with `product-architecture-and-development` and `impeccable`—never a second design file here. Keep decisions, constraints, evidence, assumptions, and unknowns distinct; flag stale contradictions. Load the smallest complete slice per task and link the rest—large context never substitutes for organized context, judgment, research, or verification.
 
 ## Design loop
 

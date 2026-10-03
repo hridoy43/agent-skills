@@ -4,6 +4,7 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 ## Unreleased
 
+- UI projects now get a root `DESIGN.md` in the open DESIGN.md format (YAML tokens plus ordered rationale sections) as the design source of truth, implemented by `src/styles/` theme files and shared with `ai-assisted-product-development` and `impeccable`.
 - Third-party scripts now load through the framework primitive (`next/script`, `@next/third-parties`, or the framework's script API) via a typed `config/scripts.ts` registry rendered by `components/scripts/ScriptManager.tsx`, with Next.js strategy, callback, and server-side nonce rules; raw `<script>` is reserved for JSON-LD.
 - Added `ui-sources.md`: registry-first discovery via shadcn's 400+ registry index and `shadcn search`/`view`, category starting points (text, motion, charts, 3D, shaders), one-shadcn-MCP setup for all registries, Three UI, a licensed catalog of component, shader, and texture sources (Magic UI, React Bits, Canvas UI, 21st.dev, Radiant, Paper Shaders, ShaderGradient, Shaders, three.js examples, Figma community shaders, CC0 textures), texture order, and shader rules.
 - Rewrote all seven skills for minimum context: agent-loadable Markdown dropped from about 68k to 31k tokens, and always-loaded `SKILL.md` bodies from about 14k to 7k. Each rule now has one owner file; others link to it. Background citations and restated defaults were removed; descriptions are third-person "what + when".

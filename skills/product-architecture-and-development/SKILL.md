@@ -46,6 +46,7 @@ description: Plans and builds web, mobile, desktop, backend, or multi-app produc
 - React: PascalCase component files without `.component`; standalone components are single files; never `features/<feature>/index.ts`. Details in naming-and-linting.
 - Library-owned primitives stay in library directories (`components/shadcn/`); extend through project wrappers.
 - `cn` lives only at `src/utils/cn.ts` (`@/utils/cn`). shadcn defaults to `@/lib/utils`: after `shadcn init`, set `components.json` `aliases.utils` to `@/utils/cn` and `aliases.ui` to `@/components/shadcn`, move the helper, delete `lib/utils.ts`, and re-check after every `shadcn add`.
+- Projects with UI get a root `DESIGN.md` (open DESIGN.md format) before feature UI: the design source of truth that agents read before any UI work. Theme files in `src/styles/` implement it; change both together. Details: [styling-and-components](references/styling-and-components.md). Skip it for projects without UI.
 - Tokens and code-based style config live in `src/styles/`; framework/build config stays at the repo root.
 - Use the ecosystem-standard transport client; Axios only for REST needs, existing use, or preference; never wrap a typed RPC or generated client.
 - Validate untrusted input at the server or trusted boundary.

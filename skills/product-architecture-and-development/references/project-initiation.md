@@ -32,4 +32,4 @@ What is built, for whom, and what outcome defines release? Which deployables and
 
 ## Build plan
 
-1. Bootstrap and env validation. 2. Tokens, fonts, theme, locale foundation, base UI. 3. Routing, layouts, providers, metadata. 4. Vertical feature slices with data boundaries. 5. Forms, auth, payments, analytics, integrations in scope. 6. Content, SEO, structured data. 7. Security headers, CSP, privacy. 8. Tests, accessibility, performance, visual QA, CI/CD, deploy, rollback. 9. Docs and launch checklist. Name assumptions; never turn future scope into current infrastructure.
+1. Bootstrap and env validation. 2. `DESIGN.md`, then tokens, fonts, and theme implementing it, locale foundation, base UI. 3. Routing, layouts, providers, metadata. 4. Vertical feature slices with data boundaries. 5. Forms, auth, payments, analytics, integrations in scope. 6. Content, SEO, structured data. 7. Security headers, CSP, privacy. 8. Tests, accessibility, performance, visual QA, CI/CD, deploy, rollback. 9. Docs and launch checklist. Name assumptions; never turn future scope into current infrastructure.

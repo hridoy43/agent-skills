@@ -23,7 +23,7 @@ Shortlist two or three with preview link, license, dependencies, and rough bundl
 | --- | --- |
 | Text animation | `@react-bits`, `@animate-ui`, `@motion-primitives`, `@magicui`, `@text-ui` |
 | Motion and interaction | `@animate-ui`, `@motion-primitives`, `@magicui`, `@aceternity`, `@skiper-ui`, `@paceui-gsap` (GSAP) |
-| Charts | shadcn `chart` (Recharts), `@evilcharts`, `@bklit`, `@axicharts`, `@plotcn` |
+| Charts (library choice in [charts.md](charts.md)) | TanStack Charts shadcn/ui collection, shadcn `chart` (Recharts), `@evilcharts`, `@bklit`, `@axicharts`, `@plotcn` |
 | 3D | `@threecn` (React Three Fiber + drei, theme-token aware), three.js examples, Three UI |
 | Shaders and backgrounds | `@canvas-ui`, `@react-bits`, `@awwwardedui`, Radiant, Paper Shaders, ShaderGradient |
 

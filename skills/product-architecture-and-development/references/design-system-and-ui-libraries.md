@@ -20,7 +20,7 @@ Templates are references: keep layout and state patterns, replace demo data and 
 - **Marketing motion and shader sources** (Magic UI, React Bits, Canvas UI, Aceternity, and others): for a defined interaction only, never a second primitive layer. Catalog and discovery commands: [ui-sources.md](ui-sources.md).
 - **Ant Design:** dense dashboard/admin React products with tables, forms, filters, and i18n; if chosen, it is the primary foundation themed through one token adapter—no interleaving with shadcn for equivalent controls.
 - **Astryx:** Meta's React + StyleX system, public beta since June 2026; only on explicit request until stable. Review its [tokens](https://astryx.atmeta.com/docs/tokens), [themes](https://astryx.atmeta.com/themes), [templates](https://astryx.atmeta.com/templates), and [getting started](https://astryx.atmeta.com/docs/getting-started); generate its version-matched agent docs and follow its template → skeleton → component flow; verify StyleX/Tailwind coexistence; start with one isolated screen.
-- **Charts:** Recharts (composable), Tremor (Tailwind dashboards), Bklit (shadcn-compatible), or the primary foundation's option. Charts use the project palette, states, and accessibility.
+- **Charts:** choose and build per [charts.md](charts.md).
 
 ## Avoid library soup
 

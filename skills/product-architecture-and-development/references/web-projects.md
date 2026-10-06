@@ -17,7 +17,7 @@ Naming: [naming-and-linting.md](naming-and-linting.md). Assets: [assets-and-styl
 - Library-owned code: `components/shadcn/`, `components/magicui/`, etc.—create a directory only for a source actually adopted. Project wrappers: `components/ui/` or the owning feature. Don't edit library base components for product behavior.
 - Layout pieces in `components/layout/`; brand pieces in `components/brand/`.
 - `src/utils/` holds pure helpers; `src/lib/` holds infrastructure. Shared values in `constants/`, runtime config in `config/`, static collections in `data/`.
-- Charts: Recharts, Tremor (Tailwind only), Bklit, or the primary foundation's option, chosen by complexity, accessibility, bundle cost, and token fit. Ask before installing any secondary source.
+- Charts: [charts.md](charts.md). Ask before installing any secondary source.
 
 ## Performance and accessibility
 

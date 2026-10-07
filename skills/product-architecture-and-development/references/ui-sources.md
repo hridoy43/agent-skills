@@ -14,7 +14,7 @@ Shortlist two or three with preview link, license, dependencies, and rough bundl
 
 - One shadcn MCP server covers every shadcn-compatible registry (Canvas UI, Magic UI, React Bits, 21st.dev, and the rest of the index). If it is missing and the project will keep adding registry components, propose `npx shadcn@latest mcp init --client <claude|cursor|vscode|codex|opencode>` (writes project config such as `.mcp.json`), restart the client, and verify (`/mcp` or `claude mcp list`). Add any registry missing from the index under `components.json` `registries` (`"@<name>": "https://<host>/r/{name}.json"`).
 - Never add a library-specific MCP for a library that is a shadcn registry; duplicate servers only add tool definitions to context.
-- Non-shadcn libraries: add their own free, official MCP only when the project will use the library repeatedly and the CLI, `llms.txt`, or docs fall short.
+- Non-shadcn libraries: add their own free, official MCP only when the project will use the library repeatedly and the CLI, `llms.txt`, or docs fall short. Example: Shaders (`npx shaders@latest install-mcp`; works with a free shaders.com account, Pro presets need Pro).
 - Every MCP: ask first, project scope, latest stable, free tier unless the user approves otherwise, no keys in committed config. For a one-off component, the CLI is cheaper than a new server.
 
 ## Start by category
@@ -25,7 +25,7 @@ Shortlist two or three with preview link, license, dependencies, and rough bundl
 | Motion and interaction | `@animate-ui`, `@motion-primitives`, `@magicui`, `@aceternity`, `@skiper-ui`, `@paceui-gsap` (GSAP) |
 | Charts (library choice in [charts.md](charts.md)) | TanStack Charts shadcn/ui collection, shadcn `chart` (Recharts), `@evilcharts`, `@bklit`, `@axicharts`, `@plotcn` |
 | 3D | `@threecn` (React Three Fiber + drei, theme-token aware), three.js examples, Three UI |
-| Shaders and backgrounds | `@canvas-ui`, `@react-bits`, `@awwwardedui`, Radiant, Paper Shaders, ShaderGradient |
+| Shaders and backgrounds | `@canvas-ui`, `@react-bits`, `@awwwardedui`, Shaders, Radiant, Paper Shaders, ShaderGradient |
 
 ## Sources
 
@@ -40,7 +40,7 @@ Shortlist two or three with preview link, license, dependencies, and rough bundl
 | [Radiant](https://github.com/pbakaus/radiant) | 94 Canvas 2D/WebGL shaders, zero dependencies | Self-contained HTML in an `iframe`, tuned via `postMessage` | MIT |
 | [Paper Shaders](https://github.com/paper-design/shaders) | Shader components and backgrounds | `@paper-design/shaders-react` | Apache-2.0; pre-1.0 API |
 | [ShaderGradient](https://shadergradient.co) | Animated 3D gradients | `@shadergradient/react` | MIT |
-| [Shaders](https://shaders.com/docs) | WebGPU shader components and visual editor | `shaders` | Free only for personal or evaluation use; production needs a paid plan; no redistribution |
+| [Shaders](https://github.com/shader-effects-inc/shaders) | WebGPU engine and 200+ shader components (React, Vue, Svelte, Solid, JS); agent docs at `shaders.com/llms.txt`; free MCP | `shaders` | MIT, free for production; Pro presets, website sections, and rendering stay paid—never redistribute them |
 | [three.js examples](https://threejs.org/examples/) | Reference 3D and shader implementations | Read and adapt | MIT |
 | [Three UI](https://threeui.com/ui-elements) | 3D, shader, chart, and motion UI elements (three.js, Canvas, WebGL) | Site | Free to browse; source and commercial use need Pro (yearly or lifetime) |
 | [Figma community shaders](https://www.figma.com/community/shaders?resource_type=shaders) | WGSL shaders; HTML/React export via code viewer or Figma MCP | Figma | Per resource; may need a paid Figma plan; use a Figma shader skill when installed |

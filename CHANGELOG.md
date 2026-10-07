@@ -4,6 +4,7 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 ## Unreleased
 
+- `shaders` (v4) is now listed as MIT and free for production; only Pro presets, sections, and rendering remain paid; its free MCP is the example for non-shadcn library MCPs.
 - Added `charts.md` as the single owner of chart guidance: TanStack Charts 1.0 for chart-heavy, data-dense, SSR, or non-React projects (docs-first authoring order, large-data and Canvas rules, `--ts-chart-*` theming, SSR adoption, validation), Recharts for a few standard React charts (via shadcn `chart` in shadcn projects), Tremor for Tailwind dashboards; other references now point to it.
 - UI projects now get a root `DESIGN.md` in the open DESIGN.md format (YAML tokens plus ordered rationale sections) as the design source of truth, implemented by `src/styles/` theme files and shared with `ai-assisted-product-development` and `impeccable`.
 - Third-party scripts now load through the framework primitive (`next/script`, `@next/third-parties`, or the framework's script API) via a typed `config/scripts.ts` registry rendered by `components/scripts/ScriptManager.tsx`, with Next.js strategy, callback, and server-side nonce rules; raw `<script>` is reserved for JSON-LD.

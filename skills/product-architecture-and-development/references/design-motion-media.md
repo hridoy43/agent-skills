@@ -11,7 +11,7 @@ Pick the lowest rung that works. Each runtime library needs a named reason and i
 3. Lottie (dotLottie): illustrative or branded motion—see the Lottie workflow below.
 4. Motion.dev (React component, layout, gesture) or GSAP (timelines, scroll choreography, SVG paths, FLIP, physics). Never both on one surface without a documented boundary.
 5. Lenis: smooth scrolling on scroll-choreographed marketing pages only.
-6. Shader backgrounds and effects (Radiant, Canvas UI, React Bits, Paper Shaders, ShaderGradient): see [ui-sources.md](ui-sources.md).
+6. Shader backgrounds and effects (Shaders, Radiant, Canvas UI, React Bits, Paper Shaders, ShaderGradient): see [ui-sources.md](ui-sources.md).
 7. three.js: real-time 3D or WebGL/WebGPU; React Three Fiber (`@react-three/fiber`, `@react-three/drei`) in React.
 8. p5.js: generative art or creative coding, instance mode only.
 9. Product video: when sequence, narration, or real interaction is the message. Use `hyperframes` when installed; Remotion only on request or to extend an existing composition.

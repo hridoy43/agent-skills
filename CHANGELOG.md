@@ -4,6 +4,8 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 ## Unreleased
 
+- The skill contract now states framework-agnostic architecture (React trees are one mapping; other stacks keep the ownership rules in their own conventions) and web search for the best maintained package when no named candidate fits.
+- Agents now search the project's own component ecosystem (shadcn registries only in shadcn projects) before hand-building non-trivial components; `ui-sources.md` adds functional starting points (maps, data tables, rich text, uploads, forms).
 - Added `@23rd` to shader and background sources.
 - Added use-case rows to `ui-sources.md`: page blocks and templates (`@shadcnblocks`, `@shadcn-space`, `@shadcn-studio`, `@tailark`, `@ui-layouts`, `@shadcnuikit`) and AI chat/agent UI (AI SDK Elements, assistant-ui, ElevenLabs UI, Vercel Chatbot); `ai-systems.md` routes AI UI there.
 - `shaders` (v4) is now listed as MIT and free for production; only Pro presets, sections, and rendering remain paid; its free MCP is the example for non-shadcn library MCPs.

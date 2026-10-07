@@ -1,6 +1,6 @@
 # Components, shaders, and textures
 
-Read when a design needs a component, block, effect, shader, or texture the primary foundation lacks. Every pick passes the adoption gate in [design-system-and-ui-libraries.md](design-system-and-ui-libraries.md), installs at latest stable into `components/ui/` (shadcn default), and needs the user's approval. Licenses are per source and sometimes per item—check before shipping. When a proven prebuilt component fits, adapt it to the project's tokens instead of building from scratch.
+Read when the project needs a component, block, effect, shader, or texture the primary foundation lacks. Every pick passes the adoption gate in [design-system-and-ui-libraries.md](design-system-and-ui-libraries.md), installs at latest stable, and needs the user's approval. The registry commands and namespaces below are for shadcn projects (installs land in `components/ui/`); other foundations use their own equivalent (`shadcn-vue`, `shadcn-svelte`, the foundation's ecosystem, or the package index). Framework-agnostic sources (Shaders, Radiant, Canvas UI, TanStack Charts, three.js) fit any stack. Licenses are per source and sometimes per item—check before shipping. When a proven prebuilt component fits, adapt it to the project's tokens instead of building from scratch.
 
 ## Discover cheapest first
 
@@ -21,6 +21,7 @@ Shortlist two or three with preview link, license, dependencies, and rough bundl
 
 | Need | Registry namespaces and sites |
 | --- | --- |
+| Functional components | Maps `@mapcn` (MapLibre), `@shadcn-map`; data tables `@tablecn` (TanStack Table), `@data-table-filters`; rich text `@plate`; uploads `@better-upload`; forms `@formcn` |
 | Page blocks, sections, templates | `@shadcnblocks`, `@shadcn-space`, `@shadcn-studio`, `@tailark`, `@ui-layouts`, `@shadcnuikit` (dashboards); most mix free and paid items |
 | AI chat and agent UI | `@ai-elements` (AI SDK Elements, Apache-2.0), `@assistant-ui` (MIT), [ElevenLabs UI](https://ui.elevenlabs.io) for voice and audio agents (MIT; `npx @elevenlabs/cli@latest components add <name>`), [Vercel Chatbot](https://chatbot.ai-sdk.dev/docs) as a full reference app (Apache-2.0) |
 | Text animation | `@react-bits`, `@animate-ui`, `@motion-primitives`, `@magicui`, `@text-ui` |

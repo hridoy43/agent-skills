@@ -1,6 +1,6 @@
 # Architecture core
 
-Create only directories that have a current file and owner. Naming: [naming-and-linting.md](naming-and-linting.md). Ownership rules: [module-boundaries.md](module-boundaries.md).
+The trees below are the TypeScript web mapping; other stacks apply the ownership rules in their own conventions. Create only directories that have a current file and owner. Naming: [naming-and-linting.md](naming-and-linting.md). Ownership rules: [module-boundaries.md](module-boundaries.md).
 
 ## Single app
 

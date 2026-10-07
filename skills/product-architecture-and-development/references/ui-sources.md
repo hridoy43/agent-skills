@@ -21,11 +21,13 @@ Shortlist two or three with preview link, license, dependencies, and rough bundl
 
 | Need | Registry namespaces and sites |
 | --- | --- |
+| Page blocks, sections, templates | `@shadcnblocks`, `@shadcn-space`, `@shadcn-studio`, `@tailark`, `@ui-layouts`, `@shadcnuikit` (dashboards); most mix free and paid items |
+| AI chat and agent UI | `@ai-elements` (AI SDK Elements, Apache-2.0), `@assistant-ui` (MIT), [ElevenLabs UI](https://ui.elevenlabs.io) for voice and audio agents (MIT; `npx @elevenlabs/cli@latest components add <name>`), [Vercel Chatbot](https://chatbot.ai-sdk.dev/docs) as a full reference app (Apache-2.0) |
 | Text animation | `@react-bits`, `@animate-ui`, `@motion-primitives`, `@magicui`, `@text-ui` |
 | Motion and interaction | `@animate-ui`, `@motion-primitives`, `@magicui`, `@aceternity`, `@skiper-ui`, `@paceui-gsap` (GSAP) |
 | Charts (library choice in [charts.md](charts.md)) | TanStack Charts shadcn/ui collection, shadcn `chart` (Recharts), `@evilcharts`, `@bklit`, `@axicharts`, `@plotcn` |
 | 3D | `@threecn` (React Three Fiber + drei, theme-token aware), three.js examples, Three UI |
-| Shaders and backgrounds | `@canvas-ui`, `@react-bits`, `@awwwardedui`, Shaders, Radiant, Paper Shaders, ShaderGradient |
+| Shaders and backgrounds | `@canvas-ui`, `@react-bits`, `@awwwardedui`, `@23rd` (WebGL and ASCII effects, React and Svelte; no license file yet), Shaders, Radiant, Paper Shaders, ShaderGradient |
 
 ## Sources
 

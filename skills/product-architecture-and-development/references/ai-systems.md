@@ -15,4 +15,4 @@ Features own prompts, tools, schemas, and evals. The shared client owns provider
 - Evals: a versioned representative set (with adversarial cases) before launch, rerun when prompts, models, tools, retrieval, or policy change. Measure task success, grounding, tool/schema correctness, safety, latency, and cost. Demos are not evidence.
 - Retrieval: source authority, ingestion owner, chunking and versioning, permission filtering before retrieval, freshness and deletion, citations, "not found" behavior; evaluate retrieval separately.
 - Log model and version, prompt version, tool outcomes, latency, and tokens/cost with privacy-aware sampling; no raw confidential content by default; set retention and redaction.
-- UX: set expectations, show progress, cite sources, allow correction, and separate suggestions from completed actions.
+- UX: set expectations, show progress, cite sources, allow correction, and separate suggestions from completed actions. Build chat, reasoning, tool-call, and voice UI from the AI row in [ui-sources.md](ui-sources.md) instead of from scratch.

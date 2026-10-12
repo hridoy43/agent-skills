@@ -4,6 +4,7 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 ## Unreleased
 
+- Motion guardrails add live tuning with a dev-only panel (DialKit), baking final values into tokens or code before shipping.
 - The skill contract now states framework-agnostic architecture (React trees are one mapping; other stacks keep the ownership rules in their own conventions) and web search for the best maintained package when no named candidate fits.
 - Agents now search the project's own component ecosystem (shadcn registries only in shadcn projects) before hand-building non-trivial components; `ui-sources.md` adds functional starting points (maps, data tables, rich text, uploads, forms).
 - Added `@23rd` to shader and background sources.

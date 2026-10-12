@@ -21,6 +21,7 @@ Pick the lowest rung that works. Each runtime library needs a named reason and i
 - Every rung: transform/opacity first, duration and easing tokens, interruptible, keyboard/touch-safe, `prefers-reduced-motion` path, never blocks reading, navigation, forms, or CTAs.
 - Lenis: never on app UIs, forms, or long reading; keep native scrollbar, keyboard, anchors, and find-in-page; keep `respectReducedMotion` on; with GSAP ScrollTrigger use one loop (`lenis.on('scroll', ScrollTrigger.update)` + GSAP ticker). Speed overrides, snapping, or blocked native scroll count as hijacking.
 - Canvas/WebGL/WebGPU (shaders, three.js, p5.js, Lottie): meaning stays in HTML; static poster first; client-only lazy load; pause offscreen and when the tab is hidden; cap device pixel ratio; dispose GPU resources on unmount; test a low-end phone.
+- Tuning: dial in springs, easing, timelines, and effect parameters live with a dev-only panel ([DialKit](https://www.dialkit.dev): React, Vue, Svelte, Solid, vanilla; MIT), then bake the values into tokens or code and remove the bindings before shipping.
 - Carousels: labeled, controllable, paused on hover/focus. No cursor gimmicks, heavy parallax, or constant ambient motion.
 - Media: explicit aspect ratios, posters, lazy loading, efficient codecs; demos make sense without autoplay or audio.
 

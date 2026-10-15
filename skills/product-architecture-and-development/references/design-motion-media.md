@@ -14,7 +14,7 @@ Pick the lowest rung that works. Each runtime library needs a named reason and i
 6. Shader backgrounds and effects (Shaders, Radiant, Canvas UI, React Bits, Paper Shaders, ShaderGradient): see [ui-sources.md](ui-sources.md).
 7. three.js: real-time 3D or WebGL/WebGPU; React Three Fiber (`@react-three/fiber`, `@react-three/drei`) in React.
 8. p5.js: generative art or creative coding, instance mode only.
-9. Product video: when sequence, narration, or real interaction is the message. Use `hyperframes` when installed; Remotion only on request or to extend an existing composition.
+9. Product video: when sequence, narration, or real interaction is the message. Use `hyperframes` when installed; Remotion only on request or to extend an existing composition; with Remotion, `@snapcn` for demo shots (text reveals, device frames, terminal sessions).
 
 ## Guardrails
 

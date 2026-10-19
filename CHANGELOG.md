@@ -4,6 +4,7 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 ## Unreleased
 
+- Motion guardrails add an easing bullet: easings.dev cubic-bezier and spring presets or prefilled custom-curve links, exported per platform (CSS, Motion, SwiftUI, UIKit, Core Animation, raw) and saved as easing tokens.
 - `ui-sources.md` adds a non-web outputs row (`@emailcn`, `@pdfcn`, `@ogimagecn`, `@termcn`) and `@editorcn` for rich text; the product-video rung adds `@snapcn` for Remotion projects.
 - Motion guardrails add live tuning with a dev-only panel (DialKit), baking final values into tokens or code before shipping.
 - The skill contract now states framework-agnostic architecture (React trees are one mapping; other stacks keep the ownership rules in their own conventions) and web search for the best maintained package when no named candidate fits.

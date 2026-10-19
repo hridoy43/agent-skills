@@ -18,11 +18,11 @@ src/
 
 - Build a typed semantic theme (tokens, provider/hook, platform color mapping) before feature UI. Tailwind binding only if chosen: Uniwind (stable, Tailwind v4) by default, NativeWind when already used (its stable line targets Tailwind v3).
 - Share tokens, contracts, schemas, query config, and domain logic across platforms; share presentation only when it is genuinely native-friendly. Prefer native controls for frequent interactions.
-- Companions when installed, otherwise suggest: official Expo skills (routing, native UI, modules, EAS, upgrades), React Native best-practice and profiling skills, Code with Beto skills for their exact workflows, `maestro-mobile-testing` for E2E (else `find-skills` to compare Detox, Appium, XCTest, Espresso, Flutter integration tests). Keep E2E journey-focused and risk-based.
+- Companions when installed, otherwise suggest: official Expo skills (routing, native UI, modules, EAS, upgrades); React Native best-practice skills (for example Callstack's, or Software Mansion's, which also covers animation, gestures, SVG, audio, rich text, and on-device AI; both are named `react-native-best-practices`, so install one); profiling skills; a device-control MCP for agent-driven simulator/emulator QA and profiling (for example Argent); Code with Beto skills for their exact workflows, `maestro-mobile-testing` for E2E (else `find-skills` to compare Detox, Appium, XCTest, Espresso, Flutter integration tests). Keep E2E journey-focused and risk-based.
 
 ## Interaction and accessibility
 
-- Primary action in the thumb zone; platform-appropriate navigation, gestures, sheets, controls, typography, and haptics.
+- Primary action in the thumb zone; platform-appropriate navigation, gestures, sheets, controls, typography, and haptics ([design-motion-media.md](design-motion-media.md)).
 - Respect safe areas, dynamic type, reduced motion and transparency, screen readers, contrast, focus order, and touch targets.
 - Design loading, empty, error, offline, permission-denied, success, and destructive-confirm states before polishing the happy path. Search is useful on first open.
 - Motion shows continuity and feedback, stays interruptible, and has a reduced-motion path.
@@ -33,6 +33,7 @@ src/
 - One navigator shape per surface (drawer-, tab-, or stack-rooted with explicit modals); if shapes start mixing, rewrite instead of nesting more navigators.
 - Modals use the native presentation (swipe-down dismiss, matching chrome).
 - A drawer, tab, or top-tab leaf needs a stack host to show a header; header options on a hostless leaf are silently dropped. Check each route's parent layouts once.
+- Deep links, free first: Universal Links and App Links through the router's linking config cover installed apps; for links that survive install, use the Android Play Install Referrer and restore the saved intent after sign-in. Suggest a hosted or self-hosted deferred-link service only when these fall short, with the user's approval; clipboard and fingerprint matching need privacy disclosure.
 - Top-tab links switch tabs with the navigator's tab primitive, never push.
 - Drive tab indicators from the navigator's focus index plus window width, not lagging layout measurements.
 

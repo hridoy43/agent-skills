@@ -1,6 +1,6 @@
 # AI product systems
 
-Only when AI behavior ships in the product. First define the user task, why probabilistic output is acceptable, success measures, unacceptable outcomes, human fallback, latency and cost budget, data permissions, and the non-AI baseline. Prefer a deterministic workflow when it is simpler and safer.
+Only when AI behavior ships in the product. First define the user task, why probabilistic output is acceptable, success measures, unacceptable outcomes, human fallback, latency and cost budget, data permissions, and the non-AI baseline. Prefer a deterministic workflow when it is simpler and safer. When privacy, offline use, or per-call cost dominates, weigh on-device models (for example Apple Foundation Models, Android ML Kit GenAI, `react-native-executorch` with `react-native-rag`, or Transformers.js and WebLLM on the web).
 
 ```text
 features/<feature>/ai/{prompts,schemas,evals,tools}/  <feature>Ai.service.ts

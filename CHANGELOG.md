@@ -4,6 +4,8 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 ## Unreleased
 
+- Contract treats named tools as a starting point: each material choice checks the current landscape for a better maintained fit; it prefers free and open-source tools; paid ones are suggested only when clearly better or nothing free fits, and used only after the user approves. Haptics guardrail splits native (platform API first, then a preset library such as Pulsar) from mobile web (such as `web-haptics`); `mobile-projects.md` adds free-first deep links (Universal/App Links, Play Install Referrer, intent restored after sign-in, deferred-link services only with approval) and vendor-neutral companions (React Native best-practice skills, a device-control MCP); `ai-systems.md` names on-device model options per platform for privacy, offline, or cost-bound features.
+- Motion guardrails add mobile-web haptics (`web-haptics`, with its companion skill when installed); `ui-sources.md` text animation adds `torph` and NumberFlow as packages for when the project's UI libraries lack a fit.
 - Motion guardrails add an easing bullet: easings.dev cubic-bezier and spring presets or prefilled custom-curve links, exported per platform (CSS, Motion, SwiftUI, UIKit, Core Animation, raw) and saved as easing tokens.
 - `ui-sources.md` adds a non-web outputs row (`@emailcn`, `@pdfcn`, `@ogimagecn`, `@termcn`) and `@editorcn` for rich text; the product-video rung adds `@snapcn` for Remotion projects.
 - Motion guardrails add live tuning with a dev-only panel (DialKit), baking final values into tokens or code before shipping.

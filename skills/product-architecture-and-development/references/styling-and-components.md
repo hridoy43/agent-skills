@@ -40,4 +40,4 @@ FeatureCard/
 
 ## Icons
 
-Keep a healthy existing icon library. With none chosen, propose Lucide (or the ecosystem standard) and ask before installing. Direct imports; standardize size, stroke, color, labels, and decorative `aria-hidden`. Custom SVG only for brand or genuinely missing icons, stored as asset files—library-rendered SVG is fine, hand-written or duplicated SVG markup in code is not.
+Keep a healthy existing icon library. With none chosen, propose Lucide (or the ecosystem standard). Direct imports; standardize size, stroke, color, labels, and decorative `aria-hidden`. Custom SVG only for brand or genuinely missing icons, stored as asset files—library-rendered SVG is fine, hand-written or duplicated SVG markup in code is not.

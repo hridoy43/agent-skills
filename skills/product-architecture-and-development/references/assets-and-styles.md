@@ -16,5 +16,5 @@ Next.js serves only `public/`, so URL assets go in `public/assets/`. Native stac
 ## Finding imagery
 
 1. Generate a fit-for-purpose image first when image generation is available (subject, mood, aspect ratio, style, size).
-2. Use a free library (Pixabay, Unsplash, Pexels) when generation is unavailable or a real photo, place, or product is required. Search through `global-discovery-browsing-extraction` when installed, otherwise the host browser or suggested keywords for the user; return a small shortlist and let the user choose.
+2. Use a free library (Pixabay, Unsplash, Pexels) when generation is unavailable or a real photo, place, or product is required. Search through `global-discovery-browsing-extraction` or the host browser, otherwise suggest keywords to the user; return a small shortlist and let the user choose.
 3. Use the smallest suitable file and crop; check people, brands, and context fit the use; record source and license.

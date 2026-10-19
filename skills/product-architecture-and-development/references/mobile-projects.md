@@ -18,7 +18,7 @@ src/
 
 - Build a typed semantic theme (tokens, provider/hook, platform color mapping) before feature UI. Tailwind binding only if chosen: Uniwind (stable, Tailwind v4) by default, NativeWind when already used (its stable line targets Tailwind v3).
 - Share tokens, contracts, schemas, query config, and domain logic across platforms; share presentation only when it is genuinely native-friendly. Prefer native controls for frequent interactions.
-- Companions when installed, otherwise suggest: official Expo skills (routing, native UI, modules, EAS, upgrades); React Native best-practice skills (for example Callstack's, or Software Mansion's, which also covers animation, gestures, SVG, audio, rich text, and on-device AI; both are named `react-native-best-practices`, so install one); profiling skills; a device-control MCP for agent-driven simulator/emulator QA and profiling (for example Argent); Code with Beto skills for their exact workflows, `maestro-mobile-testing` for E2E (else `find-skills` to compare Detox, Appium, XCTest, Espresso, Flutter integration tests). Keep E2E journey-focused and risk-based.
+- Companions: official Expo skills (routing, native UI, modules, EAS, upgrades); a React Native best-practice skill (Callstack's or Software Mansion's; both are named `react-native-best-practices`, so install one); profiling skills; a device-control MCP for simulator/emulator QA and profiling (for example Argent); Code with Beto skills for their exact workflows, `maestro-mobile-testing` for E2E (else `find-skills` to compare Detox, Appium, XCTest, Espresso, Flutter integration tests). Keep E2E journey-focused and risk-based.
 
 ## Interaction and accessibility
 

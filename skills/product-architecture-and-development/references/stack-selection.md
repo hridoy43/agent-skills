@@ -1,6 +1,6 @@
 # Stack selection
 
-Choose in this order: product constraints (users, platform, offline, SEO, realtime, data sensitivity, team, hosting) → keep a healthy existing stack → compatibility (runtime, deploy, testing, observability) → community health (recent stable releases, docs, issue response, advisories) → complexity cost (deployables, services, state layers, build tools). Versions follow the latest-stable rule in `SKILL.md`; a library whose only line is beta or RC needs user approval.
+Choose in this order: product constraints (users, platform, offline, SEO, realtime, data sensitivity, team, hosting) → keep a healthy existing stack → compatibility (runtime, deploy, testing, observability) → community health (recent stable releases, docs, issue response, advisories) → complexity cost (deployables, services, state layers, build tools).
 
 ## Greenfield
 
@@ -21,5 +21,5 @@ Choose in this order: product constraints (users, platform, offline, SEO, realti
 
 - Prefer the framework's official lint/format integration; Better-T-Stack's generated toolchain is fine when compatible. One formatter, one lint config.
 - Keep the existing package manager and lockfile; never mix managers. New projects use pnpm; Bun only when verified for framework, tests, ORM, deploy, and native tooling. Switching managers needs a recorded migration and rollback.
-- For each material dependency record release status, maintenance, license, advisories, compatibility, cost, and exit path. Named libraries are candidates to verify, not permanent picks.
+- For each material dependency record release status, maintenance, license, advisories, compatibility, cost, and exit path.
 - Reject a dependency when platform primitives suffice, maintenance is unclear, it duplicates a layer, or its cost exceeds the current benefit.

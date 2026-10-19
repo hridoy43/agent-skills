@@ -16,7 +16,7 @@ Keep a healthy existing chart library and migrate only for a measured need. One 
 ## TanStack Charts
 
 - Read the official docs for the task before writing code: start at `https://tanstack.com/charts/latest/llms.txt`, then the specific guide (AI Authoring, Large Data, SSR and Hydration, Themes and Styling, Accessibility). Use public exports only; never reconstruct an API from an example or import private files.
-- Install `@tanstack/charts` at latest stable plus the framework peer. Author with root imports (`defineChart`, marks); render with the framework subpath (`@tanstack/charts/react`, `/vue`, `/svelte`, …).
+- Install `@tanstack/charts` plus the framework peer. Author with root imports (`defineChart`, marks); render with the framework subpath (`@tanstack/charts/react`, `/vue`, `/svelte`, …).
 - Authoring order: question → field types → smallest mark composition → compact scales (add `d3-scale` only when they can't express it) → where data is prepared → `ariaLabel` → verify the static scene before animation → custom behavior only at documented extension points. Never assign positional pixel ranges; the chart owns them.
 - Large data: count source, prepared, and rendered rows; aggregate, sample, or window first (width-independent aggregation in app code, memoized). Switch to Canvas (`@tanstack/charts/<framework>/canvas`) only for a measured SVG bottleneck, and only for the mark that needs it.
 - Theme through the `--ts-chart-*` CSS variables and inherited `currentColor`, mapped to `DESIGN.md` tokens; check light and dark.

@@ -18,7 +18,7 @@ description: Plans and builds web, mobile, desktop, backend, or multi-app produc
 - Plan: `project-initiation` (brief, interview, build plan), `stack-selection` (stack, generator, package manager, dependencies), `evidence-led-product-design` (product and UX decisions), `migration-workflow`, `graphify` (optional code graph)
 - Structure: `architecture-core`, `module-boundaries`, `naming-and-linting`
 - Platform: `web-projects`, `mobile-projects`, `mobile-chrome` (headers, tab bars, sheets, safe areas), `desktop-projects`, `backend-projects`
-- UI: `styling-and-components` (tokens, Tailwind, components, icons), `design-system-and-ui-libraries` (library choice), `ui-sources` (components, blocks, shaders, textures), `design-motion-media` (motion, 3D, media, haptics), `lottie-workflow`, `charts`, `assets-and-styles`
+- UI: `styling-and-components` (tokens, Tailwind, components, icons), `design-system-and-ui-libraries` (library choice), `ui-sources` (components, blocks, shaders, textures), `design-motion-media` (motion, 3D, media, haptics, ASCII), `lottie-workflow`, `charts`, `assets-and-styles`
 - Data and features: `api-data-state` (client, cache, state), `forms-and-validation`, `ai-systems`, `analytics`, `third-party-scripts`, `localization`, `seo`
 - Ship: `security-and-csp`, `production-foundations` (config, auth, persistence, jobs, CI, launch), `quality-gates` (before handoff)
 

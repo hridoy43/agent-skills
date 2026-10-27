@@ -4,7 +4,7 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 ## Unreleased
 
-- Design direction from context: `design-motion-media.md` adds a short Design direction section (with no stated look or existing system, infer one from audience, domain, trust, content, and platform and record it in `DESIGN.md`; offer distinctive directions with a reason; apply a direction across type, color, edges, imagery, and motion), a glyph, point, and dither guardrail, and a static fallback for reduced motion, data-saver, or weak devices; `SKILL.md` points to it from the `DESIGN.md` default.
+- Design direction from context: `design-motion-media.md` adds a short Design direction section (with no stated look or existing system, infer one from audience, domain, trust, content, and platform and record it in `DESIGN.md`; offer distinctive directions with a reason; apply a direction across type, color, edges, imagery, and motion), a glyph, point, and dither guardrail, and a static fallback for reduced motion, data-saver, or weak devices; `SKILL.md` points to it from the `DESIGN.md` default. Lenis, easing, haptics, and tuning bullets are shortened.
 
 - ASCII and ambient motion: `design-motion-media.md` adds an ASCII/glyph guardrail (cheapest technique that achieves the effect, from static text art to an ASCII post-processing pass; canvas guardrails apply) and replaces the blanket ban on ambient motion and cursor effects with principles (only when the design direction calls for it, never competing with content, pause control past 5 s per WCAG 2.2.2, nothing lost without a pointer); `ui-sources.md` adds an ASCII and dither row (`ascii-reveal`, postprocessing `ASCIIEffect`, Ascii-Motion, play.core) and GSAP ScrambleText.
 

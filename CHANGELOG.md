@@ -4,6 +4,8 @@ Release history for the portable skills in `hridoy43/agent-skills`.
 
 ## Unreleased
 
+- Design direction from context: `design-motion-media.md` adds a Design direction section (a stated look or existing brand wins; otherwise infer from audience, domain, trust, content, and platform, record it in `DESIGN.md`, check what currently fits, offer distinctive directions with a reason, apply a direction as a system), plus guardrails for staggered or scroll-linked reveals, small custom glyph or point fields, pixel and dither looks, and a static fallback for reduced motion, data-saver, or weak devices; `SKILL.md` points to it from the `DESIGN.md` default.
+
 - ASCII and ambient motion: `design-motion-media.md` adds an ASCII/glyph guardrail (cheapest technique that achieves the effect, from static text art to an ASCII post-processing pass; canvas guardrails apply) and replaces the blanket ban on ambient motion and cursor effects with principles (only when the design direction calls for it, never competing with content, pause control past 5 s per WCAG 2.2.2, nothing lost without a pointer); `ui-sources.md` adds an ASCII and dither row (`ascii-reveal`, postprocessing `ASCIIEffect`, Ascii-Motion, play.core) and GSAP ScrambleText.
 
 - Token trim: `SKILL.md` drops ~27% (reference list without repeated paths; defaults already covered by references reduced to pointers; contract rule 4 tightened); the Lottie workflow moves to `lottie-workflow.md`; `ui-sources.md` folds its sources table into the category table plus one paid-or-restricted line; references drop rules the contract already states (latest stable, ask before installing, use-or-suggest companions). The shadcn `cn` and `components/shadcn/` defaults are unchanged.

@@ -13,7 +13,7 @@ Pick the lowest rung that works; each runtime library needs a named reason.
 
 1. CSS/Tailwind: hover, focus, reveals, transitions, marquee; CSS scroll-driven animations and View Transitions where supported, with a static fallback; CSS and SVG textures (gradients, `feTurbulence` grain).
 2. SVG: diagrams, paths, indicators.
-3. Lottie (dotLottie): illustrative or branded motion; see [lottie-workflow.md](lottie-workflow.md).
+3. Lottie (dotLottie) or Rive: illustrative, branded, or interactive character motion; see [lottie-workflow.md](lottie-workflow.md).
 4. Motion.dev (React component, layout, gesture) or GSAP (timelines, scroll choreography, SVG paths, FLIP, physics). Never both on one surface without a documented boundary.
 5. Lenis: smooth scrolling on scroll-choreographed marketing pages only.
 6. Shader backgrounds and effects: see [ui-sources.md](ui-sources.md).
@@ -26,6 +26,7 @@ Pick the lowest rung that works; each runtime library needs a named reason.
 - Every rung: transform/opacity first, duration and easing tokens, interruptible, keyboard/touch-safe, `prefers-reduced-motion` path, never blocks reading, navigation, forms, or CTAs.
 - Lenis: never on app UIs, forms, or long reading; keep native scrollbar, keyboard, anchors, find-in-page, and `respectReducedMotion`; with GSAP ScrollTrigger share one loop (`lenis.on('scroll', ScrollTrigger.update)`). Speed overrides, snapping, or blocked native scroll are hijacking.
 - Canvas/WebGL/WebGPU (shaders, three.js, p5.js, Lottie): meaning stays in HTML; static poster first; client-only lazy load; pause offscreen and when the tab is hidden; cap device pixel ratio; dispose GPU resources on unmount; test a low-end phone; fall back to the static poster for reduced motion, data-saver, or weak devices.
+- Character or illustrative animation: pick by need—interactive or state-driven (Rive or dotLottie state machines), timeline loops (Lottie), 3D (glTF clips through three.js), hand-drawn (sprite sheet, image sequence, or video), simple rigs (pose data drawn live). Check editor, export, runtime, and asset licenses; meaningful characters need a text equivalent; still frame for reduced motion.
 - Glyph, point, and dither effects: draw only while something changes, read colors from theme tokens, and prefer SVG or CSS patterns over raster images for dithered edges.
 - Easing: pick or build curves at [easings.dev](https://www.easings.dev) (cubic-bezier and spring; `/create/cubic-bezier#x1=…&y1=…&x2=…&y2=…` or `/create/spring#mass=…&stiffness=…&damping=…` gives the user a prefilled link). It exports CSS, Motion, SwiftUI, UIKit, and Core Animation; save the pick as an easing token.
 - Haptics: fire on the user's action or the async result, with visual feedback, never on load or scroll. Native: the platform API for plain taps, a preset library such as [Pulsar](https://docs.swmansion.com/pulsar/) for richer feedback. Mobile web: a library such as `web-haptics`, which reaches iPhone Safari. Capacitor: `@capacitor/haptics`.

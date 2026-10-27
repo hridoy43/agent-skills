@@ -8,7 +8,6 @@ Start from the decision the chart supports, the field types (quantitative, tempo
 | --- | --- |
 | Chart-heavy or data-dense product, beyond-basic types (distribution, hierarchy, geo, Sankey, candlestick, small multiples), large data, SSR, or a non-React framework | [TanStack Charts](https://tanstack.com/charts/latest/docs/overview) (`@tanstack/charts`, MIT) |
 | A few standard charts in a React project (Tailwind or not) | Recharts; in shadcn projects through its `chart` wrapper |
-| Tailwind dashboard built from prebuilt KPI and chart cards | Tremor |
 | Styled ready-made chart cards | [TanStack shadcn/ui collection](https://tanstack.com/charts/catalog/collections/shadcn) or registry blocks (`@evilcharts`, `@bklit`; see [ui-sources.md](ui-sources.md)) |
 
 Keep a healthy existing chart library and migrate only for a measured need. One chart library per product unless a documented gap justifies a second.

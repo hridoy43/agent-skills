@@ -4,7 +4,7 @@ Load executable scripts only through the framework's script primitive and one re
 
 - **Next.js:** `next/script`; for Google Tag Manager, Analytics, Maps, and YouTube use `@next/third-parties/google` (official but documented as experimental—confirm with the user; skip a separate GA tag when GTM already loads it).
 - **Other frameworks:** their documented script API (for example Nuxt's `useScript`); a hand-written loader only when the framework has none.
-- **Exception:** JSON-LD is data, not code—render a native `<script type="application/ld+json">` in the page or layout and escape `<` as `<`.
+- **Exception:** JSON-LD is data, not code—render a native `<script type="application/ld+json">` in the page or layout and escape `<` as `\u003c`.
 
 ```text
 src/config/scripts.ts          # typed registry: id, src or inline, strategy, consent category, environments

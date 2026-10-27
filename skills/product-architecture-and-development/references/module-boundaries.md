@@ -14,7 +14,7 @@ Feature-first for every platform; frameworks change adapters, not ownership.
 | `services/` (root) | Cross-feature application services and SDK adapters | A dumping ground |
 | `store/` (root) | Truly cross-feature client state | Server data (query cache owns it) |
 | `hooks/` (root) | Cross-feature React/platform adapters | Logic that can be a plain function |
-| `utils/` | Pure, dependency-light cross-feature functions, incl. `cn.ts` | I/O, state, domain workflows |
+| `utils/` | Pure, dependency-light cross-feature functions | I/O, state, domain workflows |
 | `features/<name>/helpers/` | Feature-pure rules and calculations | Cross-feature helpers, I/O, hooks |
 | `data/` | Immutable shared data with two consumers | Records, runtime state |
 | `constants/` | Stable compile-time values | Runtime config, secrets |

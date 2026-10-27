@@ -18,7 +18,7 @@ Greenfield: also record generator command, resolved versions, runtime, package m
 
 ## Interview
 
-Only for unresolved, material decisions, one to three grouped questions; skip it when the prompt already decides or says to proceed:
+Per `SKILL.md` rule 1; skip it when the prompt decides or says to proceed:
 
 1. First-release must-work journey, date, and non-goals.
 2. Required vs open stack, hosting, auth, data, UI, localization, analytics, deployment.

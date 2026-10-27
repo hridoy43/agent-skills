@@ -1,6 +1,6 @@
 # Design, motion, and media
 
-Solve hierarchy, layout, type, spacing, color, contrast, and responsiveness before motion. "Modern" or "intuitive" without specifics means familiar platform patterns and the smallest testable interaction. Ecommerce: design browse, search, filter, gallery and variants, cart, checkout, confirmation, and every loading, empty, validation, and recovery state. Use `impeccable` for critique and `ui-ux-pro-max` for pattern research. Case studies and UX "laws" are hypotheses to test, not rules.
+Solve hierarchy, layout, type, spacing, color, contrast, and responsiveness before motion. "Modern" or "intuitive" without specifics means familiar platform patterns and the smallest testable interaction. Ecommerce: design browse, search, filter, gallery and variants, cart, checkout, confirmation, and every loading, empty, validation, and recovery state. Case studies and UX "laws" are hypotheses to test, not rules.
 
 ## Design direction
 

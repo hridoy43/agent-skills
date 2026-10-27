@@ -1,16 +1,12 @@
 # Mobile chrome and safe areas
 
-Read when a screen adds or changes a header, tab bar, sheet, modal, FAB, translucent or large-title chrome, or safe-area handling. Default to the platform primitive; chrome is the one surface where a project may deliberately outrun it for a feature, design moment, or signature interaction.
+Default to the platform primitive; outrun it only for a feature, design moment, or signature interaction.
 
 ## One owner per edge
 
 Top (status bar, notch, Dynamic Island), bottom (home indicator, gesture bar, tab bar, Android nav bar), and each overlay have exactly one inset owner:
 
-- Native chrome present: it absorbs the inset; the content wrapper opts out.
-- Custom chrome present: it absorbs the inset; the content wrapper opts out.
-- No chrome: the content wrapper absorbs it.
-
-Declare the owner once, visibly, in the layout file or chrome primitive. A double or missing inset is a bug even if it looks right, because it drifts across devices, rotation, and dark mode. Ask "who absorbs this inset?"—two answers means a conflict.
+Chrome (native or custom) absorbs its edge's inset and the content wrapper opts out; with no chrome, the content wrapper absorbs it. Declare the owner once in the layout file or chrome primitive; a double or missing inset is a bug even if it looks right, because it drifts across devices and rotation.
 
 ## Safe-area discipline
 
@@ -40,8 +36,7 @@ Name the role before designing; use the standard default when it fits.
 Prefer a slot override (back button, one trailing control, background, title) over replacing the header. Replace it only for: an interaction the primitive cannot host, a design moment that is the product, a motion language the platform hasn't caught up to, or a signature effect that drives retention. Build it on the same native primitives (native driver, platform gestures) and record the requirement. A custom header must:
 
 - own its inset and pass its height downstream (prop, context, or the navigator's height signal) so content neither clips nor double-pads;
-- survive rotation, dynamic type, dark mode, and large-title collapse;
-- carry a JSDoc escape-hatch note naming the chrome-less navigator that justifies it.
+- survive rotation, dynamic type, dark mode, and large-title collapse.
 
 Composition children (toolbar slots, title and search overrides) go inside the screen element that owns them; siblings are silently dropped.
 

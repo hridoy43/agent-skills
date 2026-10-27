@@ -6,17 +6,11 @@
 - Routes own metadata, layout, and loading/error boundaries; features own behavior. No second component library inside `app/`.
 - Route groups such as `(auth)`, `(public)`, `(dashboard)` clarify boundaries but never replace authorization.
 - Next.js 16+: one `proxy.ts` (root or `src/`) for lightweight redirects, rewrites, and header shaping—not data fetching or full authorization. Static redirects go in `next.config.ts`. Check the installed version first.
-
-- Executable scripts load only through the framework's Script component and the `components/scripts/ScriptManager.tsx` registry; raw `<script>` only for JSON-LD ([third-party-scripts.md](third-party-scripts.md)).
-
-Naming: [naming-and-linting.md](naming-and-linting.md). Assets: [assets-and-styles.md](assets-and-styles.md). Styling: [styling-and-components.md](styling-and-components.md).
+Naming: [naming-and-linting.md](naming-and-linting.md). Assets: [assets-and-styles.md](assets-and-styles.md). Styling: [styling-and-components.md](styling-and-components.md). Scripts: [third-party-scripts.md](third-party-scripts.md).
 
 ## Component libraries
 
-- Inspect `components.json` first. Keep custom aliases in an existing project, but replace shadcn defaults: `aliases.utils` → `@/utils/cn` (never `lib/utils.ts`), `aliases.ui` → `@/components/shadcn`.
-- Library-owned code: `components/shadcn/`, `components/magicui/`, etc.—create a directory only for a source actually adopted. Project wrappers: `components/ui/` or the owning feature. Don't edit library base components for product behavior.
-- Layout pieces in `components/layout/`; brand pieces in `components/brand/`.
-- `src/utils/` holds pure helpers; `src/lib/` holds infrastructure. Shared values in `constants/`, runtime config in `config/`, static collections in `data/`.
+- Inspect `components.json` first; aliases and library directories follow the `SKILL.md` defaults, one directory per adopted source (`components/magicui/`). Project wrappers live in `components/ui/` or the owning feature; never edit library base components for product behavior.
 - Charts: [charts.md](charts.md).
 
 ## Performance and accessibility

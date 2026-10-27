@@ -15,13 +15,10 @@ Keep a healthy existing chart library and migrate only for a measured need. One 
 
 ## TanStack Charts
 
-- Read the official docs for the task before writing code: start at `https://tanstack.com/charts/latest/llms.txt`, then the specific guide (AI Authoring, Large Data, SSR and Hydration, Themes and Styling, Accessibility). Use public exports only; never reconstruct an API from an example or import private files.
-- Install `@tanstack/charts` plus the framework peer. Author with root imports (`defineChart`, marks); render with the framework subpath (`@tanstack/charts/react`, `/vue`, `/svelte`, …).
-- Authoring order: question → field types → smallest mark composition → compact scales (add `d3-scale` only when they can't express it) → where data is prepared → `ariaLabel` → verify the static scene before animation → custom behavior only at documented extension points. Never assign positional pixel ranges; the chart owns them.
-- Large data: count source, prepared, and rendered rows; aggregate, sample, or window first (width-independent aggregation in app code, memoized). Switch to Canvas (`@tanstack/charts/<framework>/canvas`) only for a measured SVG bottleneck, and only for the mark that needs it.
-- Theme through the `--ts-chart-*` CSS variables and inherited `currentColor`, mapped to `DESIGN.md` tokens; check light and dark.
-- SSR renders deterministic SVG that the client adopts. Use the same adapter on server and client—never swap components by environment; keep interactive parts in client components.
-- Validate: typecheck, deterministic tests, interaction tests, light/dark visual checks, and bundle size (compact scales should keep D3 out).
+- Before writing code, read `https://tanstack.com/charts/latest/llms.txt` and the guide for the task (AI authoring, large data, SSR, themes, accessibility); use public exports only, never private files or APIs reconstructed from examples.
+- Authoring order: question → field types → smallest mark composition → data preparation → `ariaLabel` → verify the static scene before animation. The chart owns positional ranges.
+- Large data: aggregate, sample, or window before rendering; Canvas only for a measured SVG bottleneck, on the mark that needs it.
+- Theme through its CSS variables mapped to `DESIGN.md` tokens and check light and dark; SSR uses the same adapter on server and client.
 
 ## Any library
 

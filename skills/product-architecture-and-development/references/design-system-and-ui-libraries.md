@@ -16,10 +16,9 @@ Templates are references: keep layout and state patterns, replace demo data and 
 ## Options
 
 - **Tailwind CSS:** default base for small and bespoke marketing work; semantic tokens as utilities.
-- **shadcn/ui:** growing product surfaces needing owned, composable source. For a meaningful reusable gap, search the [Registry Directory](https://ui.shadcn.com/docs/directory) and compare two or three candidates' source (inclusion is not endorsement). Install only the chosen item. Before the first `init` or `add`, set `aliases.utils` to `@/utils/cn` and `aliases.ui` to `@/components/shadcn`; afterwards confirm no `lib/utils.ts` exists. Review the diff and lockfile, adapt to tokens, add tests.
+- **shadcn/ui:** growing product surfaces needing owned, composable source. For a meaningful reusable gap, search the [Registry Directory](https://ui.shadcn.com/docs/directory) and compare two or three candidates' source (inclusion is not endorsement). Install only the chosen item, with the `SKILL.md` aliases. Review the diff and lockfile, adapt to tokens, add tests.
 - **Marketing motion and shader sources** (Magic UI, React Bits, Canvas UI, Aceternity, and others): for a defined interaction only, never a second primitive layer. Catalog and discovery commands: [ui-sources.md](ui-sources.md).
 - **Ant Design:** dense dashboard/admin React products with tables, forms, filters, and i18n; if chosen, it is the primary foundation themed through one token adapter—no interleaving with shadcn for equivalent controls.
-- **Astryx:** Meta's React + StyleX system, public beta since June 2026; only on explicit request until stable. Review its [tokens](https://astryx.atmeta.com/docs/tokens), [themes](https://astryx.atmeta.com/themes), [templates](https://astryx.atmeta.com/templates), and [getting started](https://astryx.atmeta.com/docs/getting-started); generate its version-matched agent docs and follow its template → skeleton → component flow; verify StyleX/Tailwind coexistence; start with one isolated screen.
 - **Charts:** choose and build per [charts.md](charts.md).
 
 ## Avoid library soup

@@ -13,7 +13,6 @@ React-only rules; other ecosystems use their own standard naming.
 - Other modules: camelCase with a role suffix where the boundary matters: `countries.data.ts`, `createInvoice.action.ts`, `invoice.service.ts`, `invoice.api.ts`, `customerForm.schema.ts`.
 - Public surfaces: category indexes (`components/index.ts`, `actions/index.ts`) or a major component's `index.tsx`; never `features/<feature>/index.ts`.
 - Next.js reserved files keep framework names (`page.tsx`, `layout.tsx`, `loading.tsx`, `error.tsx`, `not-found.tsx`, `route.ts`). Next.js 16+ uses `proxy.ts`; `middleware.ts` only on older installed versions.
-- `cn` helper: `src/utils/cn.ts`.
 
 ## Linting
 

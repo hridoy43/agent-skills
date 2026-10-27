@@ -4,7 +4,7 @@ Start from the primary task, the user's likely state, and the first valuable out
 
 ## Default shape
 
-With no stack given, use Better-T-Stack's Expo/React Native option when it fits, else Expo + React Native + Expo Router unless native-only needs or an existing native codebase say otherwise.
+Stack choice: [stack-selection.md](stack-selection.md). Expo Router shape:
 
 ```text
 app/                       # Expo Router routes only
@@ -16,9 +16,9 @@ src/
   config/
 ```
 
-- Build a typed semantic theme (tokens, provider/hook, platform color mapping) before feature UI. Tailwind binding only if chosen: Uniwind (stable, Tailwind v4) by default, NativeWind when already used (its stable line targets Tailwind v3).
+- Build a typed semantic theme (tokens, provider/hook, platform color mapping) before feature UI. Tailwind binding only if chosen: keep an existing one, else the one with stable support for the project's Tailwind version (Uniwind, NativeWind).
 - Share tokens, contracts, schemas, query config, and domain logic across platforms; share presentation only when it is genuinely native-friendly. Prefer native controls for frequent interactions.
-- Companions: official Expo skills (routing, native UI, modules, EAS, upgrades); a React Native best-practice skill (Callstack's or Software Mansion's; both are named `react-native-best-practices`, so install one); profiling skills; a device-control MCP for simulator/emulator QA and profiling (for example Argent); Code with Beto skills for their exact workflows, `maestro-mobile-testing` for E2E (else `find-skills` to compare Detox, Appium, XCTest, Espresso, Flutter integration tests). Keep E2E journey-focused and risk-based.
+- Companions (install commands in `check-companions.mjs`): Expo skills; one `react-native-best-practices` skill; profiling skills; a device-control MCP for simulator QA and profiling (for example Argent); `maestro-mobile-testing` for E2E, else `find-skills` to compare frameworks. Keep E2E journey-focused and risk-based.
 
 ## Interaction and accessibility
 

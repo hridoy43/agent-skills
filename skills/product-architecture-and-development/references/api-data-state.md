@@ -24,7 +24,7 @@ TanStack Query (or the platform equivalent) for interactive server state: featur
 
 Classify first: URL state → router; server state → query cache; form state → form; local UI → component or reducer; cross-tree client state → a small store only when context won't do.
 
-- React: Zustand for a justified store—typed, feature-owned, narrow. App-level `stores/` only for auth metadata, theme, locale, or cross-feature preferences. Redux Toolkit or a state machine for large teams, complex transitions, or strict event debugging.
+- React: Zustand for a justified store—typed, feature-owned, narrow. Root `store/` only for auth metadata, theme, locale, or cross-feature preferences. Redux Toolkit or a state machine for large teams, complex transitions, or strict event debugging.
 - Document why local state is not enough, persistence (only what must survive restart), hydration, migration, logout reset, privacy, and tests.
 - Server data enters a store only when two features write the same canonical state.
 

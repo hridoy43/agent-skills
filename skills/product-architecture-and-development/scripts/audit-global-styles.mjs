@@ -127,6 +127,32 @@ if (arbitraryReport.length) {
   console.log("\nNo arbitrary Tailwind utilities detected.");
 }
 
+const motionPattern =
+  /cubic-bezier\([^)]*\)|\b(?:duration|ease|delay)-\[[^\]]+\]|\b\d*\.?\d+m?s\b(?=[^;\n]*\b(?:transition|animation)\b)|\b(?:transition|animation)[a-z-]*:[^;\n]*?\b\d*\.?\d+m?s\b/g;
+const motionLiterals = new Map();
+for (const text of [
+  ...sourceContents.map((entry) => entry.text),
+  ...(await Promise.all(cssFiles.map((file) => readFile(file, "utf8")))),
+]) {
+  for (const line of text.split("\n")) {
+    if (line.includes("var(--")) continue;
+    for (const match of line.matchAll(motionPattern)) {
+      const literal = match[0].trim();
+      motionLiterals.set(literal, (motionLiterals.get(literal) ?? 0) + 1);
+    }
+  }
+}
+if (motionLiterals.size) {
+  console.log(
+    "\nHardcoded durations/easings (route through motion tokens; see design-motion-media.md):",
+  );
+  console.table(
+    [...motionLiterals]
+      .map(([literal, occurrences]) => ({ literal, occurrences }))
+      .sort((a, b) => b.occurrences - a.occurrences),
+  );
+}
+
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }

@@ -21,6 +21,12 @@ Pick the lowest rung that works; each runtime library needs a named reason.
 8. p5.js: generative art or creative coding, instance mode only.
 9. Product video: when sequence, narration, or real interaction is the message. Use `hyperframes`; Remotion only on request or to extend an existing composition, with `@snapcn` for demo shots (text reveals, device frames, terminal sessions).
 
+## UI state transitions
+
+- Motion tokens (durations, easings, distances, scale, blur) are one shared scale in `DESIGN.md` and the theme; components reference them, never their own literals. Companion `transitions-dev` offers free ready-made recipes (check its license first).
+- Match motion to the element: popovers and menus grow from their trigger; modals are centered with no anchor; panels and pages slide; in-place text or value changes cross-fade; skeletons swap to content in place. Enter slower than exit; every transition is interruptible; animate only the properties that change.
+- Modern CSS first, judged by Baseline: `@starting-style` with `transition-behavior: allow-discrete`, View Transitions, native `<dialog>` and Popover API, a `grid-template-rows` height animation. `interpolate-size` is an enhancement only.
+
 ## Guardrails
 
 - Every rung: transform/opacity first, duration and easing tokens, interruptible, keyboard/touch-safe, `prefers-reduced-motion` path, never blocks reading, navigation, forms, or CTAs.

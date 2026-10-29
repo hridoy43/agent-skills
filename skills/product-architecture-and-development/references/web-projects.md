@@ -15,4 +15,4 @@ Naming: [naming-and-linting.md](naming-and-linting.md). Assets: [assets-and-styl
 
 ## Performance and accessibility
 
-Optimize the actual LCP element, reserve media dimensions, self-host or subset fonts, lazy-load non-critical interactive or media sections, and animate transform/opacity. Use semantic landmarks and heading order, keyboard access, visible focus, contrast, accessible names, reduced motion, and live regions only where needed.
+Performance: [performance.md](performance.md); self-host or subset fonts. Use semantic landmarks and heading order, keyboard access, visible focus, contrast, accessible names, reduced motion, and live regions only where needed.

@@ -23,7 +23,7 @@ Shortlist two or three with preview link, license, dependencies, and rough bundl
 | --- | --- |
 | Functional components | Maps `@mapcn` (MapLibre), `@shadcn-map`; data tables `@tablecn` (TanStack Table), `@data-table-filters`; rich text `@plate`, `@editorcn` (Tiptap); uploads `@better-upload`; forms `@formcn` |
 | Page blocks, sections, templates | `@shadcnblocks`, `@shadcn-space`, `@shadcn-studio`, `@tailark`, `@ui-layouts`, `@shadcnuikit` (dashboards) |
-| AI chat and agent UI | `@ai-elements`, `@assistant-ui`, [ElevenLabs UI](https://ui.elevenlabs.io) for voice and audio agents (`npx @elevenlabs/cli@latest components add <name>`), [Vercel Chatbot](https://chatbot.ai-sdk.dev/docs) as a full reference app |
+| AI chat and agent UI | `@ai-elements`, `@assistant-ui`, [ElevenLabs UI](https://ui.elevenlabs.io) for voice and audio agents (`npx @elevenlabs/cli@latest components add <name>`), [Vercel Chatbot](https://chatbot.ai-sdk.dev/docs) as a full reference app; generative UI: compare current frameworks per `ai-systems.md` |
 | Text animation | `@react-bits`, `@animate-ui`, `@motion-primitives`, `@magicui`, `@text-ui`; packages when the project's UI libraries lack a fit: `torph` (text morphing), NumberFlow (`@number-flow/*`, animated numbers), GSAP ScrambleText (scramble/decode) |
 | ASCII and dither | `ascii-reveal` (loading and reveal), postprocessing `ASCIIEffect` (3D, video), [Ascii-Motion](https://ascii-motion.app) (author, convert, export), [play.core](https://github.com/ertdfgcvb/play.core) (generative) |
 | Motion and interaction | `@animate-ui`, `@motion-primitives`, `@magicui`, `@aceternity`, `@kokonutui`, `@skiper-ui`, `@paceui-gsap` (GSAP) |

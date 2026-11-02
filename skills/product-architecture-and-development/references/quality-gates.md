@@ -18,7 +18,7 @@ Testable acceptance criteria; clear ownership and dependency direction; user pre
 
 ## Experience
 
-`DESIGN.md` and theme tokens agree; keyboard, focus, labels, contrast, zoom, reduced motion; small/medium/large widths; Core Web Vitals or platform performance on a production build, budgets passing ([performance.md](performance.md)); public pages pass [seo.md](seo.md) checks; media and animation have fallbacks; tokens or scale utilities instead of repeated arbitrary values. Visual checks fix routes, viewports, states, reduced motion, browser, and diff threshold before capture; investigate diffs instead of re-baselining.
+`DESIGN.md` and theme tokens agree; keyboard, focus, labels, contrast, zoom, reduced motion; small/medium/large widths; Core Web Vitals or platform performance on a production build, budgets passing ([performance.md](performance.md)); public pages pass [seo.md](seo.md) checks; media and animation have fallbacks; tokens or scale utilities instead of repeated arbitrary values. Visual checks fix routes, viewports, states, reduced motion, browser, and diff threshold before capture; investigate diffs instead of re-baselining. Self-review UI in a real browser at small, medium, and large widths: fix the top few problems (first-view title, margins, stray gaps), at most three rounds.
 
 ## Security and operations
 

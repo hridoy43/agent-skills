@@ -6,6 +6,9 @@ Solve hierarchy, layout, type, spacing, color, contrast, and responsiveness befo
 
 - With no stated look or existing system, infer a direction from the audience, domain, trust level, content, and platform, and record it in `DESIGN.md`. A clinic booking app, a developer tool, and a game studio should not look alike.
 - Offer a distinctive direction (pixel, ASCII, brutalist, and similar) with one line on why it fits; familiar patterns stay the default. A direction applies to type, color, edges, imagery, and motion together.
+- Marketing pages and app screens differ: pages carry a direction and imagery; dashboards and tools use quiet panels, aligned figures, color spent on data, and navigation that folds away on phones.
+- Imagery: the user's assets or open-licensed sources (CC0, public domain, CC BY), credited where required, license checked; no generic stock or filler.
+- A live site with no design source: extract its tokens into `DESIGN.md` with a token-extraction tool and check drift, only for the user's own site or with permission.
 
 ## Motion ladder
 
@@ -14,7 +17,7 @@ Pick the lowest rung that works; each runtime library needs a named reason.
 1. CSS/Tailwind: hover, focus, reveals, transitions, marquee; CSS scroll-driven animations and View Transitions where supported, with a static fallback; CSS and SVG textures (gradients, `feTurbulence` grain).
 2. SVG: diagrams, paths, indicators.
 3. Lottie (dotLottie) or Rive: illustrative, branded, or interactive character motion; see [lottie-workflow.md](lottie-workflow.md).
-4. Motion.dev (React component, layout, gesture) or GSAP (timelines, scroll choreography, SVG paths, FLIP, physics). Never both on one surface without a documented boundary.
+4. Motion.dev (React component, layout, gesture) or GSAP (free, all plugins; timelines, scroll choreography, SVG paths, FLIP, physics; official skills: `gsap-core` companion). Never both on one surface without a documented boundary.
 5. Lenis: smooth scrolling on scroll-choreographed marketing pages only.
 6. Shader backgrounds and effects: see [ui-sources.md](ui-sources.md).
 7. three.js: real-time 3D or WebGL/WebGPU; React Three Fiber (`@react-three/fiber`, `@react-three/drei`) in React.

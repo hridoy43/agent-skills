@@ -37,7 +37,7 @@ Shortlist two or three with preview link, license, dependencies, and rough bundl
 | Character and illustrative animation | Interactive: [Rive](https://rive.app) (`.riv` export needs a paid plan). Free authoring: Glaxnimate (Lottie, SVG, Rive export), Synfig (bones), Krita, OpenToonz, Blender Grease Pencil (frame-by-frame); stick figures: StykAnimate. 3D clips: Quaternius (CC0, glTF). Spine runtimes need a Spine license, websites included. Lottie: [lottie-workflow.md](lottie-workflow.md) |
 | Non-web outputs | Email `@emailcn` (React Email, MJML, JSX Email); PDF `@pdfcn`; Open Graph images `@ogimagecn` (Satori); terminal UI `@termcn` (Ink, OpenTUI) |
 
-Paid or restricted: React Bits and Canvas UI add Commons Clause (no reselling the library; React Bits' free Background Studio and Texture Lab fall under it too; its Pro tier is paid); 21st.dev limits free daily copies; block registries, Aceternity, Kokonut, and Skiper mix free and paid items; Three UI source needs Pro; Shaders Pro presets, sections, and rendering are paid and never redistributed; Figma shaders may need a paid plan.
+Paid or restricted: React Bits and Canvas UI add Commons Clause (no reselling the library); 21st.dev limits free daily copies; block registries, Aceternity, Kokonut, and Skiper mix free and paid items; Three UI source needs Pro; Shaders Pro presets, sections, and rendering are paid and never redistributed; Figma shaders may need a paid plan.
 
 ## Textures, cheapest first
 

@@ -7,7 +7,7 @@ Solve hierarchy, layout, type, spacing, color, contrast, and responsiveness befo
 - With no stated look or existing system, infer a direction from the audience, domain, trust level, content, and platform, and record it in `DESIGN.md`. A clinic booking app, a developer tool, and a game studio should not look alike.
 - Offer a distinctive direction (pixel, ASCII, brutalist, and similar) with one line on why it fits; familiar patterns stay the default. A direction applies to type, color, edges, imagery, and motion together.
 - Marketing pages and app screens differ: pages carry a direction and imagery; dashboards and tools use quiet panels, aligned figures, color spent on data, and navigation that folds away on phones.
-- Imagery: the user's assets or open-licensed sources (CC0, public domain, CC BY), credited where required, license checked; no generic stock or filler.
+- Imagery: the user's assets or open-licensed sources (CC0, public domain, CC BY), credited where required; no generic stock or filler.
 - A live site with no design source: extract its tokens into `DESIGN.md` with a token-extraction tool and check drift, only for the user's own site or with permission.
 
 ## Motion ladder
@@ -17,7 +17,7 @@ Pick the lowest rung that works; each runtime library needs a named reason.
 1. CSS/Tailwind: hover, focus, reveals, transitions, marquee; CSS scroll-driven animations and View Transitions where supported, with a static fallback; CSS and SVG textures (gradients, `feTurbulence` grain).
 2. SVG: diagrams, paths, indicators.
 3. Lottie (dotLottie) or Rive: illustrative, branded, or interactive character motion; see [lottie-workflow.md](lottie-workflow.md).
-4. Motion.dev (React component, layout, gesture) or GSAP (free, all plugins; timelines, scroll choreography, SVG paths, FLIP, physics; official skills: `gsap-core` companion). Never both on one surface without a documented boundary.
+4. Motion.dev (React component, layout, gesture) or GSAP (free; timelines, scroll choreography, SVG paths, FLIP, physics; official skills: `gsap-core` companion). Never both on one surface without a documented boundary.
 5. Lenis: smooth scrolling on scroll-choreographed marketing pages only.
 6. Shader backgrounds and effects: see [ui-sources.md](ui-sources.md).
 7. three.js: real-time 3D or WebGL/WebGPU; React Three Fiber (`@react-three/fiber`, `@react-three/drei`) in React.
@@ -35,7 +35,7 @@ Pick the lowest rung that works; each runtime library needs a named reason.
 - Every rung: transform/opacity first, duration and easing tokens, interruptible, keyboard/touch-safe, `prefers-reduced-motion` path, never blocks reading, navigation, forms, or CTAs.
 - Lenis: never on app UIs, forms, or long reading; keep native scrollbar, keyboard, anchors, find-in-page, and `respectReducedMotion`; with GSAP ScrollTrigger share one loop (`lenis.on('scroll', ScrollTrigger.update)`). Speed overrides, snapping, or blocked native scroll are hijacking.
 - Canvas/WebGL/WebGPU (shaders, three.js, p5.js, Lottie): meaning stays in HTML; static poster first; client-only lazy load; pause offscreen and when the tab is hidden; cap device pixel ratio; dispose GPU resources on unmount; test a low-end phone; fall back to the static poster for reduced motion, data-saver, or weak devices.
-- Character or illustrative animation: pick by need—interactive or state-driven (Rive or dotLottie state machines), timeline loops (Lottie), 3D (glTF clips through three.js), hand-drawn (sprite sheet, image sequence, or video), simple rigs (pose data drawn live). Check editor, export, runtime, and asset licenses; meaningful characters need a text equivalent; still frame for reduced motion.
+- Character or illustrative animation: pick by need—interactive or state-driven (Rive or dotLottie state machines), timeline loops (Lottie), 3D (glTF clips through three.js), hand-drawn (sprite sheet, image sequence, or video), simple rigs (pose data drawn live). Meaningful characters need a text equivalent; still frame for reduced motion.
 - Glyph, point, and dither effects: draw only while something changes, read colors from theme tokens, and prefer SVG or CSS patterns over raster images for dithered edges.
 - Easing: pick or build curves at [easings.dev](https://www.easings.dev) (cubic-bezier and spring; `/create/cubic-bezier#x1=…&y1=…&x2=…&y2=…` or `/create/spring#mass=…&stiffness=…&damping=…` gives the user a prefilled link). It exports CSS, Motion, SwiftUI, UIKit, and Core Animation; save the pick as an easing token.
 - Haptics: fire on the user's action or the async result, with visual feedback, never on load or scroll. Native: the platform API for plain taps, a preset library such as [Pulsar](https://docs.swmansion.com/pulsar/) for richer feedback. Mobile web: a library such as `web-haptics`, which reaches iPhone Safari. Capacitor: `@capacitor/haptics`.

@@ -28,9 +28,9 @@ Shortlist two or three with preview link, license, dependencies, and rough bundl
 | ASCII and dither | `ascii-reveal` (loading and reveal), postprocessing `ASCIIEffect` (3D, video), [Ascii-Motion](https://ascii-motion.app) (author, convert, export), [play.core](https://github.com/ertdfgcvb/play.core) (generative) |
 | Motion and interaction | `@animate-ui`, `@motion-primitives`, `@magicui`, `@aceternity`, `@kokonutui`, `@skiper-ui`, `@paceui-gsap` (GSAP) |
 | Charts (library choice in [charts.md](charts.md)) | TanStack Charts shadcn/ui collection, shadcn `chart` (Recharts), `@evilcharts`, `@bklit`, `@axicharts`, `@plotcn` |
-| 3D | `@threecn` (React Three Fiber + drei, theme-token aware), [three.js examples](https://threejs.org/examples/), [Three UI](https://threeui.com/ui-elements) |
+| 3D | `@threecn` (React Three Fiber + drei, theme-token aware), [three.js examples](https://threejs.org/examples/), [Three UI](https://threeui.com/ui-elements); Gaussian splats: Spark; modeling and rigging: Blender, exported as glTF |
 | Shaders and backgrounds | `@canvas-ui`, `@react-bits`, `@awwwardedui`, `@23rd`, [Shaders](https://github.com/shader-effects-inc/shaders) (agent docs `shaders.com/llms.txt`), [Radiant](https://github.com/pbakaus/radiant) (zero-dependency HTML in an `iframe`, tuned via `postMessage`), [Paper Shaders](https://github.com/paper-design/shaders), [ShaderGradient](https://shadergradient.co), [Figma community shaders](https://www.figma.com/community/shaders?resource_type=shaders) |
-| 2D graphics, physics, audio, assets | PixiJS (GPU 2D), Rapier (2D and 3D physics), tsParticles, glTF Transform (compress 3D assets), Tone.js (audio), FFmpeg and faster-whisper (encode, captions) |
+| 2D graphics, physics, audio, assets | PixiJS (GPU 2D), Rapier (2D and 3D physics), tsParticles, glTF Transform (compress 3D assets), Tone.js (audio), WaveSurfer.js (waveforms), FFmpeg and faster-whisper (encode, captions) |
 | 2D vector and canvas | Konva (interactive), Fabric.js (editor), Two.js (SVG, canvas, or WebGL), Paper.js (path geometry) |
 | Visual page and email builders | Only when end users must edit layouts (otherwise code plus a CMS): GrapesJS (framework-agnostic), Puck (React; renamed, so check the current package name) |
 | Textures and HDRIs (CC0) | [Poly Haven](https://polyhaven.com), [ambientCG](https://ambientcg.com) |

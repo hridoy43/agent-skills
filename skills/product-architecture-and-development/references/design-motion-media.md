@@ -22,7 +22,7 @@ Pick the lowest rung that works; each runtime library needs a named reason.
 6. Shader backgrounds and effects: see [ui-sources.md](ui-sources.md).
 7. three.js: real-time 3D or WebGL/WebGPU; React Three Fiber (`@react-three/fiber`, `@react-three/drei`) in React.
 8. p5.js: generative art or creative coding, instance mode only.
-9. Product video: when sequence, narration, or real interaction is the message. Use `hyperframes`; Remotion only on request or to extend an existing composition, with `@snapcn` for demo shots (text reveals, device frames, terminal sessions).
+9. Product video: when sequence, narration, or real interaction is the message. Use `hyperframes`; Remotion only on request or to extend an existing composition, with `@snapcn` for demo shots (text reveals, device frames, terminal sessions). Export clips offline at a locked frame rate (WebCodecs or the render engine), not by screen recording.
 
 ## UI state transitions
 
@@ -40,7 +40,7 @@ Pick the lowest rung that works; each runtime library needs a named reason.
 - Easing: pick or build curves at [easings.dev](https://www.easings.dev) (cubic-bezier and spring; `/create/cubic-bezier#x1=…&y1=…&x2=…&y2=…` or `/create/spring#mass=…&stiffness=…&damping=…` gives the user a prefilled link). It exports CSS, Motion, SwiftUI, UIKit, and Core Animation; save the pick as an easing token.
 - Haptics: fire on the user's action or the async result, with visual feedback, never on load or scroll. Native: the platform API for plain taps, a preset library such as [Pulsar](https://docs.swmansion.com/pulsar/) for richer feedback. Mobile web: a library such as `web-haptics`, which reaches iPhone Safari. Capacitor: `@capacitor/haptics`.
 - Tuning: dial in springs, easing, and effect parameters with a dev-only panel such as [DialKit](https://www.dialkit.dev), then bake the values into tokens and remove the bindings.
-- ASCII and glyph looks, cheapest that achieves the effect: static `aria-hidden` text art, a Canvas 2D field, WebGL for large or pointer-reactive fields, or an ASCII post-processing pass for 3D or video ([ui-sources.md](ui-sources.md)). Text over a field keeps its contrast.
+- ASCII and glyph looks, cheapest that achieves the effect: static `aria-hidden` text art, a Canvas 2D field, WebGL for large or pointer-reactive fields, or an ASCII post-processing pass for 3D or video ([ui-sources.md](ui-sources.md)). Pixel-art 3D: render at low resolution, upscale nearest-neighbour, ordered dither and palette quantizing, camera snapped to whole pixels (Noxe Pixel Engine, MIT, is a reference app). Text over a field keeps its contrast.
 - Ambient motion only when the design direction calls for it; it never competes with content, and past 5 s it needs a pause control (WCAG 2.2.2). Pointer-driven effects are enhancements: nothing is lost without a pointer.
 - Carousels: labeled, controllable, paused on hover/focus. No heavy parallax.
 - Media: explicit aspect ratios, posters, lazy loading, efficient codecs; demos make sense without autoplay or audio.

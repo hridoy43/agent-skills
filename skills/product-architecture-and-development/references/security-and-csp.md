@@ -1,5 +1,6 @@
 # Security and CSP
 
+- Client code is public: secrets, authorization, and paid logic stay server-side; obfuscation or decoy code only adds friction and never counts as protection.
 - Secrets server-side; validate env at startup; authorize at every trust boundary; secure, httpOnly, sameSite session cookies; least privilege for tokens, desktop bridges, storage, DB roles, and CI; escape output and sanitize supported rich HTML; never log secrets or sensitive payloads; lock dependencies and review advisories.
 
 ## CSP baseline

@@ -47,3 +47,5 @@ Share contracts, schemas, domain rules, tokens, and tooling—not every presenta
 ## Decision records
 
 For a material choice record context, decision, rejected alternatives, consequences, and revisit signal in `docs/architecture/` or the existing ADR location.
+
+Diagrams in docs: choose the type for the question (architecture, sequence, ER, flow); keep diagram-as-code text in the repo (Mermaid by default) so it diffs and stays current; one small diagram per claim, with labeled nodes and a one-line caption.

@@ -55,4 +55,5 @@ Run with Node from the skill directory; read-only unless noted.
 - `conversion-storytelling`: landing pages, pricing, onboarding narrative, proof, CTA.
 - `content-marketing-and-brand-growth`: launch campaigns, social, video or thumbnail briefs.
 - `global-discovery-browsing-extraction`: current web evidence and asset discovery, including signed-in pages.
+- `modern-web-guidance`: before hand-writing web UI, CSS, forms, or client JS, look up the current platform pattern and its Baseline fallback.
 - UI critique: `impeccable`, then `ui-ux-pro-max`; video: `hyperframes`; missing capability: `find-skills`.

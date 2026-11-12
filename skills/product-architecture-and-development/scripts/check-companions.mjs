@@ -23,6 +23,7 @@ const companions = [
   { name: 'impeccable', purpose: 'UI critique, refinement, DESIGN.md', install: add('pbakaus/impeccable', 'impeccable') },
   { name: 'design-taste-frontend', purpose: 'art-directed UI builds (heavy; use instead of impeccable, not with it)', install: add('Leonxlnx/taste-skill', 'design-taste-frontend') },
   { name: 'gsap-core', purpose: 'official GSAP skills (free, all plugins)', install: 'npx skills@latest add greensock/gsap-skills' },
+  { name: 'modern-web-guidance', purpose: 'current HTML/CSS/client-JS patterns with Baseline fallbacks (Chrome, Edge, Firefox, MDN)', install: add('GoogleChrome/modern-web-guidance', 'modern-web-guidance') },
   { name: 'ui-ux-pro-max', purpose: 'design-system and pattern research', install: add('nextlevelbuilder/ui-ux-pro-max-skill', 'ui-ux-pro-max') },
   { name: 'ai-assisted-product-development', purpose: 'AI design exploration and feedback loops', install: own('ai-assisted-product-development') },
   { name: 'conversion-storytelling', purpose: 'conversion narrative, proof, and CTA', install: own('conversion-storytelling') },

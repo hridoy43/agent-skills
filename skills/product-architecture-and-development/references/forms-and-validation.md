@@ -6,6 +6,7 @@
 - Schemas live in `features/<feature>/schemas/`; shared contracts only with multiple consumers. Share a schema between form and server action when safe.
 - Validate on the client for feedback and again at the server, action, handler, or storage boundary; client validation is never security or authorization. Keep input schemas apart from DTOs, domain models, and DB records when they differ; transform explicitly before persistence.
 - Errors: typed field and form errors without internals; keep entered values, focus the first invalid field, associate labels and messages accessibly. Centralize error mapping; keep cross-field rules in the feature.
+- Native first: `<form>` with real submit buttons, `name` and correct `type`/`inputmode` on every control, `autocomplete` tokens for sign-in, sign-up, address, payment, and one-time codes (password managers and autofill depend on them), `<fieldset>`/`<legend>` for groups; error styling on `:user-invalid`, not `:invalid`, so untouched fields stay quiet; Enter-to-submit ignores IME composition (`event.isComposing`).
 - Test required, malformed, length and range limits, cross-field rules, authorization failures, and server rejection.
 
 ```text

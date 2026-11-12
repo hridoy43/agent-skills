@@ -1,6 +1,6 @@
 # Performance
 
-Ask of every resource and task: does it need to happen now? Check feature support by Baseline status: widely available freely, newly available with a fallback, otherwise enhancement only. Native and desktop apply the same principles to startup, lists, images, and the UI thread.
+Ask of every resource and task: does it need to happen now? Check feature support by Baseline status: widely available freely, newly available with a fallback, otherwise enhancement only. A stated browser-support policy (Baseline year, minimum versions, polyfill budget, Electron/Tauri runtime) overrides this; record it in `AGENTS.md` or `CLAUDE.md` and the decision ledger. Native and desktop apply the same principles to startup, lists, images, and the UI thread.
 
 - Measure first: one hypothesis, one change, re-measure, keep or revert. Field data (CrUX or RUM with `web-vitals` attribution) over lab scores; LCP, INP, CLS at p75 against current thresholds, on a production build and a mid-range phone. Budgets (JS size, vitals) fail CI.
 - Render content and SEO-critical UI on the server (static, streaming, server components); ship JS only for interactive parts.

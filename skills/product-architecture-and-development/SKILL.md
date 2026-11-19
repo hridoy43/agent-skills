@@ -56,4 +56,5 @@ Run with Node from the skill directory; read-only unless noted.
 - `content-marketing-and-brand-growth`: launch campaigns, social, video or thumbnail briefs.
 - `global-discovery-browsing-extraction`: current web evidence and asset discovery, including signed-in pages.
 - `modern-web-guidance`: before hand-writing web UI, CSS, forms, or client JS, look up the current platform pattern and its Baseline fallback.
+- `emil-design-eng` set: interaction polish and motion (`animate`, `review-animations`, `gestures`), worst-case data (`break-ui`), phone feel (`mobile-native`), library picks (`pick-ui-library`, still through the adoption gate).
 - UI critique: `impeccable`, then `ui-ux-pro-max`; video: `hyperframes`; missing capability: `find-skills`.

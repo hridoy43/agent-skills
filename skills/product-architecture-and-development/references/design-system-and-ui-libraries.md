@@ -15,6 +15,7 @@ Templates are references: keep layout and state patterns, replace demo data and 
 
 ## Options
 
+- **Headless primitives (React):** one layer per surface. New work: [Base UI](https://base-ui.com) (`@base-ui/react`, MIT, agent docs at `base-ui.com/llms.txt`). Projects already on Radix Primitives keep them; never mix the two for equivalent controls. Radix Themes is a styled kit, so it is a primary foundation, not a primitive layer under shadcn. Drawers: the primitive layer's drawer (Base UI Drawer has swipe-to-dismiss); Vaul is unmaintained, so don't adopt it, and flag existing installs (shadcn's Radix `drawer` depends on it) for migration per contract rule 4.
 - **Tailwind CSS:** default base for small and bespoke marketing work; semantic tokens as utilities.
 - **shadcn/ui:** growing product surfaces needing owned, composable source. For a meaningful reusable gap, search the [Registry Directory](https://ui.shadcn.com/docs/directory) and compare two or three candidates' source (inclusion is not endorsement). Install only the chosen item, with the `SKILL.md` aliases. Review the diff and lockfile, adapt to tokens, add tests.
 - **Marketing motion and shader sources** (Magic UI, React Bits, Canvas UI, Aceternity, and others): for a defined interaction only, never a second primitive layer. Catalog and discovery commands: [ui-sources.md](ui-sources.md).

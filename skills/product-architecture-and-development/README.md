@@ -96,6 +96,7 @@ Install only when the task needs them:
 
 - `impeccable` first for UI critique and visual refinement; `ui-ux-pro-max` for deeper design-system research.
 - `modern-web-guidance` (Chrome, Edge, Firefox, and MDN teams) for current HTML, CSS, forms, accessibility, and client-JS patterns with Baseline fallbacks.
+- Emil Kowalski's skills (`emil-design-eng`, `animate`, `review-animations`, `gestures`, `break-ui`, `mobile-native`, and others) for interaction polish, motion, and edge-case UI checks.
 - `conversion-storytelling` for marketing, ecommerce, onboarding, positioning, proof, and CTA narratives.
 - `content-marketing-and-brand-growth` for product-launch campaigns, social content, video or thumbnail briefs, publishing, and content performance learning.
 - `ai-assisted-product-development` for bounded AI design exploration, human selection, feedback-to-change workflows, and decision records.

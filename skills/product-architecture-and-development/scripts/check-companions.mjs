@@ -32,6 +32,7 @@ const companions = [
   { name: 'graphify', purpose: 'code-and-docs graph (after approval)', install: 'uv tool install graphifyy && graphify install --project --platform agents' },
   { name: 'text-to-lottie', purpose: 'Lottie authoring', install: add('diffusionstudio/lottie', 'text-to-lottie') },
   { name: 'hyperframes', purpose: 'product demo and launch video', install: add('heygen-com/hyperframes', 'hyperframes') },
+  { name: 'emil-design-eng', purpose: 'Emil Kowalski skills: UI polish, animation build and review, gestures, break-ui, mobile-native, pick-ui-library', install: 'npx skills@latest add emilkowalski/skills' },
   { name: 'transitions-dev', purpose: 'ready-made UI transitions (free tier)', install: add('Jakubantalik/transitions.dev', 'transitions-dev') },
   { name: 'expo-ui', purpose: 'Expo skills (routing, native UI, modules, EAS)', install: 'npx skills@latest add expo/skills' },
   { name: 'react-native-best-practices', purpose: 'React Native practices (install one source)', install: `${add('callstackincubator/agent-skills', 'react-native-best-practices')} (or software-mansion-labs/skills)` },

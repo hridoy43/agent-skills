@@ -24,10 +24,17 @@ Pick the lowest rung that works; each runtime library needs a named reason.
 8. p5.js: generative art or creative coding, instance mode only.
 9. Product video: when sequence, narration, or real interaction is the message. Use `hyperframes`; Remotion only on request or to extend an existing composition, with `@snapcn` for demo shots (text reveals, device frames, terminal sessions). Export clips offline at a locked frame rate (WebCodecs or the render engine), not by screen recording.
 
+## Motion references and specs
+
+- Signature moments (onboarding, empty, success, reward, a key gesture): study two or three real examples first from a motion library such as [60fps.design](https://60fps.design) or a screen library such as Mobbin, note what makes each work, then design an original version; never copy one example.
+- Describe motion on separate axes before building: gesture (tap, long press, drag, swipe, pull, scrub), effect (spring, stagger, morph, shimmer, ticker), pattern (onboarding, empty, success, streak, idle), and element (sheet, toast, card stack, tabs).
+- Spec each non-trivial interaction in one line: trigger gesture → effect → duration or spring token → what makes it work → reduced-motion fallback. Name it `[context] [subject] [motion]`, such as "checkout card stack split". Plain words like "gentle spring" become tokens, not literals.
+
 ## UI state transitions
 
 - Motion tokens (durations, easings, distances, scale, blur) are one shared scale in `DESIGN.md` and the theme; components reference them, never their own literals. Companion `transitions-dev` offers free ready-made recipes (check its license first).
 - Match motion to the element: popovers and menus grow from their trigger; modals are centered with no anchor; panels and pages slide; in-place text or value changes cross-fade; skeletons swap to content in place. Enter slower than exit; every transition is interruptible; animate only the properties that change.
+- Product moments: empty states teach the next action; success and reward motion (confetti, counters, tickers) is short and reserved for rare or earned wins, never routine saves; streak and progress moments show the real value; idle loops are subtle and pause offscreen; intros and onboarding are skippable and never replay on return; shared-element transitions keep the object's identity across screens.
 - Modern CSS first, judged by Baseline: `@starting-style` with `transition-behavior: allow-discrete`, View Transitions, native `<dialog>` and Popover API, a `grid-template-rows` height animation. `interpolate-size` is an enhancement only.
 
 ## Guardrails
@@ -39,6 +46,7 @@ Pick the lowest rung that works; each runtime library needs a named reason.
 - Glyph, point, and dither effects: draw only while something changes, read colors from theme tokens, and prefer SVG or CSS patterns over raster images for dithered edges.
 - Easing: pick or build curves at [easings.dev](https://www.easings.dev) (cubic-bezier and spring; `/create/cubic-bezier#x1=…&y1=…&x2=…&y2=…` or `/create/spring#mass=…&stiffness=…&damping=…` gives the user a prefilled link). It exports CSS, Motion, SwiftUI, UIKit, and Core Animation; save the pick as an easing token.
 - Haptics: fire on the user's action or the async result, with visual feedback, never on load or scroll. Native: the platform API for plain taps, a preset library such as [Pulsar](https://docs.swmansion.com/pulsar/) for richer feedback. Mobile web: a library such as `web-haptics`, which reaches iPhone Safari. Capacitor: `@capacitor/haptics`.
+- Sound: a layer of motion, used sparingly. It plays only in response to a user action or result, is quiet by default, respects a mute setting and the device's silent mode, and is never the only signal; pair it with visual feedback.
 - Tuning: dial in springs, easing, and effect parameters with a dev-only panel such as [DialKit](https://www.dialkit.dev), then bake the values into tokens and remove the bindings.
 - ASCII and glyph looks, cheapest that achieves the effect: static `aria-hidden` text art, a Canvas 2D field, WebGL for large or pointer-reactive fields, or an ASCII post-processing pass for 3D or video ([ui-sources.md](ui-sources.md)). Pixel-art 3D: render at low resolution, upscale nearest-neighbour, ordered dither and palette quantizing, camera snapped to whole pixels (Noxe Pixel Engine, MIT, is a reference app). Text over a field keeps its contrast.
 - Ambient motion only when the design direction calls for it; it never competes with content, and past 5 s it needs a pause control (WCAG 2.2.2). Pointer-driven effects are enhancements: nothing is lost without a pointer.
